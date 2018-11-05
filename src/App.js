@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import TodoListTemplate from './components/js/MsgBoxTemplate';
+import MsgBoxTemplate from './components/js/MsgBoxTemplate';
+import PushRadioSel from './components/js/PushRadioSel';
+import PushResult from './components/js/PushResult';
+import PushDelete from './components/js/PushDelete';
+import PushList from './components/js/PushList';
+import PushEvent from './components/js/PushEvent';
 
 class App extends Component {
 

@@ -1,4 +1,4 @@
-.container{padding:56px 0 0;overflow:hidden}
+.container{padding:56px 0 0;overflow:hidden;padding-top: 56px;padding-bottom:20px;}
 .pushArea{padding-bottom:35px}
 .pushArea.delete .pushDelete{
     -webkit-transform: translate3d(0,56px,0);

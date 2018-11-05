@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/push.css';
+import '../css/push.css';
 
 class PushResult extends Component {
 
