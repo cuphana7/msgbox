@@ -10,11 +10,27 @@ class PushRadioSel extends Component {
     render() {
 
         return (
-            <div className="pushDelete">
-                <button type="button" className="close"><span>취소</span></button>
-                <button type="button" className="check"><span>전체선택</span></button>
-                <button type="button" className="trash" disabled=""><span>삭제</span></button>{/* 삭제 버튼 활성화 하려면 disabled 해제 */}
-			</div>
+        <ul className="pushRadioSel">
+            <li className="checked">
+                <label for="pushSel1">승인</label>
+                <input type="radio" id="pushSel1" name="pushRadio" checked="" />
+            </li>
+            <li>
+                <label for="pushSel2">이벤트</label>
+                <input type="radio" id="pushSel2" name="pushRadio" />
+                <span className="num">99</span>
+            </li>
+            <li>
+                <label for="pushSel3">안내</label>
+                <input type="radio" id="pushSel3" name="pushRadio" />
+            </li>
+            <li>
+                <label for="pushSel4">공지</label>
+                <input type="radio" id="pushSel4" name="pushRadio" />
+                <span className="num">1</span>
+            </li>
+        </ul>
+            
         );
     }
 }

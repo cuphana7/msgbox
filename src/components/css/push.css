@@ -1,3 +1,21 @@
+/*layout cont*/
+.topHead{position:fixed;left:0;top:0;overflow:hidden;width:100%;height:55px;background:#fff;text-align:center;border-bottom:1px solid rgba(0, 0, 0, .24);z-index:990;letter-spacing:-.2px}
+.topHead h1{position:relative;overflow:hidden;text-overflow:ellipsis;padding:0 50px;line-height:55px;color:rgba(0, 0, 0, .87);font-weight:bold;white-space:nowrap}
+.topHead h1.fs4{font-size:1.200rem!important}
+.ios .topHead h1{line-height:57px}
+
+.topHead .headerMenu{position:absolute;top:16px;right:16px;z-index:100;width:24px;height:24px}
+.topHead .headerMenu .hmBtn{padding:0;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_llst_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
+.topHead .btnClose{position:absolute;top:16px;right:16px;z-index:100}
+.topHead .btnClose a{display:block;width:24px;height:24px;background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_close_24_000_b.png) no-repeat center center;background-size:24px;color:transparent;line-height:0}
+.topHead .snsBtn{position:absolute;top:16px;right:56px}
+.topHead .snsBtn a{display:block;padding:0;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_share_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
+.topHead .infoBtn{position:absolute;top:16px;right:56px}
+.topHead .infoBtn a{display:block;padding:0;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_info_24_000.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
+.topHead .optionBtn{position:absolute;top:16px;right:16px;z-index:100;width:24px;height:24px}
+.topHead .optionBtn button{padding:0;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_setting_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
+
+
 .container{padding:56px 0 0;overflow:hidden;padding-top: 56px;padding-bottom:20px;}
 .pushArea{padding-bottom:35px}
 .pushArea.delete .pushDelete{
@@ -37,7 +55,7 @@
 .pushDelete button:disabled span, .pushDelete button:disabled:before{opacity:.6}
 .ios .pushDelete button span{margin-top:2px}
 
-.pushList{padding-left:48px;font-size:14px;line-height:20px}
+.pushList{padding-left:48px;font-size:14px;line-height:20px;height: 531px;}
 .pushList li{position:relative;padding:16px 16px 32px 0;border-bottom:1px solid rgba(0,0,0,.16)}
 .pushList li:before{content:'';position:absolute;top:16px;left:-32px;width:24px;height:24px;background-size:24px}
 .pushList li .tit{display:block;margin-bottom:4px;font-size:16px;line-height:24px}
@@ -60,7 +78,7 @@
 .pushList.event li:before{background-image:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_event.png')}
 .ios .pushList li:before{top:14px}
 
-.pushEvent{overflow:hidden;position:fixed;bottom:-96px;z-index:9001;-webkit-border-top-left-radius:16px;-webkit-border-top-right-radius:16px;border-top-left-radius:16px;border-top-right-radius:16px;background-color:#7f6ee3}
+.pushEvent{overflow:hidden;position:fixed;bottom:-96px;z-index:9001;-webkit-border-top-left-radius:16px;-webkit-border-top-right-radius:16px;border-top-left-radius:16px;border-top-right-radius:16px;background-color:#7f6ee3;bottom: -627px; transform: translate3d(0px, 0px, 0px); transition: all 500ms cubic-bezier(0.25, 0.25, 0.54, 0.93) 0s;}
 .pushEvent .title{position:relative}
 .pushEvent .title h2{height:56px;padding:0 16px;font-size:16px;line-height:56px;color:#fff}
 .pushEvent .title a{position:absolute;top:0;right:0;width:56px;height:56px}
