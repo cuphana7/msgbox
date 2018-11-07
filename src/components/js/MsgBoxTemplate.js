@@ -10,8 +10,8 @@ const MsgBoxTemplate = ({ children }) => {
         <div className="backBtn"><button type="button">이전페이지</button></div>
       </div>
       <div id="content">
-        <section classNameName="container" >
-          <div classNameName="pushArea">
+        <section className="container" >
+          <div className="pushArea">
             {children}
           </div>
         </section>

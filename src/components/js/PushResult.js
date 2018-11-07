@@ -11,7 +11,7 @@ class PushResult extends Component {
 
         return (
             <div className="pushResult">
-                <span className="all" role="text">전체 <em className="fc8">6</em>개</span>
+                <span className="all">전체 <em className="fc8">6</em>개</span>
                 <button className="delete">삭제</button>
             </div>
         );

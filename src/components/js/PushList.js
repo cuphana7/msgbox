@@ -20,7 +20,7 @@ class PushList extends Component {
 							</div>
 
                     <div className="select">
-                        <label for="sel1_1">해당 알림 삭제하기</label>
+                        <label htmlFor="sel1_1">해당 알림 삭제하기</label>
                         <input type="checkbox" id="sel1_1" name="" className="inp1" />
                     </div>
                 </li>
@@ -39,7 +39,7 @@ class PushList extends Component {
                     </div>
 
                     <div className="select">
-                        <label for="sel1_2">해당 알림 삭제하기</label>
+                        <label htmlFor="sel1_2">해당 알림 삭제하기</label>
                         <input type="checkbox" id="sel1_2" name="" className="inp1" />
                     </div>
                 </li>
@@ -58,7 +58,7 @@ class PushList extends Component {
                     </div>
 
                     <div className="select">
-                        <label for="sel1_3">해당 알림 삭제하기</label>
+                        <label htmlFor="sel1_3">해당 알림 삭제하기</label>
                         <input type="checkbox" id="sel1_3" name="" className="inp1" />
                     </div>
                 </li>
