@@ -13,7 +13,7 @@ class App extends Component {
   state = {
     input: '',
     todos: [
-      { id: 0, text: ' 리액트 소개', checked: false },
+      { id: 0, text: '리액트 소개', checked: false },
       { id: 1, text: 'JSX 사용해보기', checked: true },
       { id: 2, text: '라이프 사이클 이해하기', checked: false },
     ]
