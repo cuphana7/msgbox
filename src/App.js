@@ -112,7 +112,9 @@ class App extends Component {
   }
 
   checkAuth () {
-    return axios.get("/sample-data/authentication-res.json")
+    return axios.get("/sample-data/authentication-res.json",
+    {params:{dd:"dd"}}
+    )
     .then((response) => {
         console.log('2. server response:' + response.data.DATA.AUTHKEY);
     });
