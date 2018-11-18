@@ -96,8 +96,7 @@ class App extends Component {
 
   moreData(oldData) {
     var newData = Object.assign([], oldData)
-    var base = newData[newData.length - 1]
-    for (var i = base + 1; i <= base + 20; i++) {
+    for (var i = 0; i <= 20; i++) {
       newData.push({
         "MSG_ID" : "",
          "TITLE" : "",
