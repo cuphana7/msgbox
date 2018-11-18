@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/push.css';
 // use default loading spinners
 import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js'
@@ -11,13 +11,16 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
 
     /*
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.todos !== nextProps.todos;
+        return this.props.dataSource !== nextProps.dataSource;
     }
     */
     
+    
+    
 
     render() {
-        var cells = this.props.dataSource.map(function(item, index) {
+
+        var cells = (this.props.dataSource)?this.props.dataSource.map(function(item, index) {
             return <li key={index}>
                 <strong className="tit">알파원카드 알림</strong>
                 <span className="date">18.08.29 | 18:26:32</span>
@@ -31,7 +34,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
                     <input type="checkbox" id="sel1_1" name="" className="inp1" />
                 </div>
             </li>
-        })
+        }) : [];
 
         return (
             <ul className="pushList payment" onScroll={this.viewDidScroll}>

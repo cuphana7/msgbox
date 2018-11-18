@@ -7,15 +7,24 @@ import PushList from './components/js/PushList';
 import PushEvent from './components/js/PushEvent';
 import axios from 'axios';
 
+const API = {
+  "auth_key" : "/sample-data/messages-req.json",
+  "url_auth" : "/sample-data/authentication-res.json",
+  "url_messages" : "/sample-data/messages-res.json"
+};
+
 class App extends Component {
 
+  
   constructor(props) {
     super(props)
     var data1 = [];
 
     this.state = {
-      url: {
-        "messages" : "/sample-data/messages-req.json"
+      api: {
+        "auth_key" : "/sample-data/messages-req.json",
+        "url_auth" : "/sample-data/messages-req.json",
+        "url_messages" : "/sample-data/messages-res.json"
       },
       data1: data1
     }
@@ -102,12 +111,22 @@ class App extends Component {
     return data
   }
 
+  checkAuth () {
+    return axios.get("/sample-data/authentication-res.json")
+    .then((response) => {
+        console.log('2. server response:' + response.data.DATA.AUTHKEY);
+    });
+  }
+
   reqMessages(reqJson) {
+    this.checkAuth().then((returnVal) => {
       axios.get("/sample-data/messages-res.json").then(response => {
         console.log(response.data);
         //this.completed();
         this.setState({ data1: response.data.DATA });
       });
+   }).catch(err => console.log("Axios err: ", err))
+    
   }
 
 

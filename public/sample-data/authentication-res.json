@@ -3,7 +3,7 @@
     "RESULT_MSG" : "",
     "SERVICE_URL" : "",
     "DATA" : {
-        "AUTHKEY" : "",
+        "AUTHKEY" : "test",
         "EXPIRED_DATE" : ""
     }
 }
