@@ -14,6 +14,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
         return this.props.todos !== nextProps.todos;
     }
     */
+    
 
     render() {
         var cells = this.props.dataSource.map(function(item, index) {
@@ -22,7 +23,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
                 <span className="date">18.08.29 | 18:26:32</span>
 
                 <div className="cont">
-                        {item}
+                        {item.MSG}
                 </div>
 
                 <div className="select">
