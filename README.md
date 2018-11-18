@@ -9,18 +9,24 @@ axios.get('/user?id=velopert')
     .catch( response => { console.log(response); } ); // ERROR
 </code>
 </pre>
+<pre>
+<code>
 axios.get('/user', {
         params: { id: 'velopert' }
     })
     .then( response => { console.log(response) } );
     .catch( response => { console.log(response) } );
-
+</code>
+</pre>
+<pre>
+<code>
 axios.post('/msg', {
         user: 'velopert',
         message: 'hi'
     })
     .then( response => { console.log(response) } )
     .catch( response => { console.log(response) } );
-
+</code>
+</pre>
 
 프론트엔드 개발 공부를 할 때 흔히 만들게 되는 투두리스트. [[미리보기]](https://fc3-basic.surge.sh)
