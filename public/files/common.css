@@ -3,8 +3,8 @@
 *{-webkit-text-size-adjust:none}
 html{height:100%;font-size:15px}
 body{background:#fff;font-size:1.067rem;line-height:1.500em;color:rgba(0, 0, 0, .87);-webkit-tap-highlight-color:rgba(0,0,0,0.3)}
-body.bgGray{background:#f2f3f4} /* ¹è°æ È¸»öÀÏ °æ¿ì */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,select,textarea,p,blockquote,th,td,button{margin:0;padding:0;font-family:'Apple SD Gothic Neo','Tahoma',dotum,'µ¸¿ò',gulim,'±¼¸²';font-weight:normal;outline:none}
+body.bgGray{background:#f2f3f4} /* ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,select,textarea,p,blockquote,th,td,button{margin:0;padding:0;font-family:'Apple SD Gothic Neo','Tahoma',dotum,'ï¿½ï¿½ï¿½ï¿½',gulim,'ï¿½ï¿½ï¿½ï¿½';font-weight:normal;outline:none}
 section,nav,article,aside,hgroup,header,footer,iframe{display:block}
 form,fieldset,img{border:0 none}
 table{width:100%;border-collapse:collapse;border:0;border-spacing:0}
@@ -57,21 +57,21 @@ textarea{-webkit-border-radius:0;border-radius:0;-webkit-appearance:none}
 .fs6{font-size:1.467rem !important}/*22px*/
 .fs7{font-size:1.600rem !important}/*24px*/
 
-.fc1{color:rgba(0, 0, 0, .87) !important}/*ÁøÈ¸»ö*/
-.fc2{color:#f76900 !important}/*ÁÖÈ«*/
-.fc3{color:rgba(0, 0, 0, .87) !important}/*°ËÁ¤*/
-.fc4{color:#888 !important}/*¿¬È¸»ö*/
-.fc5{color:#4a79d8 !important}/*ÆÄ¶õ»ö*/
-.fc6{color:#7f6ee3 !important}/*º¸¶ó»ö - ÇýÅÃ »ç¿ë */
-.fc7{color:#02aec4 !important}/*¿¬³ì»ö - ±ÝÀ¶ »ç¿ë */
-.fc8{color:#f35b42 !important}/*ºÓÀº»ö - ÇýÅÃ »ç¿ë */
-.fc9{color:#ffd012 !important}/*³ë¶õ»ö*/
-.fc10{color:#3c628b !important}/*ÇýÅÃ_vip »ç¿ë*/
-.fc11{color:rgba(0, 0, 0, .6) !important}/*¿¬È¸»ö2*/
-.fc12{color:rgba(255, 255, 255, .7) !important}/*¿¬È¸»ö3*/
-.fc13{color:#7da100 !important}/*³ì»ö*/
-.fc14{color:#fb5252 !important}/*»¡°­*/
-.fc15{color:#01a0c7 !important}/*½Ã¾È*/
+.fc1{color:rgba(0, 0, 0, .87) !important}/*ï¿½ï¿½È¸ï¿½ï¿½*/
+.fc2{color:#f76900 !important}/*ï¿½ï¿½È«*/
+.fc3{color:rgba(0, 0, 0, .87) !important}/*ï¿½ï¿½ï¿½ï¿½*/
+.fc4{color:#888 !important}/*ï¿½ï¿½È¸ï¿½ï¿½*/
+.fc5{color:#4a79d8 !important}/*ï¿½Ä¶ï¿½ï¿½ï¿½*/
+.fc6{color:#7f6ee3 !important}/*ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+.fc7{color:#02aec4 !important}/*ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+.fc8{color:#f35b42 !important}/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+.fc9{color:#ffd012 !important}/*ï¿½ï¿½ï¿½ï¿½ï¿½*/
+.fc10{color:#3c628b !important}/*ï¿½ï¿½ï¿½ï¿½_vip ï¿½ï¿½ï¿½*/
+.fc11{color:rgba(0, 0, 0, .6) !important}/*ï¿½ï¿½È¸ï¿½ï¿½2*/
+.fc12{color:rgba(255, 255, 255, .7) !important}/*ï¿½ï¿½È¸ï¿½ï¿½3*/
+.fc13{color:#7da100 !important}/*ï¿½ï¿½ï¿½*/
+.fc14{color:#fb5252 !important}/*ï¿½ï¿½ï¿½ï¿½*/
+.fc15{color:#01a0c7 !important}/*ï¿½Ã¾ï¿½*/
 
 /*margin*/
 .m0{margin:0 !important}
@@ -174,15 +174,15 @@ textarea{-webkit-border-radius:0;border-radius:0;-webkit-appearance:none}
 
 .fullImg{width:100%;height:auto;vertical-align:top}
 
-/*»óÅÂ ¹®±¸*/
+/*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 .stateColor1,.stateColor2,.stateColor3,.stateColor4,.stateColor5,.stateColor6,.stateColor7{font-size:13px !important}
-.stateColor1{color:#888 !important}/*³³ºÎ¼­ºñ½º(ÇØÁö, Ãë¼Ò), ÇýÅÃ(¸¶°¨),  MY KB(°Å·¡Á¤Áö) */
-.stateColor2{color:#7f6ee3 !important}/*³³ºÎ¼­ºñ½º(ÀÌ¿ëÁß),My KB(Àû¿ëÁß), ÇýÅÃ(ÁøÇàÁß)*/
-.stateColor3{color:#fb5252 !important}/*³³ºÎ¼­ºñ½º(Ã³¸®ºÒ°¡,³³ºÎÁö¿¬), ¼³Á¤(¾ËÆÄ¿øÄ«µå ¼±ÅÃºÒ°¡), ¾ÛÄ«µå(µµ³­/ºÐ½ÇÄ«µå)*/
-.stateColor4{color:#01a0c7 !important}/*³³ºÎ¼­ºñ½º(½ÅÃ»Áß, ¿¹Á¤), My KB(½ÅÃ»), ±ÝÀ¶(¿¹¾àÀÌÃ¼), ¾ÛÄ«µå(±¸Ä«µå)*/
-.stateColor5{color:#7da100 !important}/*³³ºÎ¼­ºñ½º(³³ºÎ,Á¤»ó), ±ÝÀ¶(Áï½ÃÀÌÃ¼)*/
-.stateColor6{color:#f76900 !important}/*My KB(º¯°æ), ÇýÅÃ(´çÃ·)*/
-.stateColor7{color:#4d66ab !important}/*native, MY KB(¸ð¹ÙÀÏÄ«µå)*/
+.stateColor1{color:#888 !important}/*ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½), ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½),  MY KB(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½) */
+.stateColor2{color:#7f6ee3 !important}/*ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½(ï¿½Ì¿ï¿½ï¿½ï¿½),My KB(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)*/
+.stateColor3{color:#fb5252 !important}/*ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½(Ã³ï¿½ï¿½ï¿½Ò°ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½), ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ä¿ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ÃºÒ°ï¿½), ï¿½ï¿½Ä«ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½/ï¿½Ð½ï¿½Ä«ï¿½ï¿½)*/
+.stateColor4{color:#01a0c7 !important}/*ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½(ï¿½ï¿½Ã»ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½), My KB(ï¿½ï¿½Ã»), ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼), ï¿½ï¿½Ä«ï¿½ï¿½(ï¿½ï¿½Ä«ï¿½ï¿½)*/
+.stateColor5{color:#7da100 !important}/*ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½), ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼)*/
+.stateColor6{color:#f76900 !important}/*My KB(ï¿½ï¿½ï¿½ï¿½), ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ã·)*/
+.stateColor7{color:#4d66ab !important}/*native, MY KB(ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½)*/
 
 .bgColor1{background:#22b2b2 !important}
 .bgColor2{background:#421c60 !important}
@@ -302,7 +302,7 @@ input[type='radio']+label:before{background-position:0 -90px}
 input[type='checkbox'],input[type='radio']{position:absolute;width:24px;height:24px;margin:0;opacity:0.01}
 input[type='checkbox']+label.focus,
 /*input[type='radio']+label.focus,label:focus{border:1px dotted #ea002c}*/
-input[type='checkbox']+label, input[type='radio']+label{display:inline-block;/*letter-spacing:-1px;*/cursor:pointer;line-height:24px;font-size:1.067rem;letter-spacing:-.2px;color:rgba(0, 0, 0, .87)} /* Çö¾÷ ¼öÁ¤»çÇ× Áß ÇØ´ç ¿µ¿ª ÀÚ°£ ¼öÁ¤¿äÃ» yjs */
+input[type='checkbox']+label, input[type='radio']+label{display:inline-block;/*letter-spacing:-1px;*/cursor:pointer;line-height:24px;font-size:1.067rem;letter-spacing:-.2px;color:rgba(0, 0, 0, .87)} /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã» yjs */
 input[type='text']:disabled{background:#eee;color:#888}
 input[type='checkbox']:checked+label,input[type='radio']:checked+label{color:rgba(0, 0, 0, .87)}
 input[type='checkbox']:checked+label:before{background-position:0 -30px}
@@ -421,7 +421,7 @@ textarea::-webkit-input-placeholder{color:rgba(0, 0, 0, .24)}
 .bottomArea.type2{padding:0}
 .contArea .bottomArea .noteBox{margin:0}
 
-/* ¾Æ·¡¿¡¼­ ¿Ã¶ó¿À´Â ÆË¾÷ */
+/* ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ */
 .bottomPop{display:table;position:fixed;bottom:-56px;left:0;z-index:900;width:100%;height:56px;margin:0!important;padding:0 24px;background-color:#323232;color:#fff!important;-webkit-box-sizing:border-box;box-sizing:border-box;text-align:left!important;letter-spacing:0!important}
 .bottomPop > *{display:table-cell;width:100%;vertical-align:middle;font-size:16px;line-height:24px}
 .ios .bottomPop{padding-top:2px}
@@ -526,7 +526,7 @@ span.icoLReset2:before{background-position:-109px 0}
 .toggleList>li.on>a{background:#4d4f55;color:#fff}
 .toggleList>li.on>a:after{right:20px;height:2px;width:16px;margin-top:-1px;background:#ffcc00}
 .toggleList .toggleView{display:none;padding:24px 16px;background:#f2f2f2;font-size:1.067rem}
-.toggleList .toggleView .infoBox{padding:20px 15px;background:#f2f3f4;text-align:left;margin-top:10px} /* À¯ÀÇ»çÇ× ³»¿¡ ÀÖ´Â ¹Ú½º ÄÁÅÙÃ÷ ¹è°æ»ö, °£°Ý ÀÓÀÇ ÁöÁ¤(µðÀÚÀÎÆÀ °¡ÀÌµå È®ÀÎ ÇÊ¿ä) 160930 yjs */
+.toggleList .toggleView .infoBox{padding:20px 15px;background:#f2f3f4;text-align:left;margin-top:10px} /* ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ È®ï¿½ï¿½ ï¿½Ê¿ï¿½) 160930 yjs */
 .toggleList>li.on .toggleView .sTit{display:block;margin:20px 0 10px}
 .toggleList>li.on .toggleView .sTit:first-child{margin-top:0}
 
@@ -555,7 +555,7 @@ span.icoLReset2:before{background-position:-109px 0}
 .newList .newList_l2 .newList_date{float:left;width:auto;color:#888}
 .newList .newList_l2 .newList_name{float:right;width:auto;color:#888}
 
-/* board list Å¸ÀÌÆ²¸¸ ÀÖ´Â °æ¿ì */
+/* board list Å¸ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ */
 .newList.type2{border-bottom:1px solid #ccc}
 .newList.type2>li>a{line-height:1.600rem;padding:16px 40px 16px 16px}
 .newList.type2 li a span{margin-bottom:0}
@@ -582,7 +582,7 @@ span.icoLReset2:before{background-position:-109px 0}
 .newView .replyList{margin-top:8px;font-size:0.933rem !important;line-height:1.429em}
 .newView .replyList li{padding:10px 0;border-bottom:1px solid #e9e9e9}
 
-/* ¿ÀÅäÃ¼ÀÎÁö */
+/* ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ */
 .tagList ul{overflow:hidden;padding-top:32px}
 .tagList li{float:left;width:64px;padding:0 8px}
 .tagList li:first-child{padding-left:12px}
@@ -611,12 +611,12 @@ span.icoLReset2:before{background-position:-109px 0}
 /*refer*/
 ul.refer li,p.refer{position:relative;color:rgba(0, 0, 0, .6);padding-left:17px;margin-top:4px;font-size:14px;line-height:20px}
 ul.refer li:first-child{margin-top:0}
-ul.refer li:before,p.refer:before{content:"¡Ø";display:inline-block;position:absolute;left:0;top:0;width:15px;height:18px}
+ul.refer li:before,p.refer:before{content:"ï¿½ï¿½";display:inline-block;position:absolute;left:0;top:0;width:15px;height:18px}
 ul.refer li .qInfoBtn, p.refer .qInfoBtn{width:20px;height:20px;margin:0 0 0 2px;background-position:center;vertical-align:top}
 .ios ul.refer li:before, .ios p.refer:before{top:2px}
 .ios ul.refer li .qInfoBtn, .ios p.refer .qInfoBtn{margin-top:-2px}
 
-/* ¾Õ¿¡ Æ¯Á¤ ¼ýÀÚ ºÙÀº ¸®½ºÆ® */
+/* ï¿½Õ¿ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® */
 .otherList{font-size:0.933rem;line-height:1.429em}
 .otherList li{margin-bottom:8px;padding-left:20px;text-indent:-20px}
 .otherList li:last-child{margin-bottom:0}
@@ -662,7 +662,7 @@ ul.refer li .qInfoBtn, p.refer .qInfoBtn{width:20px;height:20px;margin:0 0 0 2px
 .accountList li em.call{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/16/ico_call_16_000.png) no-repeat 0 4px;background-size:16px 16px}
 .accountList li span{color:rgba(0,0,0,.6)}
 
-/* Ä«µåµðÀÚÀÎ ¼±ÅÃ ¸®½ºÆ® */
+/* Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® */
 .cardDesignSel{overflow:hidden;padding:0 4px}
 .cardDesignSel li{float:left;position:relative;width:50%;padding:0 20px 24px;-webkit-box-sizing:border-box;box-sizing:border-box}
 .cardDesignSel li img{width:100%;height:auto;-webkit-border-radius:4px;border-radius:4px;vertical-align:top;-webkit-box-shadow:0 16px 16px rgba(0, 0, 0, 0);transition:all 300ms}
@@ -807,11 +807,11 @@ ul.txtInfo.red>li, .popCont ul.txtInfo.red>li{color:#fb5252}
 ul.txtInfo.blue>li, .popCont ul.txtInfo.blue>li{color:rgba(0, 0, 0, .6)}
 ul.txtInfo>li>a, .popCont ul.txtInfo>li>a{color:#fb5252}
 
-p.txtInfo.fc8, span.txtInfo.fc8{color:#f35b42 !important}/*ºÓÀº»ö*/
+p.txtInfo.fc8, span.txtInfo.fc8{color:#f35b42 !important}/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .cautionCont{margin-top:20px;color:#888;font-size:0.857rem}
 .cautionCont li, .cautionCont p{overflow:hidden;padding-left:15px}
 .cautionCont li+li{margin-top:7px}
-.cautionCont li:before, .cautionCont p:before{content:'¡Ø';float:left;margin-left:-15px}
+.cautionCont li:before, .cautionCont p:before{content:'ï¿½ï¿½';float:left;margin-left:-15px}
 
 .ios p.txtInfo, .ios span.txtInfo, .ios ul.txtInfo>li{padding-top:1px}
 
@@ -975,7 +975,7 @@ input.fs_2{font-size:1.067rem !important}
 .inpBirthDate input.backNumber.on{background-size:auto 12px;color:transparent}
 .inpBirthDate input.backNumber:before{content:'';position:absolute;top:50%;left:20px;width:12px;height:12px;margin-top:-6px;-webkit-border-radius:6px;border-radius:6px;background-color:rgba(0, 0, 0, .24)}
 
-/* input ´ÜÀ§ÀÔ·Â Å¸ÀÔ */
+/* input ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ Å¸ï¿½ï¿½ */
 .inpTxt1.unitType{padding:0}
 .inpTxt1.unitType label{display:table;position:relative;width:100%;padding:0 15px;box-sizing:border-box}
 .inpTxt1.unitType label span, .inpTxt1.unitType label input{display:table-cell;vertical-align:middle}
@@ -993,9 +993,9 @@ input.fs_2{font-size:1.067rem !important}
     .inpTxt1.unitType br{display:block} 
 }
 
-/*input À¯È¿±â°£*/
+/*input ï¿½ï¿½È¿ï¿½â°£*/
 
-/*´Þ·Â*/
+/*ï¿½Þ·ï¿½*/
 .calWrap{position:relative}
 .calWrap:after{content:"";display:block;height:0;clear:both}
 .calWrap.period{display:table;width:100%;padding:0}
@@ -1118,7 +1118,7 @@ input.fs_2{font-size:1.067rem !important}
 .tbsDlist1 dt{width:40%;color:#888}
 .tbsDlist1 dd{width:60%;color:rgba(0, 0, 0, .87)}
 
-/* ·Î±×ÀÎ ¼±ÅÃ ¸®½ºÆ® */
+/* ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® */
 .loginTypeSel{overflow:hidden;max-width:336px;width:100%;padding:24px 0 6px;margin:0 auto;text-align:center;font-size:0}
 .loginTypeSel li{overflow:hidden;display:inline-block;width:33.3% !important;font-size:16px;vertical-align:bottom}
 .loginTypeSel li a{display:block;width:72px;margin:0 auto;padding:16px 0 12px;text-align:center}
@@ -1163,7 +1163,7 @@ input.fs_2{font-size:1.067rem !important}
 .layerWrap.alertWrap .btnBox.col2 a{width:50%}
 .layerWrap.alertWrap .btnBox a + a{border-left:1px solid #e9e9e9}
 
-/*ÁÖ¼ÒÀÔ·Â*/
+/*ï¿½Ö¼ï¿½ï¿½Ô·ï¿½*/
 .addBox{border:1px solid rgba(0, 0, 0, .16)}
 .addBox > div{display:table;width:100%}
 .addBox > div+div{border-top:1px solid rgba(0, 0, 0, .16)}
@@ -1185,7 +1185,7 @@ input.fs_2{font-size:1.067rem !important}
 .ios .addBox .btn{height:20px;line-height:22px}
 .ios .addBox .btnWrap label span{padding-top:2px}
 
-/*Ä«µå ¼±ÅÃ*/
+/*Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 .cardBox{background:#fff}
 .cardBox .cardSel{margin-bottom:-1px}
 .cardBox .cardSel,.cardBox .cardCheck,.cardBox .cardToggle{position:relative}
@@ -1236,8 +1236,8 @@ input.fs_2{font-size:1.067rem !important}
 .cardPw .pwBox{padding-right:20px}
 .cardPw .pwBox span{display:none}
 .cardPw .pwBox input[type=password]{width:100%;display:inline-block;padding:10px;vertical-align:top;background-size:21px 1px}
-.cardPw .pwBox.type2 input[type=password]{width:100%} /* Ä«µåºñ¹Ð¹øÈ£ 4ÀÚ¸®ÀÏ °æ¿ì */
-.cardPw.type2{border:1px solid #ccc} /* Ä«µåºñ¹Ð¹øÈ£ ´Üµ¶À¸·Î ¾²ÀÏ °æ¿ì */
+.cardPw .pwBox.type2 input[type=password]{width:100%} /* Ä«ï¿½ï¿½ï¿½Ð¹ï¿½È£ 4ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+.cardPw.type2{border:1px solid #ccc} /* Ä«ï¿½ï¿½ï¿½Ð¹ï¿½È£ ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 .cardPw .pwBox input::-webkit-input-placeholder{letter-spacing:0;font-size:15px}
 .cardPw .pwBox input::-moz-input-placeholder{letter-spacing:0;font-size:15px}
 .cardPw .pwBox.type2 input::-webkit-input-placeholder{color:#999;letter-spacing:0;font-size:15px}
@@ -1296,7 +1296,7 @@ input.fs_2{font-size:1.067rem !important}
 .ios .stepBox{line-height:42px}
 .ios .stepBox .stepList li{line-height:25px}
 
-/*¡å´õº¸±â*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .more{position:relative;display:block;height:45px;text-indent:-9999px}
 .more:after{content:'';display:block;position:absolute;left:50%;top:50%;width:10px;height:6px;margin:-3px 0 0 -5px;background:url(https://img1.kbcard.com/cxh/ia_img/common/ico_more.png);background-size:10px 12px}
 
@@ -1325,7 +1325,7 @@ input.fs_2{font-size:1.067rem !important}
 .centerBox .txtInfo{margin-top:10px;padding:0}
 .centerBox .txtInfo:before{position:static;display:inline-block;vertical-align:middle}
 
-/*¹®ÀÇÃ³*/
+/*ï¿½ï¿½ï¿½ï¿½Ã³*/
 .reference{position:relative;display:table;width:100%;border-top:1px solid #ccc;margin:40px 0 -20px}
 .reference:after{content:"";height:0;display:block;clear:both}
 .reference dl dt{font-weight:bold;color:rgba(0, 0, 0, .87);margin-bottom:10px}
@@ -1350,7 +1350,7 @@ input.fs_2{font-size:1.067rem !important}
 .period dt{float:left;color:#888}
 .period dd{float:right;font-size:13px;color:rgba(0, 0, 0, .87)}
 
-/*¸í¼¼¼­*/
+/*ï¿½ï¿½ï¿½ï¿½*/
 .statement{padding-top:16px}
 .statement:after{content:"";display:block;margin:16px -16px 0;height:6px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;background:#f2f3f4}
 .stateDate{padding:0 20px;font-size:13px;color:#888;text-align:right}
@@ -1411,7 +1411,7 @@ input.fs_2{font-size:1.067rem !important}
 .statement .stateToggle.type2 .inbox{padding:0}
 .statement .stateToggle.type2 .topBox{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:0 15px 20px}
 
-/*°áÁ¦¿¹Á¤±Ý¾×*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½*/
 .dateList.topBor{margin-top:12px}
 .statement .titBox.type2{display:table;width:100%;margin-top:0;margin-bottom:0}
 .statement .titBox.type2 .tit, .statement .titBox.type2 .sum{float:none;display:table-cell;vertical-align:middle;word-break:break-all}
@@ -1444,7 +1444,7 @@ input.fs_2{font-size:1.067rem !important}
 .ios .statement .titBox .sum>a:after, .ios .statement.type3 .stateSum dd a:after{margin-top:-2px}
 .ios .statement.type3 .stateSum.type4 .btnS{padding:7px 15px 3px}
 
-/*ºÎµ¿»ê ÀÓ´ë·á Ãß°¡*/
+/*ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ó´ï¿½ï¿½ ï¿½ß°ï¿½*/
 .statement.type2 .stateSum.type3 dd a:after{content:'';display:inline-block !important;width:8px !important;height:13px !important;margin-left:10px !important;background:url(https://img1.kbcard.com/cxh/ia_img/common/ico_arrow.png) no-repeat !important;background-size:8px 13px !important;position:static !important}
 .statement.type2:after{display:none}
 .statement.type2{padding:15px;border:1px solid #ccc}
@@ -1472,7 +1472,7 @@ input.fs_2{font-size:1.067rem !important}
 .layerWrap .popCont.type3, .layerWrap.comeUp .popCont.type3{padding:16px 0 64px 0}
 .layerWrap .popCont.type3 + .btnBox span , .layerWrap.comeUp .popCont.type3 + .btnBox span{border:none}
 .layerWrap .popCont.type3 + .btnBox{position:absolute;bottom:0;width:100%}
-.layerWrap .popCont .btnBox.type2{margin:20px 0 0} /* ÆË¾÷ ÇÏ´Ü¿¡ ¹öÆ° ÁÂ¿ìÇÏ´Ü ¿©¹é ÀÖ´Â °æ¿ì */
+.layerWrap .popCont .btnBox.type2{margin:20px 0 0} /* ï¿½Ë¾ï¿½ ï¿½Ï´Ü¿ï¿½ ï¿½ï¿½Æ° ï¿½Â¿ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ */
 .layerWrap .popCont .btnBox.type2>.btnM{height:35px;line-height:35px}
 .layerWrap .popCont .reference.type1{margin:40px -20px 0;display:block;width:auto}
 .layerWrap .popCont .menuList li ul{margin-top:0}
@@ -1540,7 +1540,7 @@ input.fs_2{font-size:1.067rem !important}
 .layerWrap.layerStatement .inner .statementList ul li>strong>span+span:before{content:'';display:inline-block;width:1px;height:10px;border-left:1px solid #bdbdbd;margin:0 7px 0 5px}
 .layerWrap.layerStatement .inner .statementList ul li>strong.address{width:65%}
 
-/* Á¤º¸Á¦°øµ¿ÀÇ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .inforCheck{position:relative;border:1px solid #ccc;padding:16px 16px 16px 49px;margin:32px 0 40px}
 .inforCheck .formWrap{position:absolute;top:50%;left:16px;width:24px;height:24px;margin-top:-12px;min-height:0;line-height:0}
 .inforCheck a{display:block;position:relative;padding-right:16px;font-size:14px!important;line-height:20px!important;color:rgba(0,0,0,.6)}
@@ -1549,7 +1549,7 @@ input.fs_2{font-size:1.067rem !important}
 .ios .inforCheck{padding:18px 16px 14px 49px}
 .ios .inforCheck a:after{margin-top:-14px}
 
-/* Á¤º¸Á¦°øµ¿ÀÇ ¾È¿¡ Ãß°¡·Î ¾à°ü ÀÖ´Â °æ¿ì */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ */
 .inforCheck.type2{padding:0}
 .inforCheck.type2>.inner{position:relative;padding:14px 16px 14px 48px}
 .inforCheck.type2>.list{border-top:1px solid #e5e5e5}
@@ -1560,7 +1560,7 @@ input.fs_2{font-size:1.067rem !important}
 .ios .inforCheck.type2>.list li a{padding:18px 28px 14px 0}
 .ios .inforCheck.type2>.list li a:after{margin-top:-12px}
 
-/* Á¤º¸Á¦°øµ¿ÀÇ ¸µÅ© ¾ø´Â °æ¿ì */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 .inforCheck.type3>.inner{position:relative;padding:14px 16px 14px 48px}
 .inforCheck.type3{padding:0;margin:0}
 .inforCheck.type3 .formWrap{position:relative;width:auto;height:auto;left:0;font-size:16px;line-height:20px}
@@ -1572,7 +1572,7 @@ input.fs_2{font-size:1.067rem !important}
 .inforCheck.type4 .formWrap{position:static;top:auto;left:auto;width:auto;height:auto;min-height:24px;margin:0 0 0 -2px}
 .inforCheck.type4 .formWrap label{line-height:1.5em;text-indent:-32px}
 
-/* º¸¾È¹®ÀÚÀÔ·Â */
+/* ï¿½ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ */
 .security .inner{display:table;width:100%;box-sizing:border-box;border:1px solid rgba(0, 0, 0, .16);margin-bottom:-1px}
 .security .securityImg{display:table-cell;text-align:center;vertical-align:middle;width:60%}
 .security .securityImg img{width:149px}
@@ -1585,7 +1585,7 @@ input.fs_2{font-size:1.067rem !important}
 .ios .security .btnArea>button{padding:14px 16px 10px}
 .ios .security .btnArea>button:before{margin-top:-2px}
 
-/* Á¤º¸Á¦°øµ¿ÀÇ -ÀüÃ¼µ¿ÀÇÆ÷ÇÔ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .termsBox.type2{border:1px solid rgba(0,0,0,.16)}
 .termsBox.type2 .allCheck{position:relative;background:#eef1f2;padding:15px;text-align:center;font-size:16px;color:rgba(0, 0, 0, .87);vertical-align:middle}
 .termsBox.type2 .allCheck input, .termsBox.type2 .allCheck label:before{display:block;position:absolute;left:15px;top:50%;margin-top:-12px}
@@ -1602,7 +1602,7 @@ input.fs_2{font-size:1.067rem !important}
 .termsBox.type2 .termsList>li.spec>ul:after{content:'';display:block;clear:both}
 .termsBox.type2 .inforCheck{border:0;margin:0}
 
-/* ÀüÃ¼µ¿ÀÇ - »õ·Î¿î UI */
+/* ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Î¿ï¿½ UI */
 .termsBox.type3{border:1px solid rgba(0,0,0,.16)}
 .termsBox.type3 .allCheck{position:relative;background:#eef1f2;padding:15px;text-align:center;font-size:16px;color:rgba(0, 0, 0, .87);vertical-align:middle}
 .termsBox.type3 .allCheck input, .termsBox.type3 .allCheck label:before{display:block;position:absolute;left:15px;top:50%;margin-top:-12px}
@@ -1637,7 +1637,7 @@ input.fs_2{font-size:1.067rem !important}
 
 .ios .termsBox.type3.input .inforCheck a{padding:16px 30px 12px 48px}
 
-/*Ä«µå½ÅÃ»*/
+/*Ä«ï¿½ï¿½ï¿½Ã»*/
 .cardList{padding:32px 0}
 .cardList + .cardList{position:relative;border-top:1px solid #e9e9e9}
 .cardList + .cardList:before{content:"";position:absolute;left:0;top:0;display:block;width:100%;height:6px;border-bottom:1px solid #e9e9e9;background:#f2f3f4}
@@ -1756,11 +1756,11 @@ input.fs_2{font-size:1.067rem !important}
 .madeCard .cardList .cardBox ul li:first-child{margin-left:0}
 .madeCard .cardList .cardBox li a{position:relative;padding-left:4px}
 .madeCard .cardList .cardBox li a:after{position:absolute;display:block;top:48px;left:0;width:40px;height:24px;border-radius:2px;color:#fff;text-align:center;font-size:14px;line-height:24px;-webkit-box-shadow:0 2px 4px 0 rgba(0, 0, 0, .24);box-shadow:0 2px 4px 0 rgba(0, 0, 0, .24)}
-.madeCard .cardList .cardBox li a.market:after{content:"¸¶Æ®";background-color:#ec645f}
-.madeCard .cardList .cardBox li a.travel:after{content:"¿©Çà";background-color:#7da100}
-.madeCard .cardList .cardBox li a.mobile:after{content:"Åë½Å";background-color:#4d66ab}
-.madeCard .cardList .cardBox li a.gas:after{content:"ÁÖÀ¯";background-color:#f76900}
-.madeCard .cardList .cardBox li a.flight:after{content:"Ç×°ø";background-color:#01a0c7}
+.madeCard .cardList .cardBox li a.market:after{content:"ï¿½ï¿½Æ®";background-color:#ec645f}
+.madeCard .cardList .cardBox li a.travel:after{content:"ï¿½ï¿½ï¿½ï¿½";background-color:#7da100}
+.madeCard .cardList .cardBox li a.mobile:after{content:"ï¿½ï¿½ï¿½";background-color:#4d66ab}
+.madeCard .cardList .cardBox li a.gas:after{content:"ï¿½ï¿½ï¿½ï¿½";background-color:#f76900}
+.madeCard .cardList .cardBox li a.flight:after{content:"ï¿½×°ï¿½";background-color:#01a0c7}
 .madeCard .cardList .cardBox ul a strong{font-size:16px;line-height:24px;color:rgba(0, 0, 0, .87);word-break:initial}
 
 .madeCard .alphaoneCont{margin:6px -16px 0;padding:0 16px}
@@ -1823,12 +1823,12 @@ input.fs_2{font-size:1.067rem !important}
 .couponList:after{content:"";display:block;height:0;clear:both}
 .couponList li{float:left;width:50%;box-sizing:border-box;padding:0 5px 10px}
 
-/* ¿Ï·á*/
+/* ï¿½Ï·ï¿½*/
 .centerBox .listType1{border-top:1px solid #ccc;padding:20px 10px 0;margin-top:25px}
 .centerBox.empty{background:none;color:rgba(0, 0, 0, .24)}
 .centerBox img{vertical-align:top}
 
-/* ¾à°ü */
+/* ï¿½ï¿½ï¿½ */
 
 /*select*/
 .selectList{overflow:hidden}
@@ -1902,7 +1902,7 @@ input.fs_2{font-size:1.067rem !important}
 
 .barGraph.perHide ul li .per{visibility:hidden}
 
-/* ÇÊÅÍ */
+/* ï¿½ï¿½ï¿½ï¿½ */
 .filter{position:relative;background:#f76900;padding:20px 80px 20px 20px;box-sizing:border-box}
 .filter h2{color:#fff;letter-spacing:-1px}
 .filter .btnFilter{position:absolute;right:20px;top:50%;margin-top:-15px;border:1px solid #fff;background:none;height:30px;line-height:30px;padding:0 13px 0 27px;color:#fff}
@@ -1912,7 +1912,7 @@ input.fs_2{font-size:1.067rem !important}
 .filter.type2 .btnFilter{right:0;border:1px solid #ccc;background:none;height:30px;line-height:30px;padding:0 13px 0 27px;color:rgba(0, 0, 0, .87)}
 .filter.type2 .btnFilter>span:after{background-image:url(https://img1.kbcard.com/cxh/ia_img/common/ico_filter.png)}
 
-/* ³»¿ª */
+/* ï¿½ï¿½ï¿½ï¿½ */
 .historyList{border-bottom:1px solid #ccc}
 .historyList>li{display:table;width:100%;border-top:1px solid #e9e9e9;padding:18px 15px;box-sizing:border-box}
 .historyList li a{display:table;width:100%;box-sizing:border-box}
@@ -1976,7 +1976,7 @@ input.fs_2{font-size:1.067rem !important}
 .topInfo dd{float:right;font-size:15px;font-weight:normal;color:#f37111}
 .topInfo dd strong{font-size:16px}
 
-/*100%½º¿ÍÀÌÇÁ*/
+/*100%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .swiperCon{position:relative;overflow:hidden}
 .swiperCon .swiper{overflow:hidden;width:1500px}
 .swiperCon .swiper>li{float:left;display:none}
@@ -1987,7 +1987,7 @@ input.fs_2{font-size:1.067rem !important}
 .swiperCon.callbackUI{width:100%!important;transform:inherit!important}
 .swiperCon.callbackUI .swiper, .swiperCon.callbackUI .paging{float:none!important}
 
-/*¼Òºñ¸®Æ÷Æ®*/
+/*ï¿½Òºï¿½ï¿½ï¿½Æ®*/
 .useReport .lineBox2{padding:40px 10px;border:1px solid #ccc;text-align:center}
 .useReport .lineBox2.type2{padding:31px 10px}
 .useReport .lineBox2>p{color:rgba(0, 0, 0, .87);line-height:1.2rem}
@@ -2016,14 +2016,14 @@ input.fs_2{font-size:1.067rem !important}
 .useReport .toggleView .infoBox{margin:-25px -20px;background:#f8f9f9;text-align:center}
 .useReport .circleGraph{height:152px}
 
-/* ³»¿ª¾øÀ½ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .noData{background:url(https://img1.kbcard.com/cxh/ia_img/common/img_not.png) no-repeat center 60px;background-size:70px 70px;padding:145px 0 20px !important;text-align:center;border:0 !important}
 .noData strong{font-size:16px !important;line-height:20px !important;color:rgba(0, 0, 0, .87) !important}
 
-/*¿Ï·áÆäÀÌÁö full Background*/
+/*ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ full Background*/
 .compFullBg .infoBox{background:#fff}
 
-/* Ä«µå·Ð */
+/* Ä«ï¿½ï¿½ï¿½ */
 .infoLoan{background:#0999ac}
 .infoLoan>p>span{display:table-cell;vertical-align:middle;padding-left:85px;min-height:60px;text-align:left;background:url(https://img1.kbcard.com/cxh/ia_img/FL/bg_txtinfo.png) left center no-repeat;background-size:70px 60px;color:#fff}
 .infoLoan>p>span>.tit{font-weight:normal;color:#fff}
@@ -2033,15 +2033,15 @@ input.fs_2{font-size:1.067rem !important}
 .infoLoan>p>span.img4{background:url(https://img1.kbcard.com/cxh/ia_img/FL/bg_txtinfo4.png) left center no-repeat;background-size:70px 60px}
 .infoLoan>p{display:table;min-height:60px}
 
-/* ³³ºÎ¼­ºñ½º */
-/* ´ëÇÐµî·Ï±Ý³³ºÎ */
+/* ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ */
+/* ï¿½ï¿½ï¿½Ðµï¿½Ï±Ý³ï¿½ï¿½ï¿½ */
 .half:after{content:'';display:block;clear:both}
 .half li{float:left;width:46%}
 
 .cardBox .cardToggle .toggleView .listType1 li{padding:0 0 0 10px;border-bottom:none}
 
-/* ÇØ¿ÜÀÌ¿ë¼­ºñ½º */
-/* ¼­ºñ½º ÀÌ¿ë¹æ¹ý */
+/* ï¿½Ø¿ï¿½ï¿½Ì¿ë¼­ï¿½ï¿½ */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ */
 .howService:after{content:'';display:block;clear:both}
 .howService li{float:left;width:33.33%;padding:0 15px;box-sizing:border-box;line-height:1.2rem;position:relative;height:100px}
 .howService li:before{counter-increment:num;content:'0' counter(num);display:block;width:38px;height:38px;margin:0 auto 10px;background:#6d7076;border-radius:20px;color:#fff;line-height:38px;font-size:11px}
@@ -2049,7 +2049,7 @@ input.fs_2{font-size:1.067rem !important}
 .howService li:nth-child(3n):after{background:none}
 .howService{counter-reset:num 0;text-align:center}
 
-/* °¡»óÄ«µå¹ß±Þ */
+/* ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ß±ï¿½ */
 .cardToggle.type2 .toggleView{padding:20px}
 .noBor .cardTxt{border:none !important}
 .virtualCard{display:block;height:139px;background:url(https://img1.kbcard.com/cxh/ia_img/SV/bg_virtualcard.png) no-repeat center 0;background-size:220px 139px;position:relative}
@@ -2058,7 +2058,7 @@ input.fs_2{font-size:1.067rem !important}
 .virtualCard .virDate{position:absolute;top:105px;left:50%;margin-left:-90px}
 .virtualCard .virCVC{position:absolute;top:105px;left:50%;margin-left:10px}
 
-/* °¡»óÄ«µåÀÌ¿ë³»¿ªÁ¶È¸ */
+/* ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ï¿½Ì¿ë³»ï¿½ï¿½ï¿½ï¿½È¸ */
 .useDateDetial{background:#f4f4f4}
 .useDateDetial .useDate.type2{display:table;width:100%;border-bottom:1px solid #ccc;padding:10px 20px;box-sizing:border-box}
 .useDateDetial .useDate.type2:after{content:'';display:block;clear:both}
@@ -2069,7 +2069,7 @@ input.fs_2{font-size:1.067rem !important}
 .useDateDetial .useDateSum>span em{display:block;margin-top:25px;text-align:right;color:#f60}
 .useDateDetial .useDateSum>span em strong{font-size:21px}
 
-/* º»ÀÎÀÎÁõ(°øÅë) */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) */
 .addBox input.type2{height:46px;border:0;padding:11px;line-height:24px} 
 .addBox input.type3{border:0;border-bottom:0px} 
 .termsBox+.addBox{margin-top:20px}
@@ -2092,12 +2092,12 @@ input.fs_2{font-size:1.067rem !important}
 .ios .identity .radioSel.col4 .formWrap a, .ios .identity .radioSel.col4 .formWrap label{padding:2px 0 0}
 .ios .addBox input.type2{padding:13px 11px 9px}
 
-/* ÇÒÀÎÄíÆù ¼­ºñ½º */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .couponList{text-align:center}
 .txtBox{padding:10px;border:1px solid #ccc}
 .txtBox+.txtBox{margin-top:10px}
 
-/* Àå±âÄ«µå´ëÃâ */
+/* ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .infoSum{font-size:20px}
 .infoSum em{font-size:40px}
 
@@ -2155,7 +2155,7 @@ input.fs_2{font-size:1.067rem !important}
 .ios .applyArea>li>strong{padding:9px 0 5px}
 .ios .applyArea>li>strong a.qInfoBtn{margin-top:-3px}
 
-/* Çö¾÷¼öÁ¤»çÇ× % ¼öÄ¡ À§·Î¿Ã¸² psk*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ % ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Î¿Ã¸ï¿½ psk*/
 .applyArea>li>div>span.through{text-decoration:line-through;font-size:17px;color:#bbb}
 .applyArea>li>div>span.through>em{display:inline-block;font-size:17px;line-height:17px;text-decoration:line-through}
 
@@ -2184,7 +2184,7 @@ input.fs_2{font-size:1.067rem !important}
 
 .infoBox p.refer{display:inline-block}
 
-/* ÀÌ¿ë¹æ¹ý */
+/* ï¿½Ì¿ï¿½ï¿½ï¿½ */
 .useList1{border-top:2px solid #111;color:rgba(0, 0, 0, .87)}
 .useList1 li{padding:18px 0;border-bottom:1px solid #ccc;display:table;width:100%}
 .useList1 li .lCon,.useList1 li .rCon{text-align:left;display:table-cell;vertical-align:middle;width:70%}
@@ -2207,7 +2207,7 @@ input.fs_2{font-size:1.067rem !important}
 .unLine{text-decoration:underline}
 .infoTxt:before{content:'';display:block;width:40px;height:1px;margin:20px auto;background:#000}
 
-/*µà¾óÆäÀÌ¸ÕÆ® - Ã¼Å©°áÁ¦¹æ½Ä*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½Æ® - Ã¼Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .dualPayType>.formWrap label{display:block;height:auto;padding:15px}
 .dualPayType>.formWrap.checked label{display:block;height:auto;padding:14px 15px}
 .useCheckPay{display:none}
@@ -2219,7 +2219,7 @@ input.fs_2{font-size:1.067rem !important}
 .useCheckPay .extendArea p input:focus{padding:7px 10px 5px}
 .formWrap.checked+.useCheckPay{border-top:0 none;background:#fff}
 
-/* ÇýÅÃ°¡¸ÍÁ¡ */
+/* ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .benefitTab>ul{background:#7f6ee3}
 .benefitTab>ul:after{content:'';display:block;clear:both}
 .benefitTab>ul>li{float:left;width:25%;text-align:center;display:table}
@@ -2307,7 +2307,7 @@ input.fs_2{font-size:1.067rem !important}
 .infoBox.visualStarshop>strong{color:#7f6ee3;font-size:18px;line-height:22px}
 .infoBox.visualStarshop>p{color:rgba(0, 0, 0, .87);font-size:15px;margin-top:10px}
 
-/* ½ºÅ¸¼¥ */
+/* ï¿½ï¿½Å¸ï¿½ï¿½ */
 .starshopList.tabCont{margin-top:20px}
 .starshopList.tabCont .infoBox{margin-top:-20px}
 .starshopList.tabCont+.tabCont{border-top:0}
@@ -2470,7 +2470,7 @@ input.fs_2{font-size:1.067rem !important}
 .benefitFilter .srchLayer .btnSrch{position:absolute;right:10px !important;top:50% !important;margin-top:-20px;width:40px !important;height:40px !important;border-left:0 !important}
 .benefitFilter .kwdDel{overflow:hidden;position:absolute;right:50px;top:50%;margin-top:-15px;width:31px;height:30px;background:url(https://img1.kbcard.com/cxh/ia_img/common/ico_del.png) no-repeat 50% 50%;background-size:21px 21px;text-indent:-9999rem}
 
-/* ½ºÅ¸¼¥ */
+/* ï¿½ï¿½Å¸ï¿½ï¿½ */
 .areaSearch .defalutSelect{position:relative}
 .areaSearch .defalutSelect label{display:block;position:relative;background:#6b7079;text-align:center;height:60px;line-height:60px;font-size:18px;color:#fff}
 .areaSearch .defalutSelect label:before{content:'';display:block;position:absolute;right:20px;top:50%;margin-top:-3px;border:1px solid transparent;border-width:7px 5px;border-top-color:#fff}
@@ -2490,7 +2490,7 @@ input.fs_2{font-size:1.067rem !important}
 
 .searchRadius{text-align:center}
 
-/* ÇýÅÃÁ¶È¸ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ */
 .pointMileage{background:#5041ae;color:#fff;padding:28px 15px 30px}
 .pointMileage>.mixMoney{display:table;width:100%;box-sizing:border-box}
 .pointMileage>.mixMoney>strong{display:table-cell;font-size:22px;line-height:26px}
@@ -2634,7 +2634,7 @@ input.fs_2{font-size:1.067rem !important}
 .cardtypeBenefit>.cont>.fncArea .formWrap+.formWrap{margin-left:9px}
 .cardtypeBenefit>.cont>.fncArea .btnS{display:block;text-align:center;width:100%;margin-top:12px;box-sizing:border-box}
 
-/* ÇÃ·¯½º020 */
+/* ï¿½Ã·ï¿½ï¿½ï¿½020 */
 .plusMain .contArea{padding:0 10px}
 .plusMain .plusList{margin:30px 0 0 0}
 .plusMain .plusList:after{content:"";display:block;height:0;clear:both}
@@ -2702,7 +2702,7 @@ input.fs_2{font-size:1.067rem !important}
 .plusView .plusviewList>dd.shopInfor ul+.notiTxt{border-top:1px solid #e9e9e9;padding-top:20px;margin-top:20px}
 .plusView .plusviewList>dd.shopInfor .notiTxt{font-size:13px;color:rgba(0, 0, 0, .87)}
 
-/* Ä«µå ½ÅÃ» */
+/* Ä«ï¿½ï¿½ ï¿½ï¿½Ã» */
 .cardInfor{text-align:center;padding-top:25px;letter-spacing:-.2px}
 .cardInfor .imgArea img{width:130px;height:82px;vertical-align:top}
 .cardInfor .txtArea{padding:0 20px}
@@ -2807,7 +2807,7 @@ input.fs_2{font-size:1.067rem !important}
 
 .possibleCard .img{width:130px;padding:0 15px 0 0}
 
-/* °í°´¼¾ÅÍ ¿¬°á */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .seenArs{background:#ffcc00;text-align:center}
 .seenArs>a{display:block;position:relative;height:60px;line-height:60px;font-size:16px;color:rgba(0, 0, 0, .87)}
 .seenArs>a:after{content:'';display:inline-block;position:absolute;right:20px;top:23px;width:8px;height:13px;background:url(https://img1.kbcard.com/cxh/ia_img/common/ico_arrow.png) no-repeat 0 0;background-size:8px 13px}
@@ -2832,7 +2832,7 @@ input.fs_2{font-size:1.067rem !important}
 
 .faqTab li a{line-height:19px}
 
-/*°øÀÎÀÎÁõ¼­°ü¸® */
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .admList{border:1px solid #ccc;margin-top:30px}
 .admList>li{text-align:center;border-bottom:1px solid #ccc}
 .admList>li:last-child{border-bottom:0}
@@ -2869,7 +2869,7 @@ input.fs_2{font-size:1.067rem !important}
 .certificateList>ul>li>a>ul{margin-top:8px}
 .certificateList>ul>li>a>ul>li{color:#666;margin-top:3px}
 .certificateList>ul>li.expiration{background:#f4f4f4}
-.certificateList>ul>li.expiration .ico:after{content:'¸¸·á';display:inline-block;position:absolute;left:0;top:0;width:40px;height:40px;line-height:40px;text-align:center;color:#fff;font-size:14px;font-weight:bold;background:#000;opacity:.7;filter:alpha(opacity=70);border-radius:20px}
+.certificateList>ul>li.expiration .ico:after{content:'ï¿½ï¿½ï¿½ï¿½';display:inline-block;position:absolute;left:0;top:0;width:40px;height:40px;line-height:40px;text-align:center;color:#fff;font-size:14px;font-weight:bold;background:#000;opacity:.7;filter:alpha(opacity=70);border-radius:20px}
 .certificateList>ul>li.expiration>ul{margin-top:10px}
 .certificateList>ul>li.expiration>ul>li{color:#666;margin-top:3px}
 .certificateList.overlap{text-align:left;margin-top:20px}
@@ -2896,7 +2896,7 @@ input.fs_2{font-size:1.067rem !important}
 .certificateList.new>ul>li.checked .ico:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border:2px solid #ffcc00;-webkit-border-radius:32px;border-radius:32px;-webkit-box-sizing:border-box;box-sizing:border-box}
 .certificateList.new>ul>li.checked .ico:after{content:'';position:absolute;top:-4px;left:-4px;width:24px;height:24px;-webkit-border-radius:12px;border-radius:12px;background:#448aff url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/16/ico_check_16_fff.png') no-repeat center;background-size:16px;-webkit-box-shadow:0 1px 3px rgba(61, 68, 138, .24), 0 0 3px rgba(30, 68, 138, .12);box-shadow:0 1px 3px rgba(61, 68, 138, .24), 0 0 3px rgba(30, 68, 138, .12)}
 
-/*ÀÌ¿ë´ë±Ý¸í¼¼¼­*/
+/*ï¿½Ì¿ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½*/
 .stateAddInfo .date{display:block;margin-bottom:10px;text-align:right}
 .stateAddInfo .date span{margin-left:10px}
 .stateAddInfo dl dt{margin:30px 0 10px;color:#000;font-weight:bold}
@@ -2930,7 +2930,7 @@ input.fs_2{font-size:1.067rem !important}
 
 .layerWrap.layerStatement .lyrFixBtnArea{padding:10px 20px 15px;background:#fff}
 
-/*ÀÌ¿ëÇÑµµ*/
+/*ï¿½Ì¿ï¿½ï¿½Ñµï¿½*/
 .useLimit{border-top:1px solid #ccc}
 .useLimit .contArea > dl, .useLimit .contArea > div{margin-bottom:24px}
 .useLimit .contArea > dl:last-child, .useLimit .contArea > div:last-child{margin-bottom:0}
@@ -2990,7 +2990,7 @@ input.fs_2{font-size:1.067rem !important}
 .useLimit .recommPrd a{display:block}
 .useLimit .moreBtn{border-bottom:none}
 
-/*´ë±Ý°áÁ¦*/
+/*ï¿½ï¿½Ý°ï¿½ï¿½ï¿½*/
 .infoBox.billingSrvc{position:relative;padding:30px 25px;background:#f76900;text-align:left}
 .infoBox.billingSrvc:before{content:'';display:block;position:absolute;left:25px;top:50%;width:70px;height:60px;margin-top:-30px;background:url(https://img1.kbcard.com/cxh/ia_img/MK/ico_billing_service.png) no-repeat;background-size:70px 60px}
 .infoBox.billingSrvc.billingType8_8:before{background-image:url(https://img1.kbcard.com/cxh/ia_img/MK/ico_billing_type8_8.png)}
@@ -3121,7 +3121,7 @@ button.btnCheck.on:after{background-position:0 -30px}
 .overDue div>a>span{display:block}
 .overDue div .infoTable{padding:20px 0}
 
-/*Ä«µå°ü¸®*/
+/*Ä«ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .myCard{padding-top:17px}
 .myCard ul{padding-top:10px;vertical-align:top}
 .myCard .cardInfo .img{width:120px;padding-right:16px}
@@ -3182,7 +3182,7 @@ button.btnCheck.on:after{background-position:0 -30px}
 .issueInfo{margin:0 -15px 20px;padding:30px 15px;background:#f5f5f5}
 .issueInfo .img img{width:110px !important;vertical-align:top}
 
-/*Á¤º¸°ü¸®*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .addrWrap input+input{margin-top:-1px}
 
 .procBox{display:table;width:100%;padding:20px 30px 17px;border:1px solid #ccc;box-sizing:border-box}
@@ -3193,7 +3193,7 @@ button.btnCheck.on:after{background-position:0 -30px}
 .procBox .img img{width:50px;vertical-align:top}
 .procBox .con strong{font-weight:normal;font-size:1rem;line-height:1.1em;color:rgba(0, 0, 0, .87)}
 
-/* Ä«µåÀÌ¿ë³»¿ª */
+/* Ä«ï¿½ï¿½ï¿½Ì¿ë³»ï¿½ï¿½ */
 .useInfor .useTotal>.useSummary{margin-top:23px}
 .useInfor .useTotal>.useSummary+.useSummary{margin-top:15px}
 .useInfor .useTotal>.useSummary dt{float:left}
@@ -3241,7 +3241,7 @@ button.btnCheck.on:after{background-position:0 -30px}
 .range>div>a.on:after{content:'';display:block;position:absolute;bottom:-1px;left:0;width:100%;border-bottom:3px solid rgba(0, 0, 0, .87)}
 .range{border-bottom:1px solid #ccc}
 
-/* ¾ÆÆÄÆ® °ü¸®ºñ */
+/* ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .visualApt{padding-bottom:20px;text-align:left}
 .visualApt .searchBox{margin:15px 0 0}
 .visualApt .searchBox>input[type='search']{background:none;font-size:16px}
@@ -3270,11 +3270,11 @@ button.btnCheck.on:after{background-position:0 -30px}
 .essential{position:relative;display:inline-block}
 .essential:before{content:'';display:inline-block;width:5px;height:5px;position:absolute;top:50%;right:-10px;margin-top:-3px;background:url(https://img1.kbcard.com/cxh/ia_img/common/ico_essential.png) no-repeat 0 0;background-size:5px 5px}
 
-/*´ëÇÐµî·Ï±Ý*/
+/*ï¿½ï¿½ï¿½Ðµï¿½Ï±ï¿½*/
 .toggleView .tabBox{padding:0}
 .selType1+.selType1,.selType1+.selDep2{margin-top:-1px}
 
-/*½ÅÃ»³»¿ª Á¶È¸*/
+/*ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸*/
 .historyTab{padding:0}
 .historyTab .tabList{overflow:hidden;padding:27px 0 20px;background:#4d4f55}
 .historyTab .tabList ul{width:1000px}
@@ -3323,7 +3323,7 @@ button.btnCheck.on:after{background-position:0 -30px}
 .payPrdList .name{font-weight:normal;color:rgba(0, 0, 0, .87)}
 .payPrdList .name+.addrTxt{margin-top:5px}
 
-/*¾Ë¸²¼­ºñ½º*/
+/*ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .notiList>ul>li.sms{border-bottom-color:rgba(0, 0, 0, .16)}
 .noticeSelect{position:relative;padding:24px 16px 0;border-top:1px solid rgba(0, 0, 0, .16);background-color:#f6f8f9;font-size:18px;line-height:24px;color:rgba(0, 0, 0, .87)}
 .noticeSelect > p{position:relative;z-index:2;margin-bottom:8px;font-size:16px;line-height:20px}
@@ -3351,7 +3351,7 @@ button.btnCheck.on:after{background-position:0 -30px}
 .infoBox.cauCont .img img{vertical-align:middle}
 .infoBox.cauCont h2{display:block;margin-top:25px;line-height:1.2em;color:rgba(0, 0, 0, .87);font-size:16px;font-weight:bold}
 
-/*ÀÌ¿ëÁßÀÎ ¾Ë¸²¼­ºñ½º ³»¿ª Á¶È¸*/
+/*ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸*/
 .useAlarm{color:rgba(0, 0, 0, .87)}
 .useAlarm h3{margin-top:5px;font-weight:bold}
 .useAlarm .img{display:block;margin-top:25px;text-align:center}
@@ -3408,7 +3408,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .calWrap .calendar .inpTxt1 input.hasDatepicker{background:#fff}
 .calWrap .calendar .inpTxt1 input.hasDatepicker:readonly{background:#f5f5f5;color:rgba(0, 0, 0, .87)}
 
-/* ÇýÅÃ»ç¿ë */
+/* ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ */
 .pointBox{border:1px solid #ccc;padding:20px;line-height:34px;letter-spacing:-0.5px}
 .pointBox>label>.pointArea{display:inline-block;border:0;border-bottom:1px solid #ccc;padding:0 5px !important;width:73px;font-weight:bold;line-height:24px;height:auto}
 .pointBox>label>.pointArea:focus{padding:0 0 0 10px;border:0;border-bottom:1px solid #ccc}
@@ -3448,7 +3448,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .donationList>li>.back .btn .inner{display:table-cell;vertical-align:middle}
 .donationList>li>.back .btn a{display:inline-block;padding:0 15px;height:35px;line-height:35px;background:#6b7079;border-radius:20px;text-align:center;color:#fff}
 
-/*Ä«µå»ó¼¼*/
+/*Ä«ï¿½ï¿½ï¿½*/
 .cardDetailTop{padding:27px 0 130px;background:#f4f4f4;text-align:center}
 .cardDetailTop .cdBtn{margin-bottom:30px}
 .cardDetailTop .cdBtn a{display:inline-block;padding:0 5px;line-height:30px}
@@ -3534,7 +3534,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .inpageCont .reference dl dd{padding-right:120px}
 .navTit>span{display:block;margin-bottom:3px;font-size:0.778rem}
 
-/*Æ¼Å¸´½Ä«µå*/
+/*Æ¼Å¸ï¿½ï¿½Ä«ï¿½ï¿½*/
 .ttnCardImg{overflow:hidden;position:relative;margin-top:10px;border:1px solid #ccc}
 .ttnCardImg:after{content:'';display:block;position:absolute;left:50%;top:0;width:1px;height:1000px;background:#ccc}
 .ttnCardImg li{float:left;width:50%;padding:15px 15px 12px;text-align:center;box-sizing:border-box}
@@ -3542,7 +3542,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .ttnCardImg li img{width:100px;vertical-align:top}
 .ttnCardImg li .txt{display:block;margin-top:7px}
 
-/*¹ÌÃ»±¸±Ý¾×*/
+/*ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ý¾ï¿½*/
 .noCharge{position:relative}
 .noCharge .totalInfo{position:absolute;right:0;top:-55px}
 .payList{margin:10px -20px;border-top:2px solid #111}
@@ -3551,7 +3551,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .payList li em{float:left;color:rgba(0, 0, 0, .87)}
 .payList li span{float:right;padding-left:10px;color:rgba(0, 0, 0, .87)}
 
-/*±âÅ¸°áÁ¦*/
+/*ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½*/
 .depositInfo{display:table;width:100%}
 .depositInfo dd{display:table-cell;vertical-align:middle}
 .depositInfo dd.info div em{color:#f35b42}
@@ -3593,7 +3593,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .btnM.arrR{position:relative;text-align:left;padding-left:20px;padding-right:20px}
 .btnM.arrR:after{content:'';display:inline-block;position:absolute;right:20px;top:50%;width:8px;height:13px;margin-top:-6px;background:url(https://img1.kbcard.com/cxh/ia_img/common/ico_arr24.png) no-repeat;background-size:8px 13px}
 
-/*¼³Á¤*/
+/*ï¿½ï¿½ï¿½ï¿½*/
 .contArea .setupList{margin:0 -16px}
 .depTit2.setup{margin-left:20px}
 .setupList{padding-left:16px}
@@ -3717,7 +3717,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .payPWinput{padding:27px 15px;text-align:center}
 .payPWinput .titTxt{display:block;margin-bottom:30px;font-size:1.143rem;font-weight:normal;color:rgba(0, 0, 0, .87)}
 
-/*ÅëÇÕ°Ë»ö*/
+/*ï¿½ï¿½ï¿½Õ°Ë»ï¿½*/
 .srchArea{position:relative}
 .srchArea:after{content:'';display:block;clear:both}
 .srchArea .srchInput{position:relative;margin-right:60px}
@@ -3740,8 +3740,8 @@ span.icoRexLink:after{background-position:-31px 0}
 .srchArea .srchInput.open .openArea input{color:#4d4f57}
 .srchArea.mWeb .srchInput{margin-right:0}
 .srchArea.mWeb .voiceSearch{display:none}
-.srchArea.mApp .srchInput{margin-right:0}/* À½¼º °Ë»ö »èÁ¦ */  
-.srchArea.mApp .voiceSearch{display:none}/* À½¼º °Ë»ö »èÁ¦ */  
+.srchArea.mApp .srchInput{margin-right:0}/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ */  
+.srchArea.mApp .voiceSearch{display:none}/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ */  
 .pupKwdWrap{min-height:240px}
 .srchTit{height:44px;background:#eef1f2;color:rgba(0, 0, 0, .87);font-weight:bold;font-size:0.933rem;text-align:center;line-height:44px}
 .pupKwdList{padding:0 20px}
@@ -3752,7 +3752,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .pupKwdList ol li+li+li+li a:before{color:#888}
 .pupKwdList ol li a{display:block;padding:14px 0 12px;font-size:1.143rem}
 
-/*°Ë»ö°á°ú*/
+/*ï¿½Ë»ï¿½ï¿½ï¿½ï¿½*/
 .srchResult{background:#f4f4f4}
 .srchResult .tabList{background:#fff}
 .srchResult .tabCont{margin-top:10px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;background:#fff}
@@ -3786,7 +3786,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .srchResult.nodata .txt em{color:rgba(0, 0, 0, .87);font-weight:bold}
 @media screen and (max-width:374px){.srchResult.nodata .txt{width:200px}}
 
-/*¾Ë¸®¹Ì*/
+/*ï¿½Ë¸ï¿½ï¿½ï¿½*/
 .infoBox.pushMsgImg{background:#fff}
 .infoBox.pushMsgImg:before{content:'';display:inline-block;width:70px;height:70px;margin-bottom:20px;background:url(https://img1.kbcard.com/cxh/ia_img/common/img_push_msg.png);background-size:70px 70px}
 
@@ -3829,7 +3829,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .alarmCont .alarmMsgList>li .info .payInfo{color:rgba(0, 0, 0, .87)}
 .alarmCont .alarmMsgList>li .con{margin-top:20px;padding-top:20px;border-top:1px solid #e5e5e5;color:rgba(0, 0, 0, .87);line-height:1.3rem}
 .alarmCont .alarmMsgList>li .con dl.refer{margin-top:15px;font-size:0.857rem;line-height:1.3em;color:#666}
-.alarmCont .alarmMsgList>li .con dl.refer dt:before{content:'¡Ø '}
+.alarmCont .alarmMsgList>li .con dl.refer dt:before{content:'ï¿½ï¿½ '}
 .alarmCont .alarmMsgList>li .con dl.refer dt{padding-bottom:5px}
 .alarmCont .alarmMsgList>li .con .imgArea a{display:block}
 .alarmCont .alarmMsgList>li .con .imgArea img{width:100%;vertical-align:top}
@@ -3852,14 +3852,14 @@ span.icoRexLink:after{background-position:-31px 0}
 .alarmCont .tgl.open .tglBtn.btnOpen{display:none}
 .alarmCont .tgl.open .tglBtn.btnClose{display:block}
 
-/* ´Ü±â Ä«µå´ëÃâ */
+/* ï¿½Ü±ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .through{text-decoration:line-through}
 .btnS.arrR.type2:after, .quickLink .arrR.type2:after, a .arrR.type2:after{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/common/arr/arr_r_24_000_b.png) no-repeat;background-size:24px auto}
 .shortCardLoan_history:before{content:'';display:block;margin:0 -15px;height:0;border-top:1px solid #ccc}
 .shortCardLoan_history .tbsList1.type4{margin-top:17px}
 .shortCardLoan_history div .tbsList1+.btnM{margin-top:10px}
 
-/* ¼­ºñ½º ´ëÃâ°ü¸® */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .noLine{border-top:none !important}
 .infoTable.spacing{border-top:1px solid #ccc;padding-top:20px !important;margin-top:20px}
 .infoTable.spacing .arrR.type2{font-size:1rem}
@@ -3888,7 +3888,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .depTit2+.srchDate{margin-top:-7px}
 .useSrchResult .trsDate{display:block;margin:30px 0 10px;font-weight:normal;font-size:0.867rem;color:#888}
 
-/* SNS °øÀ¯ÇÏ±â */
+/* SNS ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ */
 .snsShare li+li{border-top:1px solid #ccc}
 .snsShare li a{display:block;padding:10px 0 10px 76px;background:url(https://img1.kbcard.com/cxh/ia_img/common/bg_share.png) no-repeat;background-size:40px 342px;height:40px;line-height:40px;background-position:20px 10px}
 .snsShare li.facebook a{background-position:20px -50px}
@@ -3917,7 +3917,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .popCont.snsShare2{background-color:#fff;padding:32px 16px 32px!important}
 .popCont.snsShare2 li{margin:0}
 
-/* ÇýÅÃ ÀÌº¥Æ® */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® */
 .eventBanner img{width:100%}
 .starshopList .listType>ul>li>a>.txt .type,.starshopList .listType>ul>li>a>.txt .best{float:left;width:75%;overflow:hidden;font-size:13px;color:#888;text-overflow:ellipsis;line-height:17px;white-space:nowrap}
 .starshopList .listType>ul>li>a>.txt .best{background:url(https://img1.kbcard.com/cxh/ia_img/BN/ico_best.png) 0 center no-repeat;background-size:14px 12px;padding-left:18px}
@@ -3961,7 +3961,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .selType1.type4{padding:0}
 .selType1.type4>a{padding-left:20px;width:100%}
 
-/* ¹ÝÂ¦ÇÒÀÎ */
+/* ï¿½ï¿½Â¦ï¿½ï¿½ï¿½ï¿½ */
 .todayBox .inner ul:after,.todayBox .inner .today:after{content:"";display:block;height:0;clear:both}
 .todayBox{background:#5041ae;color:#fff;box-sizing:border-box;letter-spacing:-1px;padding:10px 0;overflow:hidden;height:72px}
 .todayBox .today{display:block;width:50px;height:50px;border:1px solid #fff;border-radius:30px;text-align:center;margin:0 4px 0 20px;line-height:50px;font-size:11px;color:#fff}
@@ -3981,7 +3981,7 @@ span.icoRexLink:after{background-position:-31px 0}
 
 .bgNone a{background:none !important}
 
-/* ÇýÅÃ ¸â¹ö½Ê */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .dashLine{border-style:dashed !important;position:relative;display:block !important}
 .dashLine:after{content:"";display:block;position :absolute;right:20px;top:50%;width:14px;height:14px;margin-top:-7px;background:url(https://img1.kbcard.com/cxh/ia_img/common/btn_toggle.png);background-size:28px 17px}
 .pdBox{padding:20px}
@@ -3990,10 +3990,10 @@ span.icoRexLink:after{background-position:-31px 0}
 .starshopList .listType.thumMiddle>ul{padding-top:0}
 .listType.thumMiddle .endEventDisabled a .txt,.listType.thumMiddle .endEventDisabled a .thum{opacity:0.5}
 
-.lineColor{border-top:1px solid #ccc}/* ÇýÅÃ ÅÇ¹Ú½º »ó´Ü È¸»ö ¶óÀÎ */
-.lineColor1{border-top:1px solid #7f6ee3}/* ÇýÅÃ ÅÇ¹Ú½º »ó´Ü º¸¶ó»ö ¶óÀÎ */
-.blineColor{border-bottom:1px solid #ccc}/* ÇýÅÃ ÅÇ¹Ú½º »ó´Ü È¸»ö ¶óÀÎ */
-.blineColor1{border-bottom:1px solid #7f6ee3}/* ÇýÅÃ ÅÇ¹Ú½º »ó´Ü º¸¶ó»ö ¶óÀÎ */
+.lineColor{border-top:1px solid #ccc}/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹Ú½ï¿½ ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+.lineColor1{border-top:1px solid #7f6ee3}/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹Ú½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+.blineColor{border-bottom:1px solid #ccc}/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹Ú½ï¿½ ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+.blineColor1{border-bottom:1px solid #7f6ee3}/* ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹Ú½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 
 .contArea .memberBox{border:1px solid #e9e9e9}
 .memberBox{box-sizing:border-box;box-shadow:0 1px 2px rgba(0,0,0,0.18)}
@@ -4045,7 +4045,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .btnS.coupon{display:inline-block;line-height:1.2rem;padding:8px 14px;border-top:1px solid #ccc}
 .benefitFilter .btnFilter.type2>span:after{background:url(https://img1.kbcard.com/cxh/ia_img/common/ico_arr15.png) no-repeat 0 0;background-size:5px 8px;width:5px;height:8px;margin-left:8px}
 
-/* Ä«µåÀÌ¹ÌÁö ½º¿ÍÀÌÇÁ °¡¿îµ¥ */
+/* Ä«ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½îµ¥ */
 .swiperCon.type2{padding:0 50px}
 .swiperCon.type2 ul li div{padding:0 15px}
 .swiperCon.type2 ul li div img{width:100%}
@@ -4057,7 +4057,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .infoArea{padding:20px 20px}
 .infoArea .totalCnt{color:#888}
 
-/*°³º° ÀÌº¥Æ®*/
+/*ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®*/
 .sgEvent{padding:0 15px}
 .sgEvent a{display:table;width:100%;table-layout:fixed;background:#fff;box-sizing:border-box;border:1px solid #cecece;padding:17px 20px;letter-spacing:-0.5px;min-height:120px}
 .sgEvent a>.txt{display:table-cell;vertical-align:middle}
@@ -4067,14 +4067,14 @@ span.icoRexLink:after{background-position:-31px 0}
 .sgEvent a>.thum{display:table-cell;width:80px;vertical-align:top;padding-left:7px}
 .sgEvent a>.thum img{width:80px;height:80px;vertical-align:top}
 
-/* ±ÝÀ¶°è»ê±â */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .divBro .inpTxt1.checked{z-index:2}
 .divBro .inpTxt1+.calWrap{margin-top:-1px}
 .useLimit.nborTop.bgGray{background:#eef1f2 !important;border-bottom:1px solid #e4e9eb}
 .useLimit.nborTop.bgGray:before, .useLimit.nborTop.bgGray>dl:after{content:none}
 .useLimit.noLine>.contArea:after{content:'';display:block;height:6px;margin:30px -15px -30px;background:#f2f3f4;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9}
 
-/* ÄíÆùÇÔ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .couponTab .tabDep0{background:#7f6ee3}
 .couponTab .tabDep0 li a{background:#7f6ee3;color:#fff}
 .couponTab .tabDep0 li.on a{background:#5443b9;color:#ffde00;font-weight:bold}
@@ -4097,11 +4097,11 @@ span.icoRexLink:after{background-position:-31px 0}
 .couponboxList>ul>li .couponInfor .txtArea .dateInfor strong:before{content:'';display:inline-block;height:8px;border-left:1px solid #ccc;margin:0 7px 0 5px}
 .couponboxList>ul>li .couponInfor .thum{width:80px}
 .couponboxList>ul>li .couponInfor .thum img{width:80px}
-.couponboxList>ul>li .couponInfor .category.type1{color:#21c6a5} /* °æÇ° */
-.couponboxList>ul>li .couponInfor .category.type2{color:#ec527a} /* ±¸¸Å */
+.couponboxList>ul>li .couponInfor .category.type1{color:#21c6a5} /* ï¿½ï¿½Ç° */
+.couponboxList>ul>li .couponInfor .category.type2{color:#ec527a} /* ï¿½ï¿½ï¿½ï¿½ */
 .couponboxList>ul>li .couponInfor .category.type3{color:#4e67fc} /* FREE */
-.couponboxList>ul>li .couponInfor .category.type4{color:#0fb38e} /* ¾ÛÄ«µå */
-.couponboxList>ul>li .couponInfor .category.type5{color:#ffa200} /* ±âÇÁÆ® */
+.couponboxList>ul>li .couponInfor .category.type4{color:#0fb38e} /* ï¿½ï¿½Ä«ï¿½ï¿½ */
+.couponboxList>ul>li .couponInfor .category.type5{color:#ffa200} /* ï¿½ï¿½ï¿½ï¿½Æ® */
 .couponboxList>ul>li .barcode{padding:15px 0 20px;border:0}
 .couponboxList>ul>li .couponDesign{display:block;position:relative;background:url(https://img1.kbcard.com/cxh/ia_img/common/bg_coupon_line.gif) repeat-x 0 0;background-size:7px 3px;margin:0 15px}
 .couponboxList>ul>li .couponDesign:before{content:'';display:inline-block;position:absolute;left:-17px;top:-7px;z-index:1;width:9px;height:17px;background:url(https://img1.kbcard.com/cxh/ia_img/common/bg_coupon_left.png) no-repeat 0 0;background-size:9px 17px}
@@ -4184,7 +4184,7 @@ span.icoRexLink:after{background-position:-31px 0}
 .listEdit .couponInfor{padding:20px 20px 20px 50px !important}
 .editBtn{display:none}
 
-/* VIP ¼­ºñ½º */
+/* VIP ï¿½ï¿½ï¿½ï¿½ */
 .vipintro_Cont{background:#334472;padding:27px 20px;color:#fff}
 .vipintro_Cont>strong{display:block;margin-bottom:10px;font-size:20px;line-height:26px;font-weight:normal}
 .vipintro_Cont>p em{color:#ffcc00;font-weight:bold}
@@ -4353,7 +4353,7 @@ footer .sns li a.facebook:after{background-position:-24px 0}
 footer .sns li a.instar:after{background-position:-48px 0}
 footer .sns li img{display:none}
 
-/* ÆíÀÇ¼­ºñ½º index */
+/* ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ index */
 .svIntro{display:table;width:100%;background:#4d4f57;box-sizing:border-box;padding:32px 16px 28px}
 .svIntro>*{display:table-cell;vertical-align:middle}
 .svIntro>.thum{width:80px;padding-right:16px;text-align:center;line-height:0}
@@ -4374,7 +4374,7 @@ footer .sns li img{display:none}
 .cardRecommend .numPaging{color:rgba(0, 0, 0, .87)}
 .cardRecommend .numPaging em{color:rgba(0, 0, 0, .87)}
 
-/* ÆíÀÇ¼­ºñ½º - ³³ºÎ¼­ºñ½º index */
+/* ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ index */
 .paymentList>ul>li{position:relative;margin-top:6px;border-bottom:1px solid #e9e9e9;background:#fff}
 .paymentList>ul>li>a{display:block;position:relative;padding:24px 105px 24px 16px;background:#fff;border-top:1px solid #e9e9e9}
 .paymentList>ul>li>a .tit{display:block;margin-bottom:8px;font-size:1.200rem;line-height:1.600rem;color:rgba(0, 0, 0, .87)}
@@ -4444,7 +4444,7 @@ footer .sns li img{display:none}
 .swipeInner .numPaging{position:absolute;right:15px;top:24px;font-size:1.067rem;line-height:1.6rem}
 .swipeInner .numPaging em{font-weight:bold}
 
-/* ÆíÀÇ¼­ºñ½º - ¾Ë¸²¼­ºñ½º index */
+/* ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ - ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½ index */
 .notiList{margin-bottom:-20px}
 .notiList>ul>li{background:#fff;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;margin-top:8px}
 .notiList>ul>li:last-child{border-bottom:0}
@@ -4470,7 +4470,7 @@ footer .sns li img{display:none}
 
 .ios .notiList>ul>li .inner .tit{height:24px;line-height:27px}
 
-/* ÆíÀÇ¼­ºñ½º - ÇØ¿ÜÀÌ¿ëÁ¾ÇÕ¾È³» index */
+/* ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ - ï¿½Ø¿ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Õ¾È³ï¿½ index */
 .foreignuseIntro{border-top:1px solid #ccc}
 .foreignuseIntro .inner{overflow:hidden}
 .foreignuseIntro .inner a{display:block;float:left;width:50%;text-align:center;box-sizing:border-box;border-bottom:1px solid #ccc;background:url(https://img1.kbcard.com/cxh/ia_img/SV/bg_foreign_use1.png) no-repeat center 45px;background-size:70px 66px;padding:120px 12px 45px;max-height:180px}
@@ -4496,7 +4496,7 @@ footer .sns li img{display:none}
 .brandIcon>ul>li{float:left;width:33.33%;margin-top:15px}
 .brandIcon>ul>li img{width:60px;height:60px}
 
-/* ±ÝÀ¶ÇÑ´«¿¡º¸±â */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .flIntro{text-align:center;background:#f5f5f5}
 .flIntro a{display:block;padding:65px 0}
 .flIntro a strong{display:block;font-size:20px;line-height:26px;color:rgba(0, 0, 0, .87)}
@@ -4514,7 +4514,7 @@ footer .sns li img{display:none}
     .flIntro.type3 .inner>div a:after{right:5px}
 }
 
-/* °í°´¼¾ÅÍÇÑ´«¿¡º¸±â */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .csIntro_list{margin-bottom:-20px}
 .csIntro_list>li>a{display:block;position:relative;color:rgba(0, 0, 0, .87);padding:16px 40px 16px 16px;font-size:16px}
 .csIntro_list li a:after{content:'';display:inline-block;position:absolute;right:16px;top:50%;width:24px;height:24px;margin-top:-12px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/arr/arr_r_24_000.png') no-repeat 0 0;background-size:24px}
@@ -4527,7 +4527,7 @@ footer .sns li img{display:none}
 .ios .csIntro_list>li>a{padding:18px 40px 14px 16px}
 .ios .csIntro_list>li.depth2 .listType1 li a{padding:12px 40px 8px 0}
 
-/* Ä«µå¾È³» */
+/* Ä«ï¿½ï¿½È³ï¿½ */
 .notiBox{background:#eef1f2;padding:30px 15px;color:rgba(0, 0, 0, .87)}
 .notiBox strong{display:block;margin-bottom:15px;font-weight:normal;font-size:20px;line-height:26px}
 .applicationCard{margin:30px -15px 0}
@@ -4539,7 +4539,7 @@ footer .sns li img{display:none}
 .applicationCard ul li{border-bottom:1px solid #e9e9e9;padding:20px 0}
 .applicationCard.type2:before{display:none}
 
-/* °í°´ÀÚ¹®´Ü */
+/* ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ */
 .infoBox.left .fs5{line-height:27px}
 .infoLoan.type2{background:#eef1f2}
 .infoLoan.type3{background:#4d4f57}
@@ -4555,7 +4555,7 @@ footer .sns li img{display:none}
 
 .eventDetail.type2{position:initial;padding:0}
 
-/* ºÎµ¿»ê ÀÓ´ë·á */
+/* ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ó´ï¿½ï¿½ */
 .bgType li dl{padding-left:90px;background:url(https://img1.kbcard.com/cxh/ia_img/SV/bg_uselist1.png) 10px center no-repeat;background-size:60px;min-height:65px}
 .bgType li+li dl{background:url(https://img1.kbcard.com/cxh/ia_img/SV/bg_uselist2.png) 10px center no-repeat;background-size:60px}
 .bgType li+li+li dl{background:url(https://img1.kbcard.com/cxh/ia_img/SV/bg_uselist3.png) 10px center no-repeat;background-size:60px}
@@ -4569,19 +4569,19 @@ footer .sns li img{display:none}
 .addBox.disabled span.addTxt{background:#f2f3f4}
 
 
-/* ÇØ¿ÜÀÌ¿ë¼­ºñ½º */
+/* ï¿½Ø¿ï¿½ï¿½Ì¿ë¼­ï¿½ï¿½ */
 .addBox .inpTxt1.type2{border:none;border-bottom:1px solid #ccc}
 .addBox .inpTxt1.type2.checked label, .addBox .inpTxt1.type2.checked input{height:50px}
 .cardBox .cardCheck.noCheck:after{content:none}
 
-/*ÀÚµ¿Â÷´ëÃâ*/
+/*ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .numList{counter-reset:numList 0}
 .numList>li{padding-left:16px}
 .numList>li+li{margin-top:7px}
 .numList>li:before{counter-increment:numList;content:counter(numList)'.';display:inline-block;width:16px;margin-left:-16px}
 .numList>li+li+li+li+li+li+li+li+li+li:before{width:25px;margin-left:-25px}
 
-/* ±âÅ¸¼­ºñ½º */
+/* ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ */
 .cardBox.couponType{text-align:center}
 .cardBox.couponType a>strong{font-size:18px}
 .cardBox.couponType a>span>em{display:inline-block;margin-top:0;font-size:14px;line-height:14px;color:rgba(0, 0, 0, .87)}
@@ -4601,12 +4601,12 @@ footer .sns li img{display:none}
 .cardBox.listType .cardTxt.on{z-index:10}
 
 .tbsList1+.tbsList1{margin-top:30px}
-/* °áÁ¦¼­ºñ½º */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 @media screen and (max-width:374px){
     .cardBox .cardTxt .txtBlock{display:block}
 }
 
-/*È¸¿ø-·Î±×ÀÎ*/
+/*È¸ï¿½ï¿½-ï¿½Î±ï¿½ï¿½ï¿½*/
 .mt60{margin-top:60px}
 .loginArea{position:relative;padding:45px 40px 0}
 .tabList>.alarmTm{position:absolute;right:40px;top:-45px}
@@ -4671,7 +4671,7 @@ footer .sns li img{display:none}
 .loginIdSelect li .info span+span:before{content:'';display:inline-block;margin:0 9px 0 6px;height:12px;width:1px;background:#e9e9e9}
 .loginIdSelect li .info+.info{margin-top:5px}
 
-/* PIN ·Î±×ÀÎ */
+/* PIN ï¿½Î±ï¿½ï¿½ï¿½ */
 .pinPassword {position:relative;margin-bottom:32px;}
 .pinPassword input[type='password'] {border:0;color:rgba(255,255,255,0);}
 .pinPassword .pin_dot {position:absolute;top:50%;left:50%;margin:-8px 0 0 -96px;}
@@ -4719,7 +4719,7 @@ footer .sns li img{display:none}
 .eventArea.open .eventList .listType>ul>li:first-child{margin-top:0}
 .eventArea.open .eventList .listType>ul>li>a{box-shadow:0 1px 2px rgba(0,0,0,0.2)}
 
-/*È¸¿ø°¡ÀÔ*/
+/*È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .idCheck{position:relative;margin-bottom:-1px}
 .idCheck .inpTxt1{padding-right:83px}
 .idCheck .inpTxt1 input{padding-right:5px}
@@ -4739,7 +4739,7 @@ footer .sns li img{display:none}
 
 .depTit2.topBor3{margin:30px -15px 15px;padding:30px 15px 0;border-top:1px solid #f0f0f0}
 
-/*My KB-Ä«µå°ü¸®*/
+/*My KB-Ä«ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .boxType1{border:1px solid #ccc;background:#f2f3f4;padding:10px;line-height:20px}
 .reference~.boxType1{margin-top:30px !important}
 .errMsg .boxType1 em{display:inline-block;margin-right:10px}
@@ -4759,7 +4759,7 @@ footer .sns li img{display:none}
 .tbsList1 li.incInp .inpTxt1.unitType span~span{padding-left:5px}
 .tbsList1 li.incInp .txtInfo{margin-bottom:15px}
 
-/*±ÝÀ¶ - ¸®º¼ºù*/
+/*ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .useInfo{padding:18px;border:1px solid #ccc;text-align:center}
 .useInfo .tit{display:inline-block;padding:0 10px;border:1px solid #84ccd5;border-radius:25px;verticla-align:top;color:#02aec4;line-height:23px}
 .useInfo p{margin-top:10px}
@@ -4771,7 +4771,7 @@ footer .sns li img{display:none}
 .tbsList1.changeType del{color:#888}
 .tbsList1.changeType em{display:inline}
 
-/*°í°´¼¾ÅÍ - Ä«µå/ÀºÇà ¿µ¾÷Á¡ ¾È³»*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - Ä«ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½*/
 .searchArea{padding:0 30px}
 .searchArea .searchBox{margin:0}
 .searchArea .txtGps{position:relative;min-height:13px;margin:20px 0 25px;padding:0 0 0 90px;color:rgba(0, 0, 0, .87)}
@@ -4846,13 +4846,13 @@ footer .sns li img{display:none}
 .atmSearch .compFullBg{top:106px;border-top:1px solid #ccc}
 .atmSearch .compFullBg, .atmSearch .compFullBg .infoBox{background:#fff}
 
-/*ÁöÁ¡Ã£±â Layer*/
+/*ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ Layer*/
 .findBranch .tabBox{margin:-27px -15px}
 .findBranch .searchArea{padding:0 15px !important}
 .findBranch .toggleList>li>a{height:auto;box-sizing:border-box}
 
-/*°í°´¼¾ÅÍ - °³ÀÎÁ¤º¸º¸È£Á¤Ã¥*/
-.termsLink{border-top:1px solid #ccc} /* ¸®½ºÆ® Å¸ÀÌÆ² ¾Õ¿¡ ¾ÆÀÌÄÜÀÌ ÀÖ´Â °æ¿ì */
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½Ã¥*/
+.termsLink{border-top:1px solid #ccc} /* ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½Æ² ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ */
 .termsLink>li{border-bottom:1px solid #e9e9e9}
 .termsLink>li+li{margin:0 !important}
 .termsLink>li>a{display:block;position:relative;padding:15px 15px 15px 35px;font-weight:bold;color:rgba(0, 0, 0, .87);line-height:1.35rem}
@@ -4868,7 +4868,7 @@ footer .sns li img{display:none}
 .smartFinance10>li:before{counter-increment:num;content:counter(num, decimal-leading-zero);display:block;position:absolute;left:0;top:0;width:38px;height:38px;border:1px solid #ffd012;border-radius:40px;line-height:38px;color:rgba(0, 0, 0, .87);font-weight:bold;text-align:center}
 .smartFinance10>li strong{display:block;padding-bottom:10px;color:rgba(0, 0, 0, .87);line-height:1.3rem}
 
-/*ÀÌ¿ë¾à°ü*/
+/*ï¿½Ì¿ï¿½ï¿½ï¿½*/
 .container>.idxBox:first-child:before, .container .idxBox:after{content:'';display:block;height:6px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;background:#f2f3f4}
 .container .idxBox:after{margin-top:-1px}
 .termsCont{margin-top:30px}
@@ -4897,12 +4897,12 @@ footer .sns li img{display:none}
 .termsCont .ul_star>li{padding-left:13px;text-indent:-13px}
 .termsCont ul.cauTxt li, .termsCont p.cauTxt{padding-left:19px;text-indent:-19px;color:#888}
 
-/*My KB - ÀÌ¿ëÇÑµµ / Æ¯º°ÇÑµµ½ÅÃ»*/
+/*My KB - ï¿½Ì¿ï¿½ï¿½Ñµï¿½ / Æ¯ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½Ã»*/
 .infoBox.addBtnType{padding:27px 15px 20px;border-top:1px solid rgba(0, 0, 0, .87);border-bottom:1px solid #e9e9e9;background:#fff}
 .infoBox.addBtnType .btnArea{margin-top:18px;text-align:center}
 .infoBox.addBtnType .btnArea a{display:inline-block;padding:0 15px;line-height:33px;border:1px solid #bbb;font-size:14px}
 
-/*ÀüÃ¼¸Þ´º*/
+/*ï¿½ï¿½Ã¼ï¿½Þ´ï¿½*/
 .layerWrap.totalMenu .popTop,.layerWrap.totalSearch .popTop{height:56px;border:0;position:fixed;top:0;z-index:3}
 .layerWrap.totalMenu .popCont,.layerWrap.totalSearch .popCont{margin:56px 0 0 0;padding:70px 0 0 0}
 .layerWrap.totalMenu .srchArea,.layerWrap.totalSearch .srchArea{position:fixed;top:56px;width:100%;z-index:3}
@@ -4922,7 +4922,7 @@ footer .sns li img{display:none}
 .layerWrap.totalMenu .popTop .webLogin,.layerWrap.totalMenu .popTop .btnHome{color:transparent}
 .layerWrap.totalMenu .srchArea .btnTotalSearch{overflow:hidden;display:block;height:70px;line-height:70px;width:100%;text-indent:-9999px;background:#5a5d66}
 .layerWrap.totalMenu .srchArea .btnTotalSearch:before{content:"";position:absolute;right:0;display:block;width:70px;height:70px;background:#5a5d66 url(https://img1.kbcard.com/cxh/ia_img/common/ico_search_y.png) no-repeat center center;background-size:20px;z-index:3}
-.layerWrap.totalMenu .srchArea .btnTotalSearch:after{content:"°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä.";position:absolute;left:20px;top:0;display:block;height:70px;text-indent:0;color:#fff}
+.layerWrap.totalMenu .srchArea .btnTotalSearch:after{content:"ï¿½Ë»ï¿½ï¿½î¸¦ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.";position:absolute;left:20px;top:0;display:block;height:70px;text-indent:0;color:#fff}
 .layerWrap.totalMenu .srchArea .btnTotalEvent{position:absolute;left:20px;top:0;display:block;overflow:hidden;height:70px;margin-right:-90px;line-height:70px;text-indent:0;color:#fff;background:#5a5d66}
 .layerWrap.totalMenu .voiceSearch{background-color:#6d7079}
 
@@ -4986,7 +4986,7 @@ footer .sns li img{display:none}
 .layerWrap.totalSearch .tmBack{position:absolute;left:0;top:14px;width:48px;height:48px}
 .layerWrap.totalSearch .tmBack a{padding:24px;width:18px;height:18px;background:url(https://img1.kbcard.com/cxh/ia_img/common/btn_back.png) no-repeat center center;background-size:18px 18px;color:transparent;line-height:0;font-size:0}
 
-/*±ÝÀ¶ ±Ý¾×ÀÔ·Â*/
+/*ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ï¿½Ô·ï¿½*/
 .maxBox{margin-bottom:10px;line-height:48px;text-align:center;border:2px solid #fc0;box-sizing:border-box}
 .maxBox em{font-weight:bold;color:rgba(0, 0, 0, .87)}
 
@@ -5006,7 +5006,7 @@ footer .sns li img{display:none}
 .layerWrap.calculator .popCont .calculatorBox input[type=button].zero{float:none !important;border-left:1px solid #ccc !important}
 .layerWrap.calculator .popCont .calculatorBox input[type=button].confirm{position:absolute;right:0;bottom:0;font-size:18px !important;background:#fc0;font-weight:bold}
 
-/* Ä«µå½ÅÃ» µå·Ó´Ù¿î css */
+/* Ä«ï¿½ï¿½ï¿½Ã» ï¿½ï¿½Ó´Ù¿ï¿½ css */
 .termsInfo:after{width:13px !important;height:8px !important;background-image:url(https://img1.kbcard.com/cxh/ia_img/common/arr_toggle.png) !important;background-size:13px 8px !important;margin-top:-4px !important}
 .termsInfo.on:after{background-image:url(https://img1.kbcard.com/cxh/ia_img/common/arr_toggle_open.png) !important}
 .termsView{display:none;padding:25px 20px;background:#f5f5f5;border-top:1px solid #ccc;overflow:hidden}
@@ -5014,12 +5014,12 @@ footer .sns li img{display:none}
 .psWrap{position:relative}
 .psWrap .btnS{position:absolute;right:0;top:-7px}
 
-/* ±ÝÀ¶ */
+/* ï¿½ï¿½ï¿½ï¿½ */
 @media screen and (max-width:359px){
     .btnBox .dLine{line-height:20px;padding:5px 0}
 }
 
-/*pc ¾à°ü style*/
+/*pc ï¿½ï¿½ï¿½ style*/
 .creditList_box input[type='radio']{position:relative;width:auto;height:auto;margin:0;opacity:1}
 .creditList_box label{margin-bottom:10px}
 .creditList_box label:before{display:none}
@@ -5029,12 +5029,12 @@ footer .sns li img{display:none}
 .bd01_box .board tbody th,.bd01_box .board tbody td{padding:15px 5px;border-bottom:1px solid #e6e6e6;border-left:1px solid #e6e6e6;background:#fff}
 .bd01_box .board tbody tr th:first-child{border-left:0}
 
-/* ½ºÅ¸¼¥ ¼öÁ¤ css */
+/* ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ css */
 .searchTxt{background:#fff;padding-left:15px;height:50px;line-height:50px;border-bottom:1px solid #ccc;color:rgba(0, 0, 0, .87)}
 .searchTxt span+span:before{content:'>';display:inline-block;margin-right:5px}
 .detailSelect{margin:10px 4px 0 0}
 
-/* ³³ºÎ¼­ºñ½º ³»¿ªÁ¶È¸ */
+/* ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ */
 .toggleView.type2{padding:30px 20px !important}
 .toggleView.type2>strong{display:block;font-size:18px;color:rgba(0, 0, 0, .87);margin-bottom:17px}
 .toggleView.type2>p{font-size:15px;color:rgba(0, 0, 0, .87);line-height:21px;margin-bottom:15px}
@@ -5047,14 +5047,14 @@ footer .sns li img{display:none}
 /* rotate */
 .rotate > img{display:none}
 
-/*input À¯È¿±â°£*/
+/*input ï¿½ï¿½È¿ï¿½â°£*/
 .validity{display:table;vertical-align:middle}
 .validity span{display:table-cell !important;padding:0 5px;text-align:center;line-height:1rem;vertical-align:middle}
 .validity >input{display:inline;width:70px;text-align:center}
 .validity >input::-webkit-input-placeholder{text-align:center}
 .ios .validity span{padding-top:2px}
 
-/* ¾ËÆÄ¿ø¼Ò°³ swipe */
+/* ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ò°ï¿½ swipe */
 .alphaoneSwipe{margin-top:10px}
 .alphaoneSwipe li{width:256px}
 .alphaoneSwipe li+li{margin-left:6px}
@@ -5066,7 +5066,7 @@ footer .sns li img{display:none}
 .contArea > #eventBody > .h_full{margin:0 -15px;!important}
 
 
-/*±¸µ¥ÀÌÅÍ Ãâ·Â ¾à°ü ³» Å×ÀÌºí*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½*/
 .bd03_box .board{border-top:1px solid rgba(0, 0, 0, .87);text-align:center}
 .bd03_box .board thead th{color:#444;background:#f2f3f4;border-bottom:1px solid #c9c9c9}
 .bd03_box .board tbody th{color:#444;background:#f8f9f9;border-bottom:1px solid #e9e9e9}
@@ -5079,13 +5079,13 @@ footer .sns li img{display:none}
 .bd03_box .board tr.sum th{color:rgba(0, 0, 0, .87)}
 .bd03_box .board tr.sum td{color:#ff6c00}
 
-/*ÄíÆùÇÔ*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .couponApp .tbsDlist1 + .tbsDlist1{margin-top:10px;padding-top:10px;border-top:1px solid #ccc}
 .couponApp.type2{border:1px solid #ccc;background:#fff;padding:15px}
 
 .cardBox .cardToggle .cardTxt.noApp:after{display:none}
 
-/* ¾ÛÄ«µå Áö¹®·Î±×ÀÎ ¼³Á¤ */
+/* ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .infoLoan.type4{background:#eef1f2}
 .infoLoan.type4>p>span>.tit, .infoLoan.type4 span{color:rgba(0, 0, 0, .87)}
 .infoLoan>p>span.imgFinger{background:url(https://img1.kbcard.com/cxh/ia_img/FL/bg_finger.png) left center no-repeat;background-size:70px 60px}
@@ -5099,7 +5099,7 @@ footer .sns li img{display:none}
 .advisoryArea.type2 li>label{display:block;margin-bottom:20px}
 .advisoryArea.type2 li>label:before{margin-right:0}
 
-/* ÇýÅÃÁ¶È¸ ¼öÁ¤ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ */
 .barInner ul{display:table;width:100%;table-layout:fixed}
 .barInner ul li{display:table-cell;text-align:center;height:5px;background:#ccc}
 .barInner ul li.on{background:#ffcc00}
@@ -5115,7 +5115,7 @@ footer .sns li img{display:none}
 .eventDetail.swipeInner .btnPrev:before{background-image:url('https://img1.kbcard.com/LT/cxh/kbcard_img/main/arr_ban_l_32.png')}
 .eventDetail.swipeInner .btnNext:before{background-image:url('https://img1.kbcard.com/LT/cxh/kbcard_img/main/arr_ban_r_32.png')}
 
-/*ÀÌº¥Æ® »ó¼¼*/
+/*ï¿½Ìºï¿½Æ® ï¿½ï¿½*/
 .viewWrap .viewBody.eventView{margin:0;border-bottom:none}
 .viewWrap .viewBody.eventView .viewCont{background:#fff}
 .viewWrap .viewBody.eventView .viewCont table{width:100%}
@@ -5125,7 +5125,7 @@ footer .sns li img{display:none}
 @media all and (max-width:320px){.viewWrap .viewBody.eventView .benner li a{padding-left:6.7rem !important}}
 @media all and (min-width:321px) and (max-width:400px){.viewWrap .viewBody.eventView .benner li a{padding-left:7.4rem !important}}
 
-/*ÀÌº¥Æ® ¼³Á¤*/
+/*ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½*/
 .eventStep{overflow:hidden;padding:15px 0;border-bottom:1px solid #dedede}
 .eventStep li{float:left;width:33.333%;text-align:center;text-indent:-999rem}
 .eventStep li a{display:block;width:65px;height:65px;margin:0 auto;background:url('https://img1.kbcard.com/LT/cxh/images/mblhome/sub/img_event_step.png') no-repeat;background-size:257px 148px;-webkit-background-size:257px 148px}
@@ -5161,7 +5161,7 @@ footer .sns li img{display:none}
 
 .eventSet .bgFFF{background:#fff !important}
 
-/* ÇýÅÃ¼¥ ÀÌ¹ÌÁö(ÅÇ) ÇÃ·¹Å· */
+/* ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½Ã·ï¿½Å· */
 .imgFlexslider, .imgFlexslider ul{width:100%;height:auto;overflow:hidden}  
 .imgFlexslider ul li img{width:100%}
 .imgFlexslider .flex-control-nav{text-align:center}
@@ -5170,9 +5170,9 @@ footer .sns li img{display:none}
 .imgFlexslider .flex-control-nav li a.flex-active{background:#5b5b5b} 
 
 
-/* »õ¼Ò½Ä ½ºÅ¸ÀÏ Á¤ÀÇ */
-/* default (±âº»½ºÅ¸ÀÏ ¹× ¸®´º¾óÀüÀÇ È­¸é º¸Á¤)*/
-.viewCont .viewCont{margin:0;padding:0;font-size:14px;line-height:1.5} /* »ó¼¼³»¿ª ¿µ¿ª */
+/* ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* default (ï¿½âº»ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)*/
+.viewCont .viewCont{margin:0;padding:0;font-size:14px;line-height:1.5} /* ï¿½ó¼¼³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .viewCont .viewCont p{margin-bottom:13px;color:#5b5b5b;font-size:14px;line-height:1.5}
 .viewCont .viewCont p.tit{margin-bottom:8px;color:#282828;font-size:16px;font-weight:bold;line-height:1.5}
 .viewCont .img{position:relative}
@@ -5195,8 +5195,8 @@ footer .sns li img{display:none}
 .viewCont .viewCont ul li ul{margin:5px 0 10px 10px}
 .viewCont .viewCont ul li ul li{margin-bottom:5px;background:none;font-size:13px;line-height:1.5}
 
-/* to-be ½ºÅ¸ÀÏ Á¤ÀÇ */
-/* Notice¿µ¿ª */
+/* to-be ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* Noticeï¿½ï¿½ï¿½ï¿½ */
 .viewCont .viewCont .notice{margin:0 0 10px;padding:18px 15px;border-bottom:1px solid #dedede;background:#f7f7f7}
 .viewCont .viewCont .notice p.tit{color:#282828;font-size:16px;font-weight:bold;line-height:1.5}
 .viewCont .viewCont .notice p{padding:0;margin:0;color:#5b5b5b;font-size:14px;line-height:1.4}
@@ -5232,7 +5232,7 @@ footer .sns li img{display:none}
 .viewCont .viewCont .btnWrap.mbl{display:block}
 .viewCont .viewCont .btnWrap.mbl .btn{display:inline-block;min-width:56px;margin-right:7px;padding:12px 15px 12px;border:none;border-radius:3px;background:#ffcc00;color:#282828;font-size:14px;line-height:1.0rem;font-weight:bold;text-align:center;box-shadow:1px 1px 0px #c49d00}
 .viewCont .viewCont .btnWrap.mbl .btn.cancel{display:inline-block;min-width:56px;margin-right:7px;padding:12px 15px 12px;border:none;border-radius:3px;background:#dedede;color:#282828;font-size:14px;line-height:1.0rem;font-weight:bold;text-align:center;box-shadow:1px 1px 0px #ababab}
-/* Ã·ºÎÆÄÀÏ */
+/* Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .viewCont .viewCont .attFile{margin:20px 0 -20px;border-top:1px solid #dedede}
 .viewCont .viewCont .attFile li{margin:0 10px;padding:0;border-top:1px dotted #dedede;background:none}
 .viewCont .viewCont .attFile li:first-child{border-top:none}
@@ -5250,7 +5250,7 @@ footer .sns li img{display:none}
 .eventSet dl.ykCheckList dd div.select{background:#ffcc00;box-shadow:4px 5px 0px #dedede}
 .eventSet dl.ykCheckList dd div.select:before{background:#fff url('https://img1.kbcard.com/LT/cxh/images/mblhome/common/bg_chk.png') no-repeat center center;background-size:15px}
 
-/* ÀÌº¥Æ® »ó¼¼ ´çÃ· */
+/* ï¿½Ìºï¿½Æ® ï¿½ï¿½ ï¿½ï¿½Ã· */
 .eventWinBox{margin:15px 0 10px 0;text-align:center}
 .eventWinBox img{width:185px;height:135px}
 
@@ -5258,13 +5258,13 @@ footer .sns li img{display:none}
 .eventStep li:nth-child(2) a{background-position:-94px 6px}
 .list02.payList.linkNo ul li .costInfoBox .amntWrap span{color:#5b5b5b}
 
-/* »õ¼Ò½Ä¹öÆ°°ü·Ã CSSÃß°¡ 2016.08.05 */
+/* ï¿½ï¿½ï¿½Ò½Ä¹ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ CSSï¿½ß°ï¿½ 2016.08.05 */
 .btnArea .kbBtn:last-child{margin-left:5px}
 .kbBtn{display:inline-block;background:#ffcc00;padding:10px 15px 10px;font-size:13px;font-weight:600;border-radius:3px;margin-top:5px}
 
 /***********************************************************************************************************************************************************************/
 
-/* Ä«µå»óÇ° »ó¼¼ ±¸DATA css ÀçÁ¤ÀÇ */
+/* Ä«ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ ï¿½ï¿½DATA css ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .bnfCont li .contArea p.B_rectangle.nearDepth2UL, .toggleView .vw_first_li .B_rectangle.nearDepth2UL{margin-bottom:10px;font-weight:bold;font-size:1.133rem}
 .bnfCont li .contArea .nearDepth2UL~p.B_rectangle.nearDepth2UL, .bnfCont li .contArea .B_star+.nearDepth2UL, .bnfCont li .contArea .B_star+.vw_first_li .nearDepth2UL, .toggleView .vw_first_li p~div.vw_ss_list{margin-top:23px}
 .bnfCont li .contArea .nearDepth2UL+p.B_rectangle.nearDepth2UL{margin-top:10px}
@@ -5278,17 +5278,17 @@ footer .sns li img{display:none}
 .bnfCont li .contArea .triangle2depth+.triangle3depth+.triangle3depth+.triangle3depth+.triangle3depth+.triangle3depth+.triangle3depth{margin-left:9px}
 .bnfCont li .contArea .bd02_box+ul, .bnfCont li .contArea .bd02_box+div, .toggleView .vw_first_li .bd02_box+.vw_ss_list{margin-top:10px}
 
-/*°³¹ß ÈÄ ¹®Á¦¿¡ ´ëÇÑ cssÀçÁ¤ÀÇ*/
+/*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ cssï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 #gr3_8 .inpTxt1 .addBtn{margin-top:-1px}
 
 .depTitBox:after{content:"";display:block;height:0;clear:both}
 .depTitBox .depTit2{float:left}
 .depTitBox a{float:right;margin-top:20px}
 
-/*PC Àü¿ë ¹öÆ° Á¦¾î*/
+/*PC ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½*/
 .pcBtn_area{display:none !important} 
 
-/* °áÁ¦¿¹Á¤±Ý¾× ¼öÁ¤ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .reInbox{background:#f8f9f9;padding-top:20px}
 .reInbox .topBox{border-top:0 !important;padding:0 15px 10px !important}
 .reInbox .selChoice{overflow:hidden}
@@ -5313,10 +5313,10 @@ footer .sns li img{display:none}
 
 #eccTalkLinker{border:0 !important}
 
-/*ÀÌº¥Æ® °á°ú Âü°í»çÇ×*/
+/*ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .eventWin + .contArea .tbsList1 li:last-child strong{text-align:left;widthg:100%;margin-top:10px}
 
-/* ÇýÅÃÁ¶È¸ ¼öÁ¤ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ */
 .newBenefitList{margin-top:10px}
 .newBenefitList li .btnLink, .newBenefitList li>.inner{display:table;table-layout:fixed;width:100%;box-sizing:border-box;padding:20px 15px}
 .newBenefitList li .btnLink strong, .newBenefitList li>.inner strong{display:table-cell;font-size:18px;line-height:24px;color:rgba(0, 0, 0, .87)}
@@ -5340,17 +5340,17 @@ footer .sns li img{display:none}
 .newPM>strong{word-wrap:break-word}
 .newPM>em{text-align:right}
 
-/*Àá±Ý¹øÈ£¼­ºñ½º¶õ*/
+/*ï¿½ï¿½Ý¹ï¿½È£ï¿½ï¿½ï¿½ñ½º¶ï¿½*/
 .infoBox.lockNum{text-align:left;position:relative;padding-left:97px}
 .infoBox.lockNum:before{content:"";position:absolute;left:15px;top:50%;margin-top:-30px;display:inline-block;width:62px;height:59px;background:url(https://img1.kbcard.com/cxh/ia_img/common/img_lock_num.png);background-size:62px 59px}
 
 /*btnBox btnL + btnL*/
 .btnBox > .btnL + .btnL{margin-top:30px}
 
-/*°¡·Î Ä«µå ÀÌ¹ÌÁö*/
+/*ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½*/
 .cardInfo .img > .rotate{display:block}
 
-/* Áö¿ªÀÌº¥Æ®, ¹ÝÂ¦ÀÌº¥Æ® Ãß°¡ css unityEvt Ãß°¡ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½Æ®, ï¿½ï¿½Â¦ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½ css unityEvt ï¿½ß°ï¿½ */
 .infoBox.saleViewBox strong{font-size:1.400rem !important ;line-height:1.45em}
 .unityEvt{font-size:14px}
 @media only screen and (min-width:360px){
@@ -5358,7 +5358,7 @@ footer .sns li img{display:none}
 }
 .unityEvt .depTit2{margin-bottom:4px;font-size:1.154rem;line-height:1.267em}
 
-/* ¹ÚÁø¼ö flexBox Ãß°¡ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ flexBox ï¿½ß°ï¿½ */
 .flex{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;align-items:center;-webkit-box-pack:justify;-webkit-box-align:center}
 .flex.center{-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center}
 .flex.top{-webkit-align-items:flex-start;align-items:flex-start;-webkit-box-align:start}
@@ -5372,11 +5372,11 @@ footer .sns li img{display:none}
 
 .swiperCon.appService > .js-btnPrev,.swiperCon.appService > .js-btnNext{background:none}
 
-/*ÁÖ¼Ò°Ë»ö*/
+/*ï¿½Ö¼Ò°Ë»ï¿½*/
 #pageAddrSerch{position:relative !important}
 #pageAddrSerch .fixedBArea{position:absolute !important}
 
-/*¾Ë¸®¹Ì ¼³Á¤ - ÃÖÀçÈÆ */  
+/*ï¿½Ë¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */  
 .pushSetting{padding:0 16px}  
 .pushSetting ul{margin:24px 0}  
 .pushSetting li .formWrap{position:relative;width:100%;padding-bottom:32px;text-align:center}  
@@ -5385,7 +5385,7 @@ footer .sns li img{display:none}
 .pushSetting li label{width:100%;font-size:14px;line-height:20px;color:rgba(0,0,0, .87);-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}  
 .pushSetting li label:before{position:absolute;bottom:0;left:50%;margin-left:-12px;display:block}  
 
-/* º£ÀÌÁ÷ ¾ÆÀÌÄÜ Àü¿ë ÅØ½ºÆ® */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® */
 ul.basicIcon16{padding-left:0!important;margin:0!important}
 .basicIcon16, .basicIcon16 > li{display:block;position:relative;margin-top:8px;padding-left:20px;font-size:0.933rem;line-height:1.333rem;color:rgba(0, 0, 0, .87)}
 .basicIcon16 .img{display:block;position:absolute;top:0;left:0;width:16px;height:16px;padding:2px 4px 2px 0}
@@ -5399,7 +5399,7 @@ ul.basicIcon24{padding:0!important;margin:0!important}
 .basicIcon24 a{font-size:1.067rem;text-decoration:underline}
 .ios .basicIcon24, .ios .basicIcon24 > li{padding:3px 0 1px 32px}
 
-/* ÀÌ¸ÞÀÏ »ó´ã */
+/* ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 .adviceTit{position:relative;margin:24px 0;padding-right:56px}
 .adviceTit h2{overflow:hidden;font-size:18px;line-height:24px}
 .adviceTit h2 b{display:inline-block;width:25px}
@@ -5426,7 +5426,7 @@ ul.basicIcon24{padding:0!important;margin:0!important}
 .textbyte{margin-top:4px;color:rgba(0, 0, 0, .47);font-size:12px;line-height:16px;text-align:right;transition:all 400ms ease-out}
 .textbyte .fc5{opacity:.87}
 
-/* ¸ð¹ÙÀÏ Ä«µåÁ¤º¸ Á¶È¸ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ */
 .mobilecardInfo{-webkit-perspective:600px;perspective:600px}
 .mobilecardInfo .card{position:relative;width:240px;height:152px;margin:40px auto 0;-webkit-transform:rotateY(0);transform:rotateY(0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;transition:all 500ms ease-out}
 .mobilecardInfo .card.flip{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}
@@ -5448,7 +5448,7 @@ ul.basicIcon24{padding:0!important;margin:0!important}
 .ios .mobilecardInfo button img{margin-top:-1px}
 .ios .mobilecardInfo .back .cvc{line-height:26px}
 
-/* µµ³­ºÐ½Çº¸»ó½ÅÃ» */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½Ð½Çºï¿½ï¿½ï¿½ï¿½Ã» */
 .billingArea{margin-top:32px}
 .billingArea .totalInfo{margin-top:0px;padding:0 16px 16px}
 .billingArea .totalInfo .totalCnt{font-size:0.933rem !important;line-height:1.429em}
@@ -5459,7 +5459,7 @@ ul.basicIcon24{padding:0!important;margin:0!important}
 .billingArea .moreBtn a{background:none;border-top:1px solid #ccc}
 .ios .billingArea .allCheck label:before{margin-top:-14px}
 
-/* ¾ÛÄ«µå ¿ÀÇÁ¶óÀÎ °¡¸ÍÁ¡ */    
+/* ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */    
 .offline{position:relative;padding:32px 0;background-color:#fff}    
 .offline:after, .online:after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background-color:#d8d8d8}    
 .offline img{width:100%;height:auto}    
@@ -5472,7 +5472,7 @@ ul.basicIcon24{padding:0!important;margin:0!important}
 .online h3{margin:0 0 24px 0;font-size:18px;line-height:24px;letter-spacing:-0.2px;color:rgba(0,0,0 .87);text-align:center}    
 .offline .tabCont, .online .tabCont{margin:16px -16px 0}
 
-/* PUSH¼ö½Åµ¿ÀÇ ÆË¾÷ */
+/* PUSHï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ */
 .pushPop{padding-top:8px}
 .pushPop h3{margin-bottom:40px;text-align:center}
 .pushPop .txt{margin-bottom:24px;padding:0 16px}
@@ -5481,12 +5481,12 @@ ul.basicIcon24{padding:0!important;margin:0!important}
 .pushPop .btnL{-webkit-border-radius:0;border-radius:0;-webkit-box-flex:2;-webkit-flex:2;flex:2}
 .pushPop .btnL.btnWgray{-webkit-box-flex:1;-webkit-flex:1;flex:1}
 
-/* ·Î±×ÀÎ ¸®´º¾ó */
-/*ÆÐ½º¿öµå ¹öÆ°*/
+/* ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/*ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°*/
 button.passCircle{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/common/img/login/img_oval_off.png) repeat-x 0 0;background-size:32px 16px}
 button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/common/img/login/img_oval_on.png) repeat-x 0 0;background-size:32px 16px}
 
-/*·Î±×ÀÎ ¿µ¿ª*/
+/*ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 .loginArea.new2017{padding:72px 32px 72px}
 .loginArea.new2017 .loginCon{position:relative;padding-bottom:0px}
 .loginArea.new2017 .loginCon .fullInp input{border:none;padding:0}
@@ -5503,7 +5503,7 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
     100%{top:8px;margin-tcjhoop:0;font-size:12px;line-height:16px}
 }
 
-/*ÇÏ´Ü ¹öÆ°¿µ¿ª*/
+/*ï¿½Ï´ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½*/
 .quickLink.new2017{position:absolute;left:0;bottom:32px;width:100%;text-align:center}
 .quickLink.new2017 a{display:inline-block;float:none;width:auto;padding:0px;margin:0;font-size:14px;line-height:20px;color:rgba(0,0,0, .47);text-decoration:underline}
 .quickLink.new2017 a:first-child{position:relative}
@@ -5511,16 +5511,16 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .quickLink.new2017 a:last-child{margin-left:8px}
 .quickLink.new2017.one a:after{display:none}
 
-/*°øÀÎÀÎÁõ*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .loginArea.new2017 .loginCon.gongin>img{display:block;width:216px;height:216px;margin:8px auto 0 auto}
-/*±Â ÅÍÄ¡*/
+/*ï¿½ï¿½ ï¿½ï¿½Ä¡*/
 .loginArea.new2017 .loginCon.goodTouch>img{display:block;width:216px;height:216px;margin:40px auto 0 auto}
 .loginArea.new2017 .loginCon.goodTouch img.card{width:160px;height:100px}
 .loginArea.new2017 .loginCon.goodTouch{padding-top:0px;text-align:center}
 .loginArea.new2017 .loginCon.goodTouch button{position:relative;width:112px;height:16px;margin-top:48px}
 .loginArea.new2017 .loginCon.goodTouch button:after{content:'';position:absolute;top:-16px;left:-16px;bottom:-16px;right:-16px}
 
-/* Áö¹®ÀÎÁõ*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .contArea.fingerPrt2{padding:0 24px}
 .fingerPrt2 button{display:block;width:120px;height:120px;margin:56px auto 56px auto;background:transparent}
 .fingerPrt2 button.fingerBtn{position:relative;width:120px;height:120px;
@@ -5539,18 +5539,18 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
     .fingerPrt2 p{margin-top:56px}
 }
 
-/*Àá±Ý¹øÈ£*/
+/*ï¿½ï¿½Ý¹ï¿½È£*/
 .contArea.jamPass{margin-top:120px;padding:0 24px;text-align:center}
 .contArea.jamPass p{font-size:16px;line-height:24px;letter-spacing:-0.2px;color:rgba(0,0,0,.6)}
 .contArea.jamPass button{position:relative;width:176px;height:16px;margin:48px 0 24px}
 .contArea.jamPass button:after{content:'';position:absolute;top:-16px;left:-16px;bottom:-16px;right:-16px}
 
-/* ½ºÅ©·Ñ ¿µ¿ª */
+/* ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .scrollArea{padding-right:8px;overflow-y:scroll;-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;box-sizing:border-box}
 .scrollArea::-webkit-scrollbar{width:4px}
 .scrollArea::-webkit-scrollbar-thumb{border-radius:3px;background-color:rgba(0, 0, 0, .16)}
 
-/* ÀüÃ¼¸Þ´º ¸®´º¾ó */
+/* ï¿½ï¿½Ã¼ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 /*top*/
 .layerWrap.totalMenuRE .popTop{display:block;height:auto;position:relative!important;padding:0;border-bottom:none;background:linear-gradient(to left, #313135, #6f6f77);-webkit-box-sizing:border-box;box-sizing:border-box}
 .layerWrap.totalMenuRE .popTop.vip{background:linear-gradient(to left, #1b1e27, #404d70)}
@@ -5653,7 +5653,7 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
     .layerWrap.totalMenuRE .popCont .gnbDep2 .depth2{margin-bottom:18px}
 }
 
-/* ÆêÄÚ³ë¹Ì ¼­ºñ½º */
+/* ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .petRecommend{display:block;margin:0 -16px;padding:24px 50px !important ;background-color:#fff}
 .petRecommend li{text-align:center}
 .petRecommend li strong{display:block;margin-bottom:16px}
@@ -5661,7 +5661,7 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .petRecommend li a span{position:relative;display:inline-block;text-align:right;padding-right:28px;font-size:16px;line-height:24px;color:rgba(0,0,0,.87)}
 .petRecommend li a span:after{content:'';position:absolute;top:0;right:0;width:24px;height:24px;display:block;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/arr/arr_r_24_000.png') no-repeat 100% 50%;background-size:24px 24px}
 
-/* KB ½ºÅ¸Å¬·´ */
+/* KB ï¿½ï¿½Å¸Å¬ï¿½ï¿½ */
 .img_kbClub{display:block;width:100%;max-width:327px;height:222px;margin:32px auto 0 auto}
 .kbClub_lvl{margin-top:16px}
 .kbClub_lvl>li{position:relative;margin-bottom:32px}
@@ -5681,7 +5681,7 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .maestro:before{content:'';position:absolute;top:50%;left:50%;width:40px;height:1px;margin-left:-20px;background-color:#2daccc}
 .maestro:after{content:'';position:absolute;top:50%;left:50%;width:7px;height:7px;margin:-4px 0 0 10px;border-width:1px;border-style:solid;border-color:#2daccc #2daccc transparent transparent;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
 
-/* Ä«µå»ç¿ë ¾È½É¼­ºñ½º */
+/* Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½È½É¼ï¿½ï¿½ï¿½ */
 .tagSum{overflow:hidden}
 .tagSum span, .tagSum .add{float:left;display:inline-block;position:relative;margin:0 16px 16px 0;padding:6px 34px 6px 10px;background-color:#6b7079;-webkit-border-radius:3px;border-radius:3px;font-size:14px;line-height:20px;color:#fff;vertical-align:top}
 .tagSum span a{overflow:hidden;display:block;position:absolute;top:0;right:0;width:32px;height:32px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_close_24_fff.png') no-repeat center;background-size:24px;font-size:1px;color:transparent}
@@ -5692,9 +5692,9 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .selList{overflow:hidden;margin:-4px}
 .selList li{float:left;display:table;width:33.3%;padding:4px;-webkit-box-sizing:border-box;box-sizing:border-box}
 .selList li button{display:table-cell;width:100%;height:40px;border:1px solid rgba(0, 0, 0, .16);background-color:#fff;text-align:center;font-size:14px;line-height:20px}
-.selList li button[title="¼±ÅÃµÊ"]{border:2px solid #fc0}
+.selList li button[title="ï¿½ï¿½ï¿½Ãµï¿½"]{border:2px solid #fc0}
 
-/* ¿¬È¸ºñ ¸®½ºÆ® Ãß°¡ */
+/* ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½ */
 .yearPayList{margin:-10px -16px 0 0}
 .yearPayList > li{overflow:hidden;position:relative;padding:12px 0 12px 72px!important;border-bottom:1px solid rgba(0,0,0, .16);-webkit-box-sizing:border-box;box-sizing:border-box}
 .yearPayList > li:last-child{border-bottom:0}
@@ -5706,7 +5706,7 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .yearPayList strong{font-size:14px;line-height:24px;float:left;width:50%;font-weight:bold}
 .yearPayList em{font-size:14px;line-height:24px;float:right;width:40%;padding:0 24px 0 0;text-align:right}
 
-/* ´Ü±âÄ«µå´ëÃâ ¸®´º¾ó Ãß°¡ */
+/* ï¿½Ü±ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ */
 .infoTit2_wrap{margin-top:70px;overflow:hidden}
 .infoTit2_wrap .depTit2, .infoTit2_wrap .depTit3{margin:0;display:inline-block;vertical-align:middle}
 .infoTit2_wrap .infoTxt2{margin-left:10px;display:inline-block;padding:padd0 5px;border:#01a0c7 solid 1px;border-radius:100px;color:#01a0c7;font-size:0.933rem !important;vertical-align:middle}
@@ -5726,11 +5726,11 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .infoExp2_wrap .infoTxt2 .through{opacity:0.6;padding-right:0}
 .infoExp2_wrap .infoTxt2 .qInfoBtn{width:18px;height:18px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_info_24_000.png') no-repeat left center;background-size:18px;opacity:1;margin-left:5px;margin-top:2px}
 
-/* ÅëÇÕ Á¶È¸ ¸®½ºÆ® */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½Æ® */
 .service_logo ul li img{width:auto;height:16px;vertical-align:sub}
 .service_logo ul li img.last{height:17.5px}
 
-/* ÅëÇÕ Á¶È¸ »ó¼¼ */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ */
 .combineArea{margin:32px 0 0}
 .combineArea .totalCnt{overflow:hidden;margin:0 0 16px 0}
 .combineArea .totalCnt .depTit3, .combineArea .totalCnt .tit{float:left;margin:0;font-size:1.06rem;line-height:1.5em}
@@ -5765,13 +5765,13 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .combineArea .subInfo.colType .label{float:left}
 .combineArea .subInfo.colType .info{float:right;text-align:right}
 
-/* Ä«µåÃßÃµÇÏ±â °í°´¿ë »ó´Ü */
+/* Ä«ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 .eventBox{padding:43px 0 40px;background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/common/img/bg_favorCard.png) no-repeat center top;background-size:cover;text-align:center}
 .eventBox .title{width:206px;height:auto}
 .eventBox .desc{margin:14px 0;color:#fff}
 .eventBox .btn{display:inline-block;padding:0 16px;margin:0 3px;line-height:35px;border:1px solid #fff;border-radius:18px;color:#fff}
 
-/* Scene ¸ð´ÏÅÍ¸µ */
+/* Scene ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ */
 .swiperCon.attachImg .swiper li{position: relative;display: flex;justify-content: center;align-items: center;border: 1px solid rgba(0, 0, 0, .1);overflow: hidden;height: 175px !important;box-sizing: border-box}
 .swiperCon.attachImg .swiper li a img{max-width:100%;max-height:100%}
 .swiperCon.attachImg .swiper li .btnDel{position: absolute;right: 10px;top: 10px;width: 24px;height: 24px;background:rgba(256, 256, 256, .5) url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_close_24_000.png') no-repeat 50% 50%;background-size: 24px auto;color: transparent}
@@ -5782,13 +5782,13 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .inputGroup button{font-size:0;float:right;overflow:hidden;width:24px;height:24px;text-indent:-2000px;background-color:#fff;text-align:center}
 .inputGroup button::before{content:'';display:block;width:14px;height:14px;margin:0 auto;background:#fff url(https://img1.kbcard.com/cxh/ia_img/common/ico_search.png) no-repeat 0 100%;background-size:auto 14px}
 
-/* ¼±ºÒÄ«µå °ü¸® - ÅØ½ºÆ®Çü ¿¡·¯ */
+/* ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ø½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .errorBox{padding:32px 0 16px 0}
 .errorBox .txtInfo{margin-top:0;font-size:16px;line-height:1.5;font-weight:600}
 .errorBox .txtInfo:before{top:1px}
 .errorBox dd{padding-top:4px;font-size:0.9333rem;color:rgba(0, 0, 0, 0.6);line-height:1.43}
 
-/* ¼±ºÒÄ«µå ÀÌ¿ë³»¿ª Á¶È¸ */
+/* ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½Ì¿ë³»ï¿½ï¿½ ï¿½ï¿½È¸ */
 .paymentInquiry .date{margin-right:0}
 .paymentInquiry .cardBox{margin-top:16px}
 .paymentInquiry .cardBox .cardTxt{padding:0;border:0}
@@ -5813,7 +5813,7 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .paymentInquiry .historyList.type2 li{padding:16px}
 .paymentInquiry .historyList.type2 li .usage .tit{font-size:16px;line-height:1.5}
 
-/* ½Å¼Ó¹ß±Þ Ãß°¡*/
+/* ï¿½Å¼Ó¹ß±ï¿½ ï¿½ß°ï¿½*/
 .quickIssuBtn{position:fixed;right:16px;bottom:24px;width:56px;height:56px;border-radius:50%;background-color:#f2513d;z-index:10;background-image:url("https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/32/ico_quickIssuBtn_32.png");background-repeat:no-repeat;background-position:50% 50%;background-size:32px 32px;box-shadow:0 1px 10px 0 rgba(0,0,0,0.16);}
 .quickIssuBtn span{overflow:hidden;position:absolute;display:block;top:0;right:-10px;width:1px;height:1px;}
 
@@ -5823,10 +5823,10 @@ button.passCircle.on{background:url(https://img1.kbcard.com/LT/cxh/kbcard_img/co
 .quickIssuList>li>.thum{width:75px;}
 .quickIssuList>li>.thum img{width:64px;height:64px;}
 
-/* °í°´¼¾ÅÍ ¸ð¹ÙÀÏ ±ÝÀ¶¾à°ü */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .termsTxt {padding:32px 16px 8px 16px;}
 
-/*talkback ¸®½ºÆ® ÀÌÀü ´ÙÀ½ ¹öÆ° - Á¢±Ù¼º Àü¿ë*/
+/*talkback ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° - ï¿½ï¿½ï¿½Ù¼ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 .js-btnPrev,.js-btnNext{position:absolute;top:0;width:16px;height:100%;color:transparent;background:#fff;overflow:hidden}
 .js-btnPrev:before,.js-btnNext:before{content:'';display:block;position:absolute;top:50%;margin-top:-4px;border:1px solid transparent;border-width:5px 7px}
 .js-btnPrev{left:0}
