@@ -4,7 +4,7 @@
  "SERVICE_URL" : "",
  "DATA" : [
      {
-        "MSG_ID" : "",
+         "MSG_ID" : "",
          "TITLE" : "",
          "MSG" : "메시지 입니다.",
          "EXT" : [],

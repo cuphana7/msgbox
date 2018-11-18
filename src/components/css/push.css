@@ -103,7 +103,9 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .pushDelete button:disabled span, .pushDelete button:disabled:before{opacity:.6}
 .ios .pushDelete button span{margin-top:2px}
 
-.pushList{padding-left:48px;font-size:14px;line-height:20px;height:auto;overflow-y: scroll;}
+.pushWrap{overflow-y: scroll;height:900px;}
+
+.pushList{padding-left:48px;font-size:14px;line-height:20px;height:auto;}
 .pushList li{position:relative;padding:16px 16px 32px 0;border-bottom:1px solid rgba(0,0,0,.16)}
 .pushList li:before{content:'';position:absolute;top:16px;left:-32px;width:24px;height:24px;background-size:24px}
 .pushList li .tit{display:block;margin-bottom:4px;font-size:16px;line-height:24px}
