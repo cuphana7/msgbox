@@ -1,29 +1,41 @@
 import React, { Component } from 'react';
 import '../css/push.css';
+// use default loading spinners
+import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js'
 
-class PushList extends Component {
+export default class PushList extends ReactRefreshInfiniteTableView  {
 
+    constructor(props) {
+        super(props)
+    }
+
+    /*
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.todos !== nextProps.todos;
     }
+    */
 
     render() {
+        var cells = this.props.dataSource.map(function(item, index) {
+            return <li key={index}>
+                <strong className="tit">알파원카드 알림</strong>
+                <span className="date">18.08.29 | 18:26:32</span>
+
+                <div className="cont">
+                        {item}
+                </div>
+
+                <div className="select">
+                    <label htmlFor="sel1_1">해당 알림 삭제하기</label>
+                    <input type="checkbox" id="sel1_1" name="" className="inp1" />
+                </div>
+            </li>
+        })
 
         return (
-            <ul className="pushList payment">
-                <li>
-                    <strong className="tit">알파원카드 알림</strong>
-                    <span className="date">18.08.29 | 18:26:32</span>
-
-                    <div className="cont">
-                        올리브영 광화문점(#뷰티) 12,300원<br />사용카드는 KB국민 FineTech카드입니다.
-							</div>
-
-                    <div className="select">
-                        <label htmlFor="sel1_1">해당 알림 삭제하기</label>
-                        <input type="checkbox" id="sel1_1" name="" className="inp1" />
-                    </div>
-                </li>
+            <ul className="pushList payment" onScroll={this.viewDidScroll}>
+                {cells}
+                {/* 
                 <li>
                     <span className="date">18.08.29 | 18:26:32</span>
 
@@ -62,9 +74,8 @@ class PushList extends Component {
                         <input type="checkbox" id="sel1_3" name="" className="inp1" />
                     </div>
                 </li>
+                 */}
             </ul>
         );
     }
 }
-
-export default PushList;

@@ -8,16 +8,20 @@ import PushEvent from './components/js/PushEvent';
 
 class App extends Component {
 
-  id = 3 // 이미 0,1,2 가 존재하므로 3으로 설정
+  constructor(props) {
+    super(props)
+    var data1 = this.initData();
+    
+    this.state = {
+        input: '',
+        data1:data1
+    }
 
-  state = {
-    input: '',
-    todos: [
-      { id: 0, text: '리액트 소개', checked: false },
-      { id: 1, text: 'JSX 사용해보기', checked: true },
-      { id: 2, text: '라이프 사이클 이해하기', checked: false },
-    ]
+    this.handleScrollToTop1 = this.handleScrollToTop1.bind(this)
+    this.handleScrollToBottom1 = this.handleScrollToBottom1.bind(this)
   }
+
+ 
 
   render() {
     
@@ -30,12 +34,65 @@ class App extends Component {
           {/* 삭제 레이어 */}
           <PushDelete />
           {/* 목록 */}
-          <PushList />
+          <PushList dataSource={this.state.data1}
+            onScrollToTop={this.handleScrollToTop1}
+            onScrollToBottom={this.handleScrollToBottom1}
+            />
           {/* 이벤트 레이어 */}
           <PushEvent />
       </MsgBoxTemplate>
     );
   }
+
+
+  handleScrollToTop1(completed) {
+    var th = this;
+    this.setState({data1: []});
+    // refresh
+    setTimeout(function() {
+      var data = this.initData()
+      console.log(data)
+
+      // completed is a callback to tell infinite table to hide loading indicator
+      // must invcke completed before setState
+      completed()
+      this.setState({data1: data})
+
+    }.bind(this), 100)
+  }
+
+  handleScrollToBottom1(completed) {
+    // load more
+    setTimeout(function() {
+      var newData = this.moreData(this.state.data1)
+      console.log(newData)
+
+      completed()
+      this.setState({data1: newData})
+
+    }.bind(this), 200)
+  }
+
+ 
+
+  moreData(oldData) {
+    var newData = Object.assign([], oldData)
+    var base = newData[newData.length-1]
+    for (var i=base+1; i<=base+20; i++) {
+      newData.push(i)
+    }
+    return newData
+  }
+
+  initData() {
+    var data = []
+    for (var i=0; i<20; i++) {
+      data.push(i)
+    }
+    return data
+  }
+
+
 }
 
 export default App;
