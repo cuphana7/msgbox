@@ -15,16 +15,62 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
     }
     */
 
+   renderSwitch(param) {
+    switch(param) {
+        case '1':
+        return 'payment';
+        case '2':
+        return 'event';
+        case '3':
+        return 'info';
+        case '4':
+        return 'notice';
+        default:
+        return 'payment';
+        }
+    }
+
     render() {
+
+        var renderSwitch = this.renderSwitch;
         var cells = (this.props.dataSource)?this.props.dataSource.map(function(item, index) {
-            return <ul className="pushList payment" key={index}>
+            
+            function temperatureClassname(temp){
+                const prefix = 'pushList '
+              
+                switch (temp) {
+                  case '1': return prefix + 'payment'
+                  case '2': return prefix + 'event'
+                  case '3': return prefix + 'info'
+                  case '4': return prefix + 'notice'
+                }
+            }
+
+            return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                 <li>
-                    <strong className="tit">알파원카드 알림</strong>
-                    <span className="date">18.08.29 | 18:26:32</span>
+                    <strong className="tit">{item.TITLE}</strong>
+                    <span className="date">{item.DATE}</span>
+
+                   
+                    {item.EXT.length>0 ? 
+                        <span className="banner">
+                            <img src={item.EXT[0]} />
+                        </span>
+                    :""}
 
                     <div className="cont">
-                            {item.MSG}
+                        <p>
+                        {item.MSG}
+                        </p>
                     </div>
+
+                    {(item.MSG.match(/<br\/>/g) || []).length > 3?
+                        <div className="btnToggle"><a href="#kbcard" className="toggleUI" ><span>이벤트 내용 펼쳐짐</span></a></div>    
+                    :""}
+
+                    {item.EXT.length == 4 ? 
+                    <div className="eventBtn"><a href={item.EXT[3]} className="btnL btnWhite">자세히보기</a></div>
+                    :""}
 
                     <div className="select">
                         <label htmlFor="sel1_1">해당 알림 삭제하기</label>

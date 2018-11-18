@@ -10,6 +10,51 @@
          "EXT" : [],
          "CATEGORY_CODE" : "1",
          "ICON_IMG" : "",
+         "DATE" : "18.08.29 | 18:26:32"
+     },
+     {
+        "MSG_ID" : "",
+         "TITLE" : "",
+         "MSG" : "메시지 입니다.",
+         "EXT" : ["./files/@img_push_sample.png","image2","image3","http://m.naver.com"],
+         "CATEGORY_CODE" : "2",
+         "ICON_IMG" : "",
+         "DATE" : "18.08.29 | 18:26:32"
+     },
+     {
+        "MSG_ID" : "",
+         "TITLE" : "",
+         "MSG" : "메시지 입니다1.<br/>메시지<br/> 입니다2.<br/>메시지 입니다3.<br/>메시지 입니다4.<br/>메시지 입니다3.<br/>메시지 입니다4.<br/>메시지 입니다3.<br/>메시지 입니다4.<br/>메시지 입니다3.<br/>메시지 입니다4.<br/>메시지 입니다3.<br/>메시지 입니다4.",
+         "EXT" : [],
+         "CATEGORY_CODE" : "3",
+         "ICON_IMG" : "",
+         "DATE" : "18.08.29 | 18:26:32"
+     },
+     {
+        "MSG_ID" : "",
+         "TITLE" : "",
+         "MSG" : "메시지 입니다.",
+         "EXT" : [],
+         "CATEGORY_CODE" : "4",
+         "ICON_IMG" : "",
+         "DATE" : ""
+     },
+     {
+        "MSG_ID" : "",
+         "TITLE" : "알파원카드 알림",
+         "MSG" : "메시지 입니다.",
+         "EXT" : [],
+         "CATEGORY_CODE" : "1",
+         "ICON_IMG" : "",
+         "DATE" : ""
+     },
+     {
+        "MSG_ID" : "",
+         "TITLE" : "",
+         "MSG" : "메시지 입니다.",
+         "EXT" : [],
+         "CATEGORY_CODE" : "2",
+         "ICON_IMG" : "",
          "DATE" : ""
      },
      {
@@ -32,55 +77,10 @@
      },
      {
         "MSG_ID" : "",
-         "TITLE" : "",
+         "TITLE" : "알파원카드 알림",
          "MSG" : "메시지 입니다.",
          "EXT" : [],
-         "CATEGORY_CODE" : "4",
-         "ICON_IMG" : "",
-         "DATE" : ""
-     },
-     {
-        "MSG_ID" : "",
-         "TITLE" : "",
-         "MSG" : "메시지 입니다.",
-         "EXT" : [],
-         "CATEGORY_CODE" : "",
-         "ICON_IMG" : "",
-         "DATE" : ""
-     },
-     {
-        "MSG_ID" : "",
-         "TITLE" : "",
-         "MSG" : "메시지 입니다.",
-         "EXT" : [],
-         "CATEGORY_CODE" : "",
-         "ICON_IMG" : "",
-         "DATE" : ""
-     },
-     {
-        "MSG_ID" : "",
-         "TITLE" : "",
-         "MSG" : "메시지 입니다.",
-         "EXT" : [],
-         "CATEGORY_CODE" : "",
-         "ICON_IMG" : "",
-         "DATE" : ""
-     },
-     {
-        "MSG_ID" : "",
-         "TITLE" : "",
-         "MSG" : "메시지 입니다.",
-         "EXT" : [],
-         "CATEGORY_CODE" : "",
-         "ICON_IMG" : "",
-         "DATE" : ""
-     },
-     {
-        "MSG_ID" : "",
-         "TITLE" : "",
-         "MSG" : "메시지 입니다.",
-         "EXT" : [],
-         "CATEGORY_CODE" : "",
+         "CATEGORY_CODE" : "1",
          "ICON_IMG" : "",
          "DATE" : ""
      }

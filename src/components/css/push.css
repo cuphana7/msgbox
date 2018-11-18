@@ -207,3 +207,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 }
 .pushRadioSel li .num{position:absolute;top:-4px;right:0;display:block;width:18px;height:18px;-webkit-border-radius:9px;border-radius:9px;background-color:#f76900;color:#fff;text-align:center;font-size:12px;line-height:18px}
 .ios .pushRadioSel li .num{line-height:20px}
+.btnL, .btnM{display:block;width:100%;-webkit-border-radius:3px;border-radius:3px;background:#fc0;color:rgba(0, 0, 0, .87);font-size:1.071rem;text-align:center;vertical-align:middle;box-sizing:border-box}
+.btnWhite{background:#fff !important;border:1px solid #bbb !important}
+.ios .btnL{line-height:50px}
+.btnL{height:48px;line-height:48px}
