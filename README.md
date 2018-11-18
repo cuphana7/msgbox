@@ -2,11 +2,13 @@
 com.kbcard.kbkookmincard
 
 # axios 통신 방법
+<pre>
 <code>
 axios.get('/user?id=velopert')
     .then( response => { console.log(response); } ) // SUCCESS
     .catch( response => { console.log(response); } ); // ERROR
 </code>
+</pre>
 axios.get('/user', {
         params: { id: 'velopert' }
     })
