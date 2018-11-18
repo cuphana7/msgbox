@@ -7,24 +7,29 @@ import PushList from './components/js/PushList';
 import PushEvent from './components/js/PushEvent';
 import axios from 'axios';
 
-const API = {
-  "auth_key" : "/sample-data/messages-req.json",
-  "url_auth" : "/sample-data/authentication-res.json",
-  "url_messages" : "/sample-data/messages-res.json"
-};
-
 class App extends Component {
 
   
   constructor(props) {
     super(props)
     var data1 = [];
-
     this.state = {
       api: {
-        "auth_key" : "/sample-data/messages-req.json",
-        "url_auth" : "/sample-data/messages-req.json",
+        "auth_key" : "",
+        "url_auth" : "/sample-data/messages-res.json",
         "url_messages" : "/sample-data/messages-res.json"
+      },
+      authReq : {
+        "APP_ID" : "com.kbcard.kbkookmincard",
+        "USER_ID" : "111111111",
+        "DEVICE_ID" : ""
+      },
+      messagesReq : {
+        "APP_ID" : "com.kbcard.kbkookmincard",
+        "USER_ID" : "111111111",
+        "PAGE" : 1,
+        "AUTHKEY" : "",
+        "CATEGORY" : ""
       },
       data1: data1
     }
@@ -35,7 +40,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.reqMessages(null);
+    this.reqMessages(this.state.messagesReq, this.state.data1);
   }
 
 
@@ -54,6 +59,8 @@ class App extends Component {
         <PushList dataSource={this.state.data1}
           onScrollToTop={this.handleScrollToTop1}
           onScrollToBottom={this.handleScrollToBottom1}
+          reqData={this.reqMessages}
+          checkAuth={this.checkAuth}
         />
         {/* 이벤트 레이어 */}
         <PushEvent />
@@ -63,76 +70,33 @@ class App extends Component {
 
 
   handleScrollToTop1(completed) {
+    this.state.data1 = [];
     this.reqMessages();
     completed();
-    /*
-    // refresh
-    setTimeout(function () {
-      var data = this.reqMessages()
-      console.log(data)
-
-      // completed is a callback to tell infinite table to hide loading indicator
-      // must invcke completed before setState
-      completed()
-      this.setState({ data1: data })
-
-    }.bind(this), 100)
-    */
   }
 
   handleScrollToBottom1(completed) {
-    // load more
-    setTimeout(function () {
-      var newData = this.moreData(this.state.data1)
-      console.log(newData)
-
-      completed()
-      this.setState({ data1: newData })
-
-    }.bind(this), 200)
-  }
-
-
-
-  moreData(oldData) {
-    var newData = Object.assign([], oldData)
-    for (var i = 0; i <= 20; i++) {
-      newData.push({
-        "MSG_ID" : "",
-         "TITLE" : "",
-         "MSG" : "메시지 입니다.",
-         "EXT" : [],
-         "CATEGORY_CODE" : "",
-         "ICON_IMG" : "",
-         "DATE" : ""
-     })
-    }
-    return newData
-  }
-
-  initData() {
-    var data = []
-    for (var i = 0; i < 20; i++) {
-      data.push(i)
-    }
-    return data
+    this.state.messagesReq.PAGE = this.state.messagesReq.PAGE+1;
+    this.reqMessages(this.state.messagesReq, this.state.data1);
+    completed();
   }
 
   checkAuth () {
-    return axios.get("/sample-data/authentication-res.json",
-    {params:{dd:"dd"}}
+    var self = this;
+    return axios.get(this.state.api.url_auth,
+    {params:this.state.authReq}
     )
     .then((response) => {
         console.log('2. server response:' + response.data.DATA.AUTHKEY);
     });
   }
 
-  reqMessages(reqJson) {
+  reqMessages(reqJson, argData1) {
+    var self = this;
     this.checkAuth().then((returnVal) => {
-      axios.get("/sample-data/messages-res.json").then(response => {
+      axios.get(self.state.api.url_messages, {params:reqJson}).then(response => {
         console.log(response.data);
-        //this.completed();
-        this.setState({ data1: response.data.DATA });
+        self.setState({ data1: self.state.data1.concat(response.data.DATA) });
       });
    }).catch(err => console.log("Axios err: ", err))
     
