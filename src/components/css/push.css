@@ -103,7 +103,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .pushDelete button:disabled span, .pushDelete button:disabled:before{opacity:.6}
 .ios .pushDelete button span{margin-top:2px}
 
-.pushList{padding-left:48px;font-size:14px;line-height:20px;height: 531px;overflow-y: scroll;}
+.pushList{padding-left:48px;font-size:14px;line-height:20px;height:auto;overflow-y: scroll;}
 .pushList li{position:relative;padding:16px 16px 32px 0;border-bottom:1px solid rgba(0,0,0,.16)}
 .pushList li:before{content:'';position:absolute;top:16px;left:-32px;width:24px;height:24px;background-size:24px}
 .pushList li .tit{display:block;margin-bottom:4px;font-size:16px;line-height:24px}
@@ -194,15 +194,6 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .inp1:after{width: 12px; top: 11px; right: 4px; transform: rotate(-46deg)}*/
 
 .fc8{color:#f35b42 !important}/*붉은색 - 혜택 사용 */
-input.toggle{position:relative;border:none;width:40px;height:24px;background:#fff;opacity:1;-webkit-appearance:none}
-input.toggle:before{content:'';display:block;width:34px;height:14px;margin:5px auto;-webkit-border-radius:7px;border-radius:7px;background-color:rgba(0, 0, 0, .26);opacity:.5;transition:all 300ms}
-input.toggle:after{content:'';display:block;position:absolute;top:2px;left:0;width:20px;height:20px;-webkit-border-radius:10px;border-radius:10px;background-color:#f1f1f1;-webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .24), 0 0 1px rgba(0, 0, 0, .12);box-shadow:0 1px 1px rgba(0, 0, 0, .24), 0 0 1px rgba(0, 0, 0, .12);-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0);transition:all 300ms}
-input.toggle:checked:before{background:#7f6ee3}
-input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px, 0, 0);transform:translate3d(20px, 0, 0)}
-
-
-.pushArea.delete .pushRadioSel{margin-top:-47px}
-.pushArea.delete .pushList li .select{display:block}
 
 .pushRadioSel{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-box-pack:justify;padding:16px 12px;transition: margin 300ms ease-in;}
 .pushRadioSel li{position:relative;-webkit-box-flex:1;-webkit-flex:1;flex:1;padding:0 4px}
