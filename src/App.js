@@ -98,7 +98,15 @@ class App extends Component {
     var newData = Object.assign([], oldData)
     var base = newData[newData.length - 1]
     for (var i = base + 1; i <= base + 20; i++) {
-      newData.push(i)
+      newData.push({
+        "MSG_ID" : "",
+         "TITLE" : "",
+         "MSG" : "메시지 입니다.",
+         "EXT" : [],
+         "CATEGORY_CODE" : "",
+         "ICON_IMG" : "",
+         "DATE" : ""
+     })
     }
     return newData
   }
