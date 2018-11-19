@@ -57,17 +57,19 @@
         script.src = url;
         document.getElementsByTagName('head')[0].appendChild(script);
       }
-      
+      /*
       console.log("start load script call");
       //if (userAgentCheck() == "I") loadScript("https://mobileapps.kbcard.com:15000/cxh/js/mblhomeIa/pfrmImprv/cordova/ios/cordova.min.js", function(){ console.log("/cxh/js/mblhomeIa/cordova/ios/cordova.js load ok! "); });
       //else if (userAgentCheck() == "A") {
         //loadScript("https://mobileapps.kbcard.com:15000/cxh/js/mblhomeIa/cordova/android/cordova.js", function(){ console.log("https://mobileapps.kbcard.com:15000/cxh/js/mblhomeIa/cordova/android/cordova.js load ok! "); });
         //loadScript("https://mobileapps.kbcard.com:15000/cxh/js/mblhomeIa/pfrmImprv/cordova/android/cordova.min.js", function(){ console.log("/cxh/js/mblhomeIa/pfrmImprv/cordova/android/cordova.min.js load ok! "); });
       //} 
+      */
       console.log("end load script call");
-      kbmobile.push.
+      
 
     $(document).ready(function() {
+      kbmobile.push.requestPushAlime(function(){alert(2);});
         //푸시 리스트 토글 UI
         $('.pushList .toggleUI').on('click',function(e) {
           e.preventDefault();
