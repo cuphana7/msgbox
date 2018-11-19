@@ -1,6 +1,11 @@
 # ANOTHER REACT TODO LIST
 com.kbcard.kbkookmincard
 
+# 인증거래
+인증키 발급 후 업무요청
+ - 인증키는 24시간 유효함.
+
+
 # axios 통신 방법
 <pre>
 <code>

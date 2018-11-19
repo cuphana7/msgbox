@@ -16,13 +16,22 @@ class App extends Component {
     this.state = {
       api: {
         "auth_key" : "",
-        "url_auth" : "/sample-data/messages-res.json",
+        "url_auth" : "https://push.kbcard.com:1175/api/authentication",
         "url_messages" : "/sample-data/messages-res.json"
       },
       authReq : {
         "APP_ID" : "com.kbcard.kbkookmincard",
-        "USER_ID" : "111111111",
-        "DEVICE_ID" : ""
+        "USER_ID" : "4046130823",
+        "DEVICE_ID" : "86C2E8A7-A3AE-4B2F-B5AC-8D122BF88EBB"
+      },
+      authRes : {
+        "RESULT_CODE" : "",
+        "RESULT_MSG" : "",
+        "SERVICE_URL" : "",
+        "DATA" : {
+            "AUTHKEY" : "",
+            "EXPIRED_DATE" : ""
+        }
       },
       messagesReq : {
         "APP_ID" : "com.kbcard.kbkookmincard",
@@ -83,17 +92,26 @@ class App extends Component {
 
   checkAuth () {
     var self = this;
-    return axios.get(this.state.api.url_auth,
-    {params:this.state.authReq}
-    )
-    .then((response) => {
-        console.log('2. server response:' + response.data.DATA.AUTHKEY);
-    });
+    if (self.state.authRes.DATA.AUTHKEY != "") {
+      return new Promise(function (resolve, reject) {
+          resolve(self.state.authRes.DATA.AUTHKEY);
+      });
+    } else {
+      console.log("req : "+self.state.api.url_auth);
+      return axios.post(self.state.api.url_auth,
+      self.state.authReq)
+      .then((response) => {
+          console.log('from checkAuth:' + response.data.DATA.AUTHKEY);
+          self.setState({ authRes: response.data });
+          return response.data.DATA.AUTHKEY;
+      });
+    }
   }
 
   reqMessages(reqJson, argData1) {
     var self = this;
-    this.checkAuth().then((returnVal) => {
+    self.checkAuth().then((returnVal) => {
+      console.log('from reqMessages:' + returnVal);
       axios.get(self.state.api.url_messages, {params:reqJson}).then(response => {
         console.log(response.data);
         self.setState({ data1: self.state.data1.concat(response.data.DATA) });
