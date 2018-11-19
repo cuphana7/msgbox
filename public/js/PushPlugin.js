@@ -25,8 +25,11 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
 				getMessageList: function(successCallback) {
 		            exec(successCallback, null, "PushPlugin", "getMessageList", []);
 		        },
-		    moveSetting: function(successCallback) {
+		        moveSetting: function(successCallback) {
 		    		exec(successCallback, null, "PushPlugin", "moveSetting", [{}]);
-		    	}
+                },
+                requestPushAlime: function(successCallback) {
+                    exec(successCallback, null, "PushPlugin", "requestPushAlime", []);
+                },
 		    };
 });
