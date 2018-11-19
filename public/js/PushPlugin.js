@@ -28,8 +28,11 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
 		        moveSetting: function(successCallback) {
 		    		exec(successCallback, null, "PushPlugin", "moveSetting", [{}]);
                 },
-                requestPushAlime: function(successCallback) {
-                    exec(successCallback, null, "PushPlugin", "requestPushAlime", []);
+                callApi: function(url, params, successCallback) {
+                    exec(successCallback, null, "PushPlugin", "callApi", [{
+                        "url": url,
+                        "params":params
+                    }]);
                 },
 		    };
 });
