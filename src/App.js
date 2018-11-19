@@ -49,7 +49,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.reqMessages(this.state.messagesReq, this.state.data1);
+    //this.reqMessages(this.state.messagesReq, this.state.data1);
   }
 
 
