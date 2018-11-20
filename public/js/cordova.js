@@ -2159,23 +2159,3 @@ window.cordova = require('cordova');
 // file: src/scripts/bootstrap.js
 require('cordova/init');
 })();
-
-cordova.define('cordova/plugin_list', function(require, exports, module) {
-    module.exports = [
-        {
-            "id": "cordova-plugin-push.PushPlugin",
-            "pluginId": "cordova-plugin-push",
-            "clobbers": [
-                "window.kbmobile.push"
-            ]
-        }
-    ];
-    module.exports.metadata = 
-    {
-        // for whitelist
-        "cordova-plugin-whitelist": "1.2.2",
-        // for KB
-        "cordova-plugin-push": "0.0.1"
-    };
-});
-    
