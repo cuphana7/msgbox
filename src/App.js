@@ -12,7 +12,7 @@ class App extends Component {
   
   constructor(props) {
     super(props)
-    var data1 = [];
+
     this.state = {
       api: {
         "auth_key" : "",
@@ -29,7 +29,7 @@ class App extends Component {
         "AUTHKEY" : "",
         "isPost" : false
       },
-      data1: data1
+      list: []
     }
 
     this.handleScrollToTop1 = this.handleScrollToTop1.bind(this)
@@ -54,7 +54,7 @@ class App extends Component {
         {/* 삭제 레이어 */}
         <PushDelete />
         {/* 목록 */}
-        <PushList dataSource={this.state.data1}
+        <PushList dataSource={this.state.list}
           onScrollToTop={this.handleScrollToTop1}
           onScrollToBottom={this.handleScrollToBottom1}
           reqData={this.reqMessages}
@@ -68,7 +68,7 @@ class App extends Component {
 
 
   handleScrollToTop1(completed) {
-    this.state.data1 = [];
+    this.state.list = [];
     this.state.messagesReq.PAGE = 1;
     this.reqMessages();
     completed();
@@ -76,7 +76,7 @@ class App extends Component {
 
   handleScrollToBottom1(completed) {
     this.state.messagesReq.PAGE = this.state.messagesReq.PAGE+1;
-    this.reqMessages(this.state.messagesReq, this.state.data1);
+    this.reqMessages(this.state.messagesReq, this.state.list);
     completed();
   }
 
@@ -103,8 +103,8 @@ class App extends Component {
   cordovaMessages() {
     var self = this;
     return new Promise(function(resolve, reject) {
-      window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(dt){
-        resolve(dt);
+      window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(res){
+        resolve(res);
       });
     });  
   }
@@ -117,8 +117,8 @@ class App extends Component {
 
       var self2 = self1;
       self1.cordovaMessages().then((res) =>{
-        console.log(res.data.DATA);
-        self2.setState({ data1: self2.state.data1.concat(res.data.DATA) });
+        console.log(res.LIST);
+        self2.setState({ list: self2.state.list.concat(res.LIST) });
       });
 
    }).catch(err => console.log("err: ", err));
