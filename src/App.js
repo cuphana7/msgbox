@@ -90,6 +90,8 @@ class App extends Component {
     completed();
   }
 
+  
+
   checkAuth () {
     var self = this;
     if (self.state.authRes.DATA.AUTHKEY != "") {
@@ -108,9 +110,25 @@ class App extends Component {
     }
   }
 
+  cordovaAuth() {
+    var self = this;
+    return new Promise(function(resolve, reject) {
+      if (self.state.authRes.DATA.AUTHKEY != "") {
+        resolve(self.state.authRes.DATA.AUTHKEY);
+      } else {
+        kbmobile.push.callApi("/api/authentication",{},function(dt){
+          resolve(d);
+        });
+      }
+  });
+    
+    
+    
+  }
+
   reqMessages(reqJson, argData1) {
     var self = this;
-    self.checkAuth().then((returnVal) => {
+    self.cordovaAuth().then((returnVal) => {
       console.log('from reqMessages:' + returnVal);
       axios.get(self.state.api.url_messages, {params:reqJson}).then(response => {
         console.log(response.data);

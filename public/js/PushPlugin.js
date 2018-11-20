@@ -13,26 +13,26 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
             	"appDivCode":appDivCode
             }]);
         },
-				setPushFlag: function(setbadge, setnoti, successCallback) {
-		            exec(successCallback, null, "PushPlugin", "setPushFlag", [{
-		            	"setbadge":setbadge,
-		            	"setnoti":setnoti
-		            }]);
-		        },
-				getPushFlag: function(successCallback) {
-		            exec(successCallback, null, "PushPlugin", "getPushFlag", []);
-		        },
-				getMessageList: function(successCallback) {
-		            exec(successCallback, null, "PushPlugin", "getMessageList", []);
-		        },
-		        moveSetting: function(successCallback) {
-		    		exec(successCallback, null, "PushPlugin", "moveSetting", [{}]);
-                },
-                callApi: function(url, params, successCallback) {
-                    exec(successCallback, null, "PushPlugin", "callApi", [{
-                        "url": url,
-                        "params":params
-                    }]);
-                },
-		    };
+        setPushFlag: function(setbadge, setnoti, successCallback) {
+            exec(successCallback, null, "PushPlugin", "setPushFlag", [{
+                "setbadge":setbadge,
+                "setnoti":setnoti
+            }]);
+        },
+        getPushFlag: function(successCallback) {
+            exec(successCallback, null, "PushPlugin", "getPushFlag", []);
+        },
+        getMessageList: function(successCallback) {
+            exec(successCallback, null, "PushPlugin", "getMessageList", []);
+        },
+        moveSetting: function(successCallback) {
+            exec(successCallback, null, "PushPlugin", "moveSetting", [{}]);
+        },
+        callApi: function(url, params, successCallback) {
+            exec(successCallback, null, "PushPlugin", "callApi", [{
+                "url": url,
+                "params":params
+            }]);
+        },
+	};
 });
