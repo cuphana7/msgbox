@@ -58,7 +58,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                 <li>
                     <strong className="tit">{item.TITLE}</strong>
-                    <span className="date">{item.DATE}</span>
+                    <span className="date">{dateFormat(item.DATE)}</span>
                    
                     {item.EXT[0].value !="" ? 
                         <span className="banner">
