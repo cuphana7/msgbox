@@ -16,8 +16,8 @@ class App extends Component {
     this.state = {
       api: {
         "auth_key" : "",
-        "url_auth" : "https://push.kbcard.com:1175/api/authentication",
-        "url_messages" : "/sample-data/messages-res.json"
+        "url_auth" : "/api/authentication",
+        "url_messages" : "/api/inbox/messages"
       },
       authReq : {
         "APP_ID" : "com.kbcard.kbkookmincard",
@@ -35,7 +35,7 @@ class App extends Component {
       },
       messagesReq : {
         "APP_ID" : "com.kbcard.kbkookmincard",
-        "USER_ID" : "111111111",
+        "USER_ID" : "",
         "PAGE" : 1,
         "AUTHKEY" : "",
         "CATEGORY" : ""
@@ -49,7 +49,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.reqMessages(this.state.messagesReq, this.state.data1);
+    this.reqMessages(this.state.messagesReq);
   }
 
 
@@ -80,6 +80,7 @@ class App extends Component {
 
   handleScrollToTop1(completed) {
     this.state.data1 = [];
+    this.state.messagesReq.PAGE = 1;
     this.reqMessages();
     completed();
   }
@@ -90,26 +91,9 @@ class App extends Component {
     completed();
   }
 
-  
-
-  checkAuth () {
-    var self = this;
-    if (self.state.authRes.DATA.AUTHKEY != "") {
-      return new Promise(function (resolve, reject) {
-          resolve(self.state.authRes.DATA.AUTHKEY);
-      });
-    } else {
-      console.log("req : "+self.state.api.url_auth);
-      return axios.post(self.state.api.url_auth,
-      self.state.authReq)
-      .then((response) => {
-          console.log('from checkAuth:' + response.data.DATA.AUTHKEY);
-          self.setState({ authRes: response.data });
-          return response.data.DATA.AUTHKEY;
-      });
-    }
-  }
-
+  /**
+   * cordova 인증키 확인 호출
+   */
   cordovaAuth() {
     var self = this;
     return new Promise(function(resolve, reject) {
@@ -117,23 +101,37 @@ class App extends Component {
         resolve(self.state.authRes.DATA.AUTHKEY);
       } else {
         window.kbmobile.push.callApi("/api/authentication",{},function(dt){
-          resolve(dt);
+          self.state.messagesReq.AUTHKEY = dt.AUTHKEY;
+          resolve();
         });
       }
-    });
-    
+    });  
   }
 
-  reqMessages(reqJson, argData1) {
+  /**
+   * cordova 메시지 리스트 호출
+   */
+  cordovaMessages() {
     var self = this;
-    self.cordovaAuth().then((returnVal) => {
-      console.log('from reqMessages:' + returnVal);
-      axios.get(self.state.api.url_messages, {params:reqJson}).then(response => {
-        console.log(response.data);
-        self.setState({ data1: self.state.data1.concat(response.data.DATA) });
+    return new Promise(function(resolve, reject) {
+      window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(dt){
+        resolve(dt);
       });
-   }).catch(err => console.log("Axios err: ", err))
-    
+    });  
+  }
+
+  
+  reqMessages(reqJson) {
+
+    var self1 = this;
+    self1.cordovaAuth().then(() => {
+
+      var self2 = self1;
+      self1.cordovaMessages().then((res) =>{
+        console.log(res.data.DATA);
+        self2.setState({ data1: self2.state.data1.concat(res.data.DATA) });
+      });
+   }).catch(err => console.log("err: ", err))
   }
 
 
