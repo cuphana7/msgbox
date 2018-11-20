@@ -120,9 +120,7 @@ class App extends Component {
           resolve(d);
         });
       }
-  });
-    
-    
+    });
     
   }
 
