@@ -124,9 +124,10 @@ class App extends Component {
         console.log(res.data.DATA);
         self2.setState({ data1: self2.state.data1.concat(res.data.DATA) });
       });
-   }).catch(err => console.log("err: ", err))
-  }
 
+   }).catch(err => console.log("err: ", err));
+
+  }
 
 }
 
