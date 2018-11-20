@@ -27,7 +27,6 @@ class App extends Component {
         "USER_ID" : "",
         "PAGE" : 1,
         "AUTHKEY" : "",
-        "CATEGORY" : null,
         "isPost" : false
       },
       data1: data1
