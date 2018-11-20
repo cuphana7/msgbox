@@ -8,7 +8,6 @@ import PushEvent from './components/js/PushEvent';
 import axios from 'axios';
 
 class App extends Component {
-
   
   constructor(props) {
     super(props)
@@ -32,16 +31,14 @@ class App extends Component {
       list: []
     }
 
-    this.handleScrollToTop1 = this.handleScrollToTop1.bind(this)
-    this.handleScrollToBottom1 = this.handleScrollToBottom1.bind(this)
+    this.handleScrollToTop = this.handleScrollToTop.bind(this)
+    this.handleScrollToBottom = this.handleScrollToBottom.bind(this)
     this.reqMessages = this.reqMessages.bind(this)
   }
 
   componentDidMount() {
     this.reqMessages();
   }
-
-
 
   render() {
 
@@ -55,8 +52,8 @@ class App extends Component {
         <PushDelete />
         {/* 목록 */}
         <PushList dataSource={this.state.list}
-          onScrollToTop={this.handleScrollToTop1}
-          onScrollToBottom={this.handleScrollToBottom1}
+          onScrollToTop={this.handleScrollToTop}
+          onScrollToBottom={this.handleScrollToBottom}
           reqData={this.reqMessages}
           checkAuth={this.checkAuth}
         />
@@ -66,17 +63,23 @@ class App extends Component {
     );
   }
 
-
-  handleScrollToTop1(completed) {
+  /**
+   * 스크롤 상단으로 이동시 목록 가져오기
+   * @param {*} completed 
+   */
+  handleScrollToTop(completed) {
     this.state.list = [];
     this.state.messagesReq.PAGE = 1;
     this.reqMessages();
     completed();
   }
 
-  handleScrollToBottom1(completed) {
+  /**
+   * 스크롤 하단으로 이동시 목록 가져오기
+   */
+  handleScrollToBottom(completed) {
     this.state.messagesReq.PAGE = this.state.messagesReq.PAGE+1;
-    this.reqMessages(this.state.messagesReq, this.state.list);
+    this.reqMessages();
     completed();
   }
 
@@ -98,7 +101,7 @@ class App extends Component {
   }
 
   /**
-   * cordova 메시지 리스트를 가져온다.
+   * cordova 메시지 리스트 API를 호출한다.
    */
   cordovaMessages() {
     var self = this;
@@ -109,7 +112,10 @@ class App extends Component {
     });  
   }
 
-  
+  /**
+   * PUSH 리스트를 가져온다.
+   * 인증(1회) > messages API > state.LIST set
+   */
   reqMessages() {
 
     var self1 = this;
