@@ -20,11 +20,11 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
         case '1':
         return 'payment';
         case '2':
-        return 'event';
+        return 'notice';
         case '3':
         return 'info';
         case '4':
-        return 'notice';
+        return 'event';
         default:
         return 'payment';
         }
@@ -45,16 +45,18 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
                   case '4': return prefix + 'notice'
                 }
             }
+            function imageUrl(val) {
+                return "https://img2.kbcard.com/msg/cxv/template/system/"+val;
+            }
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                 <li>
                     <strong className="tit">{item.TITLE}</strong>
                     <span className="date">{item.DATE}</span>
-
                    
                     {item.EXT.length>0 ? 
                         <span className="banner">
-                            <img src={item.EXT[0]} />
+                            <img src={imageUrl(item.EXT[0].value)} />
                         </span>
                     :""}
 
