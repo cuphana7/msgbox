@@ -116,8 +116,8 @@ class App extends Component {
       if (self.state.authRes.DATA.AUTHKEY != "") {
         resolve(self.state.authRes.DATA.AUTHKEY);
       } else {
-        kbmobile.push.callApi("/api/authentication",{},function(dt){
-          resolve(d);
+        window.kbmobile.push.callApi("/api/authentication",{},function(dt){
+          resolve(dt);
         });
       }
     });

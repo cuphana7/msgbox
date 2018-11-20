@@ -4,5 +4,13 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('Wrap'));
-registerServiceWorker();
+const startApp = () => {
+    ReactDOM.render(<App />, document.getElementById('Wrap'));
+    registerServiceWorker();
+};
+
+if(window.cordova) {
+    document.addEventListener('deviceready', startApp, false);
+} else {
+    startApp();
+}
