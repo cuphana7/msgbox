@@ -20,9 +20,6 @@ class App extends Component {
         "url_messages" : "/api/inbox/messages"
       },
       authReq : {
-        "APP_ID" : "com.kbcard.kbkookmincard",
-        "USER_ID" : "4046130823",
-        "DEVICE_ID" : "86C2E8A7-A3AE-4B2F-B5AC-8D122BF88EBB",
         "isPost" : true
       },
       messagesReq : {
@@ -93,7 +90,7 @@ class App extends Component {
       if (self.state.messagesReq.AUTHKEY != "") {
         resolve();
       } else {
-        window.kbmobile.push.callApi("/api/authentication",{},function(res){
+        window.kbmobile.push.callApi("/api/authentication",self.state.authReq,function(res){
           self.state.messagesReq.AUTHKEY = res.AUTHKEY;
           resolve();
         });
