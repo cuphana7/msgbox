@@ -54,7 +54,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
                     <strong className="tit">{item.TITLE}</strong>
                     <span className="date">{item.DATE}</span>
                    
-                    {item.EXT.length>0 ? 
+                    {item.EXT[0].value !="" ? 
                         <span className="banner">
                             <img src={imageUrl(item.EXT[0].value)} />
                         </span>
