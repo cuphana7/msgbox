@@ -48,6 +48,9 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
             function imageUrl(val) {
                 return "https://img2.kbcard.com/msg/cxv/template/system/"+val;
             }
+            function replaceMsg(msg) {
+                return msg.replace(/\\n/gi,"<br/>");
+            }
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                 <li>
@@ -62,11 +65,11 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
 
                     <div className="cont">
                         <p>
-                        {item.MSG}
+                        {replaceMsg(item.MSG)}
                         </p>
                     </div>
 
-                    {(item.MSG.match(/<br\/>/g) || []).length > 3?
+                    {(item.MSG.match(/\\n/g) || []).length > 3?
                         <div className="btnToggle"><a href="#kbcard" className="toggleUI" ><span>이벤트 내용 펼쳐짐</span></a></div>    
                     :""}
 
