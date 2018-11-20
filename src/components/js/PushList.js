@@ -51,6 +51,9 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
             function replaceMsg(msg) {
                 return msg.replace(/\\n/gi,"<br/>");
             }
+            function dateFormat(dt) {
+                return dt.substr(0,4)+"-"+dt.substr(4,2)+"-"+dt.substr(6,2)+" "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
+            }
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                 <li>
