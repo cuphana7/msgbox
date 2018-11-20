@@ -22,23 +22,16 @@ class App extends Component {
       authReq : {
         "APP_ID" : "com.kbcard.kbkookmincard",
         "USER_ID" : "4046130823",
-        "DEVICE_ID" : "86C2E8A7-A3AE-4B2F-B5AC-8D122BF88EBB"
-      },
-      authRes : {
-        "RESULT_CODE" : "",
-        "RESULT_MSG" : "",
-        "SERVICE_URL" : "",
-        "DATA" : {
-            "AUTHKEY" : "",
-            "EXPIRED_DATE" : ""
-        }
+        "DEVICE_ID" : "86C2E8A7-A3AE-4B2F-B5AC-8D122BF88EBB",
+        "isPost" : true
       },
       messagesReq : {
         "APP_ID" : "com.kbcard.kbkookmincard",
         "USER_ID" : "",
         "PAGE" : 1,
         "AUTHKEY" : "",
-        "CATEGORY" : ""
+        "CATEGORY" : "",
+        "isPost" : false
       },
       data1: data1
     }
@@ -49,7 +42,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.reqMessages(this.state.messagesReq);
+    this.reqMessages();
   }
 
 
@@ -92,16 +85,16 @@ class App extends Component {
   }
 
   /**
-   * cordova 인증키 확인 호출
+   * cordova 인증키를 셋팅 한다.
    */
   cordovaAuth() {
     var self = this;
     return new Promise(function(resolve, reject) {
-      if (self.state.authRes.DATA.AUTHKEY != "") {
-        resolve(self.state.authRes.DATA.AUTHKEY);
+      if (self.state.messagesReq.AUTHKEY != "") {
+        resolve();
       } else {
-        window.kbmobile.push.callApi("/api/authentication",{},function(dt){
-          self.state.messagesReq.AUTHKEY = dt.AUTHKEY;
+        window.kbmobile.push.callApi("/api/authentication",{},function(res){
+          self.state.messagesReq.AUTHKEY = res.AUTHKEY;
           resolve();
         });
       }
@@ -109,7 +102,7 @@ class App extends Component {
   }
 
   /**
-   * cordova 메시지 리스트 호출
+   * cordova 메시지 리스트를 가져온다.
    */
   cordovaMessages() {
     var self = this;
@@ -121,7 +114,7 @@ class App extends Component {
   }
 
   
-  reqMessages(reqJson) {
+  reqMessages() {
 
     var self1 = this;
     self1.cordovaAuth().then(() => {
