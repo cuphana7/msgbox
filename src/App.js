@@ -34,6 +34,17 @@ class App extends Component {
 
   componentDidMount() {
     this.reqMessages();
+
+
+    function loadScript(url, callback) {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.onload = function(){callback();};
+      script.src = url;
+      document.getElementsByTagName('head')[0].appendChild(script);
+    }
+
+    loadScript("/js/common.js", function(){ console.log("./js/common.js load ok! "); });
     //푸시 리스트 토글 UI
     $('.pushList .toggleUI').on('click',function(e) {
       e.preventDefault();
@@ -71,7 +82,6 @@ class App extends Component {
       }, 400)
 
       var move_num = $('.pushEvent').outerHeight() - 56;
-      console.log(move_num)
 
       if($(this).hasClass('up')) {
         //하단 이벤트 영역 슬라이드업
