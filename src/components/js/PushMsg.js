@@ -17,7 +17,6 @@ export default class PushMsg extends Component  {
         return this.props.dataSource !== nextProps.dataSource;
     }
     */
-
    renderSwitch(param) {
     switch(param) {
         case '1':
@@ -33,6 +32,9 @@ export default class PushMsg extends Component  {
         }
     }
 
+    
+    
+
     render() {
 
         const imageUrl = (img) => {
@@ -44,8 +46,14 @@ export default class PushMsg extends Component  {
         const msgToTag = this.props.msg.split("\n").map(function(item, index){
             return <p>{item}</p>
         });
+
         const msgOpenBtn = ()=>{ 
-            return this.props.msg.split("\n")>3? <div className="btnToggle"><a href="#kbcard" className="toggleUI" ><span>이벤트 내용 펼쳐짐</span></a></div>
+            const click = (e) => {
+                this.setState({
+                    openMsg: !this.state.openMsg
+                  });
+            }
+            return this.props.msg.split("\n")>3? <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={click} ><span>이벤트 내용 펼쳐짐</span></a></div>
             : ""
         }
 

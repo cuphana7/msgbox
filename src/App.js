@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import MsgBoxTemplate from './components/js/MsgBoxTemplate';
-import PushRadioSel from './components/js/PushRadioSel';
-import PushResult from './components/js/PushResult';
-import PushDelete from './components/js/PushDelete';
-import PushList from './components/js/PushList';
-import PushEvent from './components/js/PushEvent';
-import axios from 'axios';
+import Content from './components/js/Content';
 
 class App extends Component {
   
@@ -44,23 +39,12 @@ class App extends Component {
 
     return (
       <MsgBoxTemplate>
-        {/* 카테고리 선택 */}
-        <PushRadioSel />
-        {/* 갯수/삭제버튼 */}
-        <PushResult />
-        {/* 삭제 레이어 */}
-        <PushDelete />
-        {/* 목록 */}
-        <PushList dataSource={this.state.list}
-          onScrollToTop={this.handleScrollToTop}
-          onScrollToBottom={this.handleScrollToBottom}
-          reqData={this.reqMessages}
-          checkAuth={this.checkAuth}
-        />
-        {/* 이벤트 레이어 */}
-        <PushEvent />
+        <Content handleScrollToTop={this.handleScrollToTop}
+          handleScrollToBottom={this.handleScrollToBottom}
+          />
       </MsgBoxTemplate>
     );
+    
   }
 
   /**

@@ -9,13 +9,7 @@ const MsgBoxTemplate = ({ children }) => {
         <div className="optionBtn"><button type="button">설정</button></div>
         <div className="backBtn"><button type="button">이전페이지</button></div>
       </div>
-      <div id="content">
-        <section className="container" >
-          <div className="pushArea">
-            {children}
-          </div>
-        </section>
-      </div>
+      {children}
     </div>
   );
 };

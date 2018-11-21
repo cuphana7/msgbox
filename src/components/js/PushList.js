@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../css/push.css';
-// use default loading spinne
-import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js';
 import PushMsg from '../js/PushMsg';
 
-export default class PushList extends ReactRefreshInfiniteTableView  {
+export default class PushList extends Component {
 
     constructor(props) {
         super(props)
@@ -48,7 +46,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
             }
             
             function dateFormat(dt) {
-                return dt.substr(2,4)+"."+dt.substr(4,2)+"."+dt.substr(6,2)+" | "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
+                return dt.substr(2,2)+"."+dt.substr(4,2)+"."+dt.substr(6,2)+" | "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
             }
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
@@ -64,7 +62,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
         }) : [];
 
         return (
-            <div className="pushWrap" onScroll={this.viewDidScroll}>
+            <div className="pushWrap">
                 {cells}
             </div>
         );
