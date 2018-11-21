@@ -45,45 +45,19 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
                   case '4': return prefix + 'notice'
                 }
             }
-            function imageUrl(val) {
-                return "https://img2.kbcard.com/msg/cxv/template/system/"+val;
-            }
-            function replaceMsg(msg) {
-                return msg.replace(/\\n/gi,"<br/>");
-            }
+            
             function dateFormat(dt) {
-                return dt.substr(0,4)+"-"+dt.substr(4,2)+"-"+dt.substr(6,2)+" "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
+                return dt.substr(2,4)+"."+dt.substr(4,2)+"."+dt.substr(6,2)+" | "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
             }
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                 <li>
                     <strong className="tit">{item.TITLE}</strong>
                     <span className="date">{dateFormat(item.DATE)}</span>
-                   
-                    {item.EXT[0].value !="" ? 
-                        <span className="banner">
-                            <img src={imageUrl(item.EXT[0].value)} />
-                        </span>
-                    :""}
-
-                    <div className="cont">
-                        <p>
-                        {replaceMsg(item.MSG)}
-                        </p>
-                    </div>
-
-                    {(item.MSG.match(/\\n/g) || []).length > 3?
-                        <div className="btnToggle"><a href="#kbcard" className="toggleUI" ><span>이벤트 내용 펼쳐짐</span></a></div>    
-                    :""}
-
-                    {item.EXT.length == 4 ? 
-                    <div className="eventBtn"><a href={item.EXT[3]} className="btnL btnWhite">자세히보기</a></div>
-                    :""}
-
-                    <div className="select">
-                        <label htmlFor="sel1_1">해당 알림 삭제하기</label>
-                        <input type="checkbox" id="sel1_1" name="" className="inp1" />
-                    </div>
+                    <PushMsg msg={item.MSG}
+                        ext={item.MSG}
+                    />
+                    
                 </li>
             </ul>
         }) : [];
