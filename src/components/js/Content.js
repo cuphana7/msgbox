@@ -12,7 +12,7 @@ export default class Content extends ReactRefreshInfiniteTableView  {
     constructor(props) { super(props) }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.todos !== nextProps.todos;
+        return this.props.list !== nextProps.list;
     }
 
     render() {
