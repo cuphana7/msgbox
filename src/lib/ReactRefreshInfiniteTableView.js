@@ -48,7 +48,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
     var scrollviewFrameHeight = dom.clientHeight
     var scrollviewContentHeight = dom.scrollHeight
     var sum = scrollviewOffsetY+scrollviewFrameHeight
-    console.log(sum);
+    console.log(sum+">="+scrollviewContentHeight);
 
     if (sum <= scrollviewFrameHeight) {
 
