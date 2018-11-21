@@ -27,9 +27,9 @@ export default class Content extends ReactRefreshInfiniteTableView  {
                         {/* 삭제 레이어 */}
                         <PushDelete />
                         {/* 목록 */}
-                        <PushList dataSource={this.list}
-                            onScrollToTop={this.handleScrollToTop}
-                            onScrollToBottom={this.handleScrollToBottom}
+                        <PushList dataSource={this.props.list}
+                            onScrollToTop={this.props.handleScrollToTop}
+                            onScrollToBottom={this.props.handleScrollToBottom}
                         />
                         {/* 이벤트 레이어 */}
                         <PushEvent />
