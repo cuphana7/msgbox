@@ -1,7 +1,8 @@
 import React from 'react';
 import '../css/push.css';
-// use default loading spinners
-import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js'
+// use default loading spinne
+import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js';
+import PushMsg from '../js/PushMsg';
 
 export default class PushList extends ReactRefreshInfiniteTableView  {
 

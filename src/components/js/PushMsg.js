@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../css/push.css';
 
 /**
@@ -52,7 +52,7 @@ export default class PushMsg extends Component  {
                 {/* 이미지 배너 */}
                 {this.props.ext[0].value !="" ? 
                     <span className="banner">
-                        <img src={imageUrl(item.EXT[0].value)} />
+                        <img src={imageUrl(this.props.ext[0].value)} />
                     </span>
                 :""}
                 {/* 메시지 내용 */}
