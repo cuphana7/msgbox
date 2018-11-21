@@ -110,8 +110,8 @@ class App extends Component {
     return (
       <MsgBoxTemplate>
         <Content list={this.state.list}
-          handleScrollToTop={this.handleScrollToTop}
-          handleScrollToBottom={this.handleScrollToBottom}
+          onScrollToTop={this.handleScrollToTop}
+          onScrollToBottom={this.handleScrollToBottom}
           />
       </MsgBoxTemplate>
     );
