@@ -90,9 +90,11 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
       // disable scroll to top if onScrollToTop isn't set
       if (!this.props.onScrollToBottom) { return }
 
-      // console.log('ReactRefreshInfiniteTableView onScrollToBottom');
+      console.log('ReactRefreshInfiniteTableView onScrollToBottom');
 
       if (this.state.isLoadingMore) { return }
+
+      console.log(1);
       this.setState({isLoadingMore: true})
 
       // use default load more indicator
