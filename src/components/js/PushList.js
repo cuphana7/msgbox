@@ -56,7 +56,7 @@ export default class PushList extends ReactRefreshInfiniteTableView  {
                     <strong className="tit">{item.TITLE}</strong>
                     <span className="date">{dateFormat(item.DATE)}</span>
                     <PushMsg msg={item.MSG}
-                        ext={item.MSG}
+                        ext={item.EXT}
                     />
                     
                 </li>
