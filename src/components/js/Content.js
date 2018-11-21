@@ -17,7 +17,7 @@ export default class Content extends ReactRefreshInfiniteTableView  {
 
     render() {
         return (
-            <div id="content" className="content" onScroll={this.viewDidScroll}>
+            <div id="content" className="content" onScroll={this.viewDidScroll} >
                 <section className="container" >
                     <div className="pushArea">
                         {/* 카테고리 선택 */}

@@ -35,18 +35,6 @@ class App extends Component {
     this.reqMessages();
   }
 
-  render() {
-
-    return (
-      <MsgBoxTemplate>
-        <Content list={this.state.list}
-          handleScrollToTop={this.handleScrollToTop}
-          handleScrollToBottom={this.handleScrollToBottom}
-          />
-      </MsgBoxTemplate>
-    );
-    
-  }
 
   /**
    * 스크롤 상단으로 이동시 목록 가져오기
@@ -115,6 +103,19 @@ class App extends Component {
 
    }).catch(err => console.log("err: ", err));
 
+  }
+
+  render() {
+
+    return (
+      <MsgBoxTemplate>
+        <Content list={this.state.list}
+          handleScrollToTop={this.handleScrollToTop}
+          handleScrollToBottom={this.handleScrollToBottom}
+          />
+      </MsgBoxTemplate>
+    );
+    
   }
 
 }
