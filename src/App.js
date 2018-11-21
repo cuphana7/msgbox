@@ -39,7 +39,8 @@ class App extends Component {
 
     return (
       <MsgBoxTemplate>
-        <Content handleScrollToTop={this.handleScrollToTop}
+        <Content list={this.state.list}
+          handleScrollToTop={this.handleScrollToTop}
           handleScrollToBottom={this.handleScrollToBottom}
           />
       </MsgBoxTemplate>
@@ -76,10 +77,10 @@ class App extends Component {
       if (self.state.messagesReq.AUTHKEY != "") {
         resolve();
       } else {
-        window.kbmobile.push.callApi("/api/authentication",self.state.authReq,function(res){
-          self.state.messagesReq.AUTHKEY = res.AUTHKEY;
-          resolve();
-        });
+        //window.kbmobile.push.callApi("/api/authentication",self.state.authReq,function(res){
+        ////  self.state.messagesReq.AUTHKEY = res.AUTHKEY;
+         // resolve();
+        //});
       }
     });  
   }
@@ -90,10 +91,10 @@ class App extends Component {
   cordovaMessages() {
     var self = this;
     return new Promise(function(resolve, reject) {
-      window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(res){
-        console.log("messages called to page="+self.state.messagesReq.PAGE);
-        resolve(res);
-      });
+      //window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(res){
+       // console.log("messages called to page="+self.state.messagesReq.PAGE);
+       // resolve(res);
+      //});
     });  
   }
 

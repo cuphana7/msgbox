@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/push.css';
 
-class PushDelete extends Component {
+export default class PushDelete extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.todos !== nextProps.todos;
@@ -18,5 +18,3 @@ class PushDelete extends Component {
         );
     }
 }
-
-export default PushDelete;

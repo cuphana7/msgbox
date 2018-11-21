@@ -7,7 +7,9 @@ import PushList from './PushList';
 import PushEvent from './PushEvent';
 import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js';
 
-class Content extends ReactRefreshInfiniteTableView  {
+export default class Content extends ReactRefreshInfiniteTableView  {
+
+    constructor(props) { super(props) }
 
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.todos !== nextProps.todos;
@@ -25,7 +27,7 @@ class Content extends ReactRefreshInfiniteTableView  {
                         {/* 삭제 레이어 */}
                         <PushDelete />
                         {/* 목록 */}
-                        <PushList dataSource={this.props.state.list}
+                        <PushList dataSource={this.list}
                             onScrollToTop={this.handleScrollToTop}
                             onScrollToBottom={this.handleScrollToBottom}
                         />
@@ -37,5 +39,3 @@ class Content extends ReactRefreshInfiniteTableView  {
         );
     }
 }
-
-export default PushDelete;
