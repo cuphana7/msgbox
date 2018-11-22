@@ -132,6 +132,8 @@ class App extends Component {
 
   handleCategoryToChange(e) {
     this.state.messagesReq.CATEGORY = e.target.value;
+    this.state.list = [];
+    this.state.messagesReq.PAGE = 1;
     this.reqMessages();
   }
 
