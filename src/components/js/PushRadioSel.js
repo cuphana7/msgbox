@@ -17,7 +17,7 @@ class PushRadioSel extends Component {
                 <label htmlFor="pushSel2">이벤트</label>
                 <input type="radio" id="pushSel2" name="pushRadio" value="4" checked={this.props.category === '4'} 
                       onChange={this.props.handleCategoryToChange} />
-                <span className="num">99</span>
+                {/*<span className="num">99</span>*/}
             </li>
             <li>
                 <label htmlFor="pushSel3">안내</label>
@@ -28,7 +28,6 @@ class PushRadioSel extends Component {
                 <label htmlFor="pushSel4">공지</label>
                 <input type="radio" id="pushSel4" name="pushRadio" value="3" checked={this.props.category === '1'} 
                       onChange={this.props.handleCategoryToChange} />
-                <span className="num">1</span>
             </li>
         </ul>
             
