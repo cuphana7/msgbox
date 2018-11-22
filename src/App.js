@@ -39,6 +39,7 @@ class App extends Component {
       },
       localCache : {
         "msg_key_id" : "", // 최근 저장 키
+        "last_categroy" : "1",
         "msg_key" : "" // 메시지리스트 키
       },
       list: []
