@@ -30,33 +30,33 @@ export default class PushList extends Component {
     render() {
 
         var renderSwitch = this.renderSwitch;
+
+        function temperatureClassname(temp){
+            const prefix = 'pushList '
+          
+            switch (temp) {
+              case '1': return prefix + 'payment'
+              case '2': return prefix + 'event'
+              case '3': return prefix + 'info'
+              case '4': return prefix + 'notice'
+            }
+        }
+        
+        function dateFormat(dt) {
+            return dt.substr(2,2)+"."+dt.substr(4,2)+"."+dt.substr(6,2)+" | "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
+        }
+        
         var cells = (this.props.dataSource)?this.props.dataSource.map(function(item, index) {
-            
-            function temperatureClassname(temp){
-                const prefix = 'pushList '
-              
-                switch (temp) {
-                  case '1': return prefix + 'payment'
-                  case '2': return prefix + 'event'
-                  case '3': return prefix + 'info'
-                  case '4': return prefix + 'notice'
-                }
-            }
-            
-            function dateFormat(dt) {
-                return dt.substr(2,2)+"."+dt.substr(4,2)+"."+dt.substr(6,2)+" | "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
-            }
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
-                <li>
-                    <strong className="tit">{item.TITLE}</strong>
-                    <span className="date">{dateFormat(item.DATE)}</span>
-                    <PushMsg msg={item.MSG}
-                        ext={item.EXT}
-                    />
-                    
-                </li>
-            </ul>
+                        <li>
+                            <strong className="tit">{item.TITLE}</strong>
+                            <span className="date">{dateFormat(item.DATE)}</span>
+                            <PushMsg msg={item.MSG}
+                                ext={item.EXT}
+                            />
+                        </li>
+                    </ul>
         }) : [];
 
         return (
