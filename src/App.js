@@ -138,10 +138,15 @@ class App extends Component {
       if (self.state.messagesReq.AUTHKEY != "") {
         resolve();
       } else {
-        window.kbmobile.push.callApi("/api/authentication",self.state.authReq,function(res){
+
+        const suc = (res) => {
           self.state.messagesReq.AUTHKEY = res.AUTHKEY;
           resolve();
-        });
+        }
+        const fail = (res) => {
+          reject(res);
+        }
+        window.kbmobile.push.callApi("/api/authentication", self.state.authReq, suc, fail);
       }
     });  
   }
