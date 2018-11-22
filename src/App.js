@@ -3,6 +3,19 @@ import MsgBoxTemplate from './components/js/MsgBoxTemplate';
 import Content from './components/js/Content';
 import $ from 'jquery'
 
+/**
+ * 
+    ===  최초로딩시 ===
+    msg_key_id 확인 후 20개 표출
+    (웹)저장 데이터 20개 요청
+    (웹)로딩시 최근 데이터 요청
+    (앱)서버요청후 > 저장 > 20개 반환
+    === 스크롤하단 ===
+    (웹)스크롤하단 진입시 다음페이지 요청
+    (앱)로컬 다음 20개 있으면 반환
+    (앱)로컬 다음 20개 없으면 서버 요청후 > 저장 > 20개 반환
+ * 
+ */
 class App extends Component {
   
   constructor(props) {
@@ -24,6 +37,10 @@ class App extends Component {
         "AUTHKEY" : "",
         "isPost" : false
       },
+      localCache : {
+        "msg_key_id" : "", // 최근 저장 키
+        "msg_key" : "" // 메시지리스트 키
+      },
       list: []
     }
 
@@ -35,7 +52,6 @@ class App extends Component {
 
   componentDidMount() {
     this.reqMessages();
-
 
     function loadScript(url, callback) {
       var script = document.createElement("script");
