@@ -74,11 +74,13 @@ export default class PushMsg extends Component  {
                 </div>
 
                 {/* 이미지 펼치기 버튼 */}
-                {msgOpenBtn}
+                {this.props.msg.split("\n").length > 3? <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } ><span>이벤트 내용 펼쳐짐</span></a></div>
+                : ""}
+                {/*msgOpenBtn*/}
                 
-                {/* 링크 버튼 */}
+                {/* 링크 버튼 */}''
                 {this.props.ext.length === 3 && this.props.ext[2].value !== "" ? 
-                <div className="eventBtn"><a href={this.props.ext[2]} className="btnL btnWhite">자세히보기</a></div>
+                <div className="eventBtn"><a href={this.props.ext[2].value} className="btnL btnWhite">자세히보기</a></div>
                 :""}
                 
                 {/* 삭제 클릭시 보이는 UI */}
