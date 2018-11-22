@@ -48,12 +48,15 @@ export default class PushMsg extends Component  {
         });
 
         const msgOpenBtn = ()=>{ 
+            const msg = this.props.msg;
             const click = (e) => {
                 this.setState({
                     openMsg: !this.state.openMsg
                   });
             }
-            return this.props.msg.split("\n").length > 3? <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={click} ><span>이벤트 내용 펼쳐짐</span></a></div>
+            console.log(msg.split("\n").length);
+            
+            return msg.split("\n").length > 3? <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={click} ><span>이벤트 내용 펼쳐짐</span></a></div>
             : ""
         }
 
