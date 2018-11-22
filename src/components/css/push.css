@@ -63,6 +63,11 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .topHead h1.fs4{font-size:1.200rem!important}
 .ios .topHead h1{line-height:57px}
 
+.backBtn, .homeBtn{position:absolute;left:16px;top:16px !important;z-index:991}
+.backBtn button{padding:12px;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/arr/arr_l_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
+.homeBtn button{padding:12px;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_home_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
+.backBtn button:after, .homeBtn button:after, .topHead .btnClose a:after, .topHead .headerMenu .hmBtn:after, .topHead .snsBtn a:after, .topHead .infoBtn a:after, .topHead .optionBtn button:after{content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px}
+
 .topHead .headerMenu{position:absolute;top:16px;right:16px;z-index:100;width:24px;height:24px}
 .topHead .headerMenu .hmBtn{padding:0;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_llst_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
 .topHead .btnClose{position:absolute;top:16px;right:16px;z-index:100}
