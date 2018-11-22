@@ -44,7 +44,7 @@ export default class PushMsg extends Component  {
             return msg.replace(/\\n/gi,"<br/>");
         }
         const msgToTag = this.props.msg.split("\n").map(function(item, index){
-            return <Fragment>{item}<br/></Fragment>
+            return <React.Fragment>{item}<br/></React.Fragment>
         });
 
         const msgOpenBtn = ()=>{ 
