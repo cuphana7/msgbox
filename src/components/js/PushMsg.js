@@ -63,9 +63,9 @@ export default class PushMsg extends Component  {
             <div>
                 
                 {/* 이미지 배너 */}
-                {this.props.ext[0].value !="" ? 
+                {this.props.ext[0].value !== "" ? 
                     <span className="banner">
-                        <img src={imageUrl(this.props.ext[0].value)} />
+                        <img src={imageUrl(this.props.ext[0].value)} alt="" />
                     </span>
                 :""}
                 {/* 메시지 내용 */}
@@ -77,8 +77,8 @@ export default class PushMsg extends Component  {
                 {msgOpenBtn}
                 
                 {/* 링크 버튼 */}
-                {this.props.ext.length == 4 ? 
-                <div className="eventBtn"><a href={this.props.ext[3]} className="btnL btnWhite">자세히보기</a></div>
+                {this.props.ext.length === 3 ? 
+                <div className="eventBtn"><a href={this.props.ext[2]} className="btnL btnWhite">자세히보기</a></div>
                 :""}
                 
                 {/* 삭제 클릭시 보이는 UI */}
