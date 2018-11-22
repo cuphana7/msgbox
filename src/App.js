@@ -129,6 +129,11 @@ class App extends Component {
     completed();
   }
 
+  handleCategoryToChange(e) {
+    this.state.messagesReq.CATEGORY = e.target.value;
+    this.reqMessages();
+  }
+
   /**
    * cordova 인증키를 셋팅 한다.
    */
@@ -190,6 +195,8 @@ class App extends Component {
         <Content list={this.state.list}
           onScrollToTop={this.handleScrollToTop}
           onScrollToBottom={this.handleScrollToBottom}
+          handleCategoryToChange={this.handleCategoryToChange}
+          category={this.state.messagesReq.CATEGORY}
           />
       </MsgBoxTemplate>
     );

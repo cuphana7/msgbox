@@ -21,7 +21,8 @@ export default class Content extends ReactRefreshInfiniteTableView  {
                 <section className="container" >
                     <div className="pushArea">
                         {/* 카테고리 선택 */}
-                        <PushRadioSel />
+                        <PushRadioSel handleCategoryToChange={this.props.handleCategoryToChange}
+                        category={this.props.category} />
                         {/* 갯수/삭제버튼 */}
                         <PushResult />
                         {/* 삭제 레이어 */}
