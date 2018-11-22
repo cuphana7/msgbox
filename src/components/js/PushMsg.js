@@ -40,9 +40,7 @@ export default class PushMsg extends Component  {
         const imageUrl = (img) => {
             return "https://img2.kbcard.com/msg/cxv/template/system/"+img;
         }
-        const replaceMsg = (msg) => {
-            return msg.replace(/\\n/gi,"<br/>");
-        }
+        
         const msgToTag = this.props.msg.split("\n").map(function(item, index){
             return <React.Fragment>{item}<br/></React.Fragment>
         });
@@ -55,7 +53,7 @@ export default class PushMsg extends Component  {
                   });
             }
             console.log(msg.split("\n").length);
-            
+
             return msg.split("\n").length > 3? <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={click} ><span>이벤트 내용 펼쳐짐</span></a></div>
             : ""
         }
