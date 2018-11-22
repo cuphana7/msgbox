@@ -10,6 +10,9 @@ export default class PushMsg extends Component  {
 
     constructor(props) {
         super(props)
+        this.state = {
+            openMsg: false
+        }
     }
 
     /*
@@ -32,9 +35,6 @@ export default class PushMsg extends Component  {
         }
     }
 
-    
-    
-
     render() {
 
         const imageUrl = (img) => {
@@ -45,19 +45,12 @@ export default class PushMsg extends Component  {
             return <React.Fragment>{item}<br/></React.Fragment>
         });
 
-        const msgOpenBtn = ()=>{ 
-            const msg = this.props.msg;
-            const click = (e) => {
-                this.setState({
-                    openMsg: !this.state.openMsg
-                  });
-            }
-            console.log(msg.split("\n").length);
-
-            return msg.split("\n").length > 3? <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={click} ><span>이벤트 내용 펼쳐짐</span></a></div>
-            : ""
+        const clickMsgOpen = (e) => {
+            this.setState({
+                openMsg: !this.state.openMsg
+              });
         }
-
+        
 
         return (
             <div>
@@ -75,7 +68,7 @@ export default class PushMsg extends Component  {
 
                 {/* 이미지 펼치기 버튼 */}
                 { this.props.msg.split("\n").length > 3 ? 
-                    <div className="btnToggle"><a href="#kbcard" className="toggleUI up" ><span>이벤트 내용 펼쳐짐</span></a></div>
+                    <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                 : ""}
 
                 {/*msgOpenBtn*/}
