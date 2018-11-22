@@ -30,6 +30,7 @@ class App extends Component {
     this.handleScrollToTop = this.handleScrollToTop.bind(this)
     this.handleScrollToBottom = this.handleScrollToBottom.bind(this)
     this.reqMessages = this.reqMessages.bind(this)
+    this.handleCategoryToChange = this.handleCategoryToChange.bind(this)
   }
 
   componentDidMount() {
