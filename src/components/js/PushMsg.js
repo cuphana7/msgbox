@@ -97,7 +97,7 @@ export default class PushMsg extends Component  {
 
                 {/*msgOpenBtn*/}
                 
-                {/* 링크 버튼 */}''
+                {/* 링크 버튼 */}
                 {this.props.ext.length === 3 && this.props.ext[2].value !== "" ? 
                 <div className="eventBtn"><a href={this.props.ext[2].value} className="btnL btnWhite">자세히보기</a></div>
                 :""}
