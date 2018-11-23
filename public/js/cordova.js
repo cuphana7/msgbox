@@ -2205,7 +2205,7 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
         },
         getLastMsgId: function(successCallback, failCallback) {
             exec(successCallback, failCallback, "PushPlugin", "getLastMsgId", []);
-        },
+        }
 	};
 });
 
