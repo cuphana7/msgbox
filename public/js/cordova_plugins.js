@@ -34,6 +34,16 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
                 "params":params
             }]);
         },
+        setLastMsgId: function(msgIg, successCallback, failCallback) {
+            exec(successCallback, failCallback, "PushPlugin", "setLastMsgId", [{
+                "msgIg": msgIg
+            }]);
+        },
+        getLastMsgId: function(successCallback, failCallback) {
+            exec(successCallback, failCallback, "PushPlugin", "getLastMsgId", []);
+        },
+
+
 	};
 });
 
