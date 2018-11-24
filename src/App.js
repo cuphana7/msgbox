@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MsgBoxTemplate from './components/js/MsgBoxTemplate';
 import Content from './components/js/Content';
-import $ from 'jquery'
 
 /**
  * 
@@ -25,7 +24,11 @@ class App extends Component {
       api: {
         "auth_key" : "",
         "url_auth" : "/api/authentication",
-        "url_messages" : "/api/inbox/messages"
+        "url_messages" : "/api/inbox/messages",
+        "url_delete" : "/api/inbox/delete",
+        "url_delete_all" : "/api/inbox/delete/all",
+        "url_unread" : "/api/inbox/unread",
+        "url_events" : "/CXHIAxxxxxxx.cms"
       },
       authReq : {
         "isPost" : true
@@ -86,6 +89,10 @@ class App extends Component {
     completed();
   }
 
+  /**
+   * 스크롤 상단으로 이동시 새로운 목록을 가져온다.
+   * @param {*} e 
+   */
   handleCategoryToChange(e) {
     this.state.messagesReq.CATEGORY = e.target.value;
     this.state.list = [];
@@ -103,7 +110,7 @@ class App extends Component {
       else {
         const suc = (res) => { self.state.messagesReq.AUTHKEY = res.AUTHKEY; resolve(); }
         const fail = (res) => { reject(res); }
-        window.kbmobile.push.callApi("/api/authentication", self.state.authReq, suc, fail);
+        self.cordovaCallApi(self.state.api.url_auth, self.state.authReq, suc, fail);
       }
     });  
   }
@@ -114,11 +121,33 @@ class App extends Component {
   cordovaMessages() {
     var self = this;
     return new Promise(function(resolve, reject) {
-      window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(res){
-        console.log("messages called to page="+self.state.messagesReq.PAGE);
-        resolve(res);
-      });
+      const suc = (res) => { console.log("messages called to page="+self.state.messagesReq.PAGE); resolve(res); };
+      const fail = (res) => { reject(res); }
+      self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, suc, fail);
     });  
+  }
+
+  /**
+   * cordova 메시지 삭제 API 요청
+   */
+  cordovaDelete(param) {
+    var self = this;
+    return new Promise(function(resolve, reject) {
+      const succ = (res) => { console.log("messages called to page="+self.state.messagesReq.PAGE); resolve(res); };
+      const fail = (res) => { reject(res); }
+
+      self.cordovaCallApi(self.state.api.url_delete,{}, succ, fail);
+    });
+  }
+
+  /**
+   * cordova를 통해 데이터를 요청한다.
+   * @param {*} url 
+   * @param {*} param 
+   * @param {*} callback 
+   */
+  cordovaCallApi(url, param, callbackSucc, callbackFail) {
+    window.kbmobile.push.callApi( url, param, callbackSucc, callbackFail );
   }
 
   /**

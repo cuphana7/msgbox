@@ -2196,8 +2196,8 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
         moveSetting: function(successCallback) {
             exec(successCallback, null, "PushPlugin", "moveSetting", [{}]);
         },
-        callApi: function(url, params, successCallback) {
-            exec(successCallback, null, "PushPlugin", "callApi", [{
+        callApi: function(url, params, successCallback, failCallback) {
+            exec(successCallback, failCallback, "PushPlugin", "callApi", [{
                 "url": url,
                 "params":params
             }]);
