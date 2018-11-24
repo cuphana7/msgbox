@@ -89,6 +89,10 @@ class App extends Component {
     completed();
   }
 
+  /**
+   * 스크롤 상단으로 이동시 새로운 목록을 가져온다.
+   * @param {*} e 
+   */
   handleCategoryToChange(e) {
     this.state.messagesReq.CATEGORY = e.target.value;
     this.state.list = [];
@@ -106,7 +110,7 @@ class App extends Component {
       else {
         const suc = (res) => { self.state.messagesReq.AUTHKEY = res.AUTHKEY; resolve(); }
         const fail = (res) => { reject(res); }
-        window.kbmobile.push.callApi("/api/authentication", self.state.authReq, suc, fail);
+        self.cordovaCallApi(self.state.api.url_auth, self.state.authReq, suc, fail);
       }
     });  
   }
@@ -117,26 +121,22 @@ class App extends Component {
   cordovaMessages() {
     var self = this;
     return new Promise(function(resolve, reject) {
-      const callback = (res) => {
-        console.log("messages called to page="+self.state.messagesReq.PAGE);
-        resolve(res);
-      };
-      
-      self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, callback);
+      const suc = (res) => { console.log("messages called to page="+self.state.messagesReq.PAGE); resolve(res); };
+      const fail = (res) => { reject(res); }
+      self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, suc, fail);
     });  
   }
 
   /**
    * cordova 메시지 삭제 API 요청
    */
-  cordovaDelete() {
+  cordovaDelete(param) {
     var self = this;
     return new Promise(function(resolve, reject) {
-      const callback = (res) => {
-        console.log("messages called to page="+self.state.messagesReq.PAGE);
-        resolve(res);
-      };
-      self.cordovaCallApi(self.state.api.url_delete,{},callback);
+      const succ = (res) => { console.log("messages called to page="+self.state.messagesReq.PAGE); resolve(res); };
+      const fail = (res) => { reject(res); }
+
+      self.cordovaCallApi(self.state.api.url_delete,{}, succ, fail);
     });
   }
 
@@ -146,8 +146,8 @@ class App extends Component {
    * @param {*} param 
    * @param {*} callback 
    */
-  cordovaCallApi(url, param, callback) {
-    window.kbmobile.push.callApi( url, param, callback );
+  cordovaCallApi(url, param, callbackSucc, callbackFail) {
+    window.kbmobile.push.callApi( url, param, callbackSucc, callbackFail );
   }
 
   /**
