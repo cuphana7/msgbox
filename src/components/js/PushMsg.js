@@ -47,10 +47,7 @@ export default class PushMsg extends Component  {
         });
 
         const clickMsgOpen = (e) => {
-            this.setState({
-                openMsg: !this.state.openMsg
-              });
-              e.preventDefault();       
+            this.setState({ openMsg: !this.state.openMsg });     
         }
         
 
