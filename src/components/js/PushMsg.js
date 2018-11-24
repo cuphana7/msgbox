@@ -87,7 +87,7 @@ export default class PushMsg extends Component  {
                 :""}
                 {/* 메시지 내용 */}
                 <div className="cont">
-                    {msgToTag}
+                    <p>{msgToTag}</p>
                 </div>
 
                 {/* 이미지 펼치기 버튼 */}
