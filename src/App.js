@@ -184,6 +184,7 @@ class App extends Component {
     return new Promise(function(resolve, reject) {
       window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(res){
         console.log("messages called to page="+self.state.messagesReq.PAGE);
+        console.log(res.toString());
         resolve(res);
       });
     });  
