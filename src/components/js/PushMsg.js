@@ -39,12 +39,10 @@ export default class PushMsg extends Component  {
 
     render() {
         const self = this;
-        const imageUrl = (img) => {
-            return "https://img2.kbcard.com/msg/cxv/template/system/"+img;
-        }
-        
+        const { msg, ext, msgid, checked } = this.props;
+        const imageUrl = (img) => { return "https://img2.kbcard.com/msg/cxv/template/system/"+img; }
 
-        const msgToTag = this.props.msg.split("\n").map(function(item, index){
+        const msgToTag = msg.split("\n").map(function(item, index){
             var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
             var url = item.match(rUrlRegex);
             if (url != null)
@@ -80,15 +78,19 @@ export default class PushMsg extends Component  {
             self.setState({ openMsg: !this.state.openMsg });
             e.preventDefault();
         }
+
+        const checkedOnChange = (e) => {
+            checked = !checked;
+        }
         
 
         return (
             <div>
                 
                 {/* 이미지 배너 */}
-                {this.props.ext[0].value !== "" ? 
+                {ext[0].value !== "" ? 
                     <span className="banner">
-                        <img src={imageUrl(this.props.ext[0].value)} alt="" />
+                        <img src={imageUrl(ext[0].value)} alt="" />
                     </span>
                 :""}
                 {/* 메시지 내용 */}
@@ -97,21 +99,21 @@ export default class PushMsg extends Component  {
                 </div>
 
                 {/* 이미지 펼치기 버튼 */}
-                { this.props.msg.split("\n").length > 3 ? 
+                { msg.split("\n").length > 3 ? 
                     <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen}  className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                 : ""}
 
                 {/*msgOpenBtn*/}
                 
                 {/* 링크 버튼 */}
-                {this.props.ext.length === 3 && this.props.ext[2].value !== "" ? 
-                <div className="eventBtn"><a href={this.props.ext[2].value} className="btnL btnWhite">자세히보기</a></div>
+                {ext.length === 3 && ext[2].value !== "" ? 
+                <div className="eventBtn"><a href={ext[2].value} className="btnL btnWhite">자세히보기</a></div>
                 :""}
                 
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">
                     <label htmlFor="sel1_1">해당 알림 삭제하기</label>
-                    <input type="checkbox" id="sel1_1" name="" className="inp1" />
+                    <input type="checkbox" id="sel1_1" name="" className="inp1" value={msgid} onChange={checkedOnChange} />
                 </div>
 
             </div>
