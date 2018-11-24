@@ -14,6 +14,7 @@ export default class PushMsg extends Component  {
         this.state = {
             openMsg: false
         }
+        this.eleMsgOpen = React.createRef();
     }
 
     /*
@@ -37,7 +38,7 @@ export default class PushMsg extends Component  {
     }
 
     render() {
-
+        const self = this;
         const imageUrl = (img) => {
             return "https://img2.kbcard.com/msg/cxv/template/system/"+img;
         }
@@ -47,16 +48,14 @@ export default class PushMsg extends Component  {
         });
 
         const clickMsgOpen = (e) => {
-            this.setState({ openMsg: !this.state.openMsg });
-            e.preventDefault();
-            $(this).toggleClass('up');
 
+            var thisEle = self.eleMsgOpen.current;
             //PUSH내용 초기 세팅
-            var cont = $(this).closest('.btnToggle').siblings('.cont'),
+            var cont = $(thisEle).closest('.btnToggle').siblings('.cont'),
                 contH = cont.children('p').outerHeight(),
                 duration = contH > 500 ? contH : 500;
 
-            if($(this).hasClass('up')) {
+            if(!$(thisEle).hasClass('up')) {
                 //PUSH내용 보임
                 cont.css({display:'block',maxHeight:'none',height:60})
                 
@@ -71,6 +70,9 @@ export default class PushMsg extends Component  {
                 cont.css({display:'-webkit-box',maxHeight:60,height:'auto'});
                 }, duration)
             }
+
+            self.setState({ openMsg: !this.state.openMsg });
+            e.preventDefault();
         }
         
 
@@ -90,7 +92,7 @@ export default class PushMsg extends Component  {
 
                 {/* 이미지 펼치기 버튼 */}
                 { this.props.msg.split("\n").length > 3 ? 
-                    <div className="btnToggle"><a href="#kbcard" className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
+                    <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen}  className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                 : ""}
 
                 {/*msgOpenBtn*/}
