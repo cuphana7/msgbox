@@ -50,29 +50,7 @@ export default class PushMsg extends Component  {
             this.setState({
                 openMsg: !this.state.openMsg
               });
-              e.preventDefault();
-            $(this).toggleClass('up');
-
-            //PUSH내용 초기 세팅
-            var cont = $(this).closest('.btnToggle').siblings('.cont'),
-                contH = cont.children('p').outerHeight(),
-                duration = contH > 500 ? contH : 500;
-
-            if($(this).hasClass('up')) {
-                //PUSH내용 보임
-                cont.css({display:'block',maxHeight:'none',height:60})
-                
-                contH = cont.children('p').outerHeight();
-                duration = contH > 500 ? contH : 500;
-
-                cont.css({height: contH, 'transition-duration':duration + 'ms'});	
-            } else {
-                //PUSH내용 닫힘
-                cont.css({height: 60});
-                setTimeout(function() {
-                cont.css({display:'-webkit-box',maxHeight:60,height:'auto'});
-                }, duration)
-            }
+              e.preventDefault();       
         }
         
 
