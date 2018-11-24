@@ -12,25 +12,9 @@ export default class PushList extends Component {
         return this.props.dataSource !== nextProps.dataSource;
     }
 
-   renderSwitch(param) {
-    switch(param) {
-        case '1':
-        return 'payment';
-        case '2':
-        return 'notice';
-        case '3':
-        return 'info';
-        case '4':
-        return 'event';
-        default:
-        return 'payment';
-        }
-    }
-
     render() {
 
-        var renderSwitch = this.renderSwitch;
-
+        const { dataSource } = this.props;
         function temperatureClassname(temp){
             const prefix = 'pushList '
           
@@ -46,7 +30,7 @@ export default class PushList extends Component {
             return dt.substr(2,2)+"."+dt.substr(4,2)+"."+dt.substr(6,2)+" | "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
         }
         
-        var cells = (this.props.dataSource)?this.props.dataSource.map(function(item, index) {
+        var cells = (dataSource)?dataSource.map(function(item, index) {
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                         <li>

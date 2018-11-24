@@ -3,10 +3,6 @@ import '../css/push.css';
 
 export default class PushDelete extends Component {
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.props.todos !== nextProps.todos;
-    }
-
     render() {
 
         return (
