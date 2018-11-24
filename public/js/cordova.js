@@ -18,6 +18,10 @@
  specific language governing permissions and limitations
  under the License.
 */
+if (navigator.userAgent.indexOf("Windows") > -1 ) {
+    console.log("is window");
+} else {
+
 ;(function() {
 var PLATFORM_VERSION_BUILD_LABEL = '5.2.2';
 // file: src/scripts/require.js
@@ -2209,7 +2213,6 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
 	};
 });
 
-
 cordova.define('cordova/plugin_list', function(require, exports, module) {
     module.exports = [
         {
@@ -2248,4 +2251,4 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     };
     // BOTTOM OF METADATA
 });
-    
+} 
