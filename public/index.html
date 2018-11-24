@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <script src="./js/jquery-2.1.3.min.js"></script>
     <script src="./js/jquery-ui.min.js"></script>
-    <!--<script src="./js/cordova.js"></script>-->
+    <script src="./js/cordova.js"></script>
     
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -49,12 +49,11 @@
         document.getElementsByTagName('head')[0].appendChild(script);
       }
 
-
-      console.log("start load script call");
-      if (userAgentCheck() == "I") { loadScript("./js/cordova.js", function(){ console.log("./js/cordova.js load ok! "); }); }
-      else if (userAgentCheck() == "A") { loadScript("./js/cordova.js", function(){ console.log("./js/cordova.js load ok! "); }); }
-      else { console.log("nothing"); }
-      console.log("end load script call");
+//       console.log("start load script call");
+//       if (userAgentCheck() == "I") { loadScript("./js/cordova.js", function(){ console.log("./js/cordova.js load ok! "); }); }
+//       else if (userAgentCheck() == "A") { loadScript("./js/cordova.js", function(){ console.log("./js/cordova.js load ok! "); }); }
+//       else { console.log("nothing"); }
+//       console.log("end load script call");
 
     $(document).ready(function() {
         
