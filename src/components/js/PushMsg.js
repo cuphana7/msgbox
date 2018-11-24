@@ -44,7 +44,11 @@ export default class PushMsg extends Component  {
         }
         
         const msgToTag = this.props.msg.split("\n").map(function(item, index){
+            var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
+            item.match(rUrlRegex) ? '<a>'+item+'</a>' : item; 
             return <React.Fragment>{item}<br/></React.Fragment>
+            //http
+            //스페이스나, \n 까지
         });
 
         const clickMsgOpen = (e) => {
