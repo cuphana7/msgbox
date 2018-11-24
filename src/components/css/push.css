@@ -116,6 +116,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .pushList li .tit{display:block;margin-bottom:4px;font-size:16px;line-height:24px}
 .pushList li .date{color:rgba(0,0,0,.47)}
 .pushList li .cont{overflow:hidden;display:-webkit-box;display:box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;box-orient:vertical;max-height:60px;margin-top:16px;transition:height 500ms ease-in-out}
+.pushList li .cont p .linkStyle {text-decoration: underline; color:#0000ff}
 .pushList li .banner{display:block;margin-top:16px}
 .pushList li .banner img{width:100%;height:auto;vertical-align:top}
 .pushList li .eventBtn{margin-top:16px}

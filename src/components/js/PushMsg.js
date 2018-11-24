@@ -43,12 +43,14 @@ export default class PushMsg extends Component  {
             return "https://img2.kbcard.com/msg/cxv/template/system/"+img;
         }
         
+
         const msgToTag = this.props.msg.split("\n").map(function(item, index){
             var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
-            item.match(rUrlRegex) ? '<a>'+item+'</a>' : item; 
-            return <React.Fragment>{item}<br/></React.Fragment>
-            //http
-            //스페이스나, \n 까지
+            var url = item.match(rUrlRegex);
+            if (url != null)
+                return <React.Fragment>{item.substring(0, item.indexOf("http"))}<a href={url} className="linkStyle"> {url} </a><br/></React.Fragment>
+            else 
+                return <React.Fragment>{item}<br/></React.Fragment>
         });
 
         const clickMsgOpen = (e) => {
