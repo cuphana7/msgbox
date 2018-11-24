@@ -79,11 +79,6 @@ export default class PushMsg extends Component  {
             e.preventDefault();
         }
 
-        const checkedOnChange = (e) => {
-            checked = !checked;
-        }
-        
-
         return (
             <div>
                 
@@ -113,7 +108,7 @@ export default class PushMsg extends Component  {
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">
                     <label htmlFor="sel1_1">해당 알림 삭제하기</label>
-                    <input type="checkbox" id="sel1_1" name="" className="inp1" value={msgid} onChange={checkedOnChange} />
+                    <input type="checkbox" id="sel1_1" name="" className="inp1" value={msgid} />
                 </div>
 
             </div>
