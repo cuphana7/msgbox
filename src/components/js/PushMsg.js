@@ -43,8 +43,14 @@ export default class PushMsg extends Component  {
             return "https://img2.kbcard.com/msg/cxv/template/system/"+img;
         }
         
+
         const msgToTag = this.props.msg.split("\n").map(function(item, index){
-            return <React.Fragment>{item}<br/></React.Fragment>
+            var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
+            var url = item.match(rUrlRegex);
+            if (url != null)
+                return <React.Fragment>{item.substring(0, item.indexOf("http"))}<a href={url} className="linkStyle"> {url} </a><br/></React.Fragment>
+            else 
+                return <React.Fragment>{item}<br/></React.Fragment>
         });
 
         const clickMsgOpen = (e) => {
