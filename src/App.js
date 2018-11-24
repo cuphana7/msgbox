@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MsgBoxTemplate from './components/js/MsgBoxTemplate';
 import Content from './components/js/Content';
-import $ from 'jquery'
 
 /**
  * 
@@ -25,7 +24,11 @@ class App extends Component {
       api: {
         "auth_key" : "",
         "url_auth" : "/api/authentication",
-        "url_messages" : "/api/inbox/messages"
+        "url_messages" : "/api/inbox/messages",
+        "url_delete" : "/api/inbox/delete",
+        "url_delete_all" : "/api/inbox/delete/all",
+        "url_unread" : "/api/inbox/unread",
+        "url_events" : "/CXHIAxxxxxxx.cms"
       },
       authReq : {
         "isPost" : true
@@ -114,11 +117,37 @@ class App extends Component {
   cordovaMessages() {
     var self = this;
     return new Promise(function(resolve, reject) {
-      window.kbmobile.push.callApi( self.state.api.url_messages, self.state.messagesReq,function(res){
+      const callback = (res) => {
         console.log("messages called to page="+self.state.messagesReq.PAGE);
         resolve(res);
-      });
+      };
+      
+      self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, callback);
     });  
+  }
+
+  /**
+   * cordova 메시지 삭제 API 요청
+   */
+  cordovaDelete() {
+    var self = this;
+    return new Promise(function(resolve, reject) {
+      const callback = (res) => {
+        console.log("messages called to page="+self.state.messagesReq.PAGE);
+        resolve(res);
+      };
+      self.cordovaCallApi(self.state.api.url_delete,{},callback);
+    });
+  }
+
+  /**
+   * cordova를 통해 데이터를 요청한다.
+   * @param {*} url 
+   * @param {*} param 
+   * @param {*} callback 
+   */
+  cordovaCallApi(url, param, callback) {
+    window.kbmobile.push.callApi( url, param, callback );
   }
 
   /**
