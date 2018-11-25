@@ -18,7 +18,7 @@
  specific language governing permissions and limitations
  under the License.
 */
-if (navigator.userAgent.indexOf("Windows") > -1 ) {
+if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1 ) {
     console.log("is window");
 } else {
 

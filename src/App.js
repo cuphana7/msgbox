@@ -17,42 +17,46 @@ import axios from 'axios';
  * 
  */
 class App extends Component {
-  
+
   constructor(props) {
     super(props)
 
     this.state = {
       api: {
-        "auth_key" : "",
-        "url_auth" : "/api/authentication",
-        "url_messages" : "/api/inbox/messages",
-        "url_delete" : "/api/inbox/delete",
-        "url_delete_all" : "/api/inbox/deleteAll",
-        "url_unread" : "/api/inbox/unread",
-        "url_events" : "/CXHIA00000.cms"
+        "auth_key": "",
+        "url_auth": "/api/authentication",
+        "url_messages": "/api/inbox/messages",
+        "url_delete": "/api/inbox/delete",
+        "url_delete_all": "/api/inbox/deleteAll",
+        "url_unread": "/api/inbox/unread",
+        "url_events": "/CXHIA00000.cms"
       },
-      authReq : {
-        "isPost" : true
+      authReq: {
+        "isPost": true
       },
-      messagesReq : {
-        "APP_ID" : "com.kbcard.kbkookmincard",
-        "USER_ID" : "",
-        "PAGE" : 1,
-        "AUTHKEY" : "",
-        "isPost" : false
+      messagesReq: {
+        "APP_ID": "com.kbcard.kbkookmincard",
+        "USER_ID": "",
+        "PAGE": 1,
+        "AUTHKEY": "",
+        "isPost": false
       },
-      localCache : {
-        "msg_key_id" : "", // 최근 저장 키
-        "last_categroy" : "1",
-        "msg_key" : "" // 메시지리스트 키
+      localCache: {
+        "msg_key_id": "", // 최근 저장 키
+        "last_categroy": "1",
+        "msg_key": "" // 메시지리스트 키
       },
-      list: []
+      list: [],
+      checkedItems: new Map()
     }
 
     this.handleScrollToTop = this.handleScrollToTop.bind(this)
     this.handleScrollToBottom = this.handleScrollToBottom.bind(this)
     this.reqMessages = this.reqMessages.bind(this)
     this.handleCategoryToChange = this.handleCategoryToChange.bind(this)
+    this.handleCheckedChange = this.handleCheckedChange.bind(this)
+    this.handleDeleteClick = this.handleDeleteClick.bind(this)
+    this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
   }
 
   componentDidMount() {
@@ -61,15 +65,52 @@ class App extends Component {
     function loadScript(url, callback) {
       var script = document.createElement("script");
       script.type = "text/javascript";
-      script.onload = function(){callback();};
+      script.onload = function () { callback(); };
       script.src = url;
       document.getElementsByTagName('head')[0].appendChild(script);
     }
 
-    loadScript("/js/common.js", function(){ console.log("./js/common.js load ok! "); });
+    loadScript("/js/common.js", function () { console.log("./js/common.js load ok! "); });
   }
 
+  /**
+  * 삭제를 위한 체크박스 선택시
+  * @param {*} e 
+  */
+  handleCheckedChange(e) {
+    const item = e.target.name;
+    const isChecked = e.target.checked;
+    this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
+  }
 
+  /**
+   * 전체 선택
+   * @param {*} e 
+   */
+  handleCheckedAllClick(e) {
+    const ch = this.state.checkedItems;
+    this.state.list.map( value => {
+      ch.set(value.MSG_ID,true);
+    });
+  }
+
+  /**
+   * 삭제 버튼 이벤트
+   * @param {*} completed 
+   */
+  handleDeleteClick(e) { 
+    const ch = this.state.checkedItems;
+    this.state.list.map( value => {
+      this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(value.MSG_ID, true) }));
+    });
+
+    const arrKeys = [];
+    this.state.checkedItems.forEach((value, key) => {
+      if (value == true) arrKeys.push(key);
+    });
+    console.log(arrKeys.join(","));
+    this.cordovaDelete(arrKeys);
+  }
   /**
    * 스크롤 상단으로 이동시 목록 가져오기
    * @param {*} completed 
@@ -85,7 +126,7 @@ class App extends Component {
    * 스크롤 하단으로 이동시 목록 가져오기
    */
   handleScrollToBottom(completed) {
-    this.state.messagesReq.PAGE = this.state.messagesReq.PAGE+1;
+    this.state.messagesReq.PAGE = this.state.messagesReq.PAGE + 1;
     this.reqMessages();
     completed();
   }
@@ -106,14 +147,14 @@ class App extends Component {
    */
   cordovaAuth() {
     var self = this;
-    return new Promise(function(resolve, reject) {
-      if (self.state.messagesReq.AUTHKEY != "") { resolve(); } 
+    return new Promise(function (resolve, reject) {
+      if (self.state.messagesReq.AUTHKEY != "") { resolve(); }
       else {
         const suc = (res) => { self.state.messagesReq.AUTHKEY = res.AUTHKEY; resolve(); }
         const fail = (res) => { reject(res); }
         self.cordovaCallApi(self.state.api.url_auth, self.state.authReq, suc, fail);
       }
-    });  
+    });
   }
 
   /**
@@ -121,11 +162,11 @@ class App extends Component {
    */
   cordovaMessages() {
     var self = this;
-    return new Promise(function(resolve, reject) {
-      const suc = (res) => { console.log("messages called to page="+self.state.messagesReq.PAGE); resolve(res); };
+    return new Promise(function (resolve, reject) {
+      const suc = (res) => { console.log("messages called to page=" + self.state.messagesReq.PAGE); resolve(res); };
       const fail = (res) => { reject(res); }
       self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, suc, fail);
-    });  
+    });
   }
 
   /**
@@ -133,8 +174,8 @@ class App extends Component {
    */
   cordovaDelete(param) {
     var self = this;
-    return new Promise(function(resolve, reject) {
-      const succ = (res) => { console.log("messages called to page="+self.state.messagesReq.PAGE); resolve(res); };
+    return new Promise(function (resolve, reject) {
+      const succ = (res) => { console.log("res=" + JSON.stringify(res)); resolve(res); };
       const fail = (res) => { reject(res); }
 
       self.cordovaCallApi(self.state.api.url_delete, param, succ, fail);
@@ -150,14 +191,14 @@ class App extends Component {
   cordovaCallApi(url, param, callbackSucc, callbackFail) {
 
     // 로컬 테스트용
-    if (navigator.userAgent.indexOf("Windows") > -1 ) {
-      axios.get("/sample-data"+url+".json", {params:param})
-      .then( response => { callbackSucc(response.data) } )
-      .catch( response => { callbackFail(response.data) } );
+    if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
+      axios.get("/sample-data" + url + ".json", { params: param })
+        .then(response => { callbackSucc(response.data) })
+        .catch(response => { callbackFail(response.data) });
     } else {
-      window.kbmobile.push.callApi( url, param, callbackSucc, callbackFail );
+      window.kbmobile.push.callApi(url, param, callbackSucc, callbackFail);
     }
-    
+
   }
 
   /**
@@ -167,15 +208,15 @@ class App extends Component {
   reqMessages() {
 
     var self1 = this;
-    
-      self1.cordovaAuth().then(() => {
-        self1.cordovaMessages().then((res) =>{
-          console.log(res.LIST);
-          self1.setState({ list: self1.state.list.concat(res.LIST) });
-        });
 
-      }).catch(err => console.log("err: ", err));
-    
+    self1.cordovaAuth().then(() => {
+      self1.cordovaMessages().then((res) => {
+        console.log(res.LIST);
+        self1.setState({ list: self1.state.list.concat(res.LIST) });
+      });
+
+    }).catch(err => console.log("err: ", err));
+
 
   }
 
@@ -188,10 +229,14 @@ class App extends Component {
           onScrollToBottom={this.handleScrollToBottom}
           handleCategoryToChange={this.handleCategoryToChange}
           category={this.state.messagesReq.CATEGORY}
-          />
+          handleCheckedChange={this.handleCheckedChange}
+          handleDeleteClick={this.handleDeleteClick}
+          checkedItems={this.state.checkedItems}
+          handleCheckedAllClick={this.state.handleCheckedAllClick}
+        />
       </MsgBoxTemplate>
     );
-    
+
   }
 
 }

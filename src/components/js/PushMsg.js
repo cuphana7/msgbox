@@ -39,16 +39,21 @@ export default class PushMsg extends Component  {
 
     render() {
         const self = this;
-        const { msg, ext, msgid, checked } = this.props;
+        const { msg, ext, msgid, handleCheckedChange, checkedItems } = this.props;
         const imageUrl = (img) => { return "https://img2.kbcard.com/msg/cxv/template/system/"+img; }
+
+        const onch = (e)=>{
+
+            console.log(11111);
+        }
 
         const msgToTag = msg.split("\n").map(function(item, index){
             var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
             var url = item.match(rUrlRegex);
             if (url != null)
-                return <React.Fragment>{item.substring(0, item.indexOf("http"))}<a href={url} className="linkStyle"> {url} </a><br/></React.Fragment>
+                return <React.Fragment key={index}>{item.substring(0, item.indexOf("http"))}<a href={url} className="linkStyle"> {url} </a><br/></React.Fragment>
             else 
-                return <React.Fragment>{item}<br/></React.Fragment>
+                return <React.Fragment key={index}>{item}<br/></React.Fragment>
         });
 
         const clickMsgOpen = (e) => {
@@ -108,7 +113,7 @@ export default class PushMsg extends Component  {
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">
                     <label htmlFor="sel1_1">해당 알림 삭제하기</label>
-                    <input type="checkbox" id="sel1_1" name="" className="inp1" value={msgid} />
+                    <input type="checkbox" id="sel1_1" name={msgid} className="inp1" value={msgid} onChange={handleCheckedChange} checked={checkedItems.get(msgid)} />
                 </div>
 
             </div>
