@@ -24,7 +24,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
     var targetNodeIndex = 0
     var nodes = document.getElementsByClassName(dom.className)
     for (var i=0; i< nodes.length; i++) {
-      if (nodes[i]==dom) {
+      if (nodes[i]===dom) {
         targetNodeIndex = i
         break
       }
@@ -49,6 +49,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
     var scrollviewContentHeight = dom.scrollHeight
     var sum = scrollviewOffsetY+scrollviewFrameHeight
     //console.log(sum+">="+scrollviewContentHeight);
+    var tableView = null;
 
     if (sum <= scrollviewFrameHeight) {
 
@@ -66,7 +67,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
         var refreshIndicator = document.createElement("div")
         refreshIndicator.className = indicatorClassName
 
-        var tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
+        tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
         tableView.insertBefore(refreshIndicator, tableView.firstChild)
       }
 
@@ -102,7 +103,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
         var loadMoreIndicator = document.createElement("div")
         loadMoreIndicator.className = indicatorClassName
 
-        var tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
+        tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
         tableView.insertBefore(loadMoreIndicator, tableView.lastChild.nextSibling)
       }
 

@@ -3,7 +3,6 @@ import '../css/push.css';
 
 class PushRadioSel extends Component {
 
-    constructor(props) { super(props) }
     render() {
 
         return (

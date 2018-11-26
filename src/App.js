@@ -90,7 +90,7 @@ class App extends Component {
   handleCheckedAllClick(e) {
     const ch = this.state.checkedItems;
     this.state.list.map( value => {
-      ch.set(value.MSG_ID,true);
+      ch.set(value.MSG_ID,true)
     });
   }
 
@@ -99,14 +99,14 @@ class App extends Component {
    * @param {*} completed 
    */
   handleDeleteClick(e) { 
-    const ch = this.state.checkedItems;
+
     this.state.list.map( value => {
       this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(value.MSG_ID, true) }));
     });
 
     const arrKeys = [];
     this.state.checkedItems.forEach((value, key) => {
-      if (value == true) arrKeys.push(key);
+      if (value === true) arrKeys.push(key);
     });
     console.log(arrKeys.join(","));
     this.cordovaDelete(arrKeys);
@@ -116,8 +116,8 @@ class App extends Component {
    * @param {*} completed 
    */
   handleScrollToTop(completed) {
-    this.state.list = [];
-    this.state.messagesReq.PAGE = 1;
+    this.setState({ list: [] });
+    this.setState({messagesReq : {PAGE:1}});
     this.reqMessages();
     completed();
   }
@@ -126,7 +126,7 @@ class App extends Component {
    * 스크롤 하단으로 이동시 목록 가져오기
    */
   handleScrollToBottom(completed) {
-    this.state.messagesReq.PAGE = this.state.messagesReq.PAGE + 1;
+    this.setState({messagesReq : {PAGE:this.state.messagesReq.PAGE + 1}});
     this.reqMessages();
     completed();
   }
@@ -136,9 +136,8 @@ class App extends Component {
    * @param {*} e 
    */
   handleCategoryToChange(e) {
-    this.state.messagesReq.CATEGORY = e.target.value;
-    this.state.list = [];
-    this.state.messagesReq.PAGE = 1;
+    this.setState({messagesReq : {CATEGORY:e.target.value, PAGE:1}});
+    this.setState({ list: [] });
     this.reqMessages();
   }
 
@@ -148,7 +147,7 @@ class App extends Component {
   cordovaAuth() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      if (self.state.messagesReq.AUTHKEY != "") { resolve(); }
+      if (self.state.messagesReq.AUTHKEY !== "") { resolve(); }
       else {
         const suc = (res) => { self.state.messagesReq.AUTHKEY = res.AUTHKEY; resolve(); }
         const fail = (res) => { reject(res); }

@@ -28,7 +28,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267434">
-                            <a href='#'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">공항라운지 무료입장권으로 해외공항에서 즐기는 여유</strong>
                                     <span className="date">18.09.21 ~ 18.10.14</span>
@@ -37,7 +37,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267430">
-                            <a href='#'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">익스피디아는 15% 할인중</strong>
                                     <span className="date">18.09.19 ~ 18.11.30</span>
@@ -46,7 +46,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267419">
-                            <a href='#'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">Fall In Check! 5대 업종 캐시백</strong>
                                     <span className="date">18.09.18 ~ 18.10.18</span>
@@ -55,7 +55,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267418">
-                            <a href="#">
+                            <a href="#kbcard">
                                 <span className="txt">
                                     <strong className="tit">VIP고객대상! 롯데호텔 『Autumn Days』 패키지 프로모션</strong>
                                     <span className="date">18.09.20 ~ 18.10.31</span>
@@ -64,7 +64,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267414">
-                            <a href='#'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">풍성한 한가위! 풍성한 온라인 쇼핑!</strong>
                                     <span className="date">18.09.18 ~ 18.09.30</span>
@@ -73,7 +73,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267412">
-                            <a href='javascript:goDetail("267412","",1)'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">내가 아는 해외온라인가맹점에선 최대 5만원 캐시백!</strong>
                                     <span className="date">18.09.17 ~ 18.10.31</span>
@@ -82,7 +82,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267411">
-                            <a href='#'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">해외직구X비타트라 가을맞이 즉시할인! Vitatra 추천상품 특가!</strong>
                                     <span className="date">18.09.14 ~ 18.10.19</span>
@@ -91,7 +91,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267410">
-                            <a href='#'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">여행하기 좋은 계절 秋캉스를 위한 최대 10만원 캐시백</strong>
                                     <span className="date">18.09.14 ~ 18.10.14</span>
@@ -100,7 +100,7 @@ class PushEvent extends Component {
                             </a>
                         </li>
                         <li id="evt267408">
-                            <a href='#'>
+                            <a href='#kbcard'>
                                 <span className="txt">
                                     <strong className="tit">반려견 동반 프로그램 가을앤 休</strong>
                                     <span className="date">18.09.14 ~ 18.10.04</span>

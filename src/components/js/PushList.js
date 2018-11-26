@@ -4,10 +4,6 @@ import PushMsg from '../js/PushMsg';
 
 export default class PushList extends Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.dataSource !== nextProps.dataSource;
     }
@@ -23,6 +19,7 @@ export default class PushList extends Component {
               case '2': return prefix + 'event'
               case '3': return prefix + 'info'
               case '4': return prefix + 'notice'
+              default: return prefix + 'payment'
             }
         }
         
