@@ -17,35 +17,14 @@ export default class PushMsg extends Component  {
         this.eleMsgOpen = React.createRef();
     }
 
-    /*
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.dataSource !== nextProps.dataSource;
-    }
-    */
-   renderSwitch(param) {
-    switch(param) {
-        case '1':
-        return 'payment';
-        case '2':
-        return 'notice';
-        case '3':
-        return 'info';
-        case '4':
-        return 'event';
-        default:
-        return 'payment';
-        }
+        return this.props.msg !== nextProps.msg;
     }
 
     render() {
         const self = this;
         const { msg, ext, msgid, handleCheckedChange, checkedItems } = this.props;
         const imageUrl = (img) => { return "https://img2.kbcard.com/msg/cxv/template/system/"+img; }
-
-        const onch = (e)=>{
-
-            console.log(11111);
-        }
 
         const msgToTag = msg.split("\n").map(function(item, index){
             var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
@@ -67,10 +46,8 @@ export default class PushMsg extends Component  {
             if(!$(thisEle).hasClass('up')) {
                 //PUSH내용 보임
                 cont.css({display:'block',maxHeight:'none',height:60})
-                
                 contH = cont.children('p').outerHeight();
                 duration = contH > 500 ? contH : 500;
-
                 cont.css({height: contH, 'transition-duration':duration + 'ms'});	
             } else {
                 //PUSH내용 닫힘
