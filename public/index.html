@@ -30,35 +30,6 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="Wrap"></div>
-    
-    <script>
-      function userAgentCheck() {  
-          var useragent = navigator.userAgent;  
-          var vResult;  
-          if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('iPad') != -1) { vResult = "I";  } 
-          else if (useragent.indexOf('Android') != -1) { vResult = "A";  } 
-          else { vResult = "W"; }  
-          return vResult;  
-      }
-      
-      function loadScript(url, callback) {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.onload = function(){callback();};
-        script.src = url;
-        document.getElementsByTagName('head')[0].appendChild(script);
-      }
-
-//       console.log("start load script call");
-//       if (userAgentCheck() == "I") { loadScript("./js/cordova.js", function(){ console.log("./js/cordova.js load ok! "); }); }
-//       else if (userAgentCheck() == "A") { loadScript("./js/cordova.js", function(){ console.log("./js/cordova.js load ok! "); }); }
-//       else { console.log("nothing"); }
-//       console.log("end load script call");
-
-    $(document).ready(function() {
-        
-    });
-		</script>
   </body>
 </html>
 

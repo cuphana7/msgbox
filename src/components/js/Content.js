@@ -9,8 +9,6 @@ import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableVi
 
 export default class Content extends ReactRefreshInfiniteTableView  {
 
-    constructor(props) { super(props) }
-
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.list !== nextProps.list;
     }
