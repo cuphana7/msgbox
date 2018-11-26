@@ -70,7 +70,7 @@ class App extends Component {
       document.getElementsByTagName('head')[0].appendChild(script);
     }
 
-    loadScript("/js/common.js", function () { console.log("./js/common.js load ok! "); });
+    loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
   }
 
   /**
