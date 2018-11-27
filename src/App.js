@@ -60,21 +60,12 @@ class App extends Component {
     this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
 
 
-    function loadScript(url, callback) {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.onload = function () { callback(); };
-      script.src = url;
-      document.getElementsByTagName('head')[0].appendChild(script);
-    }
-
-    loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
-    if (navigator.userAgent.indexOf("iPhone") > -1) loadScript("js/cordova_ios.js", function () { console.log("./js/cordova_ios.js load ok! "); });
-    else loadScript("js/cordova.js", function () { console.log("./js/cordova.js load ok! "); });
   
   }
   componentDidMount() {
-    this.reqMessages();
+    if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) this.reqMessages();
+    else document.addEventListener("deviceready", this.reqMessages(), false);
+    
   }
 
   /**

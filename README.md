@@ -36,3 +36,44 @@ axios.post('/msg', {
 
 프론트엔드 개발 공부를 할 때 흔히 만들게 되는 투두리스트. [[미리보기]](https://fc3-basic.surge.sh)
 checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbox-select-all-component
+
+# TO-DO 2018.11.28
+/**
+	일반적인 닫기시 사용하는 뒤로 이동 기능
+*/
+function backToPrev() {
+	if(hasStepURI && getHeaderType() == 3) {
+		$.cxhia.confirm({
+			message: '종료 시 입력하신 정보가 손실됩니다. 진행 중인 프로세스를 종료하시겠습니까?' 
+		}, function(res) {
+			if(res == 'ok') {
+			    $(document).trigger('stepClose');
+				// step이 시작되기 이전
+				backToPrevBackMark();
+			}
+		});
+	}
+	else {
+		try {
+			var pageHistoryLength = pageHistory.count();
+			if( !hasSkipRetain && pageHistoryLength > 0) {
+				
+				pageHistory.remove();
+			}
+			else if( hasSkipRetain == 2) {
+				pageHistory.remove();
+			}
+			
+			if( pageHistoryLength > 0 ) {
+				backToPrevBackMark();
+			}
+			else {
+				console.log('backToPrev: empty history. back to main...');
+				backToNative();
+			}
+		}
+		catch(e) {
+			history.back();
+		}
+	}
+}
