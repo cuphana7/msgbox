@@ -20,7 +20,7 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-
+    
     this.state = {
       api: {
         "auth_key": "",
@@ -39,6 +39,7 @@ class App extends Component {
         "USER_ID": "",
         "PAGE": 1,
         "AUTHKEY": "",
+        "CATEGORY": window.location.hash === ""? "1" : window.location.hash.substr(1),
         "isPost": false
       },
       localCache: {
@@ -162,8 +163,9 @@ class App extends Component {
   cordovaMessages() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      const suc = (res) => { console.log("messages called to page=" + self.state.messagesReq.PAGE); resolve(res); };
+      const suc = (res) => { console.log("messages called success page=" + self.state.messagesReq.PAGE); resolve(res); };
       const fail = (res) => { reject(res); }
+      console.log(JSON.stringify(self.state.messagesReq));
       self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, suc, fail);
     });
   }

@@ -24,7 +24,7 @@ $('.pushEvent .toggleUI').on('click', function (e) {
 });
 
 //하단 이벤트 영역 초기 세팅
-$('.puchEventCont .eventList').css({ height: $(window).outerHeight() - 281 }).closest('.pushEvent').css({ bottom: ($('.pushEvent').outerHeight() - 56) * -1 })
+$('.puchEventCont .eventList').css({ height: $(window).outerHeight() - 2981 }).closest('.pushEvent').css({ bottom: ($('.pushEvent').outerHeight() - 56) * -1 })
 
 //삭제버튼 클릭 시 UI
 $('.delete').on('click', function () {
