@@ -1924,7 +1924,6 @@
         module.exports = [
             {
                 "id": "cordova-plugin-push.PushPlugin",
-                "pluginId": "cordova-plugin-push",
                 "clobbers": [
                     "window.kbmobile.push"
                 ]
