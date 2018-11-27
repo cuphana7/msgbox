@@ -58,10 +58,7 @@ class App extends Component {
     this.handleCheckedChange = this.handleCheckedChange.bind(this)
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
     this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
-  }
 
-  componentDidMount() {
-    this.reqMessages();
 
     function loadScript(url, callback) {
       var script = document.createElement("script");
@@ -72,6 +69,12 @@ class App extends Component {
     }
 
     loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
+    if (navigator.userAgent.indexOf("iPhone") > -1) loadScript("js/cordova_ios.js", function () { console.log("./js/cordova_ios.js load ok! "); });
+    else loadScript("js/cordova.js", function () { console.log("./js/cordova.js load ok! "); });
+  
+  }
+  componentDidMount() {
+    this.reqMessages();
   }
 
   /**
