@@ -30,6 +30,7 @@ export default class Content extends ReactRefreshInfiniteTableView  {
                         <PushList dataSource={list} handleCheckedChange={handleCheckedChange} checkedItems={checkedItems} authKey={authKey} />
                         {/* 이벤트 레이어 */}
                         <PushEvent eventList={eventList}/>
+                        <div className="dim disnone"></div>
                     </div>
                 </section>
             </div>
