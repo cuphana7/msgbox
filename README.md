@@ -42,5 +42,5 @@ checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbo
 뒤로가기 닫기 !
 설정 화면 이동 !
 신청화면 보이기
-- 인증실패( 기기정보 다름 )
-- 식별자 없음( PUSH 기기등록 안됨 )
+- 인증실패( 기기정보 다름 ) > 신청
+- 식별자 없음( PUSH 기기등록 안됨 ) > 신청
