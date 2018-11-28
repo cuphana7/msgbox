@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/push.css';
 
 class PushRadioSel extends Component {
-adsf
+    
     render() {
         const { category } = this.props;
         return (

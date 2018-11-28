@@ -6,7 +6,7 @@ export default class PushList extends Component {
 
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.dataSource !== nextProps.dataSource || this.props.authKey !== nextProps.authKey;
+        return this.props.dataSource !== nextProps.dataSource;
     }
 
 
@@ -42,10 +42,20 @@ export default class PushList extends Component {
 
         const eventJoin = ( <div className="infoBox notImg"><div className="pushInfo"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_push_80.png" width="80" alt=""/><strong className="mb16">혜택 PUSH알림</strong><p>KB국민카드만의 다양한 이벤트를<br/>PUSH알림으로 받아보세요.</p></div><div className="bottomArea"><a href="" className="btnL btnGray">수신동의</a></div></div>);
         const blank = ( <div className="infoBox notImg"><p className="mt10">새로운 PUSH알림 내역이 없습니다.</p></div> );
+        const setting = (<div className="pushInfo"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_push_80.png" width="80" alt=""/>
+                        <p>
+                            PUSH占싯몌옙 占쏙옙占쏟스몌옙 占쏙옙청占싹시몌옙<br/>
+                            占쌕억옙占쏙옙 占싱븝옙트, 占쌩울옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙<br/>
+                            占쏙옙占쏙옙占� 占쌨아븝옙占쏙옙 占쏙옙 占쌍쏙옙占싹댐옙.<br/>
+                            <br/>
+                            占쏙옙청占쏙옙 占쏙옙占싹시몌옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占� <br/>
+                            占쏙옙占쏙옙占쏙옙튼[ <img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_setting_24_000_b.png" width="24" alt="占쏙옙占쏙옙占쏙옙튼 占싱뱄옙占쏙옙"/> ]占쏙옙 占쏙옙占쏙옙占쌍쇽옙占쏙옙.<br/>
+                        </p>
+                    </div>);
 
 
         
-        var cells = (dataSource)?dataSource.map(function(item, index) {
+        var cells = (dataSource && dataSource.length > 0)?dataSource.map(function(item, index) {
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                         <li>
@@ -62,7 +72,7 @@ export default class PushList extends Component {
         
         return (
             <div className="pushWrap">
-                {authKey === "AUTHFAIL"? eventJoin : cells}
+                {authKey === "AUTHFAIL" || authKey === "" ? setting : cells}
             </div>
         );
     }

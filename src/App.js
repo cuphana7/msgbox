@@ -23,7 +23,6 @@ class App extends Component {
     
     this.state = {
       api: {
-        "auth_key": "",
         "url_auth": "/api/authentication",
         "url_messages": "/api/inbox/messages",
         "url_delete": "/api/inbox/delete",
@@ -251,7 +250,7 @@ class App extends Component {
     self.cordovaAuth().then(() => {
       self.cordovaMessages().then((res) => {
         console.log("res.LIST="+JSON.stringify(res.LIST));
-        console.log("this.state.list="+JSON.stringify(self.state.list));
+        //console.log("this.state.list="+JSON.stringify(self.state.list));
         self.setState({ list: self.state.list.concat(res.LIST) });
         this.requestEvent();
       });
