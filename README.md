@@ -38,42 +38,9 @@ axios.post('/msg', {
 checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbox-select-all-component
 
 # TO-DO 2018.11.28
-/**
-	일반적인 닫기시 사용하는 뒤로 이동 기능
-*/
-function backToPrev() {
-	if(hasStepURI && getHeaderType() == 3) {
-		$.cxhia.confirm({
-			message: '종료 시 입력하신 정보가 손실됩니다. 진행 중인 프로세스를 종료하시겠습니까?' 
-		}, function(res) {
-			if(res == 'ok') {
-			    $(document).trigger('stepClose');
-				// step이 시작되기 이전
-				backToPrevBackMark();
-			}
-		});
-	}
-	else {
-		try {
-			var pageHistoryLength = pageHistory.count();
-			if( !hasSkipRetain && pageHistoryLength > 0) {
-				
-				pageHistory.remove();
-			}
-			else if( hasSkipRetain == 2) {
-				pageHistory.remove();
-			}
-			
-			if( pageHistoryLength > 0 ) {
-				backToPrevBackMark();
-			}
-			else {
-				console.log('backToPrev: empty history. back to main...');
-				backToNative();
-			}
-		}
-		catch(e) {
-			history.back();
-		}
-	}
-}
+목표 : 내일 현업 테스트 요청
+뒤로가기 닫기 !
+설정 화면 이동 !
+신청화면 보이기
+- 인증실패( 기기정보 다름 )
+- 식별자 없음( PUSH 기기등록 안됨 )

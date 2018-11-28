@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       api: {
         "auth_key": "",
-        "url_auth": "/api/authentication",
+        "url_auth": "/api/authenticatio",
         "url_messages": "/api/inbox/messages",
         "url_delete": "/api/inbox/delete",
         "url_delete_all": "/api/inbox/deleteAll",
@@ -58,14 +58,26 @@ class App extends Component {
     this.handleCheckedChange = this.handleCheckedChange.bind(this)
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
     this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
+    this.setMessageReq = this.setMessageReq.bind(this)
 
-
-  
   }
   componentDidMount() {
+    /*
     if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) this.reqMessages();
-    else document.addEventListener("deviceready", this.reqMessages(), false);
-    
+    else document.addEventListener("deviceready", this.reqMessages(), false); 
+    */
+   this.reqMessages();
+  }
+
+  setMessageReq(prevState, page, category, authkey) {
+   return {
+      "APP_ID": prevState.messagesReq.APP_ID,
+      "USER_ID": "",
+      "PAGE": page === 0? prevState.messagesReq.PAGE : page,
+      "AUTHKEY": authkey !== "" ? authkey : prevState.messagesReq.AUTHKEY,
+      "CATEGORY": category === "" ? prevState.messagesReq.CATEGORY : category,
+      "isPost": false
+    }
   }
 
   /**
@@ -112,7 +124,7 @@ class App extends Component {
    */
   handleScrollToTop(completed) {
     this.setState({ list: [] });
-    this.setState({messagesReq : {PAGE:1}});
+    this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, 1, "", "") }));
     this.reqMessages();
     completed();
   }
@@ -121,7 +133,8 @@ class App extends Component {
    * 스크롤 하단으로 이동시 목록 가져오기
    */
   handleScrollToBottom(completed) {
-    this.setState({messagesReq : {PAGE:this.state.messagesReq.PAGE + 1}});
+    const nextPage = this.state.messagesReq.PAGE + 1;
+    this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, nextPage, "", "") }));
     this.reqMessages();
     completed();
   }
@@ -131,7 +144,8 @@ class App extends Component {
    * @param {*} e 
    */
   handleCategoryToChange(e) {
-    this.setState({messagesReq : {CATEGORY:e.target.value, PAGE:1}});
+    const target = e.target;
+    this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState,1, target.value, "") }));
     this.setState({ list: [] });
     this.reqMessages();
   }
@@ -142,10 +156,21 @@ class App extends Component {
   cordovaAuth() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      if (self.state.messagesReq.AUTHKEY !== "") { resolve(); }
+      if (self.state.messagesReq.AUTHKEY === "AUTHFAIL") { 
+        reject(""); 
+      }
+      else if (self.state.messagesReq.AUTHKEY !== "") { 
+        resolve(); 
+      }
       else {
-        const suc = (res) => { self.state.messagesReq.AUTHKEY = res.AUTHKEY; resolve(); }
-        const fail = (res) => { reject(res); }
+        const suc = (res) => { 
+          this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, 0, "", res.AUTHKEY) }));
+          resolve(); 
+        }
+        const fail = (res) => { 
+          reject(res); 
+        }
+        console.log("cordovaCallApi: url="+self.state.api.url_auth+" data="+JSON.stringify(self.state.authReq));
         self.cordovaCallApi(self.state.api.url_auth, self.state.authReq, suc, fail);
       }
     });
@@ -159,7 +184,7 @@ class App extends Component {
     return new Promise(function (resolve, reject) {
       const suc = (res) => { console.log("messages called success page=" + self.state.messagesReq.PAGE); resolve(res); };
       const fail = (res) => { reject(res); }
-      console.log(JSON.stringify(self.state.messagesReq));
+      console.log("cordovaCallApi: url="+self.state.api.url_messages+" data="+JSON.stringify(self.state.messagesReq));
       self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, suc, fail);
     });
   }
@@ -188,8 +213,12 @@ class App extends Component {
     // 로컬 테스트용
     if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
       axios.get("/sample-data" + url + ".json", { params: param })
-        .then(response => { callbackSucc(response.data) })
-        .catch(response => { callbackFail(response.data) });
+        .then(response => { 
+          callbackSucc(response.data) 
+        })
+        .catch(response => { 
+          callbackFail(response.data) 
+        });
     } else {
       window.kbmobile.push.callApi(url, param, callbackSucc, callbackFail);
     }
@@ -206,11 +235,15 @@ class App extends Component {
 
     self1.cordovaAuth().then(() => {
       self1.cordovaMessages().then((res) => {
-        console.log(res.LIST);
+        console.log("res.LIST="+JSON.stringify(res.LIST));
+        console.log("this.state.list="+JSON.stringify(this.state.list));
         self1.setState({ list: self1.state.list.concat(res.LIST) });
       });
 
-    }).catch(err => console.log("err: ", err));
+    }).catch(err => {
+      console.log("err: ", err);
+      this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, 0, "", "AUTHFAIL") }));
+    });
 
 
   }
@@ -228,6 +261,7 @@ class App extends Component {
           handleDeleteClick={this.handleDeleteClick}
           checkedItems={this.state.checkedItems}
           handleCheckedAllClick={this.state.handleCheckedAllClick}
+          authKey={this.state.messagesReq.AUTHKEY}
         />
       </MsgBoxTemplate>
     );

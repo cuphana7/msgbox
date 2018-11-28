@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://dmobileapps.kbcard.com:15000/cxh/html/pushbox/index.html# -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, target-densitydpi=medium-dpi">
+<meta name="format-detection" content="telephone=no, address=no, email=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>KB 국민카드</title>
+<link rel="stylesheet" href="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/common.css">
+<script src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/jquery-2.1.3.min.js"></script>
+<script src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/jquery-ui.min.js"></script>
+</head>
+
+<body>
+	<div class="skip">
+		<a href="https://dmobileapps.kbcard.com:15000/cxh/html/pushbox/index.html#content">본문 바로가기</a>
+	</div>
+	<div id="Wrap">
+		<div class="topHead">
+			<h1 class="fs4">PUSH알림</h1>
+			<div class="optionBtn"><button type="button">설정</button></div>
+			<div class="backBtn"><button type="button">이전페이지</button></div>
+		</div>
+
+		<!-- **************************************************************************************************
+		********************************************** M1C start **********************************************
+		*************************************************************************************************** -->
+		
+		<link rel="stylesheet" href="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/push.css">
+		<div id="content">
+			<section class="container">
+				<div class="pushArea"><!-- 리스트 삭제 시  'delete' 클래스 추가 -->
+					<ul class="pushRadioSel">
+						<li class="">
+							<label for="pushSel1">승인</label>
+							<input type="radio" id="pushSel1" name="pushRadio" checked="">
+						</li>
+						<li class="checked">
+							<label for="pushSel2">이벤트</label>
+							<input type="radio" id="pushSel2" name="pushRadio">
+						</li>
+						<li class="">
+							<label for="pushSel3">안내</label>
+							<input type="radio" id="pushSel3" name="pushRadio">
+						</li>
+						<li class="">
+							<label for="pushSel4">공지</label>
+							<input type="radio" id="pushSel4" name="pushRadio">
+						</li>
+					</ul>
+					
+					<div class="pushResult">
+						<span class="all" role="text">전체 <em class="fc8">6</em>개</span>
+						<button class="delete">삭제</button>
+					</div>
+
+					<div class="pushDelete">
+						<button type="button" class="close"><span>취소</span></button>
+						<button type="button" class="check"><span>전체선택</span></button>
+						<button type="button" class="trash" disabled=""><span>삭제</span></button>
+					</div>
+					
+					<!-- 승인내역 -->
+					<ul class="pushList payment">
+					</ul>
+					<!-- //승인내역 -->
+
+					<!-- 이벤트 -->
+					<ul class="pushList event">
+					</ul>
+					<!-- //이벤트 -->
+
+					<!-- 안내 -->
+					<ul class="pushList info">
+					</ul>
+					<!-- //안내 -->
+
+					<!-- 공지 -->
+					<ul class="pushList notice">
+					</ul>
+					<!-- //공지 -->
+					
+					<div id="pushInfo"><div class="infoBox notImg"><div class="pushInfo"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/ico_push_80.png" width="80" alt=""><strong class="mb16">혜택 PUSH알림</strong><p>KB국민카드만의 다양한 이벤트를<br>PUSH알림으로 받아보세요.</p></div><div class="bottomArea"><a href="https://dmobileapps.kbcard.com:15000/cxh/html/pushbox/index.html" class="btnL btnGray">수신동의</a></div></div></div>
+
+					<div class="pushEvent" style="bottom: -853px;">
+						<div class="title">
+							<h2>고객님을 위한 이벤트 콕!</h2>
+							<div class="btnToggle"><a href="https://dmobileapps.kbcard.com:15000/cxh/html/pushbox/index.html#kbcard" class="toggleUI white up" title="고객님을 위한 이벤트 리스트 보여짐"><span>이벤트 보기</span></a></div>
+						</div>
+
+						<div class="puchEventCont">
+							<ul class="eventList" style="height: 757px;">
+								<li id="evt267435">
+									<a href="javascript:goDetail(&quot;267435&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">‘결혼하기 좋은 날’ 아이위크 웨딩 박람회</strong>
+											<span class="date">18.09.28 ~ 18.10.09</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180913_iwork_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267434">
+									<a href="javascript:goDetail(&quot;267434&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">공항라운지 무료입장권으로 해외공항에서 즐기는 여유</strong>
+											<span class="date">18.09.21 ~ 18.10.14</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180919_flightvip_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267430">
+									<a href="javascript:goDetail(&quot;267430&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">익스피디아는 15% 할인중</strong>
+											<span class="date">18.09.19 ~ 18.11.30</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180913_expedia_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267419">
+									<a href="javascript:goDetail(&quot;267419&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">Fall In Check! 5대 업종 캐시백</strong>
+											<span class="date">18.09.18 ~ 18.10.18</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/event_cashback_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267418">
+									<a href="javascript:goDetail(&quot;267418&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">VIP고객대상! 롯데호텔 『Autumn Days』 패키지 프로모션</strong>
+											<span class="date">18.09.20 ~ 18.10.31</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/____180911_lottehotel_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267414">
+									<a href="javascript:goDetail(&quot;267414&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">풍성한 한가위! 풍성한 온라인 쇼핑!</strong>
+											<span class="date">18.09.18 ~ 18.09.30</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180912_hangawi_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267412">
+									<a href="javascript:goDetail(&quot;267412&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">내가 아는 해외온라인가맹점에선 최대 5만원 캐시백!</strong>
+											<span class="date">18.09.17 ~ 18.10.31</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180911_overseas_affiliate_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267411">
+									<a href="javascript:goDetail(&quot;267411&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">해외직구X비타트라 가을맞이 즉시할인! Vitatra 추천상품 특가!</strong>
+											<span class="date">18.09.14 ~ 18.10.19</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180911_vitatra_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267410">
+									<a href="javascript:goDetail(&quot;267410&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">여행하기 좋은 계절 秋캉스를 위한 최대 10만원 캐시백</strong>
+											<span class="date">18.09.14 ~ 18.10.14</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180906_cashback_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+								<li id="evt267408">
+									<a href="javascript:goDetail(&quot;267408&quot;,&quot;&quot;,1)">
+										<span class="txt">
+											<strong class="tit">반려견 동반 프로그램 가을앤 休</strong>
+											<span class="date">18.09.14 ~ 18.10.04</span>
+										</span>
+										<span class="thum"><img src="./KB &#4352;&#4462;&#4520;&#4358;&#4469;&#4523;&#4367;&#4449;&#4355;&#4467;_files/180911_withDog_Bnr_b.png" alt=""></span>
+									</a>
+								</li>
+							</ul>
+							<div class="btn">
+								<a href="https://dmobileapps.kbcard.com:15000/cxh/html/pushbox/index.html" class="btnL btnWhite">더 많은 혜택보기</a>
+							</div>
+						</div>
+					</div>
+					<div class="dim"></div>
+				</div>
+			</section>
+		</div>
+		
+		<script>
+			var pushInfo = {
+				pushSel1 : '<div class="infoBox notImg"><div class="pushInfo"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_push_80.png" width="80" alt=""><strong class="mb16">카드사용 PUSH알림(무료)</strong><p>아직도 300원 내세요?<br>무료로 알려주는 PUSH알림으로<br>카드사용내역 확인하세요!</p></div><div class="bottomArea"><a href="" class="btnL btnGray">신청</a></div></div>',
+				pushSel2 : '<div class="infoBox notImg"><div class="pushInfo"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_push_80.png" width="80" alt=""><strong class="mb16">혜택 PUSH알림</strong><p>KB국민카드만의 다양한 이벤트를<br>PUSH알림으로 받아보세요.</p></div><div class="bottomArea"><a href="" class="btnL btnGray">수신동의</a></div></div>',
+				pushSel3 : '<div class="infoBox notImg"><p class="mt10">새로운 PUSH알림 내역이 없습니다.</p></div>',
+				pushSel4 : '<div class="infoBox notImg"><p class="mt10">새로운 PUSH알림 내역이 없습니다.</p></div>'
+			}
+
+
+			//상단 탭 UI
+			$('.pushRadioSel input[type="radio"]').change(function(e) {
+				$(this).prop("checked", true).parent('li').addClass('checked').siblings('.checked').removeClass('checked').find('input').prop("checked", false);
+
+				$('#pushInfo').html(pushInfo[e.currentTarget.id])
+			});
+
+			//이벤트 리스트 토글 UI
+			$('.pushEvent .toggleUI').on('click',function(e) {
+				e.preventDefault();
+				var $this = $(this);
+				
+				setTimeout(function() {
+					$this.toggleClass('up');
+				}, 500)
+
+				var move_num = $('.pushEvent').outerHeight() - 56;
+				console.log(move_num)
+
+				if($(this).hasClass('up')) {
+					$('.pushEvent').css({webkitTransform: 'translate3d(0, -' + move_num + 'px, 0)',transition: 'all 500ms cubic-bezier(0.250, 0.250, 0.540, 0.930)'})
+					$('.dim').fadeIn();
+				} else {
+					$('.pushEvent').css({webkitTransform: 'translate3d(0, 0, 0)',transition: 'all 500ms cubic-bezier(0.250, 0.250, 0.540, 0.930)'})
+					$('.dim').fadeOut();
+				}
+			});
+
+			$(document).ready(function() {
+				//하단 이벤트 영역 초기 세팅
+				$('.puchEventCont .eventList').css({height: $(window).outerHeight() - 281}).closest('.pushEvent').css({bottom: ($('.pushEvent').outerHeight() - 56) * -1})
+			})
+		</script>
+		<!-- **************************************************************************************************
+		*********************************************** M1C end ***********************************************
+		*************************************************************************************************** -->
+
+	</div><!--/ wrap -->
+
+</body></html>

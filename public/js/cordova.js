@@ -2213,12 +2213,65 @@ cordova.define("cordova-plugin-push.PushPlugin", function(require, exports, modu
 	};
 });
 
+cordova.define("cordova-plugin-ui-navigator.NavigatorPlugin", function(require, exports, module) {
+    var exec = require('cordova/exec');
+               
+    module.exports = {
+        moveToNative: function(componentName, info) {
+            exec(null, null, "NavigatorPlugin", "moveToNative", [{ 
+            	"componentName":componentName,
+            	"info":info
+            }]);
+        },
+        backToNative: function(info) {
+            exec(null, null, "NavigatorPlugin", "backToNative", [{ 
+            	"info":info
+            }]);
+        },
+        clearTop: function(componentName, info) {
+           exec(null, null, "NavigatorPlugin", "clearTop", [{
+                 "componentName":componentName,
+                 "info":info
+            }]);
+        },
+        moveToWebNative: function(path) {
+            exec(null, null, "NavigatorPlugin", "moveToWebNative", [{
+                "path":path
+            }]);
+        },
+        getComponentList: function(successCallback) {
+            exec(successCallback, null, "NavigatorPlugin", "getComponentList", [{}]);
+        },
+        showSideMenu: function() {
+            exec(null, null, "NavigatorPlugin", "showSideMenu", [{}]);
+        },
+        hideSideMenu: function() {
+            exec(null, null, "NavigatorPlugin", "hideSideMenu", [{}]);
+        },
+        setSideMenuStateCallback: function(resultCallback) {
+            exec(resultCallback, null, "NavigatorPlugin", "setSideMenuStateCallback", [{}]);
+        },
+        disableScroll: function() {
+            exec(null, null, "NavigatorPlugin", "disableScroll", [{}]);
+        },
+        enableScroll: function() {
+            exec(null, null, "NavigatorPlugin", "enableScroll", [{}]);
+        }        
+    };
+});
+
 cordova.define('cordova/plugin_list', function(require, exports, module) {
     module.exports = [
         {
             "id": "cordova-plugin-push.PushPlugin",
             "clobbers": [
                 "window.kbmobile.push"
+            ]
+        },
+        {
+            "id": "cordova-plugin-ui-navigator.NavigatorPlugin",
+            "merges": [
+                "window.kbmobile.ui"
             ]
         }
     ];

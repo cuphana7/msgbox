@@ -12,6 +12,9 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <script src="/cxh/js/mblhomeIa/lib/jquery-2.1.3.min.js"></script>
     <script src="/cxh/js/mblhomeIa/lib/jquery-ui.min.js"></script>
+    <script src="js/cordova.js"></script>
+    <script src="js/common.js"></script>
+
     <script>
       function loadScript(url, callback) {
       var script = document.createElement("script");
@@ -21,9 +24,9 @@
       document.getElementsByTagName('head')[0].appendChild(script);
     }
 
-    loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
-    if (navigator.userAgent.indexOf("iPhone") > -1) loadScript("js/cordova_ios.js", function () { console.log("./js/cordova_ios.js load ok! "); });
-    else loadScript("js/cordova.js", function () { console.log("./js/cordova.js load ok! "); });
+    //loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
+    //if (navigator.userAgent.indexOf("iPhone") > -1) loadScript("js/cordova_ios.js", function () { console.log("./js/cordova_ios.js load ok! "); });
+    //else loadScript("js/cordova.js", function () { console.log("./js/cordova.js load ok! "); });
     </script>
     
     <!--
