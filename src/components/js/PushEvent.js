@@ -37,7 +37,7 @@ class PushEvent extends Component {
                         {cells}
                     </ul>
                     <div className="btn">
-                        <a href="" className="btnL btnWhite">더 많은 혜택보기</a>
+                        <a href="/CXHIABNC0022.cms" className="btnL btnWhite">더 많은 혜택보기</a>
                     </div>
                 </div>
             </div>
