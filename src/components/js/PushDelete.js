@@ -3,6 +3,9 @@ import '../css/push.css';
 
 export default class PushDelete extends Component {
 
+    constructor(props) {
+        super(props)
+    }
     render() {
         const {handleDeleteClick, handleCheckedAllClick} = this.props;
         return (

@@ -61,7 +61,7 @@ export default class PushMsg extends Component  {
         }
 
         return (
-            <div>
+            <div id="checkboxes">
                 
                 {/* 이미지 배너 */}
                 {ext[0].value !== "" ? 

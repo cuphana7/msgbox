@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MsgBoxTemplate from './components/js/MsgBoxTemplate';
 import Content from './components/js/Content';
 import axios from 'axios';
+import $ from 'jquery'
 
 /**
  * 
@@ -102,10 +103,7 @@ class App extends Component {
    * @param {*} e 
    */
   handleCheckedAllClick(e) {
-    const ch = this.state.checkedItems;
-    this.state.list.map(value => {
-      ch.set(value.MSG_ID, true)
-    });
+    $("input[type=checkbox]").prop("checked",true);
   }
 
   /**
@@ -113,17 +111,14 @@ class App extends Component {
    * @param {*} completed 
    */
   handleDeleteClick(e) {
-    const self = this;
-    this.state.list.map(value => {
-      self.setState(prevState => ({ checkedItems: prevState.checkedItems.set(value.MSG_ID, true) }));
-    });
-
-    const arrKeys = [];
-    this.state.checkedItems.forEach((value, key) => {
-      if (value === true) arrKeys.push(key);
+    
+    var arrKeys = [];
+    $('#checkboxes input:checked').each(function() {
+      arrKeys.push($(this).attr('name'));
     });
     console.log(arrKeys.join(","));
     this.cordovaDelete(arrKeys);
+
   }
   /**
    * 스크롤 상단으로 이동시 목록 가져오기
@@ -205,7 +200,7 @@ class App extends Component {
     return new Promise(function (resolve, reject) {
       const succ = (res) => { console.log("res=" + JSON.stringify(res)); resolve(res); };
       const fail = (res) => { reject(res); }
-
+      console.log("cordovaCallApi: url=" + (self.state.api.url_delete + " data=" + JSON.stringify(param)));
       self.cordovaCallApi(self.state.api.url_delete, param, succ, fail);
     });
   }
@@ -278,8 +273,8 @@ class App extends Component {
           category={this.state.messagesReq.CATEGORY}
           handleCheckedChange={this.handleCheckedChange}
           handleDeleteClick={this.handleDeleteClick}
+          handleCheckedAllClick={this.handleCheckedAllClick}
           checkedItems={this.state.checkedItems}
-          handleCheckedAllClick={this.state.handleCheckedAllClick}
           authKey={this.state.messagesReq.AUTHKEY}
           eventList={this.state.eventList}
         />
