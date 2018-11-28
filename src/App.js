@@ -20,7 +20,7 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    
+
     this.state = {
       api: {
         "url_auth": "/api/authentication",
@@ -38,7 +38,7 @@ class App extends Component {
         "USER_ID": "",
         "PAGE": 1,
         "AUTHKEY": "",
-        "CATEGORY": window.location.hash === ""? "1" : window.location.hash.substr(1),
+        "CATEGORY": window.location.hash === "" ? "1" : window.location.hash.substr(1),
         "isPost": false
       },
       localCache: {
@@ -67,15 +67,20 @@ class App extends Component {
     if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) this.reqMessages();
     else document.addEventListener("deviceready", this.reqMessages(), false); 
     */
-   this.reqMessages(false);
-   this.requestEvent();
+    this.reqMessages(false);
+    this.requestEvent();
+
+    const loadScript = (url, callback) => {
+      var script = document.createElement("script");script.type = "text/javascript";script.onload = function () { callback(); };script.src = url;document.getElementsByTagName('head')[0].appendChild(script);
+    }
+    loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
   }
 
   setMessageReq(prevState, page, category, authkey) {
-   return {
+    return {
       "APP_ID": prevState.messagesReq.APP_ID,
       "USER_ID": "",
-      "PAGE": page === 0? prevState.messagesReq.PAGE : page,
+      "PAGE": page === 0 ? prevState.messagesReq.PAGE : page,
       "AUTHKEY": authkey !== "" ? authkey : prevState.messagesReq.AUTHKEY,
       "CATEGORY": category === "" ? prevState.messagesReq.CATEGORY : category,
       "isPost": false
@@ -98,8 +103,8 @@ class App extends Component {
    */
   handleCheckedAllClick(e) {
     const ch = this.state.checkedItems;
-    this.state.list.map( value => {
-      ch.set(value.MSG_ID,true)
+    this.state.list.map(value => {
+      ch.set(value.MSG_ID, true)
     });
   }
 
@@ -107,9 +112,9 @@ class App extends Component {
    * 삭제 버튼 이벤트
    * @param {*} completed 
    */
-  handleDeleteClick(e) { 
+  handleDeleteClick(e) {
     const self = this;
-    this.state.list.map( value => {
+    this.state.list.map(value => {
       self.setState(prevState => ({ checkedItems: prevState.checkedItems.set(value.MSG_ID, true) }));
     });
 
@@ -149,7 +154,7 @@ class App extends Component {
   handleCategoryToChange(e) {
     const self = this;
     const target = e.target;
-    this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState,1, target.value, "") }));
+    this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, target.value, "") }));
     this.reqMessages(false);
   }
 
@@ -159,21 +164,21 @@ class App extends Component {
   cordovaAuth() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      if (self.state.messagesReq.AUTHKEY === "AUTHFAIL") { 
-        reject(""); 
+      if (self.state.messagesReq.AUTHKEY === "AUTHFAIL") {
+        reject("");
       }
-      else if (self.state.messagesReq.AUTHKEY !== "") { 
-        resolve(); 
+      else if (self.state.messagesReq.AUTHKEY !== "") {
+        resolve();
       }
       else {
-        const suc = (res) => { 
+        const suc = (res) => {
           self.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 0, "", res.AUTHKEY) }));
-          resolve(); 
+          resolve();
         }
-        const fail = (res) => { 
-          reject(res); 
+        const fail = (res) => {
+          reject(res);
         }
-        console.log("cordovaCallApi: url="+self.state.api.url_auth+" data="+JSON.stringify(self.state.authReq));
+        console.log("cordovaCallApi: url=" + self.state.api.url_auth + " data=" + JSON.stringify(self.state.authReq));
         self.cordovaCallApi(self.state.api.url_auth, self.state.authReq, suc, fail);
       }
     });
@@ -187,7 +192,7 @@ class App extends Component {
     return new Promise(function (resolve, reject) {
       const suc = (res) => { console.log("messages called success page=" + self.state.messagesReq.PAGE); resolve(res); };
       const fail = (res) => { reject(res); }
-      console.log("cordovaCallApi: url="+self.state.api.url_messages+" data="+JSON.stringify(self.state.messagesReq));
+      console.log("cordovaCallApi: url=" + self.state.api.url_messages + " data=" + JSON.stringify(self.state.messagesReq));
       self.cordovaCallApi(self.state.api.url_messages, self.state.messagesReq, suc, fail);
     });
   }
@@ -216,11 +221,11 @@ class App extends Component {
     // 로컬 테스트용
     if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
       axios.get("/sample-data" + url + ".json", { params: param })
-        .then(response => { 
-          callbackSucc(response.data) 
+        .then(response => {
+          callbackSucc(response.data)
         })
-        .catch(response => { 
-          callbackFail(response.data) 
+        .catch(response => {
+          callbackFail(response.data)
         });
     } else {
       window.kbmobile.push.callApi(url, param, callbackSucc, callbackFail);
@@ -230,12 +235,12 @@ class App extends Component {
 
   requestEvent() {
     axios.get("/sample-data" + this.state.api.url_events + ".json")
-        .then(response => { 
-          this.setState({ eventList: response.data });
-        })
-        .catch(response => { 
-          this.setState({ eventList: [] });
-        });
+      .then(response => {
+        this.setState({ eventList: response.data });
+      })
+      .catch(response => {
+        this.setState({ eventList: [] });
+      });
   }
 
   /**
@@ -248,7 +253,7 @@ class App extends Component {
 
     self.cordovaAuth().then(() => {
       self.cordovaMessages().then((res) => {
-        console.log("res.LIST="+JSON.stringify(res.LIST));
+        console.log("res.LIST=" + JSON.stringify(res.LIST));
         //console.log("this.state.list="+JSON.stringify(self.state.list));
         if (isAdd) self.setState({ list: self.state.list.concat(res.LIST) });
         else self.setState({ list: res.LIST });

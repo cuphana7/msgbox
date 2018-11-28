@@ -38,6 +38,7 @@ export default class PushMsg extends Component  {
         const clickMsgOpen = (e) => {
 
             var thisEle = self.eleMsgOpen.current;
+            $(thisEle).toggleClass('up');
             //PUSH내용 초기 세팅
             var cont = $(thisEle).closest('.btnToggle').siblings('.cont'),
                 contH = cont.children('p').outerHeight(),
@@ -56,8 +57,6 @@ export default class PushMsg extends Component  {
                 cont.css({display:'-webkit-box',maxHeight:60,height:'auto'});
                 }, duration)
             }
-
-            self.setState({ openMsg: !this.state.openMsg });
             e.preventDefault();
         }
 
@@ -77,7 +76,7 @@ export default class PushMsg extends Component  {
 
                 {/* 이미지 펼치기 버튼 */}
                 { msg.split("\n").length > 4 ? 
-                    <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen}  className={ this.state.openMsg ? "toggleUI up" : "toggleUI" } onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
+                    <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen}  className="toggleUI up" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                 : ""}
 
                 {/*msgOpenBtn*/}
