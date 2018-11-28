@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       api: {
         "auth_key": "",
-        "url_auth": "/api/authenticatio",
+        "url_auth": "/api/authentication",
         "url_messages": "/api/inbox/messages",
         "url_delete": "/api/inbox/delete",
         "url_delete_all": "/api/inbox/deleteAll",
@@ -106,9 +106,9 @@ class App extends Component {
    * @param {*} completed 
    */
   handleDeleteClick(e) { 
-
+    const self = this;
     this.state.list.map( value => {
-      this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(value.MSG_ID, true) }));
+      self.setState(prevState => ({ checkedItems: prevState.checkedItems.set(value.MSG_ID, true) }));
     });
 
     const arrKeys = [];
@@ -123,8 +123,9 @@ class App extends Component {
    * @param {*} completed 
    */
   handleScrollToTop(completed) {
+    const self = this;
     this.setState({ list: [] });
-    this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, 1, "", "") }));
+    this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, "", "") }));
     this.reqMessages();
     completed();
   }
@@ -133,8 +134,9 @@ class App extends Component {
    * 스크롤 하단으로 이동시 목록 가져오기
    */
   handleScrollToBottom(completed) {
+    const self = this;
     const nextPage = this.state.messagesReq.PAGE + 1;
-    this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, nextPage, "", "") }));
+    this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, nextPage, "", "") }));
     this.reqMessages();
     completed();
   }
@@ -144,8 +146,9 @@ class App extends Component {
    * @param {*} e 
    */
   handleCategoryToChange(e) {
+    const self = this;
     const target = e.target;
-    this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState,1, target.value, "") }));
+    this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState,1, target.value, "") }));
     this.setState({ list: [] });
     this.reqMessages();
   }
@@ -164,7 +167,7 @@ class App extends Component {
       }
       else {
         const suc = (res) => { 
-          this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, 0, "", res.AUTHKEY) }));
+          self.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 0, "", res.AUTHKEY) }));
           resolve(); 
         }
         const fail = (res) => { 
@@ -231,18 +234,18 @@ class App extends Component {
    */
   reqMessages() {
 
-    var self1 = this;
+    var self = this;
 
-    self1.cordovaAuth().then(() => {
-      self1.cordovaMessages().then((res) => {
+    self.cordovaAuth().then(() => {
+      self.cordovaMessages().then((res) => {
         console.log("res.LIST="+JSON.stringify(res.LIST));
-        console.log("this.state.list="+JSON.stringify(this.state.list));
-        self1.setState({ list: self1.state.list.concat(res.LIST) });
+        console.log("this.state.list="+JSON.stringify(self.state.list));
+        self.setState({ list: self.state.list.concat(res.LIST) });
       });
 
     }).catch(err => {
       console.log("err: ", err);
-      this.setState(prevState => ({ messagesReq: this.setMessageReq(prevState, 0, "", "AUTHFAIL") }));
+      self.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 0, "", "AUTHFAIL") }));
     });
 
 
