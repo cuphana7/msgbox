@@ -4,10 +4,23 @@ import '../css/push.css';
 class PushEvent extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.todos !== nextProps.todos;
+        return this.props.eventList !== nextProps.eventList;
     }
 
     render() {
+        const dataSource = this.props.eventList;
+        var cells = (dataSource)?dataSource.map(function(item, index) {
+
+            return <li id="evt267435">
+                        <a href='className'>
+                            <span className="txt">
+                                <strong className="tit">‘결혼하기 좋은 날’ 아이위크 웨딩 박람회</strong>
+                                <span className="date">18.09.28 ~ 18.10.09</span>
+                            </span>
+                            <span className="thum"><img src="https://img1.kbcard.com/ST/img/cxc/event/mgr/banner/180913_iwork_Bnr_b.png" alt="" /></span>
+                        </a>
+                    </li>
+        }) : [];
 
         return (
             <div className="pushEvent">
@@ -18,6 +31,7 @@ class PushEvent extends Component {
 
                 <div className="puchEventCont">
                     <ul className="eventList">
+                        {cells}
                         <li id="evt267435">
                             <a href='className'>
                                 <span className="txt">

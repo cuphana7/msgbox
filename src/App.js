@@ -29,7 +29,7 @@ class App extends Component {
         "url_delete": "/api/inbox/delete",
         "url_delete_all": "/api/inbox/deleteAll",
         "url_unread": "/api/inbox/unread",
-        "url_events": "/CXHIA00000.cms"
+        "url_events": "/CXHIAOPC0041.cms"
       },
       authReq: {
         "isPost": true
@@ -48,6 +48,7 @@ class App extends Component {
         "msg_key": "" // 메시지리스트 키
       },
       list: [],
+      eventList: [],
       checkedItems: new Map()
     }
 
@@ -59,6 +60,7 @@ class App extends Component {
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
     this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
     this.setMessageReq = this.setMessageReq.bind(this)
+    this.requestEvent = this.requestEvent.bind(this)
 
   }
   componentDidMount() {
@@ -228,6 +230,16 @@ class App extends Component {
 
   }
 
+  requestEvent() {
+    axios.get("/sample-data" + this.state.api.url_events + ".json")
+        .then(response => { 
+          this.setState({ eventList: response.data });
+        })
+        .catch(response => { 
+          this.setState({ eventList: [] });
+        });
+  }
+
   /**
    * PUSH 리스트를 가져온다.
    * 인증(1회) > messages API > state.LIST set
@@ -241,6 +253,7 @@ class App extends Component {
         console.log("res.LIST="+JSON.stringify(res.LIST));
         console.log("this.state.list="+JSON.stringify(self.state.list));
         self.setState({ list: self.state.list.concat(res.LIST) });
+        this.requestEvent();
       });
 
     }).catch(err => {
@@ -265,6 +278,7 @@ class App extends Component {
           checkedItems={this.state.checkedItems}
           handleCheckedAllClick={this.state.handleCheckedAllClick}
           authKey={this.state.messagesReq.AUTHKEY}
+          eventList={this.state.eventList}
         />
       </MsgBoxTemplate>
     );
