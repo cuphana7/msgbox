@@ -68,6 +68,7 @@ class App extends Component {
     else document.addEventListener("deviceready", this.reqMessages(), false); 
     */
    this.reqMessages();
+   this.requestEvent();
   }
 
   setMessageReq(prevState, page, category, authkey) {
@@ -252,7 +253,6 @@ class App extends Component {
         console.log("res.LIST="+JSON.stringify(res.LIST));
         //console.log("this.state.list="+JSON.stringify(self.state.list));
         self.setState({ list: self.state.list.concat(res.LIST) });
-        this.requestEvent();
       });
 
     }).catch(err => {

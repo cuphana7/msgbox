@@ -8,8 +8,8 @@ class PushEvent extends Component {
     }
 
     render() {
-        const dataSource = this.props.eventList;
-        var cells = (dataSource)?dataSource.map(function(item, index) {
+        const { eventList } = this.props;
+        var cells = (eventList)?eventList.map(function(item, index) {
 
             var eventImgPath = "https://img1.kbcard.com/ST/img/"+item.eventImgPath;
             var detailViewUrl = "/CXHIABNC0026.cms?evntSerno="+item.eventNo;
