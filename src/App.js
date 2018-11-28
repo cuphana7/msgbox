@@ -67,7 +67,7 @@ class App extends Component {
     if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) this.reqMessages();
     else document.addEventListener("deviceready", this.reqMessages(), false); 
     */
-   this.reqMessages();
+   this.reqMessages(false);
    this.requestEvent();
   }
 
@@ -126,9 +126,8 @@ class App extends Component {
    */
   handleScrollToTop(completed) {
     const self = this;
-    this.setState({ list: [] });
     this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, "", "") }));
-    this.reqMessages();
+    this.reqMessages(false);
     completed();
   }
 
@@ -139,7 +138,7 @@ class App extends Component {
     const self = this;
     const nextPage = this.state.messagesReq.PAGE + 1;
     this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, nextPage, "", "") }));
-    this.reqMessages();
+    this.reqMessages(true);
     completed();
   }
 
@@ -151,8 +150,7 @@ class App extends Component {
     const self = this;
     const target = e.target;
     this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState,1, target.value, "") }));
-    this.setState({ list: [] });
-    this.reqMessages();
+    this.reqMessages(false);
   }
 
   /**
@@ -244,7 +242,7 @@ class App extends Component {
    * PUSH 리스트를 가져온다.
    * 인증(1회) > messages API > state.LIST set
    */
-  reqMessages() {
+  reqMessages(isAdd) {
 
     var self = this;
 
@@ -252,7 +250,8 @@ class App extends Component {
       self.cordovaMessages().then((res) => {
         console.log("res.LIST="+JSON.stringify(res.LIST));
         //console.log("this.state.list="+JSON.stringify(self.state.list));
-        self.setState({ list: self.state.list.concat(res.LIST) });
+        if (isAdd) self.setState({ list: self.state.list.concat(res.LIST) });
+        else self.setState({ list: res.LIST });
       });
 
     }).catch(err => {
