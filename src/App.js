@@ -73,7 +73,6 @@ class App extends Component {
     this.handleScrollToBottom = this.handleScrollToBottom.bind(this)
     this.reqMessages = this.reqMessages.bind(this)
     this.handleCategoryToChange = this.handleCategoryToChange.bind(this)
-    this.handleCheckedChange = this.handleCheckedChange.bind(this)
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
     this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
     this.setMessageReq = this.setMessageReq.bind(this)
@@ -98,16 +97,6 @@ class App extends Component {
       "isPost": false,
       "isData": true
     }
-  }
-
-  /**
-  * 삭제를 위한 체크박스 선택시
-  * @param {*} e 
-  */
-  handleCheckedChange(e) {
-    const item = e.target.name;
-    const isChecked = e.target.checked;
-    this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
 
   /**
@@ -136,6 +125,7 @@ class App extends Component {
       self.cordovaDelete().then((res) => {
         console.log("cordovaDelete res="+res.data);
         $('.pushArea').removeClass('delete');
+        $("input[type=checkbox]").prop("checked",false);
         self.reqMessages(false);
       }).catch(err => {
         console.log("cordovaDelete err="+err);
@@ -285,7 +275,6 @@ class App extends Component {
           onScrollToBottom={this.handleScrollToBottom}
           handleCategoryToChange={this.handleCategoryToChange}
           category={this.state.messagesReq.CATEGORY}
-          handleCheckedChange={this.handleCheckedChange}
           handleDeleteClick={this.handleDeleteClick}
           handleCheckedAllClick={this.handleCheckedAllClick}
           checkedItems={this.state.checkedItems}

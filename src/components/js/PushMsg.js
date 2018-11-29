@@ -19,7 +19,7 @@ export default class PushMsg extends Component  {
 
     render() {
         const self = this;
-        const { msg, ext, msgid, handleCheckedChange, checkedItems } = this.props;
+        const { msg, ext, msgid } = this.props;
         const imageUrl = (img) => { return "https://img2.kbcard.com/msg/cxv/template/system/"+img; }
 
         const msgToTag = msg.split("\n").map(function(item, index){
@@ -84,8 +84,8 @@ export default class PushMsg extends Component  {
                 
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">
-                    <label htmlFor={msgid}>해당 알림 삭제하기</label>
-                    <input type="checkbox" id={msgid} name={msgid} className="inp1" value={msgid} onChange={handleCheckedChange} checked={checkedItems.get(msgid)} />
+                    <label htmlFor={"push"+msgid}>해당 알림 삭제하기</label>
+                    <input type="checkbox" id={"push"+msgid} name={msgid} className="inp1" value={msgid} />
                 </div>
 
             </div>
