@@ -22,6 +22,16 @@ class App extends Component {
   constructor(props) {
     super(props)
 
+    const initCategory = () => {
+      var rslt = "1";
+      if (window.location.hash !== "" ) rslt = window.location.hash.substr(1);
+      else {
+        var storageCategory = localStorage.getItem("pushCategory");
+        if (storageCategory && storageCategory != "") rslt = storageCategory;
+      }
+      return rslt;
+    }
+
     this.state = {
       api: {
         "url_auth": "/api/authentication",
@@ -32,15 +42,23 @@ class App extends Component {
         "url_events": "/CXHIAOPC0041.cms?responseContentType=json"
       },
       authReq: {
-        "isPost": true
+        "isPost": true,
+        "isData": true
       },
       messagesReq: {
         "APP_ID": "com.kbcard.kbkookmincard",
         "USER_ID": "",
         "PAGE": 1,
         "AUTHKEY": "",
-        "CATEGORY": window.location.hash === "" ? "1" : window.location.hash.substr(1),
-        "isPost": false
+        "CATEGORY": initCategory(),
+        "isPost": false,
+        "isData": true,
+      },
+      deleteReq: {
+        "AUTHKEY": "",
+        "MSG_IDS": "",
+        "isPost": false,
+        "isData": false
       },
       localCache: {
         "msg_key_id": "", // 최근 저장 키
@@ -84,7 +102,8 @@ class App extends Component {
       "PAGE": page === 0 ? prevState.messagesReq.PAGE : page,
       "AUTHKEY": authkey !== "" ? authkey : prevState.messagesReq.AUTHKEY,
       "CATEGORY": category === "" ? prevState.messagesReq.CATEGORY : category,
-      "isPost": false
+      "isPost": false,
+      "isData": true
     }
   }
 
@@ -116,14 +135,21 @@ class App extends Component {
     $('#checkboxes input:checked').each(function() {
       arrKeys.push($(this).attr('name'));
     });
-    console.log(arrKeys.join(";"));
-    this.cordovaDelete(arrKeys.join(";")).then((res) => {
-      console.log("cordovaDelete res="+res.data);
-      $('.pushArea').removeClass('delete');
-      self.reqMessages(false);
-    }).catch(err => {
-      console.log("cordovaDelete err="+err);
+
+    const msgs = arrKeys.join(";");
+    console.log(msgs);
+
+    self.setState({ deleteReq: { "AUTHKEY":self.state.messagesReq.AUTHKEY, "MSG_IDS": msgs, "isPost": false, "isData": false } }, ()=>{
+      self.cordovaDelete().then((res) => {
+        console.log("cordovaDelete res="+res.data);
+        $('.pushArea').removeClass('delete');
+        self.reqMessages(false);
+      }).catch(err => {
+        console.log("cordovaDelete err="+err);
+      });
+
     });
+    
 
   }
   /**
@@ -155,6 +181,7 @@ class App extends Component {
   handleCategoryToChange(e) {
     const self = this;
     const target = e.target;
+    localStorage.setItem("pushCategory", target.value); 
     this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, target.value, "") }));
     this.reqMessages(false);
   }
@@ -201,13 +228,13 @@ class App extends Component {
   /**
    * cordova 메시지 삭제 API 요청
    */
-  cordovaDelete(param) {
+  cordovaDelete() {
     var self = this;
     return new Promise(function (resolve, reject) {
       const succ = (res) => { console.log("res=" + JSON.stringify(res)); resolve(res); };
       const fail = (res) => { reject(res); }
-      console.log("cordovaCallApi: url=" + (self.state.api.url_delete + " data=" + JSON.stringify(param)));
-      self.cordovaCallApi(self.state.api.url_delete, param, succ, fail);
+      console.log("cordovaCallApi: url=" + (self.state.api.url_delete + " data=" + JSON.stringify(self.state.deleteReq)));
+      self.cordovaCallApi(self.state.api.url_delete, self.state.deleteReq, succ, fail);
     });
   }
 

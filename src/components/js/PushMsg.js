@@ -18,7 +18,7 @@ export default class PushMsg extends Component  {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.msg !== nextProps.msg;
+        return this.props.msgid !== nextProps.msgid;
     }
 
     render() {
@@ -88,8 +88,8 @@ export default class PushMsg extends Component  {
                 
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">
-                    <label htmlFor="sel1_1">해당 알림 삭제하기</label>
-                    <input type="checkbox" id="sel1_1" name={msgid} className="inp1" value={msgid} onChange={handleCheckedChange} checked={checkedItems.get(msgid)} />
+                    <label htmlFor={msgid}>해당 알림 삭제하기</label>
+                    <input type="checkbox" id={msgid} name={msgid} className="inp1" value={msgid} onChange={handleCheckedChange} checked={checkedItems.get(msgid)} />
                 </div>
 
             </div>
