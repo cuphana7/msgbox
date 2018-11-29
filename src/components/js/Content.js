@@ -14,7 +14,7 @@ export default class Content extends ReactRefreshInfiniteTableView  {
     }
 
     render() {
-        const {handleCategoryToChange, category, list, handleCheckedChange, handleDeleteClick, checkedItems, handleCheckedAllClick, authKey, eventList, messageReq} = this.props;
+        const {handleCategoryToChange, category, list, handleCheckedChange, handleDeleteClick, checkedItems, handleCheckedAllClick, authKey, messageReq} = this.props;
         return (
             <div id="content" className="content" onScroll={this.viewDidScroll} >
                 <section className="container" >
@@ -29,7 +29,7 @@ export default class Content extends ReactRefreshInfiniteTableView  {
                         {/* 목록 */}
                         <PushList dataSource={list} handleCheckedChange={handleCheckedChange} checkedItems={checkedItems} authKey={authKey} messageReq={messageReq}/>
                         {/* 이벤트 레이어 */}
-                        <PushEvent eventList={eventList}/>
+                        <PushEvent />
                         <div className="dim disnone"></div>
                     </div>
                 </section>

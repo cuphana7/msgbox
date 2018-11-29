@@ -46,7 +46,7 @@ checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbo
  - 최근 접근 탭 이동 ok
  - 전체 갯수
  - 탭별 신규 알림 뱃지
- - 삭제 확인
+ - 삭제 확인 (일부-ok)
  - 푸시 수신시 자동 알림함 뷰
  - 미설정 페이지 재확인
 

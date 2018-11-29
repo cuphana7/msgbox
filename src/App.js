@@ -66,7 +66,6 @@ class App extends Component {
         "msg_key": "" // 메시지리스트 키
       },
       list: [],
-      eventList: [],
       checkedItems: new Map()
     }
 
@@ -78,17 +77,11 @@ class App extends Component {
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
     this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
     this.setMessageReq = this.setMessageReq.bind(this)
-    this.requestEvent = this.requestEvent.bind(this)
 
   }
   componentDidMount() {
-    /*
-    if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) this.reqMessages();
-    else document.addEventListener("deviceready", this.reqMessages(), false); 
-    */
-    this.reqMessages(false);
-    this.requestEvent();
 
+    this.reqMessages(false);
     const loadScript = (url, callback) => {
       var script = document.createElement("script");script.type = "text/javascript";script.onload = function () { callback(); };script.src = url;document.getElementsByTagName('head')[0].appendChild(script);
     }
@@ -261,21 +254,6 @@ class App extends Component {
 
   }
 
-  requestEvent() {
-    let url = "";
-    // 로컬 테스트용
-    if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) url = "/sample-data/CXHIAOPC0041.cms.json";
-    else url = this.state.api.url_events;
-    axios.get(url)
-      .then(response => {
-        console.log(JSON.stringify(response.data));
-        this.setState({ eventList: response.data[0].eventList });
-      })
-      .catch(response => {
-        console.log("requestEvent catch:"+response);
-        this.setState({ eventList: [] });
-      });
-  }
 
   /**
    * PUSH 리스트를 가져온다.
@@ -313,7 +291,6 @@ class App extends Component {
           checkedItems={this.state.checkedItems}
           authKey={this.state.messagesReq.AUTHKEY}
           messageReq={this.state.messagesReq}
-          eventList={this.state.eventList}
         />
       </MsgBoxTemplate>
     );

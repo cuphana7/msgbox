@@ -1,16 +1,51 @@
 import React, { Component } from 'react';
 import '../css/push.css';
+import axios from 'axios';
 
 class PushEvent extends Component {
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.props.eventList !== nextProps.eventList;
+    constructor(props) {
+        super(props)
+        this.state = {
+            api: {
+                "url_events": "/CXHIAOPC0041.cms?responseContentType=json"
+              },
+            el : []
+        }
+        this.requestEvent = this.requestEvent.bind(this)
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.state.el !== nextProps.el;
+    }
+
+    componentDidMount() {
+        //this.props.requestEvent();
+        console.log(1111);
+        this.requestEvent();
+    }
+
+    requestEvent() {
+        let url = "";
+        // 로컬 테스트용
+        if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) url = "/sample-data/CXHIAOPC0041.cms.json";
+        else url = this.state.api.url_events;
+        axios.get(url)
+          .then(response => {
+            console.log(JSON.stringify(response.data));
+            this.setState({ el: response.data[0].eventList });
+          })
+          .catch(response => {
+            console.log("requestEvent catch:"+response);
+            this.setState({ el: [] });
+          });
+      }
+
     render() {
-        const { eventList } = this.props;
-        if(eventList) console.log("eventList.length="+eventList.length);
-        var cells = (eventList && eventList.length > 0)?eventList.map(function(item, index) {
+        const { eventList, requestEvent } = this.props;
+        const { el } = this.state;
+        if(el) console.log("eventList.length="+el.length);
+        var cells = (el && el.length > 0)?el.map(function(item, index) {
 
             var eventImgPath = "https://img1.kbcard.com/ST/img/cxc"+item.eventImgPath;
             var detailViewUrl = "/CXHIABNC0026.cms?evntSerno="+item.eventNo;
@@ -25,6 +60,8 @@ class PushEvent extends Component {
                         </a>
                     </li>
         }) : [];
+        
+
 
         return (
             <div className="pushEvent">
