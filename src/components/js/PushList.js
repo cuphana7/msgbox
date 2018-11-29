@@ -6,13 +6,13 @@ export default class PushList extends Component {
 
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.dataSource !== nextProps.dataSource;
+        return this.props.dataSource !== nextProps.dataSource || this.props.messageReq !== nextProps.messageReq;
     }
 
 
     render() {
 
-        const { dataSource, handleCheckedChange, checkedItems, authKey } = this.props;
+        const { dataSource, handleCheckedChange, checkedItems, authKey, messageReq } = this.props;
         function temperatureClassname(temp){
             const prefix = 'pushList '
           
@@ -56,7 +56,7 @@ export default class PushList extends Component {
 
 
         
-        var cells = (dataSource && dataSource.length > 0)?dataSource.map(function(item, index) {
+        var cells = (dataSource && dataSource.length > 0)? dataSource.map(function(item, index) {
 
             return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
                         <li>
@@ -73,8 +73,8 @@ export default class PushList extends Component {
         
         return (
             <div className="pushWrap">
-                {authKey === "" ? "" 
-                : authKey === "AUTHFAIL" ? setting
+                {messageReq.AUTHKEY === "" ? "" 
+                : messageReq.AUTHKEY === "AUTHFAIL" ? setting
                 : cells}
 
             </div>

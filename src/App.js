@@ -26,10 +26,10 @@ class App extends Component {
       api: {
         "url_auth": "/api/authentication",
         "url_messages": "/api/inbox/messages",
-        "url_delete": "/api/inbox/delete",
+        "url_delete": "/api/inbox/messages/remove.do",
         "url_delete_all": "/api/inbox/deleteAll",
         "url_unread": "/api/inbox/unread",
-        "url_events": "/CXHIAOPC0041.cms"
+        "url_events": "/CXHIAOPC0041.cms?responseContentType=json"
       },
       authReq: {
         "isPost": true
@@ -111,13 +111,19 @@ class App extends Component {
    * @param {*} completed 
    */
   handleDeleteClick(e) {
-    
+    const self = this;
     var arrKeys = [];
     $('#checkboxes input:checked').each(function() {
       arrKeys.push($(this).attr('name'));
     });
-    console.log(arrKeys.join(","));
-    this.cordovaDelete(arrKeys);
+    console.log(arrKeys.join(";"));
+    this.cordovaDelete(arrKeys.join(";")).then((res) => {
+      console.log("cordovaDelete res="+res.data);
+      $('.pushArea').removeClass('delete');
+      self.reqMessages(false);
+    }).catch(err => {
+      console.log("cordovaDelete err="+err);
+    });
 
   }
   /**
@@ -229,11 +235,17 @@ class App extends Component {
   }
 
   requestEvent() {
-    axios.get("/sample-data" + this.state.api.url_events + ".json")
+    let url = "";
+    // 로컬 테스트용
+    if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) url = "/sample-data/CXHIAOPC0041.cms.json";
+    else url = this.state.api.url_events;
+    axios.get(url)
       .then(response => {
-        this.setState({ eventList: response.data });
+        console.log(JSON.stringify(response.data));
+        this.setState({ eventList: response.data[0].eventList });
       })
       .catch(response => {
+        console.log("requestEvent catch:"+response);
         this.setState({ eventList: [] });
       });
   }
@@ -245,7 +257,6 @@ class App extends Component {
   reqMessages(isAdd) {
 
     var self = this;
-
     self.cordovaAuth().then(() => {
       self.cordovaMessages().then((res) => {
         console.log("res.LIST=" + JSON.stringify(res.LIST));
@@ -253,13 +264,11 @@ class App extends Component {
         if (isAdd) self.setState({ list: self.state.list.concat(res.LIST) });
         else self.setState({ list: res.LIST });
       });
-
     }).catch(err => {
       console.log("err: ", err);
       self.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 0, "", "AUTHFAIL") }));
+      self.setState({ list: [] });
     });
-
-
   }
 
   render() {
@@ -276,6 +285,7 @@ class App extends Component {
           handleCheckedAllClick={this.handleCheckedAllClick}
           checkedItems={this.state.checkedItems}
           authKey={this.state.messagesReq.AUTHKEY}
+          messageReq={this.state.messagesReq}
           eventList={this.state.eventList}
         />
       </MsgBoxTemplate>
