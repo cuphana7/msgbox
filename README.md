@@ -50,3 +50,13 @@ checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbo
  - 푸시 수신시 자동 알림함 뷰
  - 미설정 페이지 재확인
 
+# TO-DO 2018.11.30
+ - 안읽은 메시지 가져오기
+  . state 에 안읽은 메시지 건수 UI와 bind
+  . api 정보를 설정한다.
+  . 메시지 로딩이 완료된후 앱내 최종 아이디 셋팅 후 요청 작업 시작
+  . 서버로 최종아이디를 cordova로 요청 한다.
+  . 앱은 서버로 전달 하여 해당 최종아이디 보다 큰 메시지를 카테고리별로 count후 배열을 반환한다.
+  . 앱은 해당 배열을 웹으로 전달(DATA)
+  . state 에 입력 한다.
+

@@ -37,6 +37,7 @@ class App extends Component {
         "url_auth": "/api/authentication",
         "url_messages": "/api/inbox/messages",
         "url_delete": "/api/inbox/messages/remove.do",
+        "url_counts": "/api/inbox/messages/counts",
         "url_delete_all": "/api/inbox/deleteAll",
         "url_unread": "/api/inbox/unread",
         "url_events": "/CXHIAOPC0041.cms?responseContentType=json"
@@ -65,7 +66,8 @@ class App extends Component {
         "last_categroy": "1",
         "msg_key": "" // 메시지리스트 키
       },
-      list: []
+      list: [],
+      unReads: [{"category":"1", "count":0},{"category":"2", "count":0},{"category":"3", "count":0},{"category":"4", "count":0}]
     }
 
     this.handleScrollToTop = this.handleScrollToTop.bind(this)
@@ -75,6 +77,9 @@ class App extends Component {
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
     this.handleCheckedAllClick = this.handleCheckedAllClick.bind(this)
     this.setMessageReq = this.setMessageReq.bind(this)
+    this.cordovaGetMsgId = this.cordovaGetMsgId.bind(this)
+    this.cordovaSetMsgId = this.cordovaSetMsgId.bind(this)
+    this.lastMsgId = this.lastMsgId.bind(this)
 
   }
   componentDidMount() {
@@ -221,6 +226,62 @@ class App extends Component {
   }
 
   /**
+   * cordova get msgId
+   */
+  cordovaGetMsgId() {
+
+    return new Promise(function (resolve, reject) {
+      const succ = (res) => { console.log("cordovaGetMsgId res=" + JSON.stringify(res)); resolve(res.msgId); };
+      const fail = (res) => { reject(res); }
+      console.log("cordovaGetMsgId start");
+
+      // 로컬 테스트용
+      if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
+        succ("");
+      } else {
+        window.kbmobile.push.getLastMsgId(succ, fail);
+      }
+    });
+  }
+
+  /**
+   * cordova set msgId
+   */
+  cordovaSetMsgId(mid) {
+
+    return new Promise(function (resolve, reject) {
+      const succ = (res) => { console.log("cordovaSetMsgId res=" + JSON.stringify(res)); resolve(res); };
+      const fail = (res) => { reject(res); }
+      console.log("cordovaSetMsgId start");
+
+      // 로컬 테스트용
+      if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
+        succ("123");
+      } else {
+        window.kbmobile.push.setLastMsgId(mid, succ, fail);
+      }
+    });
+  }
+
+  /**
+   * 조회된 메시지 최근 ID와 앱의 최근 ID를 비교하여 마지막 값으로 업데이트 한다.
+   */
+  lastMsgId() {
+    const self = this;
+    
+    console.log("lastMsgId " + self.state.messagesReq.PAGE +"=== 1 &&"+ self.state.list.length );
+    // 첫페이지 일경우만
+    if (self.state.messagesReq.PAGE === 1 && self.state.list.length > 0) {
+      self.cordovaGetMsgId().then(resMsgId =>{
+        var firstMsgId = self.state.list[0].MSG_ID;
+        var appMsgId = (resMsgId === "" || resMsgId === "NaN")? "0" : resMsgId;
+        console.log("lastMsgId " + appMsgId*1 +"<"+ firstMsgId*1 );
+        if (appMsgId*1 < firstMsgId*1) self.cordovaSetMsgId(firstMsgId);
+      });
+    }
+  }
+
+  /**
    * cordova를 통해 데이터를 요청한다.
    * @param {*} url 
    * @param {*} param 
@@ -240,7 +301,6 @@ class App extends Component {
     } else {
       window.kbmobile.push.callApi(url, param, callbackSucc, callbackFail);
     }
-
   }
 
 
@@ -257,6 +317,9 @@ class App extends Component {
         //console.log("this.state.list="+JSON.stringify(self.state.list));
         if (isAdd) self.setState({ list: self.state.list.concat(res.LIST) });
         else self.setState({ list: res.LIST });
+
+        // 최근 msgId 셋팅
+        self.lastMsgId();
       });
     }).catch(err => {
       console.log("err: ", err);
@@ -278,6 +341,7 @@ class App extends Component {
           handleCheckedAllClick={this.handleCheckedAllClick}
           authKey={this.state.messagesReq.AUTHKEY}
           messageReq={this.state.messagesReq}
+          unReads={this.state.unReads}
         />
       </MsgBoxTemplate>
     );

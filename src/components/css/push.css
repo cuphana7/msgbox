@@ -16,7 +16,7 @@ li,p,dt,dd,div,span,td,th{word-break:keep-all;word-wrap:normal}
 th,td{word-break:break-all;word-wrap:break-word}
 legend, .hidden{overflow:hidden;position:absolute;width:1px;height:1px;font-size:1px;line-height:0;margin:-1px;clip:rect(0 0 0 0)}
 caption{overflow:hidden;margin-left:-9999px;width:1px;height:0;font-size:1px;line-height:0;display:none}
-.skip{display:none}
+.skip{display:none !important;}
 input[type='text'], input[type='password'], input[type='tel'], 
 input[type='number'], input[type='search'], input[type='email'], input[type='date'], input[type='time']{border-radius:0;box-sizing:border-box;outline:none;-webkit-appearance:none}    
 input[type='time']{background:#fff !important;height:auto !important;line-height:normal !important;padding:21px 15px 20px 0;max-height:50px;-webkit-appearance:none}
