@@ -65,8 +65,7 @@ class App extends Component {
         "last_categroy": "1",
         "msg_key": "" // 메시지리스트 키
       },
-      list: [],
-      checkedItems: new Map()
+      list: []
     }
 
     this.handleScrollToTop = this.handleScrollToTop.bind(this)
@@ -277,7 +276,6 @@ class App extends Component {
           category={this.state.messagesReq.CATEGORY}
           handleDeleteClick={this.handleDeleteClick}
           handleCheckedAllClick={this.handleCheckedAllClick}
-          checkedItems={this.state.checkedItems}
           authKey={this.state.messagesReq.AUTHKEY}
           messageReq={this.state.messagesReq}
         />

@@ -12,7 +12,7 @@ export default class PushList extends Component {
 
     render() {
 
-        const { dataSource, checkedItems, authKey, messageReq } = this.props;
+        const { dataSource, authKey, messageReq } = this.props;
         function temperatureClassname(temp){
             const prefix = 'pushList '
           
@@ -64,7 +64,6 @@ export default class PushList extends Component {
                             <span className="date">{dateFormat(item.DATE)}</span>
                             <PushMsg msg={item.MSG} key={index}
                                 ext={item.EXT} msgid={item.MSG_ID}
-                                checkedItems={checkedItems}
                             />
                         </li>
                     </ul>
