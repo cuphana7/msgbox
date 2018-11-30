@@ -3,6 +3,16 @@ import '../css/push.css';
 
 class PushRadioSel extends Component {
 
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        console.log(111);
+        const self = this.props
+        self.requestCount();
+    }
+
     render() {
         const { category, handleCategoryToChange, unReads } = this.props;
         const getCnt = (no) =>{

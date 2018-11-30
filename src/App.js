@@ -61,6 +61,12 @@ class App extends Component {
         "isPost": false,
         "isData": false
       },
+      unReadCountsReq: {
+        "AUTHKEY": "",
+        "MSG_IDS": "",
+        "isPost": false,
+        "isData": true
+      },
       localCache: {
         "msg_key_id": "", // 최근 저장 키
         "last_categroy": "1",
@@ -80,6 +86,8 @@ class App extends Component {
     this.cordovaGetMsgId = this.cordovaGetMsgId.bind(this)
     this.cordovaSetMsgId = this.cordovaSetMsgId.bind(this)
     this.lastMsgId = this.lastMsgId.bind(this)
+    this.cordovaUnReadCnt = this.cordovaUnReadCnt.bind(this)
+    this.requestCount = this.requestCount.bind(this)
 
   }
   componentDidMount() {
@@ -264,6 +272,21 @@ class App extends Component {
   }
 
   /**
+   * cordova unReadCnt
+   */
+  cordovaUnReadCnt() {
+    var self = this;
+    return new Promise(function (resolve, reject) {
+      const succ = (res) => { console.log("res=" + JSON.stringify(res)); resolve(res); };
+      const fail = (res) => { reject(res); }
+      console.log("cordovaCallApi: url=" + (self.state.api.url_unread + " data=" + JSON.stringify(self.state.unReadCountsReq)));
+      self.cordovaCallApi(self.state.api.url_unread, self.state.unReadCountsReq, succ, fail);
+    });
+  }
+
+
+
+  /**
    * 조회된 메시지 최근 ID와 앱의 최근 ID를 비교하여 마지막 값으로 업데이트 한다.
    */
   lastMsgId() {
@@ -328,6 +351,21 @@ class App extends Component {
     });
   }
 
+  requestCount() {
+    var self = this;
+    self.cordovaAuth().then(() => {
+      self.cordovaUnReadCnt().then((res) => {
+        console.log("res.LIST=" + JSON.stringify(res.LIST));
+        //console.log("this.state.list="+JSON.stringify(self.state.list));
+        self.setState({ unReads: res.LIST });
+      });
+    }).catch(err => {
+      console.log("err: ", err);
+      self.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 0, "", "AUTHFAIL") }));
+    });
+    
+  }
+
   render() {
 
     return (
@@ -342,6 +380,7 @@ class App extends Component {
           authKey={this.state.messagesReq.AUTHKEY}
           messageReq={this.state.messagesReq}
           unReads={this.state.unReads}
+          requestCount={this.requestCount}
         />
       </MsgBoxTemplate>
     );
