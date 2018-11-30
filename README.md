@@ -59,4 +59,7 @@ checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbo
   . 앱은 서버로 전달 하여 해당 최종아이디 보다 큰 메시지를 카테고리별로 count후 배열을 반환한다.
   . 앱은 해당 배열을 웹으로 전달(DATA)
   . state 에 입력 한다.
-
+ - 취소누를 경우 전체 해제
+ - 날짜별 그룹핑
+ - 메시지 펼치기 화살표 반대로
+ - 6라인 이후로 확장 아이콘 보이기

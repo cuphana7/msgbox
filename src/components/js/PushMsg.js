@@ -72,7 +72,7 @@ export default class PushMsg extends Component  {
                 </div>
 
                 {/* 이미지 펼치기 버튼 */}
-                { msg.split("\n").length > 4 ? 
+                { msg.split("\n").length > 6 ? 
                     <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen} className="toggleUI up" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                 : ""}
 
