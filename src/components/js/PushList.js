@@ -28,6 +28,9 @@ export default class PushList extends Component {
         function dateFormat(dt) {
             return dt.substr(2,2)+"."+dt.substr(4,2)+"."+dt.substr(6,2)+" | "+dt.substr(8,2)+":"+dt.substr(10,2)+":"+dt.substr(12,2);
         }
+        function dateFormatYMD(dt) {
+            return dt.substr(2,2)+"."+dt.substr(4,2)+"."+dt.substr(6,2);
+        }
 
         const smsJoin = ( <div className="infoBox notImg">
                             <div className="pushInfo">
@@ -54,19 +57,22 @@ export default class PushList extends Component {
                             </p>
                         </div>);
 
-
-        
+        var preDt = "";
+        var preDtJsx = (dt) => <li>{dateFormatYMD(dt)}</li>;
         var cells = (dataSource && dataSource.length > 0)? dataSource.map(function(item, index) {
 
-            return <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
-                        <li>
-                            <strong className="tit">{item.TITLE}</strong>
-                            <span className="date">{dateFormat(item.DATE)}</span>
-                            <PushMsg msg={item.MSG} key={index}
-                                ext={item.EXT} msgid={item.MSG_ID}
-                            />
-                        </li>
-                    </ul>
+            const jsx = <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
+                            {index !== 1 && preDt !== dateFormatYMD(item.DATE) ? preDtJsx(item.DATE) : ""}
+                            <li>
+                                <strong className="tit">{item.TITLE}</strong>
+                                <span className="date">{dateFormat(item.DATE)}</span>
+                                <PushMsg msg={item.MSG} key={index}
+                                    ext={item.EXT} msgid={item.MSG_ID}
+                                />
+                            </li>
+                        </ul>
+            preDt = dateFormatYMD(item.DATE);
+            return jsx;
         }) : empty;
 
         

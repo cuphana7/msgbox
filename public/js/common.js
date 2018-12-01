@@ -34,5 +34,6 @@ $('.delete').on('click', function () {
 
 //상단 삭제 탭 닫을 때 UI
 $('.pushDelete .close').on('click', function () {
+    $("input[type=checkbox]").prop("checked", false);
     $('.pushArea').removeClass('delete');
 });

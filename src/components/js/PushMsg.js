@@ -41,7 +41,7 @@ export default class PushMsg extends Component  {
                 contH = cont.children('p').outerHeight(),
                 duration = contH > 500 ? contH : 500;
 
-            if(!$(thisEle).hasClass('up')) {
+            if($(thisEle).hasClass('up')) {
                 //PUSH내용 보임
                 cont.css({display:'block',maxHeight:'none',height:60})
                 contH = cont.children('p').outerHeight();
@@ -73,7 +73,7 @@ export default class PushMsg extends Component  {
 
                 {/* 이미지 펼치기 버튼 */}
                 { msg.split("\n").length > 6 ? 
-                    <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen} className="toggleUI up" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
+                    <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen} className="toggleUI" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                 : ""}
 
                 {/*msgOpenBtn*/}
