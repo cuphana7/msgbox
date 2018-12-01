@@ -7,19 +7,18 @@ class PushRadioSel extends Component {
         super(props)
     }
     componentWillReceiveProps(nextProps) {
+        console.log("########componentWillReceiveProps");
         if (this.props.authReq.AUTHKEY !== nextProps.authReq.AUTHKEY) {
-          this.props.requestCount(nextProps.authReq.AUTHKEY);
-        }
-      }
-
-    componentWillUpdate(nextProps, nextState) {
-        if (nextProps.authReq != "" && nextProps.authReq != "AUTHFAIL") {
-            
+            this.props.requestCount(nextProps.authReq.AUTHKEY);
         }
     }
+    
     shouldComponentUpdate(nextProps, nextState) {
+        console.log("########shouldComponentUpdate");
         return this.props.unReads !== nextProps.unReads;
     }
+    componentWillUpdate(){ console.log("########componentWillUpdate"); }
+    componentDidUpdate(){ console.log("########componentDidUpdate"); }
 
     render() {
         const { category, handleCategoryToChange, unReads } = this.props;

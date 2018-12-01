@@ -5,16 +5,7 @@ import axios from 'axios';
 import $ from 'jquery'
 
 /**
- * 
-    ===  최초로딩시 ===
-    msg_key_id 확인 후 20개 표출
-    (웹)저장 데이터 20개 요청
-    (웹)로딩시 최근 데이터 요청
-    (앱)서버요청후 > 저장 > 20개 반환
-    === 스크롤하단 ===
-    (웹)스크롤하단 진입시 다음페이지 요청
-    (앱)로컬 다음 20개 있으면 반환
-    (앱)로컬 다음 20개 없으면 서버 요청후 > 저장 > 20개 반환
+ * PUSH 알림함
  * 
  */
 class App extends Component {
@@ -287,7 +278,7 @@ class App extends Component {
   cordovaUnReadCnt() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      const succ = (res) => { console.log("res=" + JSON.stringify(res)); resolve(res); };
+      const succ = (res) => { console.log("cordovaUnReadCnt res=" + JSON.stringify(res)); resolve(res); };
       const fail = (res) => { reject(res); }
       console.log("cordovaCallApi: url=" + (self.state.api.url_unread + " data=" + JSON.stringify(self.state.unReadCountsReq)));
       self.cordovaCallApi(self.state.api.url_unread, self.state.unReadCountsReq, succ, fail);
@@ -324,6 +315,7 @@ class App extends Component {
 
     // 로컬 테스트용
     if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
+      console.log("/sample-data" + url + ".json  params="+JSON.stringify(param));
       axios.get("/sample-data" + url + ".json", { params: param })
         .then(response => {
           callbackSucc(response.data)
@@ -374,7 +366,10 @@ class App extends Component {
       self.cordovaUnReadCnt().then((res) => {
         console.log("res.LIST=" + JSON.stringify(res));
         //console.log("this.state.list="+JSON.stringify(self.state.list));
-        self.setState({ unReads: res });
+        self.setState({ unReads: res }, 
+          ()=>{
+            console.log("done")
+          });
       });
     });
 

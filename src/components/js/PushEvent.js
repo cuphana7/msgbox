@@ -20,8 +20,6 @@ class PushEvent extends Component {
     }
 
     componentDidMount() {
-        //this.props.requestEvent();
-        console.log(1111);
         this.requestEvent();
     }
 
