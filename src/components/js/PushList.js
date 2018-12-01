@@ -62,7 +62,7 @@ export default class PushList extends Component {
         var cells = (dataSource && dataSource.length > 0)? dataSource.map(function(item, index) {
 
             const jsx = <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
-                            {index !== 1 && preDt !== dateFormatYMD(item.DATE) ? preDtJsx(item.DATE) : ""}
+                            {index !== 0 && preDt !== dateFormatYMD(item.DATE) ? preDtJsx(item.DATE) : ""}
                             <li>
                                 <strong className="tit">{item.TITLE}</strong>
                                 <span className="date">{dateFormat(item.DATE)}</span>
