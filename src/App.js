@@ -24,7 +24,7 @@ class App extends Component {
 
     const initCategory = () => {
       var rslt = "1";
-      if (window.location.hash !== "" ) rslt = window.location.hash.substr(1);
+      if (window.location.hash !== "") rslt = window.location.hash.substr(1);
       else {
         var storageCategory = localStorage.getItem("pushCategory");
         if (storageCategory && storageCategory != "") rslt = storageCategory;
@@ -39,10 +39,11 @@ class App extends Component {
         "url_delete": "/api/inbox/messages/remove.do",
         "url_counts": "/api/inbox/messages/counts",
         "url_delete_all": "/api/inbox/deleteAll",
-        "url_unread": "/api/inbox/unread",
+        "url_unread": "/api/inbox/messages/unread",
         "url_events": "/CXHIAOPC0041.cms?responseContentType=json"
       },
       authReq: {
+        "AUTHKEY": "",
         "isPost": true,
         "isData": true
       },
@@ -73,7 +74,7 @@ class App extends Component {
         "msg_key": "" // 메시지리스트 키
       },
       list: [],
-      unReads: [{"category":"1", "count":0},{"category":"2", "count":0},{"category":"3", "count":0},{"category":"4", "count":0}]
+      unReads: [{ "category": "1", "count": 0 }, { "category": "2", "count": 0 }, { "category": "3", "count": 0 }, { "category": "4", "count": 0 }]
     }
 
     this.handleScrollToTop = this.handleScrollToTop.bind(this)
@@ -92,9 +93,11 @@ class App extends Component {
   }
   componentDidMount() {
 
+
+
     this.reqMessages(false);
     const loadScript = (url, callback) => {
-      var script = document.createElement("script");script.type = "text/javascript";script.onload = function () { callback(); };script.src = url;document.getElementsByTagName('head')[0].appendChild(script);
+      var script = document.createElement("script"); script.type = "text/javascript"; script.onload = function () { callback(); }; script.src = url; document.getElementsByTagName('head')[0].appendChild(script);
     }
     loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
   }
@@ -116,7 +119,7 @@ class App extends Component {
    * @param {*} e 
    */
   handleCheckedAllClick(e) {
-    $("input[type=checkbox]").prop("checked",true);
+    $("input[type=checkbox]").prop("checked", true);
   }
 
   /**
@@ -126,25 +129,25 @@ class App extends Component {
   handleDeleteClick(e) {
     const self = this;
     var arrKeys = [];
-    $('#checkboxes input:checked').each(function() {
+    $('#checkboxes input:checked').each(function () {
       arrKeys.push($(this).attr('name'));
     });
 
     const msgs = arrKeys.join(";");
     console.log(msgs);
 
-    self.setState({ deleteReq: { "AUTHKEY":self.state.messagesReq.AUTHKEY, "MSG_IDS": msgs, "isPost": false, "isData": false } }, ()=>{
+    self.setState({ deleteReq: { "AUTHKEY": self.state.messagesReq.AUTHKEY, "MSG_IDS": msgs, "isPost": false, "isData": false } }, () => {
       self.cordovaDelete().then((res) => {
-        console.log("cordovaDelete res="+res.data);
+        console.log("cordovaDelete res=" + res.data);
         $('.pushArea').removeClass('delete');
-        $("input[type=checkbox]").prop("checked",false);
+        $("input[type=checkbox]").prop("checked", false);
         self.reqMessages(false);
       }).catch(err => {
-        console.log("cordovaDelete err="+err);
+        console.log("cordovaDelete err=" + err);
       });
 
     });
-    
+
 
   }
   /**
@@ -176,7 +179,7 @@ class App extends Component {
   handleCategoryToChange(e) {
     const self = this;
     const target = e.target;
-    localStorage.setItem("pushCategory", target.value); 
+    localStorage.setItem("pushCategory", target.value);
     this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, target.value, "") }));
     this.reqMessages(false);
   }
@@ -196,7 +199,14 @@ class App extends Component {
       else {
         const suc = (res) => {
           self.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 0, "", res.AUTHKEY) }));
-          resolve();
+          self.setState({
+            authReq: {
+              "AUTHKEY": res.AUTHKEY,
+              "isPost": true,
+              "isData": true
+            }
+          })
+          resolve(res.AUTHKEY);
         }
         const fail = (res) => {
           reject(res);
@@ -291,15 +301,15 @@ class App extends Component {
    */
   lastMsgId() {
     const self = this;
-    
-    console.log("lastMsgId " + self.state.messagesReq.PAGE +"=== 1 &&"+ self.state.list.length );
+
+    console.log("lastMsgId " + self.state.messagesReq.PAGE + "=== 1 &&" + self.state.list.length);
     // 첫페이지 일경우만
     if (self.state.messagesReq.PAGE === 1 && self.state.list.length > 0) {
-      self.cordovaGetMsgId().then(resMsgId =>{
+      self.cordovaGetMsgId().then(resMsgId => {
         var firstMsgId = self.state.list[0].MSG_ID;
-        var appMsgId = (resMsgId === "" || resMsgId === "NaN")? "0" : resMsgId;
-        console.log("lastMsgId " + appMsgId*1 +"<"+ firstMsgId*1 );
-        if (appMsgId*1 < firstMsgId*1) self.cordovaSetMsgId(firstMsgId);
+        var appMsgId = (resMsgId === "" || resMsgId === "NaN") ? "0" : resMsgId;
+        console.log("lastMsgId " + appMsgId * 1 + "<" + firstMsgId * 1);
+        if (appMsgId * 1 < firstMsgId * 1) self.cordovaSetMsgId(firstMsgId);
       });
     }
   }
@@ -334,9 +344,9 @@ class App extends Component {
   reqMessages(isAdd) {
 
     var self = this;
-    self.cordovaAuth().then(() => {
+    self.cordovaAuth().then((key) => {
       self.cordovaMessages().then((res) => {
-        console.log("res.LIST=" + JSON.stringify(res.LIST));
+        //console.log("res.LIST=" + JSON.stringify(res.LIST));
         //console.log("this.state.list="+JSON.stringify(self.state.list));
         if (isAdd) self.setState({ list: self.state.list.concat(res.LIST) });
         else self.setState({ list: res.LIST });
@@ -351,19 +361,24 @@ class App extends Component {
     });
   }
 
-  requestCount() {
+  requestCount(key) {
     var self = this;
-    self.cordovaAuth().then(() => {
+    self.setState({
+      unReadCountsReq: {
+        "AUTHKEY": key,
+        "MSG_IDS": "",
+        "isPost": false,
+        "isData": true
+      }
+    }, () => {
       self.cordovaUnReadCnt().then((res) => {
-        console.log("res.LIST=" + JSON.stringify(res.LIST));
+        console.log("res.LIST=" + JSON.stringify(res));
         //console.log("this.state.list="+JSON.stringify(self.state.list));
-        self.setState({ unReads: res.LIST });
+        self.setState({ unReads: res });
       });
-    }).catch(err => {
-      console.log("err: ", err);
-      self.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 0, "", "AUTHFAIL") }));
     });
-    
+
+
   }
 
   render() {
@@ -381,6 +396,7 @@ class App extends Component {
           messageReq={this.state.messagesReq}
           unReads={this.state.unReads}
           requestCount={this.requestCount}
+          authReq={this.state.authReq}
         />
       </MsgBoxTemplate>
     );

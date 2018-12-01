@@ -32,7 +32,7 @@ class PushEvent extends Component {
         else url = this.state.api.url_events;
         axios.get(url)
           .then(response => {
-            console.log(JSON.stringify(response.data));
+            //console.log(JSON.stringify(response.data));
             this.setState({ el: response.data[0].eventList });
           })
           .catch(response => {
