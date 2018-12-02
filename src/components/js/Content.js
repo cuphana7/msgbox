@@ -14,20 +14,20 @@ export default class Content extends ReactRefreshInfiniteTableView  {
     }
 
     render() {
-        const {handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, authKey, messageReq, cnt, unReads, requestCount, authReq} = this.props;
+        const {handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, cnts, unReads, authKey, reqMessages} = this.props;
         return (
             <div id="content" className="content" onScroll={this.viewDidScroll} >
                 <section className="container" >
                     <div className="pushArea">
                         {/* 카테고리 선택 */}
                         <PushRadioSel handleCategoryToChange={handleCategoryToChange}
-                        category={category} unReads={unReads} requestCount={requestCount} authReq={authReq}/>
+                        category={category} unReads={unReads}/>
                         {/* 갯수/삭제버튼 */}
-                        <PushResult cnt={cnt}/>
+                        <PushResult cnts={cnts} category={category}/>
                         {/* 삭제 레이어 */}
                         <PushDelete handleDeleteClick={handleDeleteClick} handleCheckedAllClick={handleCheckedAllClick}/>
                         {/* 목록 */}
-                        <PushList dataSource={list} authKey={authKey} messageReq={messageReq}/>
+                        <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey}/>
                         {/* 이벤트 레이어 */}
                         <PushEvent />
                         <div className="dim disnone"></div>

@@ -34,8 +34,8 @@ axios.post('/msg', {
 </code>
 </pre>
 
+https://github.com/reactkr/learn-react-in-korean
 프론트엔드 개발 공부를 할 때 흔히 만들게 되는 투두리스트. [[미리보기]](https://fc3-basic.surge.sh)
-checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbox-select-all-component
 
 # TO-DO 2018.11.28
 목표 : 내일 현업 테스트 요청
@@ -60,7 +60,7 @@ checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbo
   . 앱은 해당 배열을 웹으로 전달(DATA)
   . state 에 입력 한다.
  - 취소누를 경우 전체 해제 ok
- - 날짜별 그룹핑
+ - 날짜별 그룹핑 ok
  - 메시지 펼치기 화살표 반대로 ok
  - 6라인 이후로 확장 아이콘 보이기 ok
 

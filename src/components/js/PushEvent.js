@@ -6,10 +6,8 @@ class PushEvent extends Component {
 
     constructor(props) {
         super(props)
+        this.api =  { "url_events": "/CXHIAOPC0041.cms?responseContentType=json" }
         this.state = {
-            api: {
-                "url_events": "/CXHIAOPC0041.cms?responseContentType=json"
-              },
             el : []
         }
         this.requestEvent = this.requestEvent.bind(this)
@@ -27,7 +25,7 @@ class PushEvent extends Component {
         let url = "";
         // 로컬 테스트용
         if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) url = "/sample-data/CXHIAOPC0041.cms.json";
-        else url = this.state.api.url_events;
+        else url = this.api.url_events;
         axios.get(url)
           .then(response => {
             //console.log(JSON.stringify(response.data));

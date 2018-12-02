@@ -6,13 +6,12 @@ export default class PushList extends Component {
 
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.dataSource !== nextProps.dataSource || this.props.messageReq !== nextProps.messageReq;
+        return this.props.dataSource !== nextProps.dataSource;
     }
-
 
     render() {
 
-        const { dataSource, authKey, messageReq } = this.props;
+        const { dataSource, authKey } = this.props;
         function temperatureClassname(temp){
             const prefix = 'pushList '
           
@@ -78,8 +77,8 @@ export default class PushList extends Component {
         
         return (
             <div className="pushWrap">
-                {messageReq.AUTHKEY === "" ? "" 
-                : messageReq.AUTHKEY === "AUTHFAIL" ? setting
+                {authKey === "" ? "" 
+                : authKey === "AUTHFAIL" ? setting
                 : cells}
 
             </div>
