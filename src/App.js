@@ -24,7 +24,7 @@ class App extends Component {
     }
     this.unReadCountsReq = {
       AUTHKEY: "",
-      MSG_IDS: "",
+      MSG_ID: "",
       isPost: false,
       isData: true
     }
@@ -92,28 +92,39 @@ class App extends Component {
 
       self.reqMessages(false).then((msgs) => {
         //self.setState({ list: msgs, authKey: key });
-        self.setLastMsgIdPromise(self.messagesReq.PAGE, msgs).then((max)=>{
-          self.unReadCountsReq.MSG_IDS = max;
+
+        self.setLastMsgIdPromise(self.messagesReq.PAGE, msgs).then((max) => {
+          self.unReadCountsReq.MSG_ID = max;
           self.reqUnreadCount().then((unr) => {
             self.reqCounts().then((cnts) => {
               self.setState({ unReads: unr, list: msgs, authKey: key, counts: cnts });
+            }).catch(reqCountsErr => {
+              console.log("reqCountsErr=" + reqCountsErr);
+              self.setState({ list: msgs, authKey: key, unReads: unr });
             })
+          }).catch(reqUnreadCountErr => {
+            console.log("reqUnreadCountErr=" + reqUnreadCountErr);
+            self.setState({ list: msgs, authKey: key });
           })
+        }).catch(res=>{
+          self.setState({ list: msgs, authKey: key});
         })
-        
+
+
+
         //self.setState({ unReads: unr, list: msgs, authKey: key });
       });
-/*
-      Promise.all([
-        self.reqMessages(false),
-        self.reqUnreadCount()
-      ]).then(([msgs, unr]) => {
-        console.log("msgs=" + JSON.stringify(msgs) + " unReads" + JSON.stringify(unr))
-        // Forces batching
-        ReactDOM.unstable_batchedUpdates(() => {
-          self.setState({ unReads: unr, list: msgs, authKey: key }); // Doesn't re-render yet
-        });
-      });*/
+      /*
+            Promise.all([
+              self.reqMessages(false),
+              self.reqUnreadCount()
+            ]).then(([msgs, unr]) => {
+              console.log("msgs=" + JSON.stringify(msgs) + " unReads" + JSON.stringify(unr))
+              // Forces batching
+              ReactDOM.unstable_batchedUpdates(() => {
+                self.setState({ unReads: unr, list: msgs, authKey: key }); // Doesn't re-render yet
+              });
+            });*/
 
     }
     ).catch(err => {
@@ -196,15 +207,15 @@ class App extends Component {
     this.messagesReq.PAGE = 1;
     this.messagesReq.CATEGORY = target.value;
     //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, target.value, "") }));
-    this.setState(prevState => ({ unReads: self.setUnReadsCnt(prevState.unReads, target.value)}));
+    this.setState(prevState => ({ unReads: self.setUnReadsCnt(prevState.unReads, target.value) }));
     this.reqMessagesAndSet(false);
     //this.reqUnreadCountAndSet();
   }
 
-  setUnReadsCnt (pre, cate) {
+  setUnReadsCnt(pre, cate) {
     var rslt = { cate1: 0, cate2: 0, cate3: 0, cate4: 0 };
-    for( var key in pre ) {
-      if (key === "cate"+cate) rslt[key] = 0;
+    for (var key in pre) {
+      if (key === "cate" + cate) rslt[key] = 0;
       else rslt[key] = pre[key]
     }
     return rslt;
@@ -310,21 +321,25 @@ class App extends Component {
   cordovaUnReadCnt() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      const changeJson = (dt) => {
+      const changeJson = (res) => {
         var rslt = { cate1: 0, cate2: 0, cate3: 0, cate4: 0 };
-        if (dt && dt.length === 4) {
+        var dt = res.LIST;
+        if (dt && dt.length > 0) {
           for (var i = 0; i < dt.length; i++) {
-            if (dt[i].category == "1") rslt.cate1 = dt[i].count;
-            else if (dt[i].category === "2") rslt.cate2 = dt[i].count;
-            else if (dt[i].category === "3") rslt.cate3 = dt[i].count;
-            else if (dt[i].category === "4") rslt.cate4 = dt[i].count;
+            if (dt[i].CATEGORY == "1") rslt.cate1 = dt[i].CNT;
+            else if (dt[i].CATEGORY === "2") rslt.cate2 = dt[i].CNT;
+            else if (dt[i].CATEGORY === "3") rslt.cate3 = dt[i].CNT;
+            else if (dt[i].CATEGORY === "4") rslt.cate4 = dt[i].CNT;
           }
         }
         return rslt;
       }
-      const succ = (res) => { console.log("cordovaUnReadCnt res=" + JSON.stringify(res)); resolve(changeJson(res)); };
+      const succ = (res) => { 
+        console.log("cordovaUnReadCnt res=" + JSON.stringify(res)); 
+        resolve(changeJson(res)); 
+      };
       const fail = (res) => { reject(res); }
-      //console.log("cordovaCallApi: url=" + (self.api.url_unread + " data=" + JSON.stringify(self.unReadCountsReq)));
+      console.log("cordovaCallApi: url=" + (self.api.url_unread + " data=" + JSON.stringify(self.unReadCountsReq)));
       self.cordovaCallApi(self.api.url_unread, self.unReadCountsReq, succ, fail);
     });
   }
@@ -332,14 +347,15 @@ class App extends Component {
   cordovaCnts() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      const changeJson = (dt) => {
+      const changeJson = (res) => {
         var rslt = { cate1: 0, cate2: 0, cate3: 0, cate4: 0 };
-        if (dt && dt.length === 4) {
+        var dt = res.LIST;
+        if (dt && dt.length > 0) {
           for (var i = 0; i < dt.length; i++) {
-            if (dt[i].category == "1") rslt.cate1 = dt[i].count;
-            else if (dt[i].category === "2") rslt.cate2 = dt[i].count;
-            else if (dt[i].category === "3") rslt.cate3 = dt[i].count;
-            else if (dt[i].category === "4") rslt.cate4 = dt[i].count;
+            if (dt[i].CATEGORY == "1") rslt.cate1 = dt[i].CNT;
+            else if (dt[i].CATEGORY === "2") rslt.cate2 = dt[i].CNT;
+            else if (dt[i].CATEGORY === "3") rslt.cate3 = dt[i].CNT;
+            else if (dt[i].CATEGORY === "4") rslt.cate4 = dt[i].CNT;
           }
         }
         return rslt;
@@ -379,8 +395,8 @@ class App extends Component {
 
     return new Promise(function (resolve, reject) {
       // 첫페이지 일경우만
-      if (page === 1 && list.length > 0) {
-        self.cordovaGetMsgId().then(resMsgId => {
+      self.cordovaGetMsgId().then(resMsgId => {
+        if (page === 1 && list && list.length > 0) {
           var firstMsgId = list[0].MSG_ID;
           var appMsgId = (!resMsgId || resMsgId === "" || resMsgId === "NaN") ? "0" : resMsgId;
           console.log("setLastMsgId " + appMsgId * 1 + "<" + firstMsgId * 1);
@@ -388,11 +404,19 @@ class App extends Component {
             self.lastMsg = firstMsgId;
             resolve(firstMsgId);
             self.cordovaSetMsgId(firstMsgId);
+          } else {
+            resolve(resMsgId);
           }
-        });
-      } else {
-        reject("");
-      }
+        } else if(page === 1) {
+          resolve(resMsgId);
+        } else {
+          reject(resMsgId);
+        }
+      }).catch(res=> {
+        console.log(res);
+        reject(res);
+      });
+
     });
 
   }

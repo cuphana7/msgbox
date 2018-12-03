@@ -34,8 +34,8 @@ axios.post('/msg', {
 </code>
 </pre>
 
-https://github.com/reactkr/learn-react-in-korean
 프론트엔드 개발 공부를 할 때 흔히 만들게 되는 투두리스트. [[미리보기]](https://fc3-basic.surge.sh)
+checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbox-select-all-component
 
 # TO-DO 2018.11.28
 목표 : 내일 현업 테스트 요청
@@ -59,14 +59,12 @@ https://github.com/reactkr/learn-react-in-korean
   . 앱은 서버로 전달 하여 해당 최종아이디 보다 큰 메시지를 카테고리별로 count후 배열을 반환한다.
   . 앱은 해당 배열을 웹으로 전달(DATA)
   . state 에 입력 한다.
- - 취소누를 경우 전체 해제 ok
- - 날짜별 그룹핑 ok
- - 메시지 펼치기 화살표 반대로 ok
- - 6라인 이후로 확장 아이콘 보이기 ok
+ - 취소누를 경우 전체 해제
+ - 날짜별 그룹핑
+ - 메시지 펼치기 화살표 반대로
+ - 6라인 이후로 확장 아이콘 보이기
 
-
- - 안읽은 건수 화면 표기 안됨
-  . prop가 넘어오면 서버로 요청
-  . 요청 완료 이후 state를 app에서 셋팅
-  . 
- - 안읽은 건수 카테고리 클릭시 삭제
+# 이슈 20181201
+ - auth 중복 요청으로 promise 오류 발송
+  . 키 발급이후 요청 되도록 수정해야함.
+  . mount 후 키 발급 > 리스트  
