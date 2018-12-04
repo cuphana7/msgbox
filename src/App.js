@@ -88,8 +88,8 @@ class App extends Component {
 
       self.messagesReq.PAGE = 1;
       self.messagesReq.AUTHKEY = key;
-      self.unReadCountsReq.AUTHKEY = key
-
+      self.unReadCountsReq.AUTHKEY = key;
+      
       self.reqMessages(false).then((msgs) => {
         //self.setState({ list: msgs, authKey: key });
 
@@ -109,11 +109,9 @@ class App extends Component {
         }).catch(res=>{
           self.setState({ list: msgs, authKey: key});
         })
-
-
-
-        //self.setState({ unReads: unr, list: msgs, authKey: key });
       });
+      
+
       /*
             Promise.all([
               self.reqMessages(false),
@@ -199,6 +197,8 @@ class App extends Component {
    * @param {*} e 
    */
   handleCategoryToChange(e) {
+    $("#content").css({ height: '900px' });
+    $(".cont").css({height: 60});
     const self = this;
     const target = e.target;
     localStorage.setItem("pushCategory", target.value);
@@ -334,9 +334,9 @@ class App extends Component {
         }
         return rslt;
       }
-      const succ = (res) => { 
-        console.log("cordovaUnReadCnt res=" + JSON.stringify(res)); 
-        resolve(changeJson(res)); 
+      const succ = (res) => {
+        console.log("cordovaUnReadCnt res=" + JSON.stringify(res));
+        resolve(changeJson(res));
       };
       const fail = (res) => { reject(res); }
       console.log("cordovaCallApi: url=" + (self.api.url_unread + " data=" + JSON.stringify(self.unReadCountsReq)));
@@ -407,12 +407,12 @@ class App extends Component {
           } else {
             resolve(resMsgId);
           }
-        } else if(page === 1) {
+        } else if (page === 1) {
           resolve(resMsgId);
         } else {
           reject(resMsgId);
         }
-      }).catch(res=> {
+      }).catch(res => {
         console.log(res);
         reject(res);
       });

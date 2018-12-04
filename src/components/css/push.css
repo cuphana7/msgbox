@@ -154,7 +154,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .eventList li .thum{display:block;width:80px;height:80px}
 .eventList li .thum img{width:100%;height:auto}
 
-.pushArea .infoBox.notImg{position:absolute;top:128px;bottom:0;left:0;right:0;z-index:9002;padding-top:128px;background-color:#f2f2f2;color:rgba(0,0,0,.47);}
+.pushArea .infoBox.notImg{position:absolute;top:128px;bottom:0;left:0;right:0;z-index:9001;padding-top:128px;background-color:#f2f2f2;color:rgba(0,0,0,.47);}
 .pushArea .infoBox.notImg .pushInfo{color:rgba(0,0,0,.87);background-color:#f2f2f2}
 .pushArea .infoBox.notImg .bottomArea{position:absolute;bottom:0;left:0;width:100%;padding-bottom:32px;box-sizing:border-box}
 /*infomation*/
