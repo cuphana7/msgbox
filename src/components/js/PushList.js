@@ -9,6 +9,7 @@ export default class PushList extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.dataSource !== nextProps.dataSource;
     }
+    
 
     render() {
 

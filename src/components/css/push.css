@@ -91,7 +91,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .pushArea.delete .pushList li .select{display:block}
 
 .pushResult{overflow:hidden;padding:8px 16px;background-color:#f2f2f2}
-.pushResult .all{float:left;font-size:14px;line-height:24px;color:rgba(0,0,0,.6)}
+.pushResult .all{display:none;float:left;font-size:14px;line-height:24px;color:rgba(0,0,0,.6)}
 .pushResult .delete{float:right;padding-left:28px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_trash_24.png') no-repeat 0 50%;background-size:24px;font-size:14px;line-height:24px;opacity:.6}
 
 .pushDelete{position:fixed;top:0;left:0;z-index:10;width:100%;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-box-pack:justify;background-color:#fff;
@@ -117,7 +117,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .pushList li .tit{display:block;margin-bottom:4px;font-size:16px;line-height:24px}
 .pushList li .date{color:rgba(0,0,0,.47)}
 .pushList li .cont{overflow:hidden;display:-webkit-box;display:box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;box-orient:vertical;min-height:120px;max-height:120px;margin-top:16px;transition:height 500ms ease-in-out}
-.pushList li .cont p .linkStyle {text-decoration: underline; color:#0000ff}
+.pushList li .cont p .linkStyle {text-decoration: underline; color:#0000ff;word-break: break-all;}
 .pushList li .banner{display:block;margin-top:16px}
 .pushList li .banner img{width:100%;height:auto;vertical-align:top}
 .pushList li .eventBtn{margin-top:16px}

@@ -19,7 +19,7 @@
  under the License.
 */
 if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1 ) {
-    console.log("is window");
+    console.log("This is pc.");
 } else {
 
 ;(function() {

@@ -32,6 +32,10 @@ export default class PushMsg extends Component  {
                 return <React.Fragment key={index}>{item}<br/></React.Fragment>
         });
 
+        const replaceUrl = (url) => {
+            return url.replace("kbcardmain://openUrl","");
+        }
+
         const clickMsgOpen = (e) => {
 
             var thisEle = self.eleMsgOpen.current;
@@ -80,7 +84,7 @@ export default class PushMsg extends Component  {
                 
                 {/* 링크 버튼 */}
                 {ext.length === 3 && ext[2].value !== "" ? 
-                <div className="eventBtn"><a href={ext[2].value} className="btnL btnWhite">자세히보기</a></div>
+                <div className="eventBtn"><a href={replaceUrl(ext[2].value)} className="btnL btnWhite">자세히보기</a></div>
                 :""}
                 
                 {/* 삭제 클릭시 보이는 UI */}

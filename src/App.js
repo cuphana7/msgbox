@@ -83,57 +83,52 @@ class App extends Component {
   }
   componentDidMount() {
     const self = this;
-    // auth > messages && unread
-    this.cordovaAuth().then((key) => {
 
+    // 1. 인증키요청
+    this.cordovaAuth().then((key) => {
+      console.log("1. 인증키 요청 완료", key)
       self.messagesReq.PAGE = 1;
       self.messagesReq.AUTHKEY = key;
       self.unReadCountsReq.AUTHKEY = key;
-      
+
+      // 2. 리스트 요청
       self.reqMessages(false).then((msgs) => {
-        //self.setState({ list: msgs, authKey: key });
+        console.log("2. 리스트 요청 완료", msgs);
 
         self.setLastMsgIdPromise(self.messagesReq.PAGE, msgs).then((max) => {
+          console.log("3. 최근 키 확인 완료", max);
           self.unReadCountsReq.MSG_ID = max;
+
           self.reqUnreadCount().then((unr) => {
-            self.reqCounts().then((cnts) => {
-              self.setState({ unReads: unr, list: msgs, authKey: key, counts: cnts });
-            }).catch(reqCountsErr => {
-              console.log("reqCountsErr=" + reqCountsErr);
-              self.setState({ list: msgs, authKey: key, unReads: unr });
-            })
+            console.log("4. 안읽은 건수 요청 완료 ", unr);
+            self.setState({ list: msgs, authKey: key, unReads: unr });
+
+            // self.reqCounts().then((cnts) => {
+            //   console.log("5. 전체 건수 요청 ", cnts);
+            //   self.setState({ unReads: unr, list: msgs, authKey: key, counts: cnts });
+            // }).catch(reqCountsErr => {
+            //   console.log("@reqCountsErr ", reqCountsErr);
+            //   self.setState({ list: msgs, authKey: key, unReads: unr });
+            // })
           }).catch(reqUnreadCountErr => {
-            console.log("reqUnreadCountErr=" + reqUnreadCountErr);
+            console.log("@reqUnreadCountErr", reqUnreadCountErr);
             self.setState({ list: msgs, authKey: key });
           })
-        }).catch(res=>{
-          self.setState({ list: msgs, authKey: key});
+        }).catch(setLastMsgIdPromiseErr => {
+          console.log("@setLastMsgIdPromiseErr", setLastMsgIdPromiseErr)
+          self.setState({ list: msgs, authKey: key });
         })
       });
-      
 
-      /*
-            Promise.all([
-              self.reqMessages(false),
-              self.reqUnreadCount()
-            ]).then(([msgs, unr]) => {
-              console.log("msgs=" + JSON.stringify(msgs) + " unReads" + JSON.stringify(unr))
-              // Forces batching
-              ReactDOM.unstable_batchedUpdates(() => {
-                self.setState({ unReads: unr, list: msgs, authKey: key }); // Doesn't re-render yet
-              });
-            });*/
-
-    }
-    ).catch(err => {
-      console.log("err: ", err);
+    }).catch(cordovaAuth => {
+      console.log("cordovaAuth", cordovaAuth);
       self.messagesReq.PAGE = 1;
       self.setState({ authKey: "AUTHFAIL" });
       self.setState({ list: [] });
     });
 
     const loadScript = (url, callback) => { var script = document.createElement("script"); script.type = "text/javascript"; script.onload = function () { callback(); }; script.src = url; document.getElementsByTagName('head')[0].appendChild(script); }
-    loadScript("js/common.js", function () { console.log("./js/common.js load ok! "); });
+    loadScript("js/common.js", function () { });
   }
 
   /**
@@ -156,7 +151,6 @@ class App extends Component {
     });
 
     const msgs = arrKeys.join(";");
-    console.log(msgs);
 
     self.setState({ deleteReq: { "AUTHKEY": self.state.authKey, "MSG_IDS": msgs, "isPost": false, "isData": false } }, () => {
       self.cordovaDelete().then((res) => {
@@ -198,7 +192,8 @@ class App extends Component {
    */
   handleCategoryToChange(e) {
     $("#content").css({ height: '900px' });
-    $(".cont").css({height: 60});
+    $(".cont").css({ height: 60, transitionDuration: '0ms' });
+
     const self = this;
     const target = e.target;
     localStorage.setItem("pushCategory", target.value);
@@ -206,10 +201,8 @@ class App extends Component {
     this.setState({ category: target.value }); //,unReads:{cate1:0,cate2:10,cate3:30,cate4:420}});
     this.messagesReq.PAGE = 1;
     this.messagesReq.CATEGORY = target.value;
-    //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, target.value, "") }));
     this.setState(prevState => ({ unReads: self.setUnReadsCnt(prevState.unReads, target.value) }));
     this.reqMessagesAndSet(false);
-    //this.reqUnreadCountAndSet();
   }
 
   setUnReadsCnt(pre, cate) {
@@ -220,6 +213,7 @@ class App extends Component {
     }
     return rslt;
   }
+
 
   /**
    * cordova 인증키를 셋팅 한다.
@@ -245,7 +239,6 @@ class App extends Component {
         const fail = (res) => {
           reject(res);
         }
-        console.log("cordovaCallApi: url=" + self.api.url_auth + " data=" + JSON.stringify(self.authReq));
         self.cordovaCallApi(self.api.url_auth, self.authReq, suc, fail);
       }
     });
@@ -257,9 +250,8 @@ class App extends Component {
   cordovaMessages() {
     var self = this;
     return new Promise(function (resolve, reject) {
-      const suc = (res) => { console.log("messages called success page=" + self.messagesReq.PAGE); resolve(res); };
+      const suc = (res) => { resolve(res); };
       const fail = (res) => { reject(res); }
-      console.log("cordovaCallApi: url=" + self.api.url_messages + " data=" + JSON.stringify(self.messagesReq));
       self.cordovaCallApi(self.api.url_messages, self.messagesReq, suc, fail);
     });
   }
@@ -272,7 +264,6 @@ class App extends Component {
     return new Promise(function (resolve, reject) {
       const succ = (res) => { console.log("res=" + JSON.stringify(res)); resolve(res); };
       const fail = (res) => { reject(res); }
-      console.log("cordovaCallApi: url=" + (self.api.url_delete + " data=" + JSON.stringify(self.state.deleteReq)));
       self.cordovaCallApi(self.api.url_delete, self.state.deleteReq, succ, fail);
     });
   }
@@ -283,14 +274,14 @@ class App extends Component {
   cordovaGetMsgId() {
 
     return new Promise(function (resolve, reject) {
-      const succ = (res) => { console.log("cordovaGetMsgId res=" + JSON.stringify(res)); resolve(res.msgId); };
+      const succ = (res) => { resolve(res.msgId); };
       const fail = (res) => { reject(res); }
-      console.log("cordovaGetMsgId start");
 
       // 로컬 테스트용
       if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
         succ("");
       } else {
+        console.log("#getLastMsgId");
         window.kbmobile.push.getLastMsgId(succ, fail);
       }
     });
@@ -302,14 +293,14 @@ class App extends Component {
   cordovaSetMsgId(mid) {
 
     return new Promise(function (resolve, reject) {
-      const succ = (res) => { console.log("cordovaSetMsgId res=" + JSON.stringify(res)); resolve(res); };
+      const succ = (res) => { resolve(res); };
       const fail = (res) => { reject(res); }
-      console.log("cordovaSetMsgId start");
 
       // 로컬 테스트용
       if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
         succ("123");
       } else {
+        console.log("#setLastMsgId", mid);
         window.kbmobile.push.setLastMsgId(mid, succ, fail);
       }
     });
@@ -339,7 +330,6 @@ class App extends Component {
         resolve(changeJson(res));
       };
       const fail = (res) => { reject(res); }
-      console.log("cordovaCallApi: url=" + (self.api.url_unread + " data=" + JSON.stringify(self.unReadCountsReq)));
       self.cordovaCallApi(self.api.url_unread, self.unReadCountsReq, succ, fail);
     });
   }
@@ -374,13 +364,11 @@ class App extends Component {
    */
   setLastMsgId(page, list) {
     const self = this;
-    console.log("setLastMsgId " + page + "=== 1 &&" + list.length);
     // 첫페이지 일경우만
     if (page === 1 && list.length > 0) {
       self.cordovaGetMsgId().then(resMsgId => {
         var firstMsgId = list[0].MSG_ID;
         var appMsgId = (!resMsgId || resMsgId === "" || resMsgId === "NaN") ? "0" : resMsgId;
-        console.log("setLastMsgId " + appMsgId * 1 + "<" + firstMsgId * 1);
         if (appMsgId * 1 < firstMsgId * 1) {
           self.lastMsg = firstMsgId;
           self.cordovaSetMsgId(firstMsgId);
@@ -391,15 +379,12 @@ class App extends Component {
 
   setLastMsgIdPromise(page, list) {
     const self = this;
-    console.log("setLastMsgId " + page + "=== 1 && " + list.length);
-
     return new Promise(function (resolve, reject) {
       // 첫페이지 일경우만
       self.cordovaGetMsgId().then(resMsgId => {
         if (page === 1 && list && list.length > 0) {
           var firstMsgId = list[0].MSG_ID;
           var appMsgId = (!resMsgId || resMsgId === "" || resMsgId === "NaN") ? "0" : resMsgId;
-          console.log("setLastMsgId " + appMsgId * 1 + "<" + firstMsgId * 1);
           if (appMsgId * 1 < firstMsgId * 1) {
             self.lastMsg = firstMsgId;
             resolve(firstMsgId);
@@ -431,7 +416,6 @@ class App extends Component {
 
     // 로컬 테스트용
     if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
-      console.log("/sample-data" + url + ".json  params=" + JSON.stringify(param));
       axios.get("/sample-data" + url + ".json", { params: param })
         .then(response => {
           callbackSucc(response.data)
@@ -440,6 +424,7 @@ class App extends Component {
           callbackFail(response.data)
         });
     } else {
+      console.log("#callApi ", url, param);
       window.kbmobile.push.callApi(url, param, callbackSucc, callbackFail);
     }
   }
@@ -453,8 +438,8 @@ class App extends Component {
 
     var self = this;
     self.reqMessages(isAdd).then((res) => {
-      if (isAdd) self.setState({ list: res });
-      else self.setState({ list: res });
+      self.setState({ list: res });
+      console.log(">>setState list", res)
       // 최근 msgId 셋팅
       self.setLastMsgId(self.messagesReq.PAGE, res);
     });
@@ -464,6 +449,7 @@ class App extends Component {
     var self = this;
     return new Promise(function (resolve, reject) {
       self.cordovaMessages().then((res) => {
+        console.log("cordovaMessages res=",res)
         if (isAdd) resolve(self.state.list.concat(res.LIST));
         else resolve(res.LIST);
       });
@@ -484,6 +470,7 @@ class App extends Component {
     var self = this;
     return self.cordovaCnts().then((res) => {
       this.setState({ counts: res })
+      console.log(">>setState counts", res)
     });;
   }
 
@@ -491,6 +478,7 @@ class App extends Component {
     var self = this;
     self.cordovaUnReadCnt().then((res) => {
       this.setState({ unReads: res })
+      console.log(">>setState unReads", res)
     });
   }
 
@@ -509,6 +497,7 @@ class App extends Component {
           reqUnreadCount={this.reqUnreadCount}
           authKey={this.state.authKey}
           cnts={this.state.counts}
+          reqMessages={this.reqMessages}
         />
       </MsgBoxTemplate>
     );

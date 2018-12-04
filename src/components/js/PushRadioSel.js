@@ -3,9 +3,6 @@ import '../css/push.css';
 
 class PushRadioSel extends Component {
 
-    componentWillReceiveProps(nextProps) {
-         console.log(nextProps);
-    }
     
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.unReads !== nextProps.unReads || this.props.category !== nextProps.category;

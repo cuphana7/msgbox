@@ -38,9 +38,8 @@ class PushEvent extends Component {
       }
 
     render() {
-        const { eventList, requestEvent } = this.props;
         const { el } = this.state;
-        if(el) console.log("eventList.length="+el.length);
+
         var cells = (el && el.length > 0)?el.map(function(item, index) {
 
             var eventImgPath = "https://img1.kbcard.com/ST/img/cxc"+item.eventImgPath;

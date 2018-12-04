@@ -68,3 +68,13 @@ checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbo
  - auth 중복 요청으로 promise 오류 발송
   . 키 발급이후 요청 되도록 수정해야함.
   . mount 후 키 발급 > 리스트  
+
+# 초기구동 로딩 성능 개선 방안
+ - 최초 20개는 로컬에 저장 하고 있는다.
+  . 최초 20개 뿌린 이후 > 20개를 가져온다.
+  . 동일하지 않을 경우만 화면에 rerendering
+
+# TO-DO 2018.12.04
+ - 앱 뱃지
+ - 탭별 뱃지
+ - 자세히보기 URL
