@@ -4,7 +4,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const startApp = () => {
-    //ReactDOM.render(<App />, document.getElementById('Wrap'));
+    ReactDOM.render(<App />, document.getElementById('Wrap'));
     //registerServiceWorker();
 };
 

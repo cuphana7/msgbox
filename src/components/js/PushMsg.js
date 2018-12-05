@@ -25,7 +25,24 @@ export default class PushMsg extends Component  {
 
         const msgToTag = msg.split("\n").map(function(item, index){
             var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
+            var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
             var url = item.match(rUrlRegex);
+            /*
+            renderText() {
+                let parts = this.props.text.split(re) // re is a matching regular expression
+                for (let i = 1; i < parts.length; i += 2) {
+                  parts[i] = <a key={'link' + i} href={parts[i]}>{parts[i]}</a>
+                }
+                return parts
+              }
+              render() {
+                let text = this.renderText()
+                return (
+                  <div className="some_text_class">{text}</div>
+                )
+              }
+            */
+            
             if (url != null)
                 return <React.Fragment key={index}>{item.substring(0, item.indexOf("http"))}<a href={url} className="linkStyle"> {url} </a><br/></React.Fragment>
             else 
