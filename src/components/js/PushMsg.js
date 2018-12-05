@@ -23,20 +23,23 @@ export default class PushMsg extends Component {
         const { msg, ext, msgid } = this.props;
         const imageUrl = (img) => { return "https://img2.kbcard.com/msg/cxv/template/system/" + img; }
 
-        const convert = (text) => {
-            var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-            var text1 = text.replace(exp, "<a href='$1'>$1</a>");
-            var exp2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-            return text1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
-        }
-
         const msgToTag = msg.split("\n").map(function (item, index) {
             var rUrlRegex = /(http(s)?:\/\/|www.)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}([\/a-z0-9-%#?&=\w])+(\.[a-z0-9]{2,4}(\?[\/a-z0-9-%#?&=\w]+)*)*/gi;
-            var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
-            var url = item.match(rUrlRegex);
+            var arrUrls = item.match(rUrlRegex);
 
-            if (url != null)
-                return <React.Fragment key={index}>{item.substring(0, item.indexOf("http"))}<a href={url} className="linkStyle"> {url} </a><br /></React.Fragment>
+            var eles = [];
+            if (arrUrls != null && arrUrls.length > 0) {
+                var startIndexOf = 0 ;
+                for (var i = 0; i < arrUrls.length; i++) {
+                    eles.push(item.substring(startIndexOf, item.indexOf(arrUrls[i])));
+                    eles.push(<a href={arrUrls[i]} key={"jsxUrl"+i} className="linkStyle"> {arrUrls[i]} </a>);
+                    startIndexOf = item.indexOf(arrUrls[i]) + arrUrls[i].length;
+                }
+                if (item.length > startIndexOf) eles.push(item.substring(startIndexOf, item.length));
+            }
+
+            if (eles.length > 1)
+                return <React.Fragment key={index}>{eles}<br /></React.Fragment>
             else
                 return <React.Fragment key={index}>{item}<br /></React.Fragment>
         });
