@@ -80,7 +80,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .topHead .optionBtn{position:absolute;top:16px;right:16px;z-index:100;width:24px;height:24px}
 .topHead .optionBtn button{padding:0;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_setting_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
 
-.content{overflow-y:scroll;height:900px;}
+.content{overflow-y:scroll;height:900px; -webkit-overflow-scrolling: touch;}
 .container{padding:56px 0 0;overflow:hidden;padding-top: 56px;padding-bottom:20px;}
 .pushArea{padding-bottom:35px}
 .pushArea.delete .pushDelete{
