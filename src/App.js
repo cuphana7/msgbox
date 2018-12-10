@@ -172,8 +172,7 @@ class App extends Component {
   handleScrollToTop(completed) {
     //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, "", "") }));
     this.messagesReq.PAGE = 1;
-    this.reqMessagesAndSet(false);
-    completed();
+    this.reqMessagesAndSet(false).then(()=> completed());
   }
 
   /**
@@ -182,8 +181,7 @@ class App extends Component {
   handleScrollToBottom(completed) {
     //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, nextPage, "", "") }));
     this.messagesReq.PAGE = this.messagesReq.PAGE + 1;
-    this.reqMessagesAndSet(true);
-    completed();
+    this.reqMessagesAndSet(true).then(()=> completed());
   }
 
   /**
@@ -191,7 +189,7 @@ class App extends Component {
    * @param {*} e 
    */
   handleCategoryToChange(e) {
-    $("#content").css({ height: '900px' });
+    //$("#content").css({ height: '900px' });
     $(".cont").css({ height: 60, transitionDuration: '0ms' });
 
     const self = this;
@@ -437,12 +435,16 @@ class App extends Component {
   reqMessagesAndSet(isAdd) {
 
     var self = this;
-    self.reqMessages(isAdd).then((res) => {
-      self.setState({ list: res });
-      console.log(">>setState list", res)
-      // 최근 msgId 셋팅
-      self.setLastMsgId(self.messagesReq.PAGE, res);
+    return new Promise((resolve, reject)=>{
+      self.reqMessages(isAdd).then((res) => {
+        self.setState({ list: res },()=>resolve());
+        console.log(">>setState list", res)
+        // 최근 msgId 셋팅
+        self.setLastMsgId(self.messagesReq.PAGE, res);
+      });
     });
+
+    
   }
 
   reqMessages(isAdd) {

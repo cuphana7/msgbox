@@ -57,6 +57,11 @@ input.toggle:after{content:'';display:block;position:absolute;top:2px;left:0;wid
 input.toggle:checked:before{background:#7f6ee3}
 input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px, 0, 0);transform:translate3d(20px, 0, 0)}
 .dim, .loadingDim{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:.25;filter:alpha(opacity=25);z-index:9000}
+
+.scrollArea{overflow-y:scroll;-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;box-sizing:border-box}
+.scrollArea::-webkit-scrollbar{width:4px}
+.scrollArea::-webkit-scrollbar-thumb{border-radius:3px;background-color:rgba(0, 0, 0, .16)}
+
 /*layout cont*/
 .disnone {display:none;}
 .topHead{position:fixed;left:0;top:0;overflow:hidden;width:100%;height:55px;background:#fff;text-align:center;border-bottom:1px solid rgba(0, 0, 0, .24);z-index:990;letter-spacing:-.2px}
@@ -80,7 +85,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .topHead .optionBtn{position:absolute;top:16px;right:16px;z-index:100;width:24px;height:24px}
 .topHead .optionBtn button{padding:0;width:24px;height:24px;background:url('https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_setting_24_000_b.png') no-repeat center center;background-size:24px;color:transparent;line-height:0;font-size:0}
 
-.content{overflow-y:scroll;height:900px; -webkit-overflow-scrolling: touch;}
+.content{overflow-y:scroll;height:-webkit-fill-available;height:-moz-available;height:fill-available; -webkit-overflow-scrolling: touch;}
 .container{padding:56px 0 0;overflow:hidden;padding-top: 56px;padding-bottom:20px;}
 .pushArea{padding-bottom:35px}
 .pushArea.delete .pushDelete{
@@ -114,7 +119,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .pushList{padding-left:48px;font-size:14px;line-height:20px;height:auto;}
 .pushList li{position:relative;padding:16px 16px 32px 0;border-bottom:1px solid rgba(0,0,0,.16)}
 .pushList li:before{content:'';position:absolute;top:16px;left:-32px;width:24px;height:24px;background-size:24px}
-.pushList li .tit{display:block;margin-bottom:4px;font-size:16px;line-height:24px}
+.pushList li .tit{display:block;margin-bottom:4px;font-size:16px;line-height:24px;word-break: break-all;padding-right: 20px;}
 .pushList li .date{color:rgba(0,0,0,.47)}
 .pushList li .cont{overflow:hidden;display:-webkit-box;display:box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;box-orient:vertical;min-height:120px;max-height:120px;margin-top:16px;transition:height 500ms ease-in-out}
 .pushList li .cont p .linkStyle {text-decoration: underline; color:#0000ff;word-break: break-all;}
@@ -149,7 +154,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .eventList li{border-bottom:1px solid rgba(0,0,0,.16)}
 .eventList li a{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-box-pack:justify;-webkit-box-align:center;padding:16px 16px 16px 0}
 .eventList li .txt{display:block;-webkit-box-flex:1;-webkit-flex:1;flex:1;padding-right:16px}
-.eventList li .txt .tit{display:block;font-weight:normal}
+.eventList li .txt .tit{display:block;font-weight:normal;}
 .eventList li .txt .date{display:block;margin-top:8px;font-size:14px;line-height:20px;color:rgba(0,0,0,.6)}
 .eventList li .thum{display:block;width:80px;height:80px}
 .eventList li .thum img{width:100%;height:auto}
@@ -242,4 +247,4 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .ios .btnL{line-height:50px}
 .btnL{height:48px;line-height:48px}
 
-.shortMsg{text-overflow:ellipsis}
+.shortMsg{text-overflow:ellipsis;word-break: break-all;}

@@ -86,7 +86,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
 
       }.bind(this))
 
-    } else if (sum >= scrollviewContentHeight) {
+    } else if (sum+56 >= scrollviewContentHeight) {
 
       // disable scroll to top if onScrollToTop isn't set
       if (!this.props.onScrollToBottom) { return }

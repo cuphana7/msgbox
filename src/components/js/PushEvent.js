@@ -66,7 +66,7 @@ class PushEvent extends Component {
                 </div>
 
                 <div className="puchEventCont">
-                    <ul className="eventList">
+                    <ul className="eventList scrollArea">
                         {cells}
                     </ul>
                     <div className="btn">
