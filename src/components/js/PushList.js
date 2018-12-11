@@ -19,9 +19,9 @@ export default class PushList extends Component {
           
             switch (temp) {
               case '1': return prefix + 'payment'
-              case '2': return prefix + 'event'
+              case '4': return prefix + 'event'
               case '3': return prefix + 'info'
-              case '4': return prefix + 'notice'
+              case '2': return prefix + 'notice'
               default: return prefix + 'payment'
             }
         }

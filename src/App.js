@@ -36,6 +36,7 @@ class App extends Component {
       CATEGORY: initCategory(),
       isPost: false,
       isData: true,
+      isLast: false // 마지막 페이지일 경우 해당 값으로 요청 하지 않음.
     }
     this.authReq = {
       AUTHKEY: "",
@@ -172,7 +173,8 @@ class App extends Component {
   handleScrollToTop(completed) {
     //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, "", "") }));
     this.messagesReq.PAGE = 1;
-    this.reqMessagesAndSet(false).then(()=> completed());
+    this.messagesReq.isLast = false;
+    this.reqMessagesAndSet(false).then(() => completed());
   }
 
   /**
@@ -180,8 +182,15 @@ class App extends Component {
    */
   handleScrollToBottom(completed) {
     //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, nextPage, "", "") }));
-    this.messagesReq.PAGE = this.messagesReq.PAGE + 1;
-    this.reqMessagesAndSet(true).then(()=> completed());
+    console.log("scrollToButton!");
+    const self = this;
+    if (self.messagesReq.isLast === false) {
+      self.messagesReq.PAGE = self.messagesReq.PAGE + 1;
+      this.reqMessagesAndSet(true).then((res) => completed() );
+    } else {
+      console.log("no more data! don`t request.");
+      completed()
+    }
   }
 
   /**
@@ -198,6 +207,7 @@ class App extends Component {
 
     this.setState({ category: target.value }); //,unReads:{cate1:0,cate2:10,cate3:30,cate4:420}});
     this.messagesReq.PAGE = 1;
+    this.messagesReq.isLast = false;
     this.messagesReq.CATEGORY = target.value;
     this.setState(prevState => ({ unReads: self.setUnReadsCnt(prevState.unReads, target.value) }));
     this.reqMessagesAndSet(false);
@@ -435,25 +445,26 @@ class App extends Component {
   reqMessagesAndSet(isAdd) {
 
     var self = this;
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
       self.reqMessages(isAdd).then((res) => {
-        self.setState({ list: res },()=>resolve());
+        self.setState({ list: res }, (res) => resolve(res));
         console.log(">>setState list", res)
         // 최근 msgId 셋팅
         self.setLastMsgId(self.messagesReq.PAGE, res);
       });
     });
 
-    
+
   }
 
   reqMessages(isAdd) {
     var self = this;
     return new Promise(function (resolve, reject) {
       self.cordovaMessages().then((res) => {
-        console.log("cordovaMessages res=",res)
+        console.log("cordovaMessages res=", res)
         if (isAdd) resolve(self.state.list.concat(res.LIST));
         else resolve(res.LIST);
+        if (res.LIST && res.LIST.length < 1) self.messagesReq.isLast = true; // 데이터가 없을 경우 마지막으로 요청 하지 않토록 함.
       });
     });
   }
