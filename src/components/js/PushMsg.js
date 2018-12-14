@@ -33,7 +33,7 @@ export default class PushMsg extends Component {
                 var startIndexOf = 0 ;
                 for (var i = 0; i < arrUrls.length; i++) {
                     eles.push(item.substring(startIndexOf, item.indexOf(arrUrls[i])));
-                    eles.push(<a href={arrUrls[i]} key={"jsxUrl"+i} className="linkStyle"> {arrUrls[i]} </a>);
+                    eles.push(<a href={arrUrls[i].startsWith("http")?arrUrls[i]:"http://"+arrUrls[i]} key={"jsxUrl"+i} className="linkStyle"> {arrUrls[i]} </a>);
                     startIndexOf = item.indexOf(arrUrls[i]) + arrUrls[i].length;
                 }
                 if (item.length > startIndexOf) eles.push(item.substring(startIndexOf, item.length));
