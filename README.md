@@ -1,3 +1,9 @@
+# Quick Start
+git clone ...
+cd msgbox
+npm install
+npm start
+
 # ANOTHER REACT TODO LIST
 com.kbcard.kbkookmincard
 
