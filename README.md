@@ -35,7 +35,6 @@ axios.post('/msg', {
 </pre>
 
 프론트엔드 개발 공부를 할 때 흔히 만들게 되는 투두리스트. [[미리보기]](https://fc3-basic.surge.sh)
-checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbox-select-all-component
 
 # TO-DO 2018.11.28
 목표 : 내일 현업 테스트 요청
@@ -68,11 +67,6 @@ checkBox sample https://stackoverflow.com/questions/32641541/react-input-checkbo
  - auth 중복 요청으로 promise 오류 발송
   . 키 발급이후 요청 되도록 수정해야함.
   . mount 후 키 발급 > 리스트  
-
-# 초기구동 로딩 성능 개선 방안
- - 최초 20개는 로컬에 저장 하고 있는다.
-  . 최초 20개 뿌린 이후 > 20개를 가져온다.
-  . 동일하지 않을 경우만 화면에 rerendering
 
 # TO-DO 2018.12.04
  - 앱 뱃지
