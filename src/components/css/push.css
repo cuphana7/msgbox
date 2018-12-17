@@ -88,7 +88,7 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .content{overflow-y:scroll;height:-webkit-fill-available;height:-moz-available;height:fill-available; -webkit-overflow-scrolling: touch;}
 .container{padding:56px 0 0;overflow:hidden;padding-top: 56px;padding-bottom:20px;}
 .pushArea{padding-bottom:35px}
-.pushArea.delete .pushDelete{
+.deleteFlag{
     -webkit-transform: translate3d(0,56px,0);
     transform: translate3d(0,56px,0);
 }

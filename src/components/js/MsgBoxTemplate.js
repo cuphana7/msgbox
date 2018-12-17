@@ -9,7 +9,7 @@ const MsgBoxTemplate = ({ children }) => {
     window.kbmobile.ui.clearTop("main");
   }
   return (
-    <div>
+    <div className="pushWrap">
       <div className="topHead">
         <h1 className="fs4">PUSH알림</h1>
         <div className="optionBtn" onClick={moveSetting} ><button type="button">설정</button></div>

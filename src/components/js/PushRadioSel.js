@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/push.css';
+import $ from 'jquery'
 
 class PushRadioSel extends Component {
 
@@ -7,6 +8,12 @@ class PushRadioSel extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.unReads !== nextProps.unReads || this.props.category !== nextProps.category;
     }
+    componentDidMount() {
+        $('.pushRadioSel input').change(function () {
+            $(this).prop('checked', true).parent('li').addClass('checked').siblings('.checked').removeClass('checked').find('input').prop('checked', false);
+        });
+    }
+    
     
 
     render() {
