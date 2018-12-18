@@ -156,10 +156,11 @@ class App extends Component {
     self.setState({ deleteReq: { "AUTHKEY": self.state.authKey, "MSG_IDS": msgs, "isPost": false, "isData": false } }, () => {
       self.cordovaDelete().then((res) => {
         console.log("cordovaDelete res=" + res.data);
-        $('.pushArea').removeClass('delete');
         $("input[type=checkbox]").prop("checked", false);
+        $('.pushArea').removeClass('delete');
+        $('.pushDelete').removeClass('deleteFlag');
         self.reqMessagesAndSet(false);
-        self.reqCountsAndSet();
+        //self.reqCountsAndSet();
       }).catch(err => {
         console.log("cordovaDelete err=" + err);
       });
@@ -186,7 +187,7 @@ class App extends Component {
     const self = this;
     if (self.messagesReq.isLast === false) {
       self.messagesReq.PAGE = self.messagesReq.PAGE + 1;
-      this.reqMessagesAndSet(true).then((res) => completed() );
+      this.reqMessagesAndSet(true).then((res) => completed());
     } else {
       console.log("no more data! don`t request.");
       completed()
@@ -199,11 +200,13 @@ class App extends Component {
    */
   handleCategoryToChange(e) {
     //$("#content").css({ height: '900px' });
+    console.log("handleCategoryToChabge", e);
     $(".cont").css({ height: 60, transitionDuration: '0ms' });
 
     const self = this;
     const target = e.target;
     localStorage.setItem("pushCategory", target.value);
+    console.log("setItem", target.value);
 
     this.setState({ category: target.value }); //,unReads:{cate1:0,cate2:10,cate3:30,cate4:420}});
     this.messagesReq.PAGE = 1;
