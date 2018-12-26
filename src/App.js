@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MsgBoxTemplate from './components/js/MsgBoxTemplate';
 import Content from './components/js/Content';
 import axios from 'axios';
-import $ from 'jquery'
+import $ from 'jquery';
+
 
 /**
  * PUSH 알림함
@@ -162,7 +163,12 @@ class App extends Component {
         self.reqMessagesAndSet(false);
         //self.reqCountsAndSet();
       }).catch(err => {
-        console.log("cordovaDelete err=" + err);
+        console.log("cordovaDelete err" , err);
+        // IOS에서 삭제성공이 되어도 내려와서 처리함.
+        $("input[type=checkbox]").prop("checked", false);
+        $('.pushArea').removeClass('delete');
+        $('.pushDelete').removeClass('deleteFlag');
+        self.reqMessagesAndSet(false);
       });
 
     });
