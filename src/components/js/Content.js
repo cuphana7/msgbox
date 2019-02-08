@@ -14,7 +14,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
     }
 
     render() {
-        const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, cnts, unReads, authKey, reqMessages } = this.props;
+        const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, cnts, unReads, authKey, reqMessages, isAppcard } = this.props;
         return (
             <React.Fragment>
                 <div id="content" className="content scrollArea" onScroll={this.viewDidScroll} >
@@ -22,20 +22,22 @@ export default class Content extends ReactRefreshInfiniteTableView {
                         <div className="pushArea">
                             {/* 카테고리 선택 */}
                             <PushRadioSel handleCategoryToChange={handleCategoryToChange}
-                                category={category} unReads={unReads} />
+                                category={category} unReads={unReads} isAppcard={isAppcard} />
                             {/* 갯수/삭제버튼 */}
                             <PushResult cnts={cnts} category={category} />
 
                             {/* 목록 */}
                             <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} />
-
                         </div>
                     </section>
                 </div>
                 {/* 삭제 레이어 */}
                 <PushDelete handleDeleteClick={handleDeleteClick} handleCheckedAllClick={handleCheckedAllClick} />
+
                 {/* 이벤트 레이어 */}
-                <PushEvent />
+                {isAppcard === true ? "" 
+                : <PushEvent/>}
+                
                 <div className="dim disnone"></div>
             </React.Fragment>
         );

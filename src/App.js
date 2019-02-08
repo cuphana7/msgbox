@@ -56,6 +56,7 @@ class App extends Component {
     this.lastMsg = ""
 
     this.state = {
+      isAppcard: false,
       authKey: "",
       category: initCategory(),
       deleteReq: {
@@ -100,7 +101,9 @@ class App extends Component {
         self.setLastMsgIdPromise(self.messagesReq.PAGE, msgs).then((max) => {
           console.log("3. 최근 키 확인 완료", max);
           self.unReadCountsReq.MSG_ID = max;
-
+          self.setState({ list: msgs, authKey: key });
+          console.log("4. 안읽은 건수 요청 제외됨." );
+          /*
           self.reqUnreadCount().then((unr) => {
             console.log("4. 안읽은 건수 요청 완료 ", unr);
             self.setState({ list: msgs, authKey: key, unReads: unr });
@@ -116,6 +119,7 @@ class App extends Component {
             console.log("@reqUnreadCountErr", reqUnreadCountErr);
             self.setState({ list: msgs, authKey: key });
           })
+          */
         }).catch(setLastMsgIdPromiseErr => {
           console.log("@setLastMsgIdPromiseErr", setLastMsgIdPromiseErr)
           self.setState({ list: msgs, authKey: key });
@@ -520,6 +524,7 @@ class App extends Component {
           authKey={this.state.authKey}
           cnts={this.state.counts}
           reqMessages={this.reqMessages}
+          isAppcard={this.state.isAppcard}
         />
       </MsgBoxTemplate>
     );
