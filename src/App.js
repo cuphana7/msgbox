@@ -56,6 +56,7 @@ class App extends Component {
     this.lastMsg = ""
 
     this.state = {
+      isLocal: true,
       isAppcard: false,
       authKey: "",
       category: initCategory(),
@@ -299,7 +300,7 @@ class App extends Component {
       const fail = (res) => { reject(res); }
 
       // 로컬 테스트용
-      if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
+      if (this.state.isLocal) {
         succ("");
       } else {
         console.log("#getLastMsgId");
@@ -318,7 +319,7 @@ class App extends Component {
       const fail = (res) => { reject(res); }
 
       // 로컬 테스트용
-      if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
+      if (this.state.isLocal) {
         succ("123");
       } else {
         console.log("#setLastMsgId", mid);
@@ -436,7 +437,7 @@ class App extends Component {
   cordovaCallApi(url, param, callbackSucc, callbackFail) {
 
     // 로컬 테스트용
-    if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) {
+    if (this.state.isLocal) {
       axios.get("/sample-data" + url + ".json", { params: param })
         .then(response => {
           callbackSucc(response.data)
@@ -525,6 +526,7 @@ class App extends Component {
           cnts={this.state.counts}
           reqMessages={this.reqMessages}
           isAppcard={this.state.isAppcard}
+          isLocal={this.state.isLocal}
         />
       </MsgBoxTemplate>
     );

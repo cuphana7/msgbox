@@ -56,13 +56,13 @@ class PushRadioSel extends Component {
             <li className={category === '2' ? "checked" : ""}>
                 <label htmlFor="pushSel3">안내</label>
                 <input type="radio" id="pushSel3" name="pushRadio" value="2" checked={category === '2'}
-                    onChange={handleCategoryToChange} />
+                    onClick={handleCategoryToChange} />
                 <span className={unReads.cate2*1 > 0 ? "num":"skip num"}>{unReads.cate2}</span>
             </li>
             <li className={category === '3' ? "checked" : ""}>
                 <label htmlFor="pushSel4">공지</label>
                 <input type="radio" id="pushSel4" name="pushRadio" value="3" checked={category === '3'}
-                    onChange={handleCategoryToChange} />
+                    onClick={handleCategoryToChange} />
                 <span className={unReads.cate3*1 > 0 ? "num":"skip num"}>{unReads.cate3}</span>
             </li>
         </React.Fragment>);

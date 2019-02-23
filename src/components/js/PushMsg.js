@@ -18,6 +18,77 @@ export default class PushMsg extends Component {
         return this.props.msgid !== nextProps.msgid;
     }
 
+    componentDidMount() {
+
+        //레이어팝업 IN
+        $('.pushArea').on('click', '.layerOpen', function() {
+            pushCommon.layerPopup.openPopup($(this).attr('href'));
+            //setTimeout(function() {}, 1000);
+            $(this).attr('data-target','this');
+            pushCommon.layerPopup.beforeTarget = 'a[data-target="this"]';
+        });
+
+        //레이어팝업 OUT
+        $('#Wrap').on('click', '.popClose', function() {
+            pushCommon.layerPopup.closePopup('#' + $(this).closest('.layerWrap').attr('id'));
+            setTimeout(function() {$('a[data-target="this"]').removeAttr('data-target');}, 200)
+        });
+
+        //푸시 전용 common
+        var pushCommon = {
+            layerPopup : {
+                openPopup : function(selector) {
+                    var $sel = selector,
+                        top = $($sel).outerHeight() / 2 * -1;
+
+                    pushCommon.layerPopup.beforeTarget = 'a[href="'+ $sel +'"]';
+                    $('.pushEvent').css({zIndex: 900});
+                    $(selector).css({marginTop: top + 'px', right: 0}).fadeIn(300);
+                    $('.dim').fadeIn(300).closest('body').css({overflow:'hidden'});	
+                    $('#content').attr('aria-hidden',true);
+                    setTimeout(function() {pushCommon.goFocus($sel)}, 300);
+                }, 
+                closePopup : function(selector) {
+                    $(selector).closest('.layerWrap').hide();
+                    $('.dim').hide().closest('body').css({overflow:'auto'});	
+                    $('#content').attr('aria-hidden',false);
+                    $('.pushEvent').css({zIndex: 9001});
+                    if(pushCommon.layerPopup.beforeTarget.length > 0) {
+                        setTimeout(function() {pushCommon.goFocus(pushCommon.layerPopup.beforeTarget);}, 100)
+                    }
+                },
+                beforeTarget : ''	
+            },
+            goFocus : function(target) {
+                var $target = $(target),
+                    i = 0,
+                    getFirstChild = (function getFirstChild(elem) {
+                        var $elem = $(elem),
+                            getChildren = null;
+                                            
+                        if($elem.children().length > 0) {
+                            getChildren = $elem.children().eq(0);
+                            
+                            if(getChildren.hasClass('hidden') || getChildren.is(':hidden')) {
+                                getChildren = getChildren.next();
+                            }
+                            return getFirstChild(getChildren);
+                        } else {
+                            return $elem;
+                        }
+                    }($target));
+                    
+                getFirstChild.css('outline', 'none');
+                getFirstChild.attr('tabindex', '0');
+                getFirstChild.focus();
+                getFirstChild.off('focusout.goFocus');
+                getFirstChild.on('focusout.goFocus', function() {
+                    $(this).removeAttr('tabindex');
+                });
+            }
+        }
+    }
+
     render() {
         const self = this;
         const { msg, ext, msgid } = this.props;
@@ -90,15 +161,16 @@ export default class PushMsg extends Component {
 
                 {/* 이미지 펼치기 버튼 */}
                 {msg.split(/\n|\\n/).length > 6 ?
-                    <div className="btnToggle"><a href="#kbcard" ref={this.eleMsgOpen} className="toggleUI" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
+                    <div class="btnToggle" aria-hidden="true"><a href="#kbcard" ref={this.eleMsgOpen}  class="toggleUI" title="위 이벤트 내용이 일부분만 보여져 전체를 보여줌" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                     : ""}
-
                 {/*msgOpenBtn*/}
 
                 {/* 링크 버튼 */}
                 {ext.length === 3 && ext[2].value !== "" ?
                     <div className="eventBtn"><a href={replaceUrl(ext[2].value)} className="btnL btnWhite">자세히보기</a></div>
                     : ""}
+                
+                <div class="more"><a href="#listMenu" class="layerOpen" title="팝업창 열림">옵션</a></div>
 
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">

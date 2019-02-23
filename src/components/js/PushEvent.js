@@ -48,7 +48,7 @@ class PushEvent extends Component {
     requestEvent() {
         let url = "";
         // 로컬 테스트용
-        if (navigator.userAgent.indexOf("Windows") > -1 || navigator.userAgent.indexOf("Mac") > -1) url = "/sample-data/CXHIAOPC0041.cms.json";
+        if (this.props.isLoacl) url = "/sample-data/CXHIAOPC0041.cms.json";
         else url = this.api.url_events;
         axios.get(url)
             .then(response => {
