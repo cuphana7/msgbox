@@ -43,7 +43,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
                     <div className="popTop">
                         <strong >다른 작업 선택</strong>
                     </div>
-                    <div classNamelass="popCont">
+                    <div className="popCont">
                         <ul className="more_list">
                             <li><a href="javascript:" className="delete"><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_trash_24.png" alt="" /></span>삭제</a></li>
                             <li><a href="javascript:"><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_share_24.png" alt="" /></span>공유</a></li>
