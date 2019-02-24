@@ -2260,8 +2260,168 @@ cordova.define("cordova-plugin-ui-navigator.NavigatorPlugin", function(require, 
     };
 });
 
+cordova.define("cordova-plugin-application.ApplicationPlugin", function(require, exports, module) {
+    var exec = require('cordova/exec');
+               
+    module.exports = {
+	    /*
+        * @return String
+        */ 
+        getAppKeyId: function(successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "getAppKeyId", []);
+        },
+    
+	    /*
+        * @return String
+        */ 
+        getVersion: function(successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "getVersion", []);
+        },
+        
+        /*
+        * @return String
+        */        
+        getBuildVersion: function(successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "getBuildVersion", []);
+        },
+               
+		/*
+        * @return String
+        */ 
+        getPackageName: function(successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "getPackageName", []);
+        },
+        
+        /*
+        * @return String
+        */ 
+		getAppName: function(successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "getAppName", []);
+        },
+        /*
+        * @return String
+        */ 
+		getUserAgent: function(successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "getUserAgent", []);
+        },
+        /*
+        * @param  
+        *
+        * @return Boolean
+        */ 
+        isInstalled: function(scheme, pkg, successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "isInstalled", [{
+            	"scheme":scheme,
+            	"package":pkg
+            }]);
+        }, 
+        runApplication: function(scheme, pkg, successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "runApplication", [{
+            	"scheme":scheme,
+            	"package":pkg
+            }]);
+        },
+        shareContents: function(contents) {
+            exec(null, null, "ApplicationPlugin", "shareContents", [{
+            	"contents":contents
+            }]);
+        },
+        createBarCode: function(code, width, height, successCallback) {
+            exec(function(resp) {
+                successCallback('data:image/png;base64,' + resp);
+            }, null, "ApplicationPlugin", "createBarCode", [{
+            	"code":code,
+            	"width":width, 
+            	"height":height
+            }]);
+        }, 
+        createQrCode: function(code, width, height, successCallback) {
+            exec(function(resp) {
+                successCallback('data:image/png;base64,' + resp);
+            }, null, "ApplicationPlugin", "createQrCode", [{
+            	"code":code,
+            	"width":width, 
+            	"height":height
+            }]);
+        }, 
+		isEnabledSPay: function(successCallback) {
+             exec(successCallback, null, "ApplicationPlugin", "isEnabledSPay", []);
+        }, 
+		callRequestSPayCardInfo: function(cardID, transNum , successCallback) {
+          exec(successCallback, null, "ApplicationPlugin", "callRequestSPayCardInfo", [{
+            	"cardID":cardID,
+            	"transNum":transNum 
+            }]);
+        }, 
+        /*
+        * @return Boolean
+        */ 
+        isDebug: function(successCallback) {
+            exec(successCallback, null, "ApplicationPlugin", "isDebug", []);
+        },
+        
+        exit: function() {
+            exec(null, null, "ApplicationPlugin", "exit", []);
+        },
+		 /*
+        * @return String
+        */ 
+        capturePrevention: function(onoff) {
+            exec(null, null, "ApplicationPlugin", "capturePrevention", [{
+				"onoff":onoff
+			}]);
+        },
+        /*
+         * @return String
+         */ 
+ 		setLastLoginType: function(lastLoginType, successCallback) {
+             exec(successCallback, null, "ApplicationPlugin", "setLastLoginType", [{
+				"lastLoginType":lastLoginType
+			}]);
+         },
+         
+          /*
+          * @return String
+          */ 
+         intgraKakaoLink: function(msg, kakaoImg, width, height, text, url, successCallback) {
+              exec(successCallback, null, "ApplicationPlugin", "intgraKakaoLink", [{
+                "msg":msg,
+                "kakaoImg":kakaoImg,
+                "width":width,
+                "height":height,
+                "text":text,
+                "url":url
+              }]);
+          },
+          activeSmsNoti: function() {
+              exec(null, null, "ApplicationPlugin", "activeSmsNoti", []);
+          },
+          
+          /*
+           * @return String
+           */
+          getSmsAuthNo: function(successCallback) {
+              exec(successCallback, null, "ApplicationPlugin", "getSmsAuthNo", []);
+          },
+        /*
+         * @return String
+         */ 
+ 		getLoading: function(successCallback) {
+             exec(successCallback, null, "ApplicationPlugin", "getLoading", []);
+         }
+    };
+    
+});
+
+
 cordova.define('cordova/plugin_list', function(require, exports, module) {
     module.exports = [
+        {
+            "id": "cordova-plugin-application.ApplicationPlugin",
+            "clobbers": [
+                "window.kbmobile.app"
+            ]
+        },
         {
             "id": "cordova-plugin-push.PushPlugin",
             "clobbers": [

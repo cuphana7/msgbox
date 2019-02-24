@@ -14,7 +14,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
     }
 
     render() {
-        const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, cnts, unReads, authKey, reqMessages, isAppcard, isLocal } = this.props;
+        const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, setShareContent, unReads, authKey, reqMessages, isAppcard, isLocal } = this.props;
         return (
             <React.Fragment>
                 <div id="content" className="content scrollArea" onScroll={this.viewDidScroll} >
@@ -28,7 +28,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
                             */}
 
                             {/* 목록 */}
-                            <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} />
+                            <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} setShareContent={setShareContent} />
                         </div>
                     </section>
                 </div>

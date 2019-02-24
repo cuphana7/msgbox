@@ -58,6 +58,7 @@ class App extends Component {
     this.state = {
       isLocal: true,
       isAppcard: false,
+      shareContent: "",
       authKey: "",
       category: initCategory(),
       deleteReq: {
@@ -84,6 +85,7 @@ class App extends Component {
     this.reqUnreadCount = this.reqUnreadCount.bind(this)
     this.reqMessagesAndSet = this.reqMessagesAndSet.bind(this)
     this.reqCounts = this.reqCounts.bind(this)
+    this.setShareContent = this.setShareContent.bind(this)
   }
   componentDidMount() {
     const self = this;
@@ -225,6 +227,23 @@ class App extends Component {
     this.messagesReq.CATEGORY = target.value;
     this.setState(prevState => ({ unReads: self.setUnReadsCnt(prevState.unReads, target.value) }));
     this.reqMessagesAndSet(false);
+  }
+
+  handleShareContentsClick(e) {
+
+    return new Promise(function (resolve, reject) {
+      const succ = (res) => { resolve(res.msgId); };
+      const fail = (res) => { reject(res); }
+
+      // 로컬 테스트용
+      if (this.state.isLocal) {
+        succ("");
+      } else {
+        console.log("#shareContents");
+        window.kbmobile.app.shareContents(succ, fail);
+      }
+    });
+
   }
 
   setUnReadsCnt(pre, cate) {
@@ -509,6 +528,10 @@ class App extends Component {
     });
   }
 
+  setShareContent(msg) {
+    this.setState({shareContent: msg});
+  }
+
   render() {
 
     return (
@@ -527,6 +550,7 @@ class App extends Component {
           reqMessages={this.reqMessages}
           isAppcard={this.state.isAppcard}
           isLocal={this.state.isLocal}
+          setShareContent={this.setShareContent}
         />
       </MsgBoxTemplate>
     );
