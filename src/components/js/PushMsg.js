@@ -161,7 +161,7 @@ export default class PushMsg extends Component {
 
                 {/* 이미지 펼치기 버튼 */}
                 {msg.split(/\n|\\n/).length > 6 ?
-                    <div class="btnToggle" aria-hidden="true"><a href="#kbcard" ref={this.eleMsgOpen}  class="toggleUI" title="위 이벤트 내용이 일부분만 보여져 전체를 보여줌" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
+                    <div className="btnToggle" aria-hidden="true"><a href="#kbcard" ref={this.eleMsgOpen}  class="toggleUI" title="위 이벤트 내용이 일부분만 보여져 전체를 보여줌" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                     : ""}
                 {/*msgOpenBtn*/}
 
@@ -170,7 +170,7 @@ export default class PushMsg extends Component {
                     <div className="eventBtn"><a href={replaceUrl(ext[2].value)} className="btnL btnWhite">자세히보기</a></div>
                     : ""}
                 
-                <div class="more"><a href="#listMenu" class="layerOpen" title="팝업창 열림">옵션</a></div>
+                <div className="more"><a href="#listMenu" class="layerOpen" title="팝업창 열림">옵션</a></div>
 
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">
