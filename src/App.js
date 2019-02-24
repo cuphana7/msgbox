@@ -14,6 +14,8 @@ class App extends Component {
   constructor(props) {
     super(props)
 
+    
+
     const initCategory = () => {
       var rslt = "1";
       if (window.location.hash !== "") rslt = window.location.hash.substr(1);
@@ -86,6 +88,7 @@ class App extends Component {
     this.reqMessagesAndSet = this.reqMessagesAndSet.bind(this)
     this.reqCounts = this.reqCounts.bind(this)
     this.setShareContent = this.setShareContent.bind(this)
+    this.handleShareContentsClick = this.handleShareContentsClick.bind(this)
   }
   componentDidMount() {
     const self = this;
@@ -105,7 +108,7 @@ class App extends Component {
           console.log("3. 최근 키 확인 완료", max);
           self.unReadCountsReq.MSG_ID = max;
           self.setState({ list: msgs, authKey: key });
-          console.log("4. 안읽은 건수 요청 제외됨." );
+          console.log("4. 안읽은 건수 요청 제외됨.");
           /*
           self.reqUnreadCount().then((unr) => {
             console.log("4. 안읽은 건수 요청 완료 ", unr);
@@ -170,7 +173,7 @@ class App extends Component {
         self.reqMessagesAndSet(false);
         //self.reqCountsAndSet();
       }).catch(err => {
-        console.log("cordovaDelete err" , err);
+        console.log("cordovaDelete err", err);
         // IOS에서 삭제성공이 되어도 내려와서 처리함.
         $("input[type=checkbox]").prop("checked", false);
         $('.pushArea').removeClass('delete');
@@ -229,14 +232,27 @@ class App extends Component {
     this.reqMessagesAndSet(false);
   }
 
-  handleShareContentsClick(e) {
+  handleShareContentsClick() {
 
+    // 로컬 테스트용
+    if (this.state.isLocal) {
+      console.log("local share test", this.state.shareContent);
+    } else {
+      console.log("#shareContents");
+      window.kbmobile.app.shareContents(this.state.shareContent);
+    }
+
+
+  }
+
+  shareContents() {
+    var self = this;
     return new Promise(function (resolve, reject) {
       const succ = (res) => { resolve(res.msgId); };
       const fail = (res) => { reject(res); }
 
       // 로컬 테스트용
-      if (this.state.isLocal) {
+      if (self.state.isLocal) {
         succ("");
       } else {
         console.log("#shareContents");
@@ -529,8 +545,11 @@ class App extends Component {
   }
 
   setShareContent(msg) {
-    this.setState({shareContent: msg});
+    this.setState({ shareContent: msg });
   }
+
+
+
 
   render() {
 
@@ -551,6 +570,8 @@ class App extends Component {
           isAppcard={this.state.isAppcard}
           isLocal={this.state.isLocal}
           setShareContent={this.setShareContent}
+          handleShareContentsClick={this.handleShareContentsClick}
+          pushCommon={this.pushCommon}
         />
       </MsgBoxTemplate>
     );

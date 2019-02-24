@@ -28,7 +28,7 @@ export default class PushMsg extends Component {
 
     render() {
         const self = this;
-        const { msg, ext, msgid } = this.props;
+        const { msg, ext, msgid, handleShareContentsClick } = this.props;
         const imageUrl = (img) => { return "https://img2.kbcard.com/msg/cxv/template/system/" + img; }
 
         const msgToTag = msg.split(/\n|\\n/).map(function (item, index) {
@@ -149,6 +149,16 @@ export default class PushMsg extends Component {
         $('#Wrap').on('click', '.popClose', function() {
             pushCommon.layerPopup.closePopup('#' + $(this).closest('.layerWrap').attr('id'));
             setTimeout(function() {$('a[data-target="this"]').removeAttr('data-target');}, 200)
+        });
+
+        $('#Wrap').on('click', '.shareImg', function() {
+            pushCommon.layerPopup.closePopup('#' + $(this).closest('.layerWrap').attr('id'));
+            setTimeout(function() {$('a[data-target="this"]').removeAttr('data-target');}, 200);
+        });
+        
+        $('#Wrap').on('click', '.delete', function() {
+            pushCommon.layerPopup.closePopup('#' + $(this).closest('.layerWrap').attr('id'));
+            setTimeout(function() {$('a[data-target="this"]').removeAttr('data-target');}, 200);
         });
 
         return (

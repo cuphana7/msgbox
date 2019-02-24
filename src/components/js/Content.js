@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/push.css';
 import PushRadioSel from './PushRadioSel';
-import PushResult from './PushResult';
+import $ from 'jquery'
 import PushDelete from './PushDelete';
 import PushList from './PushList';
 import PushEvent from './PushEvent';
@@ -13,8 +13,23 @@ export default class Content extends ReactRefreshInfiniteTableView {
         return this.props.list !== nextProps.list;
     }
 
+    componentDidMount() {
+        //삭제버튼 클릭 시 UI
+        $('.delete').on('click', function () {
+            $('.pushArea').addClass('delete');
+            $('.pushDelete').addClass('deleteFlag');
+        });
+
+        //상단 삭제 탭 닫을 때 UI
+        $('.pushDelete .close').on('click', function () {
+            $("input[type=checkbox]").prop("checked", false);
+            $('.pushArea').removeClass('delete');
+            $('.pushDelete').removeClass('deleteFlag');
+        });
+    }
+
     render() {
-        const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, setShareContent, unReads, authKey, reqMessages, isAppcard, isLocal } = this.props;
+        const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, setShareContent, unReads, authKey, reqMessages, isAppcard, isLocal, handleShareContentsClick } = this.props;
         return (
             <React.Fragment>
                 <div id="content" className="content scrollArea" onScroll={this.viewDidScroll} >
@@ -28,7 +43,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
                             */}
 
                             {/* 목록 */}
-                            <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} setShareContent={setShareContent} />
+                            <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} setShareContent={setShareContent} handleShareContentsClick={handleShareContentsClick}/>
                         </div>
                     </section>
                 </div>
@@ -46,7 +61,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
                     <div className="popCont">
                         <ul className="more_list">
                             <li><a href="javascript:" className="delete"><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_trash_24.png" alt="" /></span>삭제</a></li>
-                            <li><a href="javascript:"><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_share_24.png" alt="" /></span>공유</a></li>
+                            <li><a href="javascript:" className="shareImg" onClick={handleShareContentsClick} ><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_share_24.png" alt="" /></span>공유</a></li>
                         </ul>
                     </div>
                     <span className="popClose"><a href="javascript:" role="button" aria-label="닫기">닫기</a></span>
