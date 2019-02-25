@@ -12,6 +12,10 @@ class PushRadioSel extends Component {
         $('.pushRadioSel input').change(function () {
             $(this).prop('checked', true).parent('li').addClass('checked').siblings('.checked').removeClass('checked').find('input').prop('checked', false);
         });
+        // 앱카드용
+        $('.pushRadioSelAppcard input').change(function () {
+            $(this).prop('checked', true).parent('li').addClass('checked').siblings('.checked').removeClass('checked').find('input').prop('checked', false);
+        });
     }
     
     
@@ -68,7 +72,7 @@ class PushRadioSel extends Component {
         </React.Fragment>);
 
         return (
-            <ul className="pushRadioSel">
+            <ul className={isAppcard === true ?"pushRadioSelAppcard" : "pushRadioSel"}>
                 {isAppcard === true ? cardApp 
                 : homeApp}
             </ul>

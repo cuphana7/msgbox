@@ -6,7 +6,9 @@ const MsgBoxTemplate = ({ children }) => {
     window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
   }
   const exitPush = () => {
-    window.kbmobile.ui.clearTop("main");
+    if (this.props.isAppcard) window.kbmobile.ui.clearTop("setting");
+    else window.kbmobile.ui.clearTop("main");
+    
   }
   return (
     <div className="pushWrap">

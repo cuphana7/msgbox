@@ -554,7 +554,7 @@ class App extends Component {
   render() {
 
     return (
-      <MsgBoxTemplate>
+      <MsgBoxTemplate isAppcard={this.state.isAppcard}>
         <Content list={this.state.list}
           onScrollToTop={this.handleScrollToTop}
           onScrollToBottom={this.handleScrollToBottom}
