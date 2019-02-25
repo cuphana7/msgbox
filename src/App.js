@@ -59,7 +59,7 @@ class App extends Component {
 
     this.state = {
       isLocal: true,
-      isAppcard: false,
+      isAppcard: true,
       shareContent: "",
       authKey: "",
       category: initCategory(),
@@ -329,13 +329,13 @@ class App extends Component {
    * cordova get msgId
    */
   cordovaGetMsgId() {
-
+    var self = this;
     return new Promise(function (resolve, reject) {
       const succ = (res) => { resolve(res.msgId); };
       const fail = (res) => { reject(res); }
 
       // 로컬 테스트용
-      if (this.state.isLocal) {
+      if (self.state.isLocal) {
         succ("");
       } else {
         console.log("#getLastMsgId");
@@ -348,13 +348,13 @@ class App extends Component {
    * cordova set msgId
    */
   cordovaSetMsgId(mid) {
-
+    var self = this;
     return new Promise(function (resolve, reject) {
       const succ = (res) => { resolve(res); };
       const fail = (res) => { reject(res); }
 
       // 로컬 테스트용
-      if (this.state.isLocal) {
+      if (self.state.isLocal) {
         succ("123");
       } else {
         console.log("#setLastMsgId", mid);
