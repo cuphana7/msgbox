@@ -17,7 +17,7 @@ class App extends Component {
     
 
     const initCategory = () => {
-      var rslt = "1";
+      var rslt = this.isAppcard === true ? "2":"1";
       if (window.location.hash !== "") rslt = window.location.hash.substr(1);
       else {
         var storageCategory = localStorage.getItem("pushCategory");

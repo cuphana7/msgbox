@@ -293,8 +293,6 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .pushRadioSelAppcard li label{display:block;height:38px;padding:0;-webkit-border-radius:20px;border-radius:20px;border:1px solid #DDD;text-align:center;line-height:38px;color:#888}
 .pushRadioSelAppcard li input{position:absolute;top:0;left:0;width:100%;height:100%}
 .pushRadioSelAppcard li.checked label{background-color:#FFCC00;border-color:transparent;color:#222222;
-   -webkit-box-shadow:0 6px 6px 0 rgba(127,110,227,.24), 0 0 6px 0 rgba(127, 110, 227, .12);
-   box-shadow:0 6px 6px 0 rgba(127,110,227,.24), 0 0 6px 0 rgba(127, 110, 227, .12);
 }
 .pushRadioSel li .num{position:absolute;top:-4px;right:0;display:block;width:18px;height:18px;-webkit-border-radius:9px;border-radius:9px;background-color:#f76900;color:#fff;text-align:center;font-size:12px;line-height:18px}
 
