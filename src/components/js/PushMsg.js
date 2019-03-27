@@ -68,15 +68,15 @@ export default class PushMsg extends Component {
 
             if ($(thisEle).hasClass('up')) {
                 //PUSH내용 보임
-                cont.css({ display: 'block', maxHeight: 'none', height: 60 })
+                cont.css({ display: 'block', maxHeight: 'none', height: 120 })
                 contH = cont.children('p').outerHeight();
                 duration = contH > 500 ? contH : 500;
                 cont.css({ height: contH, 'transition-duration': duration + 'ms' });
             } else {
                 //PUSH내용 닫힘
-                cont.css({ height: 60 });
+                cont.css({ height: 120 });
                 setTimeout(function () {
-                    cont.css({ display: '-webkit-box', maxHeight: 60, height: 'auto' });
+                    cont.css({ display: '-webkit-box', maxHeight: 120, height: 'auto' });
                 }, duration)
             }
             e.preventDefault();

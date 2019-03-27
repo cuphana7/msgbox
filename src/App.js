@@ -217,7 +217,7 @@ class App extends Component {
   handleCategoryToChange(e) {
     //$("#content").css({ height: '900px' });
     console.log("handleCategoryToChabge", e);
-    $(".cont").css({ height: 60, transitionDuration: '0ms' });
+    $(".cont").css({ height: 120, transitionDuration: '0ms' });
 
     const self = this;
     const target = e.target;
@@ -554,7 +554,6 @@ class App extends Component {
   render() {
 
     return (
-      <MsgBoxTemplate isAppcard={this.state.isAppcard}>
         <Content list={this.state.list}
           onScrollToTop={this.handleScrollToTop}
           onScrollToBottom={this.handleScrollToBottom}
@@ -573,7 +572,6 @@ class App extends Component {
           handleShareContentsClick={this.handleShareContentsClick}
           pushCommon={this.pushCommon}
         />
-      </MsgBoxTemplate>
     );
 
   }

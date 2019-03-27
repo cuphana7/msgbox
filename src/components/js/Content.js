@@ -30,8 +30,21 @@ export default class Content extends ReactRefreshInfiniteTableView {
 
     render() {
         const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, setShareContent, unReads, authKey, reqMessages, isAppcard, isLocal, handleShareContentsClick } = this.props;
+
+        const moveSetting = () =>{
+            window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
+          }
+          const exitPush = () => {
+            window.kbmobile.ui.clearTop("main");
+          }
         return (
-            <React.Fragment>
+            <div className="pushWrap">
+                <div className="topHead">
+                    <h1 className="fs4">PUSH알림</h1>
+
+                    {isAppcard === true ? "" :<div className="optionBtn" onClick={moveSetting} ><button type="button">설정</button></div>}
+                    <div className="backBtn" onClick={exitPush}><button type="button">이전페이지</button></div>
+                </div>
                 <div id="content" className="content scrollArea" onScroll={this.viewDidScroll} >
                     <section className="container" >
                         <div className="pushArea">
@@ -68,7 +81,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
                 </div>
 
                 <div className="dim disnone"></div>
-            </React.Fragment>
+            </div>
         );
     }
 }
