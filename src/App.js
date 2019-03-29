@@ -218,6 +218,7 @@ class App extends Component {
     //$("#content").css({ height: '900px' });
     console.log("handleCategoryToChabge", e);
     $(".cont").css({ height: 120, transitionDuration: '0ms' });
+    $(".toggleUI.up").removeClass("up");
 
     const self = this;
     const target = e.target;
