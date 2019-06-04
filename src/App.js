@@ -58,8 +58,8 @@ class App extends Component {
     this.lastMsg = ""
 
     this.state = {
-      isLocal: false,
-      isAppcard: true,
+      isLocal: true,
+      isAppcard: false,
       shareContent: "",
       authKey: "",
       category: initCategory(),

@@ -33,7 +33,7 @@ export default class PushMsg extends Component {
 
         const msgToTag = msg.split(/\n|\\n/).map(function (item, index) {
             //var rUrlRegex =  /\(?(?:(http|https|ftp):\/\/)?(?:((?:[^\W\s]|\.|-|[:]{1})+)@{1})?((?:www.)?(?:[^\W\s]|\.|-)+[\.][^\W\s]{2,4}|localhost(?=\/)|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::(\d*))?([\/]?[^\s\?]*[\/]{1})*(?:\/?([^\s\n\?\[\]\{\}\#]*(?:(?=\.)){1}|[^\s\n\?\[\]\{\}\.\#]*)?([\.]{1}[^\s\?\#]*)?)?(?:\?{1}([^\s\n\#\[\]]*))?([\#][^\s\n]*)?\)?/gi;
-            var rUrlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}(\.[a-z]{2,6}|:[0-9]{3,4})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi;
+            var rUrlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=ㄱ-ㅎ가-힣ㅏ-ㅣ]{2,256}(\.[a-z]{2,6}|:[0-9]{3,4})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi;
             var arrUrls = item.match(rUrlRegex);
 
             var eles = [];
@@ -177,16 +177,16 @@ export default class PushMsg extends Component {
 
                 {/* 이미지 펼치기 버튼 */}
                 {msg.split(/\n|\\n/).length > 6 ?
-                    <div className="btnToggle" aria-hidden="true"><a href="#kbcard" ref={this.eleMsgOpen}  class="toggleUI" title="위 이벤트 내용이 일부분만 보여져 전체를 보여줌" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
+                    <div className="btnToggle" aria-hidden="true"><a href="#kbcard" ref={this.eleMsgOpen}  className="toggleUI" title="위 이벤트 내용이 일부분만 보여져 전체를 보여줌" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                     : ""}
                 {/*msgOpenBtn*/}
 
                 {/* 링크 버튼 */}
                 {ext.length === 3 && ext[2].value !== "" ?
-                    <div className="eventBtn"><a href={replaceUrl(ext[2].value)} className="btnL btnWhite">자세히보기</a></div>
+                    <div className="eventBtn"><a href={replaceUrl(ext[2].value)} className="btnL btnWhite">{replaceUrl(ext[1].value)}</a></div>
                     : ""}
                 
-                <div className="more"><a href="#listMenu" ref={this.eleMore} onClick={clickOption} class="layerOpen" title="팝업창 열림">옵션</a></div>
+                <div className="more"><a href="#listMenu" ref={this.eleMore} onClick={clickOption} className="layerOpen" title="팝업창 열림">옵션</a></div>
 
                 {/* 삭제 클릭시 보이는 UI */}
                 <div className="select">
