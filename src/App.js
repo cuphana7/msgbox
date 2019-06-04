@@ -95,7 +95,7 @@ class App extends Component {
 
     // 1. 인증키요청
     this.cordovaAuth().then((key) => {
-      console.log("1. 인증키 요청 완료", key)
+      console.log("1. 인증키 요청 완료 key =>", key)
       self.messagesReq.PAGE = 1;
       self.messagesReq.AUTHKEY = key;
       self.unReadCountsReq.AUTHKEY = key;
@@ -511,7 +511,7 @@ class App extends Component {
     var self = this;
     return new Promise(function (resolve, reject) {
       self.cordovaMessages().then((res) => {
-        console.log("cordovaMessages res=", res)
+        //console.log("cordovaMessages res=", res)
         if (isAdd) resolve(self.state.list.concat(res.LIST));
         else resolve(res.LIST);
         if (res.LIST && res.LIST.length < 1) self.messagesReq.isLast = true; // 데이터가 없을 경우 마지막으로 요청 하지 않토록 함.
