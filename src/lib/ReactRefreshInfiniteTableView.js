@@ -34,7 +34,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
 
   viewDidScroll(event) {
 
-    var dom = ReactDOM.findDOMNode(this)
+    var dom = event.target; //ReactDOM.findDOMNode(this)
 
     // vars for UI
     var tableViewIdName = dom.id
@@ -48,9 +48,10 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
     var scrollviewFrameHeight = dom.clientHeight
     var scrollviewContentHeight = dom.scrollHeight
     var sum = scrollviewOffsetY+scrollviewFrameHeight
-    //console.log(sum+">="+scrollviewContentHeight);
+    
     var tableView = null;
-
+ //   console.log(sum+"<="+scrollviewFrameHeight);
+ //   console.log(sum+">="+scrollviewContentHeight);
     if (sum <= scrollviewFrameHeight) {
 
       // disable scroll to top if onScrollToTop isn't set
