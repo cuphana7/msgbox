@@ -1,4 +1,5 @@
 import React from 'react'
+import $ from 'jquery'
 import ReactDOM from 'react-dom'
 import './spinner.css'
 
@@ -33,9 +34,9 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
   }
 
   viewDidScroll(event) {
-
-    var dom = event.target; //ReactDOM.findDOMNode(this)
-
+    console.log("scroll start")
+    var dom = $(window);
+    var dom2 = document.getElementById("content");
     // vars for UI
     var tableViewIdName = dom.id
     var tableViewClassName = dom.className
@@ -44,14 +45,14 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
     var indicatorClassName = "infinit-table-spinner"
 
     // vars for calculation
-    var scrollviewOffsetY = dom.scrollTop
-    var scrollviewFrameHeight = dom.clientHeight
-    var scrollviewContentHeight = dom.scrollHeight
+    var scrollviewOffsetY = dom.scrollTop()
+    var scrollviewFrameHeight = dom.height()
+    var scrollviewContentHeight = $(document).height()
     var sum = scrollviewOffsetY+scrollviewFrameHeight
     
     var tableView = null;
- //   console.log(sum+"<="+scrollviewFrameHeight);
- //   console.log(sum+">="+scrollviewContentHeight);
+    console.log(sum+"<="+scrollviewFrameHeight);
+    console.log(sum+">="+scrollviewContentHeight);
     if (sum <= scrollviewFrameHeight) {
 
       // disable scroll to top if onScrollToTop isn't set
@@ -63,6 +64,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
       this.setState({isRefreshing: true})
 
       // use default refresh indicator
+      /*
       if (this.props.useDefaultIndicator) {
         // spinner for refreshing
         var refreshIndicator = document.createElement("div")
@@ -71,12 +73,13 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
         tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
         tableView.insertBefore(refreshIndicator, tableView.firstChild)
       }
+      */
 
       // event
       this.props.onScrollToTop(function() {
 
         this.setState({isRefreshing: false})
-
+        /*
         if (this.props.useDefaultIndicator) {
           var tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
           var firstChild = tableView.firstChild
@@ -84,6 +87,7 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
             tableView.removeChild(firstChild)
           }
         }
+        */
 
       }.bind(this))
 
@@ -98,29 +102,14 @@ export default class ReactRefreshInfiniteTableView extends React.Component {
 
       this.setState({isLoadingMore: true})
 
-      // use default load more indicator
-      if (this.props.useDefaultIndicator) {
-        // spinner for loading more
-        var loadMoreIndicator = document.createElement("div")
-        loadMoreIndicator.className = indicatorClassName
-
-        tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
-        tableView.insertBefore(loadMoreIndicator, tableView.lastChild.nextSibling)
-      }
+      
 
       // event
       this.props.onScrollToBottom(function() {
 
         this.setState({isLoadingMore: false})
 
-        if (this.props.useDefaultIndicator) {
-          var tableView = isFindNodeById ? document.getElementById(tableViewIdName) : document.getElementsByClassName(tableViewClassName)[targetNodeIndex]
-          var lastChild = tableView.lastChild
-          if (lastChild.className.indexOf(indicatorClassName) > -1) {
-            tableView.removeChild(lastChild)
-          }
-        }
-
+        
       }.bind(this))
     }
 

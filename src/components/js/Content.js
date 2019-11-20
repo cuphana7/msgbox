@@ -26,6 +26,17 @@ export default class Content extends ReactRefreshInfiniteTableView {
             $('.pushArea').removeClass('delete');
             $('.pushDelete').removeClass('deleteFlag');
         });
+
+        $(window).scroll(this.viewDidScroll);
+
+        /*
+        function(){
+            this.console.log($(window).scrollTop());
+            if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+              this.console.log("dddd");
+            }
+        }
+        */
     }
 
     render() {
