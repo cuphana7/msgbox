@@ -2,9 +2,7 @@ import React from 'react';
 import '../css/push.css';
 import PushRadioSel from './PushRadioSel';
 import $ from 'jquery'
-import PushDelete from './PushDelete';
 import PushList from './PushList';
-import PushEvent from './PushEvent';
 import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js';
 
 export default class Content extends ReactRefreshInfiniteTableView {
@@ -27,7 +25,10 @@ export default class Content extends ReactRefreshInfiniteTableView {
             $('.pushDelete').removeClass('deleteFlag');
         });
 
-        $(window).scroll(this.viewDidScroll);
+        //$("#content").scroll(this.viewDidScroll);
+        console.log(document.getElementById("content"));
+        console.log(this.viewDidScroll);
+        document.addEventListener("scroll", this.viewDidScroll, { passive: true });
 
         /*
         function(){
@@ -42,20 +43,9 @@ export default class Content extends ReactRefreshInfiniteTableView {
     render() {
         const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, setShareContent, unReads, authKey, reqMessages, isAppcard, isLocal, handleShareContentsClick } = this.props;
 
-        const moveSetting = () =>{
-            window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
-          }
-          const exitPush = () => {
-            window.kbmobile.ui.clearTop("main");
-          }
+        
         return (
-            <div className="pushWrap">
-                <div className="topHead">
-                    <h1 className="fs4">PUSH알림</h1>
-
-                    {isAppcard === true ? "" :<div className="optionBtn" onClick={moveSetting} ><button type="button">설정</button></div>}
-                    <div className="backBtn" onClick={exitPush}><button type="button">이전페이지</button></div>
-                </div>
+            
                 <div id="content" className="content scrollArea" onScroll={this.viewDidScroll} >
                     <section className="container" >
                         <div className="pushArea">
@@ -71,28 +61,6 @@ export default class Content extends ReactRefreshInfiniteTableView {
                         </div>
                     </section>
                 </div>
-                {/* 삭제 레이어 */}
-                <PushDelete handleDeleteClick={handleDeleteClick} handleCheckedAllClick={handleCheckedAllClick} />
-
-                {/* 이벤트 레이어 */}
-                {isAppcard === true ? "" 
-                : <PushEvent isLocal={isLocal}/>}
-                
-                <div id="listMenu" className="layerWrap newType">
-                    <div className="popTop">
-                        <strong >다른 작업 선택</strong>
-                    </div>
-                    <div className="popCont">
-                        <ul className="more_list">
-                            <li><a href="javascript:" className="delete"><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_trash_24.png" alt="" /></span>삭제</a></li>
-                            <li><a href="javascript:" className="shareImg" onClick={handleShareContentsClick} ><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_share_24.png" alt="" /></span>공유</a></li>
-                        </ul>
-                    </div>
-                    <span className="popClose"><a href="javascript:" role="button" aria-label="닫기">닫기</a></span>
-                </div>
-
-                <div className="dim disnone"></div>
-            </div>
         );
     }
 }

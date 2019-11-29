@@ -3,6 +3,8 @@ import MsgBoxTemplate from './components/js/MsgBoxTemplate';
 import Content from './components/js/Content';
 import axios from 'axios';
 import $ from 'jquery';
+import PushDelete from './components/js/PushDelete';
+import PushEvent from './components/js/PushEvent';
 
 
 /**
@@ -199,7 +201,7 @@ class App extends Component {
    */
   handleScrollToBottom(completed) {
     //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, nextPage, "", "") }));
-    console.log("scrollToButton!");
+    console.log("scrollToButtom!");
     const self = this;
     if (self.messagesReq.isLast === false) {
       self.messagesReq.PAGE = self.messagesReq.PAGE + 1;
@@ -549,12 +551,28 @@ class App extends Component {
     this.setState({ shareContent: msg });
   }
 
+  
+
 
 
 
   render() {
 
+    const moveSetting = () =>{
+      window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
+    }
+    const exitPush = () => {
+      window.kbmobile.ui.clearTop("main");
+    }
+
     return (
+      <div className="pushWrap">
+        <div className="topHead">
+            <h1 className="fs4">PUSH알림</h1>
+
+            {this.state.isAppcard === true ? "" :<div className="optionBtn" onClick={moveSetting} ><button type="button">설정</button></div>}
+            <div className="backBtn" onClick={exitPush}><button type="button">이전페이지</button></div>
+        </div>
         <Content list={this.state.list}
           onScrollToTop={this.handleScrollToTop}
           onScrollToBottom={this.handleScrollToBottom}
@@ -573,6 +591,28 @@ class App extends Component {
           handleShareContentsClick={this.handleShareContentsClick}
           pushCommon={this.pushCommon}
         />
+        {/* 삭제 레이어 */}
+        <PushDelete handleDeleteClick={this.handleDeleteClick} handleCheckedAllClick={this.handleCheckedAllClick} />
+
+        {/* 이벤트 레이어 */}
+        {this.state.isAppcard === true ? "" 
+        : <PushEvent isLocal={this.state.isLocal}/>}
+
+        <div id="listMenu" className="layerWrap newType">
+            <div className="popTop">
+                <strong >다른 작업 선택</strong>
+            </div>
+            <div className="popCont">
+                <ul className="more_list">
+                    <li><a href="javascript:" className="delete"><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_trash_24.png" alt="" /></span>삭제</a></li>
+                    <li><a href="javascript:" className="shareImg" onClick={this.handleShareContentsClick} ><span className="img"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/basic/24/ico_share_24.png" alt="" /></span>공유</a></li>
+                </ul>
+            </div>
+            <span className="popClose"><a href="javascript:" role="button" aria-label="닫기">닫기</a></span>
+        </div>
+
+        <div className="dim disnone"></div>
+      </div>
     );
 
   }

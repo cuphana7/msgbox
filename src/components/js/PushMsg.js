@@ -54,7 +54,8 @@ export default class PushMsg extends Component {
         });
 
         const replaceUrl = (url) => {
-            return url.replace("kbcardmain://openUrl", "");
+            let str = url || '';
+            return str.replace("kbcardmain://openUrl", "");
         }
 
         const clickMsgOpen = (e) => {
