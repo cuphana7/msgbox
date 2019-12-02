@@ -184,7 +184,7 @@ export default class PushMsg extends Component {
 
                 {/* 링크 버튼 */}
                 {ext.length === 3 && ext[2].value !== "" ?
-                    <div className="eventBtn"><a href={replaceUrl(ext[2].value)} className="btnL btnWhite">{replaceUrl(ext[1].value)}</a></div>
+                    <div className="eventBtn"><a href={replaceUrl(ext[2].value)} className="btnL btnWhite">{ext[1].value?ext[1].value:"자세히보기"}</a></div>
                     : ""}
                 
                 <div className="more"><a href="#listMenu" ref={this.eleMore} onClick={clickOption} className="layerOpen" title="팝업창 열림">옵션</a></div>
