@@ -76,7 +76,7 @@ class App extends Component {
      * State React
      */
     this.state = {
-      isLocal: true,
+      isLocal: false,
       isAppcard: false,
       shareContent: "",
       authKey: "",
