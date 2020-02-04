@@ -78,3 +78,8 @@ axios.post('/msg', {
  - 앱 뱃지
  - 탭별 뱃지
  - 자세히보기 URL
+
+ # TO-DO 2020.01.31
+  - 애니메이션 적용
+   . https://dm.kbcard.com/cxh/html/park/test.html
+   . https://dm.kbcard.com/cxh/html/park/test2.html

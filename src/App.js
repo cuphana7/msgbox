@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MsgBoxTemplate from './components/js/MsgBoxTemplate';
+import Head from './components/js/Head';
 import Content from './components/js/Content';
 import axios from 'axios';
 import $ from 'jquery';
@@ -16,8 +16,9 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    
-
+    /**
+     * 초기 카테고리 셋팅 함수
+     */
     const initCategory = () => {
       var rslt = this.isAppcard === true ? "2":"1";
       if (window.location.hash !== "") rslt = window.location.hash.substr(1);
@@ -27,12 +28,26 @@ class App extends Component {
       }
       return rslt;
     }
+    /**
+     * 안읽은 메시지 요청 전문
+     */
     this.unReadCountsReq = {
       AUTHKEY: "",
       MSG_ID: "",
       isPost: false,
       isData: true
     }
+    /**
+     * API 인증 요청 전문
+     */
+    this.authReq = {
+      AUTHKEY: "",
+      isPost: true,
+      isData: true
+    }
+    /**
+     * 메시지 리스트 요청 전문
+     */
     this.messagesReq = {
       APP_ID: "com.kbcard.kbkookmincard",
       USER_ID: "",
@@ -43,11 +58,9 @@ class App extends Component {
       isData: true,
       isLast: false // 마지막 페이지일 경우 해당 값으로 요청 하지 않음.
     }
-    this.authReq = {
-      AUTHKEY: "",
-      isPost: true,
-      isData: true
-    }
+    /**
+     * API URL 명세
+     */
     this.api = {
       url_auth: "/api/authentication",
       url_messages: "/api/inbox/messages",
@@ -59,8 +72,11 @@ class App extends Component {
     }
     this.lastMsg = ""
 
+    /**
+     * State React
+     */
     this.state = {
-      isLocal: false,
+      isLocal: true,
       isAppcard: false,
       shareContent: "",
       authKey: "",
@@ -71,9 +87,7 @@ class App extends Component {
         isPost: false,
         isData: false
       },
-      list: [],
-      unReads: { cate1: 0, cate2: 0, cate3: 0, cate4: 0 },
-      counts: { cate1: 0, cate2: 0, cate3: 0, cate4: 0 }
+      list: []
     }
 
     this.handleScrollToTop = this.handleScrollToTop.bind(this)
@@ -86,12 +100,11 @@ class App extends Component {
     this.cordovaSetMsgId = this.cordovaSetMsgId.bind(this)
     this.setLastMsgId = this.setLastMsgId.bind(this)
     this.cordovaUnReadCnt = this.cordovaUnReadCnt.bind(this)
-    this.reqUnreadCount = this.reqUnreadCount.bind(this)
     this.reqMessagesAndSet = this.reqMessagesAndSet.bind(this)
-    this.reqCounts = this.reqCounts.bind(this)
     this.setShareContent = this.setShareContent.bind(this)
     this.handleShareContentsClick = this.handleShareContentsClick.bind(this)
   }
+
   componentDidMount() {
     const self = this;
 
@@ -110,24 +123,6 @@ class App extends Component {
           console.log("3. 최근 키 확인 완료", max);
           self.unReadCountsReq.MSG_ID = max;
           self.setState({ list: msgs, authKey: key });
-          console.log("4. 안읽은 건수 요청 제외됨.");
-          /*
-          self.reqUnreadCount().then((unr) => {
-            console.log("4. 안읽은 건수 요청 완료 ", unr);
-            self.setState({ list: msgs, authKey: key, unReads: unr });
-
-            // self.reqCounts().then((cnts) => {
-            //   console.log("5. 전체 건수 요청 ", cnts);
-            //   self.setState({ unReads: unr, list: msgs, authKey: key, counts: cnts });
-            // }).catch(reqCountsErr => {
-            //   console.log("@reqCountsErr ", reqCountsErr);
-            //   self.setState({ list: msgs, authKey: key, unReads: unr });
-            // })
-          }).catch(reqUnreadCountErr => {
-            console.log("@reqUnreadCountErr", reqUnreadCountErr);
-            self.setState({ list: msgs, authKey: key });
-          })
-          */
         }).catch(setLastMsgIdPromiseErr => {
           console.log("@setLastMsgIdPromiseErr", setLastMsgIdPromiseErr)
           self.setState({ list: msgs, authKey: key });
@@ -140,9 +135,6 @@ class App extends Component {
       self.setState({ authKey: "AUTHFAIL" });
       self.setState({ list: [] });
     });
-
-    //const loadScript = (url, callback) => { var script = document.createElement("script"); script.type = "text/javascript"; script.onload = function () { callback(); }; script.src = url; document.getElementsByTagName('head')[0].appendChild(script); }
-    //loadScript("js/common.js", function () { });
   }
 
   /**
@@ -173,7 +165,6 @@ class App extends Component {
         $('.pushArea').removeClass('delete');
         $('.pushDelete').removeClass('deleteFlag');
         self.reqMessagesAndSet(false);
-        //self.reqCountsAndSet();
       }).catch(err => {
         console.log("cordovaDelete err", err);
         // IOS에서 삭제성공이 되어도 내려와서 처리함.
@@ -190,7 +181,6 @@ class App extends Component {
    * @param {*} completed 
    */
   handleScrollToTop(completed) {
-    //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, 1, "", "") }));
     this.messagesReq.PAGE = 1;
     this.messagesReq.isLast = false;
     this.reqMessagesAndSet(false).then(() => completed());
@@ -200,7 +190,6 @@ class App extends Component {
    * 스크롤 하단으로 이동시 목록 가져오기
    */
   handleScrollToBottom(completed) {
-    //this.setState(prevState => ({ messagesReq: self.setMessageReq(prevState, nextPage, "", "") }));
     console.log("scrollToButtom!");
     const self = this;
     if (self.messagesReq.isLast === false) {
@@ -227,16 +216,17 @@ class App extends Component {
     localStorage.setItem("pushCategory", target.value);
     console.log("setItem", target.value);
 
-    this.setState({ category: target.value }); //,unReads:{cate1:0,cate2:10,cate3:30,cate4:420}});
+    this.setState({ category: target.value }); 
     this.messagesReq.PAGE = 1;
     this.messagesReq.isLast = false;
     this.messagesReq.CATEGORY = target.value;
-    this.setState(prevState => ({ unReads: self.setUnReadsCnt(prevState.unReads, target.value) }));
     this.reqMessagesAndSet(false);
   }
 
+  /**
+   * 메시지 공유 하기
+   */
   handleShareContentsClick() {
-
     // 로컬 테스트용
     if (this.state.isLocal) {
       console.log("local share test", this.state.shareContent);
@@ -244,36 +234,7 @@ class App extends Component {
       console.log("#shareContents");
       window.kbmobile.app.shareContents(this.state.shareContent);
     }
-
-
   }
-
-  shareContents() {
-    var self = this;
-    return new Promise(function (resolve, reject) {
-      const succ = (res) => { resolve(res.msgId); };
-      const fail = (res) => { reject(res); }
-
-      // 로컬 테스트용
-      if (self.state.isLocal) {
-        succ("");
-      } else {
-        console.log("#shareContents");
-        window.kbmobile.app.shareContents(succ, fail);
-      }
-    });
-
-  }
-
-  setUnReadsCnt(pre, cate) {
-    var rslt = { cate1: 0, cate2: 0, cate3: 0, cate4: 0 };
-    for (var key in pre) {
-      if (key === "cate" + cate) rslt[key] = 0;
-      else rslt[key] = pre[key]
-    }
-    return rslt;
-  }
-
 
   /**
    * cordova 인증키를 셋팅 한다.
@@ -417,8 +378,6 @@ class App extends Component {
     });
   }
 
-
-
   /**
    * 조회된 메시지 최근 ID와 앱의 최근 ID를 비교하여 마지막 값으로 업데이트 한다.
    */
@@ -521,40 +480,9 @@ class App extends Component {
     });
   }
 
-  reqUnreadCount() {
-    var self = this;
-    return self.cordovaUnReadCnt();
-  }
-
-  reqCounts() {
-    var self = this;
-    return self.cordovaCnts();
-  }
-
-  reqCountsAndSet() {
-    var self = this;
-    return self.cordovaCnts().then((res) => {
-      this.setState({ counts: res })
-      console.log(">>setState counts", res)
-    });;
-  }
-
-  reqUnreadCountAndSet() {
-    var self = this;
-    self.cordovaUnReadCnt().then((res) => {
-      this.setState({ unReads: res })
-      console.log(">>setState unReads", res)
-    });
-  }
-
   setShareContent(msg) {
     this.setState({ shareContent: msg });
   }
-
-  
-
-
-
 
   render() {
 
@@ -567,12 +495,11 @@ class App extends Component {
 
     return (
       <div className="pushWrap">
-        <div className="topHead">
-            <h1 className="fs4">PUSH알림</h1>
 
-            {this.state.isAppcard === true ? "" :<div className="optionBtn" onClick={moveSetting} ><button type="button">설정</button></div>}
-            <div className="backBtn" onClick={exitPush}><button type="button">이전페이지</button></div>
-        </div>
+         {/* Head */}
+        <Head isAppcard={this.state.isAppcard}/>
+
+        {/* Content */}
         <Content list={this.state.list}
           onScrollToTop={this.handleScrollToTop}
           onScrollToBottom={this.handleScrollToBottom}
@@ -580,17 +507,13 @@ class App extends Component {
           category={this.state.category}
           handleDeleteClick={this.handleDeleteClick}
           handleCheckedAllClick={this.handleCheckedAllClick}
-          unReads={this.state.unReads}
-          reqUnreadCount={this.reqUnreadCount}
           authKey={this.state.authKey}
-          cnts={this.state.counts}
           reqMessages={this.reqMessages}
           isAppcard={this.state.isAppcard}
           isLocal={this.state.isLocal}
           setShareContent={this.setShareContent}
-          handleShareContentsClick={this.handleShareContentsClick}
-          pushCommon={this.pushCommon}
         />
+
         {/* 삭제 레이어 */}
         <PushDelete handleDeleteClick={this.handleDeleteClick} handleCheckedAllClick={this.handleCheckedAllClick} />
 
@@ -598,6 +521,7 @@ class App extends Component {
         {this.state.isAppcard === true ? "" 
         : <PushEvent isLocal={this.state.isLocal}/>}
 
+        {/* 옵션 레이어 */}
         <div id="listMenu" className="layerWrap newType">
             <div className="popTop">
                 <strong >다른 작업 선택</strong>
@@ -610,8 +534,8 @@ class App extends Component {
             </div>
             <span className="popClose"><a href="javascript:" role="button" aria-label="닫기">닫기</a></span>
         </div>
-
         <div className="dim disnone"></div>
+
       </div>
     );
 

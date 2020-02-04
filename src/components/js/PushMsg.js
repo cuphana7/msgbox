@@ -19,16 +19,9 @@ export default class PushMsg extends Component {
         return this.props.msgid !== nextProps.msgid;
     }
 
-    componentDidMount() {
-
-        
-
-        
-    }
-
     render() {
         const self = this;
-        const { msg, ext, msgid, handleShareContentsClick } = this.props;
+        const { msg, ext, msgid } = this.props;
         const imageUrl = (img) => { return "https://img2.kbcard.com/msg/cxv/template/system/" + img; }
 
         const msgToTag = msg.split(/\n|\\n/).map(function (item, index) {

@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 import '../css/push.css';
 import PushMsg from '../js/PushMsg';
+import PushListEmpty from '../js/PushListEmpty';
+import PushListSetting from '../js/PushListSetting';
 
 
 export default class PushList extends Component {
 
 
+    constructor(props) {
+        super(props);
+        this.state = {isStopped: true, isPaused: false};
+    }
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.dataSource !== nextProps.dataSource;
+    }
+    componentDidMount() {
+        //call the loadAnimation to start the animation
     }
     
 
     render() {
 
-        const { dataSource, authKey, setShareContent, handleShareContentsClick } = this.props;
+        const { dataSource, authKey, setShareContent } = this.props;
         function temperatureClassname(temp){
             const prefix = 'pushList '
           
@@ -33,20 +42,10 @@ export default class PushList extends Component {
             return dt.substr(2,2)+"."+dt.substr(4,2)+"."+dt.substr(6,2);
         }
 
-        const smsJoin = ( <div className="infoBox notImg">
-                            <div className="pushInfo">
-                                <img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_push_80.png" width="80" alt="" />
-                                <strong className="mb16">카드사용 PUSH알림(무료)</strong>
-                                <p>아직도 300원 내세요?<br/>무료로 알려주는 PUSH알림으로<br/>카드사용내역 확인하세요!</p>
-                            </div>
-                            <div className="bottomArea">
-                                <a href="" className="btnL btnGray">신청</a>
-                            </div>
-                          </div>);
 
-        const eventJoin = ( <div className="infoBox notImg"><div className="pushInfo"><img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_push_80.png" width="80" alt=""/><strong className="mb16">혜택 PUSH알림</strong><p>KB국민카드만의 다양한 이벤트를<br/>PUSH알림으로 받아보세요.</p></div><div className="bottomArea"><a href="" className="btnL btnGray">수신동의</a></div></div>);
-        const empty = ( <div className="infoBox notImg"><p className="mt10">새로운 PUSH알림 내역이 없습니다.</p></div> );
-        const setting = (<div className="pushInfo">
+        
+
+        let setting = (<div className="pushInfo">
                             <img src="https://img1.kbcard.com/LT/cxh/kbcard_img/common/ico/visual/80/ico_push_80.png" width="80" alt="" />
                             <p>
                                 PUSH알림 서비스를 신청하시면<br/>
@@ -58,8 +57,7 @@ export default class PushList extends Component {
                             </p>
                         </div>);
 
-        var preDt = "";
-        var preDtJsx = (dt) => <li>{dateFormatYMD(dt)}</li>;
+        
         var cells = (dataSource && dataSource.length > 0)? dataSource.map(function(item, index) {
 
             const jsx = <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
@@ -67,21 +65,37 @@ export default class PushList extends Component {
                                 <strong className="tit">{item.TITLE}</strong>
                                 <span className="date">{dateFormat(item.DATE)}</span>
                                 <PushMsg msg={item.MSG} key={index} setShareContent={setShareContent}
-                                    ext={item.EXT} msgid={item.MSG_ID} handleShareContentsClick={handleShareContentsClick}
+                                    ext={item.EXT} msgid={item.MSG_ID}
                                 />
                             </li>
                         </ul>
-            preDt = dateFormatYMD(item.DATE);
             return jsx;
-        }) : empty;
 
-        
+        }) : "";
+
         return (
             <div className="pushWrap">
+                
                 {authKey === "" ? "" 
-                : authKey === "AUTHFAIL" ? setting
-                : cells}
-
+                 : authKey === "AUTHFAIL" ? 
+                    <PushListSetting/>
+                    : dataSource && dataSource.length > 0 ?
+                        dataSource.map(function(item, index) {
+                            const jsx = <ul className={temperatureClassname(item.CATEGORY_CODE)} key={index}>
+                                            <li>
+                                                <strong className="tit">{item.TITLE}</strong>
+                                                <span className="date">{dateFormat(item.DATE)}</span>
+                                                <PushMsg msg={item.MSG} key={index} setShareContent={setShareContent}
+                                                    ext={item.EXT} msgid={item.MSG_ID}
+                                                />
+                                            </li>
+                                        </ul>
+                            return jsx;
+                
+                        })
+                 : <PushListEmpty/> 
+                 }
+                 
             </div>
         );
     }

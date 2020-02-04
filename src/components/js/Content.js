@@ -41,9 +41,8 @@ export default class Content extends ReactRefreshInfiniteTableView {
     }
 
     render() {
-        const { handleCategoryToChange, category, list, handleDeleteClick, handleCheckedAllClick, setShareContent, unReads, authKey, reqMessages, isAppcard, isLocal, handleShareContentsClick } = this.props;
+        const { handleCategoryToChange, category, list, setShareContent, authKey, reqMessages, isAppcard } = this.props;
 
-        
         return (
             
                 <div id="content" className="content scrollArea" onScroll={this.viewDidScroll} >
@@ -51,13 +50,9 @@ export default class Content extends ReactRefreshInfiniteTableView {
                         <div className="pushArea">
                             {/* 카테고리 선택 */}
                             <PushRadioSel handleCategoryToChange={handleCategoryToChange}
-                                category={category} unReads={unReads} isAppcard={isAppcard} />
-                            {/* 갯수/삭제버튼 
-                            <PushResult cnts={cnts} category={category} />
-                            */}
-
+                                category={category} isAppcard={isAppcard} />
                             {/* 목록 */}
-                            <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} setShareContent={setShareContent} handleShareContentsClick={handleShareContentsClick}/>
+                            <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} setShareContent={setShareContent}/>
                         </div>
                     </section>
                 </div>
