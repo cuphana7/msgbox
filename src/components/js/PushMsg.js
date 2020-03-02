@@ -26,16 +26,22 @@ export default class PushMsg extends Component {
 
         const msgToTag = msg.split(/\n|\\n/).map(function (item, index) {
             //var rUrlRegex =  /\(?(?:(http|https|ftp):\/\/)?(?:((?:[^\W\s]|\.|-|[:]{1})+)@{1})?((?:www.)?(?:[^\W\s]|\.|-)+[\.][^\W\s]{2,4}|localhost(?=\/)|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::(\d*))?([\/]?[^\s\?]*[\/]{1})*(?:\/?([^\s\n\?\[\]\{\}\#]*(?:(?=\.)){1}|[^\s\n\?\[\]\{\}\.\#]*)?([\.]{1}[^\s\?\#]*)?)?(?:\?{1}([^\s\n\#\[\]]*))?([\#][^\s\n]*)?\)?/gi;
-            var rUrlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=ㄱ-ㅎ가-힣ㅏ-ㅣ]{2,256}(\.[a-z]{2,6}|:[0-9]{3,4})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi;
-            var arrUrls = item.match(rUrlRegex);
+            var urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=ㄱ-ㅎ가-힣ㅏ-ㅣ]{2,256}(\.[a-z]{2,6}|:[0-9]{3,4})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi;
+            var phoneRegx = /[☎☏]{1}[0-9\- ]{8,14}/gi;
+            var regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=ㄱ-ㅎ가-힣ㅏ-ㅣ]{2,256}(\.[a-z]{2,6}|:[0-9]{3,4})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)|[☎☏]{1}[0-9\- ]{8,14}/gi;
+
+            var arr = item.match(regex);
 
             var eles = [];
-            if (arrUrls != null && arrUrls.length > 0) {
+            if (arr != null && arr.length > 0) {
                 var startIndexOf = 0 ;
-                for (var i = 0; i < arrUrls.length; i++) {
-                    eles.push(item.substring(startIndexOf, item.indexOf(arrUrls[i])));
-                    eles.push(<a href={arrUrls[i].startsWith("http")?arrUrls[i]:"http://"+arrUrls[i]} key={"jsxUrl"+i} className="linkStyle"> {arrUrls[i]} </a>);
-                    startIndexOf = item.indexOf(arrUrls[i]) + arrUrls[i].length;
+                for (var i = 0; i < arr.length; i++) {
+                    eles.push(item.substring(startIndexOf, item.indexOf(arr[i])));
+                    if (urlRegex.test(arr[i]))
+                        eles.push(<a href={arr[i].startsWith("http")?arr[i]:"http://"+arr[i]} key={"jsxUrl"+i} className="linkStyle"> {arr[i]} </a>);
+                    else 
+                        eles.push(<a href={"tell:"+arr[i].substring(1)} key={"jsxUrl"+i} className="linkStyle"> {arr[i]} </a>);
+                    startIndexOf = item.indexOf(arr[i]) + arr[i].length;
                 }
                 if (item.length > startIndexOf) eles.push(item.substring(startIndexOf, item.length));
             }

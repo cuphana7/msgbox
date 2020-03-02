@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/push.css';
 import PushRadioSel from './PushRadioSel';
+import PushRadioSelAppcard from './PushRadioSelAppcard';
 import $ from 'jquery'
 import PushList from './PushList';
 import ReactRefreshInfiniteTableView from '../../lib/ReactRefreshInfiniteTableView.js';
@@ -41,7 +42,7 @@ export default class Content extends ReactRefreshInfiniteTableView {
     }
 
     render() {
-        const { handleCategoryToChange, category, list, setShareContent, authKey, reqMessages, isAppcard } = this.props;
+        const { category, list, setShareContent, authKey, reqMessages, isAppcard } = this.props;
 
         return (
             
@@ -49,8 +50,11 @@ export default class Content extends ReactRefreshInfiniteTableView {
                     <section className="container" >
                         <div className="pushArea">
                             {/* 카테고리 선택 */}
-                            <PushRadioSel handleCategoryToChange={handleCategoryToChange}
-                                category={category} isAppcard={isAppcard} />
+                            {isAppcard === true ?
+                                <PushRadioSelAppcard handleCategoryToChange={this.props.handleCategoryToChange} category={category} isAppcard={isAppcard} />
+                            : 
+                                <PushRadioSel handleCategoryToChange={this.props.handleCategoryToChange} category={category} isAppcard={isAppcard} />
+                            }
                             {/* 목록 */}
                             <PushList dataSource={list} reqMessages={reqMessages} authKey={authKey} setShareContent={setShareContent}/>
                         </div>
