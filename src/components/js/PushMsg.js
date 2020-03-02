@@ -40,7 +40,7 @@ export default class PushMsg extends Component {
                     if (urlRegex.test(arr[i]))
                         eles.push(<a href={arr[i].startsWith("http")?arr[i]:"http://"+arr[i]} key={"jsxUrl"+i} className="linkStyle"> {arr[i]} </a>);
                     else 
-                        eles.push(<a href={"tell:"+arr[i].substring(1)} key={"jsxUrl"+i} className="linkStyle"> {arr[i]} </a>);
+                        eles.push(<a href={"tel:"+arr[i].substring(1)} key={"jsxUrl"+i} className="linkStyle"> {arr[i]} </a>);
                     startIndexOf = item.indexOf(arr[i]) + arr[i].length;
                 }
                 if (item.length > startIndexOf) eles.push(item.substring(startIndexOf, item.length));
