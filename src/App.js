@@ -26,6 +26,8 @@ class App extends Component {
         var storageCategory = localStorage.getItem("pushCategory");
         if (storageCategory && storageCategory !== "") rslt = storageCategory;
       }
+      // null 값이 넘어오는경우가 있음.
+      if (rslt !="1" && rslt !="2" && rslt !="3" && rslt !="4") rslt="2";
       return rslt;
     }
     /**
@@ -209,7 +211,7 @@ class App extends Component {
     //$("#content").css({ height: '900px' });
     console.log("handleCategoryToChabge", e);
     $(".cont").css({ height: 120, transitionDuration: '0ms' });
-    $(".toggleUI.up").removeClass("up");
+    //$(".toggleUI.up").removeClass("up");
 
     const self = this;
     const target = e.target;
