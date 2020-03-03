@@ -21,12 +21,16 @@ class App extends Component {
      */
     const initCategory = () => {
       var rslt = this.isAppcard === true ? "2":"1";
-      if (window.location.hash !== "") rslt = window.location.hash.substr(1);
+      var hash = (window.location.hash !== "")?window.location.hash.substr(1):"";
+      // 유효성 추가
+      if (hash !== "" && (hash =="1" || hash =="2" || hash =="3" || hash =="4")) {
+        rslt = hash;
+      } 
       else {
         var storageCategory = localStorage.getItem("pushCategory");
         if (storageCategory && storageCategory !== "") rslt = storageCategory;
       }
-      // null 값이 넘어오는경우가 있음.
+      // 값이 잘못된 경우
       if (rslt !="1" && rslt !="2" && rslt !="3" && rslt !="4") rslt="2";
       return rslt;
     }
