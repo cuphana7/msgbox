@@ -11,6 +11,22 @@ com.kbcard.kbkookmincard
 인증키 발급 후 업무요청
  - 인증키는 24시간 유효함.
 
+# git 브렌치 생성법( 개발 작업단위 생성 )
+1. ctrl + shift + p
+ - vscode 명령이 입력창 나타내기
+2. Git: Create Branch 입력 및 선택
+ - 브랜치 생성
+3. Branch name 입력
+ - 브랜치명 생성
+4. Branch를 어떤것으로 부터 생성할지 결정( master 지정 )
+ - 원본소스 가져오기
+5. Git: Publish Branch 입력 및 선택
+ - git 반영
+
+위 작업시 브랜치가 추가되면, 작업 후 commit & push 진행
+
+이후 master와 병합은 담당자가 진행
+
 
 # axios 통신 방법
 <pre>
