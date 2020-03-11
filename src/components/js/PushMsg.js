@@ -6,6 +6,7 @@ import $ from 'jquery'
  * 1. 메시지 개행 UI
  * 2. 확대 축소 UI
  * 3. 자세히 보기 UI
+ * 
  */
 export default class PushMsg extends Component {
 
