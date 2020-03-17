@@ -5,7 +5,7 @@ import $ from 'jquery'
 /**
  * PushList에서 받아온 Data를
  * 그려주는 화면, PushList의 각 내용을
- * 확인할 수 있는 component
+ * 확인할 수 있는 component 
  */
 export default class PushMsg extends Component {
 
