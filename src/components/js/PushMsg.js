@@ -3,9 +3,9 @@ import '../css/push.css';
 import $ from 'jquery'
 
 /**
- * 1. 메시지 개행 UI
- * 2. 확대 축소 UI
- * 3. 자세히 보기 UI
+ * PushList에서 받아온 Data를
+ * 그려주는 화면, PushList의 각 내용을
+ * 확인할 수 있는 component
  */
 export default class PushMsg extends Component {
 
