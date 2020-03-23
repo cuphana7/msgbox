@@ -27,9 +27,10 @@ export default class PushMsg extends Component {
         const msgToTag = msg.split(/\n|\\n/).map(function (item, index) {
             
             
-            // url or tel 정규식
-            var regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}(\.[a-z]{2,6}|:[0-9]{3,4})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)|[☎☏]{1}[0-9\- ]{8,14}/gi;
-            var urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}(\.[a-z]{2,6}|:[0-9]{3,4})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi;
+            // url or tel 정규식 - |:[0-9]{3,4} 포트정보 제거
+            var regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._ㄱ-ㅎ가-힣ㅏ-ㅣ\+~#=]{2,256}(\.[a-z]{2,6})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)|[☎☏]{1}[0-9\- ]{8,14}/gi;
+            // url 정규식 - |:[0-9]{3,4} 포트정보 제거
+            var urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._ㄱ-ㅎ가-힣ㅏ-ㅣ\+~#=]{2,256}(\.[a-z]{2,6})\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi;
 
             var arr = item.match(regex);
 

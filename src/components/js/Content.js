@@ -27,8 +27,8 @@ export default class Content extends ReactRefreshInfiniteTableView {
         });
 
         //$("#content").scroll(this.viewDidScroll);
-        console.log(document.getElementById("content"));
-        console.log(this.viewDidScroll);
+        //console.log(document.getElementById("content"));
+        //console.log(this.viewDidScroll);
         document.addEventListener("scroll", this.viewDidScroll, { passive: true });
 
         /*
