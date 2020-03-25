@@ -350,3 +350,14 @@ input.toggle:checked:after{background:#7f6ee3;-webkit-transform:translate3d(20px
 .lottieImg{padding:80px 16px 40px;background:#fff;color:rgba(0,0,0,.6);text-align:center}
 .lottieImg #mainVisual{width:120px;height:120px;margin:0 auto 16px}
 .lottieImg .btnRound{border-color:rgba(0,0,0,.24);color:rgba(0,0,0,.6)}
+
+/*2020.03.25 팝업 관련 추가 css 시작*/
+.boxflexNone{-webkit-box-flex:none !important;-webkit-flex:none !important;flex:none !important}
+.btnBox{text-align:center;margin-top:50px}
+
+/*refer*/
+ul.refer li,p.refer{position:relative;color:rgba(0, 0, 0, .6);padding-left:17px;margin-top:4px;font-size:14px;line-height:20px}
+ul.refer li:first-child{margin-top:0}
+ul.refer li:before,p.refer:before{content:"※";display:inline-block;position:absolute;left:0;top:0;width:15px;height:18px}
+ul.refer li .qInfoBtn, p.refer .qInfoBtn{width:20px;height:20px;margin:0 0 0 2px;background-position:center;vertical-align:top}
+/*2020.03.25 팝업 관련 추가 css 끝*/
