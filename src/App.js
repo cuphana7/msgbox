@@ -10,7 +10,8 @@ import PushEvent from './components/js/PushEvent';
 /**
  * PUSH 알림함
  * main-1.2.0.min.js Releases 2020.03.03
- * test
+ * 화면의 메인, 이곳에서 메인에 볼 수 있는
+ * component들과 React의 초기 함수가 세팅 되어 있음. 
  */
 class App extends Component {
 
@@ -75,7 +76,7 @@ class App extends Component {
       url_counts: "/api/inbox/messages/counts",
       url_delete_all: "/api/inbox/deleteAll",
       url_unread: "/api/inbox/messages/unread",
-      url_events: "/CXHIAOPC0041.cms?responseContentType=json"
+      url_events: "/CXHIAOPC0041.cms?responseContentType=json",
     }
     this.lastMsg = ""
 
@@ -87,6 +88,7 @@ class App extends Component {
       isAppcard: false,
       shareContent: "",
       authKey: "",
+
       category: initCategory(),
       deleteReq: {
         AUTHKEY: "",
@@ -114,7 +116,7 @@ class App extends Component {
 
   componentDidMount() {
     const self = this;
-
+    
     // 1. 인증키요청
     this.cordovaAuth().then((key) => {
       console.log("1. 인증키 요청 완료 key =>", key)
@@ -142,6 +144,47 @@ class App extends Component {
       self.setState({ authKey: "AUTHFAIL" });
       self.setState({ list: [] });
     });
+
+    // 배터리최적화 설정
+    this.cordovaIsBatterySetting().then((isBatSetYN) => {
+      console.log(isBatSetYN);
+      if(isBatSetYN === 'Y'){ //isBatterySetting Y인 고객단말
+        console.log("Y");
+        this.openPopup('#batteryInfo'); //배터리 최적화 화면 이동 팝업 띄우기
+        
+      }else{
+        console.log("N"); // 미지원단말 or (지원단말 and 홈앱 배터리최적화 미설정)
+      }
+    }).catch(cordovaIsBatterySetting => {
+      console.log("Exception.");
+    });
+  }
+
+  /**
+   * 배터리 최적화 화면 팝업 열기
+   * @param {*} selector 
+   */
+  openPopup(selector){
+    var $sel = selector,
+        top = $($sel).outerHeight() / 2 * -1;
+
+    //pushCommon.layerPopup.beforeTarget = 'a[href="'+ $sel +'"]';
+    $('.pushEvent').css({zIndex: 900});
+    $('#boxflexNone').css({width: 30 +'%'});
+    $(selector).css({marginTop: top + 'px', right: 0}).fadeIn(300);
+    $('.dim').fadeIn(300).closest('body').css({overflow:'hidden'});	
+    $('#content').attr('aria-hidden',true);
+    //setTimeout(function() {pushCommon.goFocus($sel)}, 300);
+  }
+
+  /**
+   * 배터리 최적화 화면 팝업 닫기
+   */
+  closePopup(){
+    $('#batteryInfo').closest('.layerWrap').hide();
+    $('.dim').hide().closest('body').css({overflow:'auto'});	
+    $('#content').attr('aria-hidden',false);
+    $('.pushEvent').css({zIndex: 9001});
   }
 
   /**
@@ -455,6 +498,49 @@ class App extends Component {
     }
   }
 
+  /**
+   * cordova를 통해 데이터를 요청한다.
+   * @param {*} callback 
+   */
+  cordovaCallIsBattery(callbackSucc, callbackFail) {
+    console.log("#callIsBatterySetting ");
+    window.kbmobile.push.isBatterySetting(callbackSucc, callbackFail);
+  }
+
+  /**
+   * cordova를 통해 데이터를 요청한다.
+   * @param {*} callback 
+   */
+  cordovaCallMoveBattery() {
+    window.kbmobile.push.moveBatterySetting();
+  }
+
+  /**
+   * cordova를 통해 isBatterySetting을 확인한다.
+   * @param {*} url 
+   * @param {*} param 
+   * @param {*} callback 
+   */
+  cordovaIsBatterySetting() {
+
+    var self = this;
+    return new Promise(function (resolve, reject) {
+      const suc = (res) => {
+        self.authReq = {
+          "AUTHKEY": res.AUTHKEY,
+          "isPost": true,
+          "isData": true
+        }
+        resolve(res);
+      }
+      const fail = (res) => {
+        reject(res);
+      }
+          
+      self.cordovaCallIsBattery(suc, fail);
+      
+    });
+  }
 
   /**
    * PUSH 리스트를 가져온다.
@@ -541,6 +627,21 @@ class App extends Component {
             </div>
             <span className="popClose"><a href="javascript:" role="button" aria-label="닫기">닫기</a></span>
         </div>
+        {/* 배터리설정 레이어 */}
+        <div className="layerWrap newType" id="batteryInfo">
+          <div className="popTop">
+            <strong className="fs2">배터리 사용량 최적화 제외</strong>
+          </div>
+          <div className="popCont">
+            <p>PUSH알림 실시간 수신을 위해 KB국민카드 앱을 배터리 사용량 최적화 대상에서 제외합니다.</p>
+            <p className="refer">배터리 사용량 최적화 모드의 경우 PUSH 수신이 지연될 수 있습니다.</p>
+          </div>
+          <div className="btnBox">
+            <span className="boxflexNone" id="boxflexNone"><a href="javascript:" className="close" onClick={this.closePopup}>취소</a></span>
+            <span><a href="javascript:" onClick={this.cordovaCallMoveBattery}>배터리 사용량 최적화 제외</a></span>
+          </div>
+        </div>
+
         <div className="dim disnone"></div>
 
       </div>
