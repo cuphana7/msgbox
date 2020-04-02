@@ -112,6 +112,7 @@ class App extends Component {
     this.reqMessagesAndSet = this.reqMessagesAndSet.bind(this)
     this.setShareContent = this.setShareContent.bind(this)
     this.handleShareContentsClick = this.handleShareContentsClick.bind(this)
+    this.cordovaCallMoveBatteryClick = this.cordovaCallMoveBatteryClick.bind(this)
   }
 
   componentDidMount() {
@@ -148,12 +149,12 @@ class App extends Component {
     // 배터리최적화 설정
     this.cordovaIsBatterySetting().then((isBatSetYN) => {
       console.log(isBatSetYN);
-      if(isBatSetYN === 'Y'){ //isBatterySetting Y인 고객단말
-        console.log("Y");
-        this.openPopup('#batteryInfo'); //배터리 최적화 화면 이동 팝업 띄우기
+      if(isBatSetYN === 'N'){ //고객단말 배터리 사용량 최적화 설정되어 있지만 KB국민카드앱이 제외가 안된 상태
+        console.log("N");
+        this.openPopup('#batteryInfo'); //배터리 최적화 화면 팝업 띄우기
         
-      }else{
-        console.log("N"); // 미지원단말 or (지원단말 and 홈앱 배터리최적화 미설정)
+      }else{ //고객단말 배터리 사용량 최적화 설정되어 있고 KB국민카드앱이 제외가 된 상태
+        console.log("Y"); 
       }
     }).catch(cordovaIsBatterySetting => {
       console.log("Exception.");
@@ -164,23 +165,21 @@ class App extends Component {
    * 배터리 최적화 화면 팝업 열기
    * @param {*} selector 
    */
-  openPopup(selector){
+  openPopup(selector) {
     var $sel = selector,
         top = $($sel).outerHeight() / 2 * -1;
 
-    //pushCommon.layerPopup.beforeTarget = 'a[href="'+ $sel +'"]';
     $('.pushEvent').css({zIndex: 900});
     $('#boxflexNone').css({width: 30 +'%'});
     $(selector).css({marginTop: top + 'px', right: 0}).fadeIn(300);
     $('.dim').fadeIn(300).closest('body').css({overflow:'hidden'});	
     $('#content').attr('aria-hidden',true);
-    //setTimeout(function() {pushCommon.goFocus($sel)}, 300);
   }
 
   /**
    * 배터리 최적화 화면 팝업 닫기
    */
-  closePopup(){
+  closePopup() {
     $('#batteryInfo').closest('.layerWrap').hide();
     $('.dim').hide().closest('body').css({overflow:'auto'});	
     $('#content').attr('aria-hidden',false);
@@ -509,9 +508,9 @@ class App extends Component {
 
   /**
    * cordova를 통해 데이터를 요청한다.
-   * @param {*} callback 
    */
-  cordovaCallMoveBattery() {
+  cordovaCallMoveBatteryClick() {
+    this.closePopup();
     window.kbmobile.push.moveBatterySetting();
   }
 
@@ -638,7 +637,7 @@ class App extends Component {
           </div>
           <div className="btnBox">
             <span className="boxflexNone" id="boxflexNone"><a href="javascript:" className="close" onClick={this.closePopup}>취소</a></span>
-            <span><a href="javascript:" onClick={this.cordovaCallMoveBattery}>배터리 사용량 최적화 제외</a></span>
+            <span><a href="javascript:" onClick={this.cordovaCallMoveBatteryClick}>배터리 사용량 최적화 제외</a></span>
           </div>
         </div>
 
