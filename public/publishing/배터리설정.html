@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,7 +18,7 @@
 		<a href="#content">본문 바로가기</a>
 	</div>
 
-	<div id="wrap" class="popupWrap">
+	<div id="wrap">
 		<div class="topHead">
 			<h1 class="fs4">배터리 사용량 최적화 제외</h1>
 			<div class="headerMenu">
@@ -32,29 +33,41 @@
 		********************************************** M1C start **********************************************
 		*************************************************************************************************** -->
 		<div id="content">
-			<section class="container">
-				<div class="btnBox">
-					<a href="#batteryInfo" class="btnL btnWhite  layerOpen">레이어 열기</a>
-				</div>
+			<section class="container" style="height:1000px">
+
 			</section>
 		</div>
 
+		<!-- 200403_수정 -->
 		<!-- 배터리 사용량 최적화 제외 레이어 팝업 -->
-		<div class="layerWrap newType" id="batteryInfo">
-			<div class="popTop">
-				<strong class="fs2">배터리 사용량 최적화 제외</strong>
-			</div>
-			<div class="popCont">
-				<p>PUSH알림 실시간 수신을 위해 KB국민카드 앱을 배터리 사용량 최적화 대상에서 제외합니다.</p>
-				<p class="refer">배터리 사용량 최적화 모드의 경우 PUSH 수신이 지연될 수 있습니다.</p>
-			</div>
+		<style>
+			.batteryInfoLayer {position:fixed; top:auto; bottom:0; width:100%; padding:16px 16px 12px 16px; -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-box-shadow:0 0 4px 0 rgba(0, 0, 0, .6); box-shadow:0 0 4px 0 rgba(0, 0, 0, .6); background:#222; color:#fff; font-size:14px; line-height:1.43; -webkit-transform:translate3d(0, 500px, 0); transform:translate3d(0, 500px, 0); transition:all 1s ease; -webkit-transition:all 1s ease;}
+			.batteryInfoLayer .btnBox {margin:0; padding:16px 0 0 0; text-align:right;}
+			.batteryInfoLayer .btnBox a {display:inline-block; padding:4px 18px; color:#fff; font-size:16px; line-height:1.5;}
+			.batteryInfoLayer .btnBox .btnSet {color:#ffcc00; font-weight:bold;}
+			.batteryInfoLayer.open {-webkit-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0);}
+		</style>
+		<script>
+			$(window).load(function() {
+				var batteryInfoLayer = $(".batteryInfoLayer");
+				var layerH = batteryInfoLayer.outerHeight();
+				var Cancelbtn = $(".batteryInfoLayer .btnCancel");
+				batteryInfoLayer.addClass("open");
+
+				Cancelbtn.on("click", function(){
+					batteryInfoLayer.removeClass("open");
+				});
+			});
+		</script>
+		<div class="batteryInfoLayer" id="batteryInfo">
+			<p>PUSH 메시지를 정상적으로 수신하기 위해 KB국민카드 앱을 배터리 사용량 최적화 대상에서 제외합니다.</p>
 			<div class="btnBox">
-				<span class="boxflexNone" style="width:30%"><a href="#" class="close">취소</a></span>
-				<span><a href="#">배터리 사용량 최적화 제외</a></span>
+				<a href="#" class="btnCancel">취소</a>
+				<a href="#" class="btnSet">설정</a>
 			</div>
 		</div>
 		<!-- //배터리 사용량 최적화 제외 레이어 팝업 -->
-		<!--//layer-->
+		<!-- //200403_수정 -->
 		<!-- **************************************************************************************************
 		*********************************************** M1C end ***********************************************
 		*************************************************************************************************** -->
