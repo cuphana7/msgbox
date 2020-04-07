@@ -151,7 +151,7 @@ class App extends Component {
       console.log(isBatSetYN);
       if(isBatSetYN === 'N'){ //고객단말 배터리 사용량 최적화 설정되어 있지만 KB국민카드앱이 제외가 안된 상태
         console.log("N");
-        this.openPopup('#batteryInfo'); //배터리 최적화 화면 팝업 띄우기
+        this.openPopup(); //배터리 최적화 화면 팝업 띄우기
         
       }else{ //고객단말 배터리 사용량 최적화 설정되어 있고 KB국민카드앱이 제외가 된 상태
         console.log("Y"); 
@@ -165,25 +165,19 @@ class App extends Component {
    * 배터리 최적화 화면 팝업 열기
    * @param {*} selector 
    */
-  openPopup(selector) {
-    var $sel = selector,
-        top = $($sel).outerHeight() / 2 * -1;
-
-    $('.pushEvent').css({zIndex: 900});
-    $('#boxflexNone').css({width: 30 +'%'});
-    $(selector).css({marginTop: top + 'px', right: 0}).fadeIn(300);
-    $('.dim').fadeIn(300).closest('body').css({overflow:'hidden'});	
-    $('#content').attr('aria-hidden',true);
+  openPopup() {
+    var batteryInfoLayer = $(".batteryInfoLayer");
+		var layerH = batteryInfoLayer.outerHeight();
+		var Cancelbtn = $(".batteryInfoLayer .btnCancel");
+		batteryInfoLayer.addClass("open");
   }
 
   /**
    * 배터리 최적화 화면 팝업 닫기
    */
   closePopup() {
-    $('#batteryInfo').closest('.layerWrap').hide();
-    $('.dim').hide().closest('body').css({overflow:'auto'});	
-    $('#content').attr('aria-hidden',false);
-    $('.pushEvent').css({zIndex: 9001});
+    var batteryInfoLayer = $(".batteryInfoLayer");
+    batteryInfoLayer.removeClass("open");
   }
 
   /**
@@ -627,20 +621,14 @@ class App extends Component {
             <span className="popClose"><a href="javascript:" role="button" aria-label="닫기">닫기</a></span>
         </div>
         {/* 배터리설정 레이어 */}
-        <div className="layerWrap newType" id="batteryInfo">
-          <div className="popTop">
-            <strong className="fs2">배터리 사용량 최적화 제외</strong>
-          </div>
-          <div className="popCont">
-            <p>PUSH알림 실시간 수신을 위해 KB국민카드 앱을 배터리 사용량 최적화 대상에서 제외합니다.</p>
-            <p className="refer">배터리 사용량 최적화 모드의 경우 PUSH 수신이 지연될 수 있습니다.</p>
-          </div>
-          <div className="btnBox">
-            <span className="boxflexNone" id="boxflexNone"><a href="javascript:" className="close" onClick={this.closePopup}>취소</a></span>
-            <span><a href="javascript:" onClick={this.cordovaCallMoveBatteryClick}>배터리 사용량 최적화 제외</a></span>
+        <div class="batteryInfoLayer" id="batteryInfo">
+          <p>PUSH 메시지를 정상적으로 수신하기 위해 KB국민카드 앱을 배터리 사용량 최적화 대상에서 제외합니다.</p>
+          <div class="btnBox">
+            <a href="javascript:" onClick={this.closePopup} class="btnCancel">취소</a>
+            <a href="javascript:" onClick={this.cordovaCallMoveBatteryClick} class="btnSet">설정</a>
           </div>
         </div>
-
+   
         <div className="dim disnone"></div>
 
       </div>
