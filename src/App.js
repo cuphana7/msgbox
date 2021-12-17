@@ -76,7 +76,6 @@ class App extends Component {
       url_counts: "/api/inbox/messages/counts",
       url_delete_all: "/api/inbox/deleteAll",
       url_unread: "/api/inbox/messages/unread",
-      //url_events: "/CXHIAOPC0041.cms?responseContentType=json",
       url_events: "/CMN/API/MOAACXHIAOPC0041?responseContentType=json",
     }
     this.lastMsg = ""
@@ -576,8 +575,7 @@ class App extends Component {
   render() {
 
     const moveSetting = () =>{
-      //window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
-      window.location.href="/CMN/DVIEW/MOAMCXHIAOPS0001.cms?newPushLibYn=Y";
+      window.location.href="/CMN/DVIEW/MOAMCXHIAOPS0001?newPushLibYn=Y";
     }
     const exitPush = () => {
       window.kbmobile.ui.clearTop("main");

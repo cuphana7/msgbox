@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Head extends Component {
 
     render() {
-        const moveSetting = () =>{ window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y"; }
+        const moveSetting = () =>{ window.location.href="/CMN/DVIEW/MOAMCXHIAOPS0001?newPushLibYn=Y"; }
         const exitPush = () => { window.kbmobile.ui.clearTop("main"); }
 
         return (

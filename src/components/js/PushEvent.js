@@ -7,7 +7,7 @@ class PushEvent extends Component {
 
     constructor(props) {
         super(props)
-        this.api = { "url_events": "/CXHIAOPC0041.cms?responseContentType=json" }
+        this.api = { "url_events": "/CMN/API/MOAACXHIAOPC0041?responseContentType=json" }
         this.state = {
             el: []
         }
@@ -67,7 +67,7 @@ class PushEvent extends Component {
         var cells = (el && el.length > 0) ? el.map(function (item, index) {
 
             var eventImgPath = "https://img1.kbcard.com/ST/img/cxc" + item.eventImgPath;
-            var detailViewUrl = "/CXHIABNC0026.cms?evntSerno=" + item.eventNo;
+            var detailViewUrl = "/BON/DVIEW/MBBMCXHIABNC0026?evntSerno=" + item.eventNo;
 
             return <li id={item.eventNo} key={index}>
                 <a href={detailViewUrl}>
@@ -94,7 +94,7 @@ class PushEvent extends Component {
                         {cells}
                     </ul>
                     <div className="btn">
-                        <a href="/CXHIABNC0022.cms" className="btnL btnWhite">더 많은 혜택보기</a>
+                        <a href="/BON/DVIEW/MBBMCXHIABNC0022" className="btnL btnWhite">더 많은 혜택보기</a>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@ import '../css/push.css';
 
 const MsgBoxTemplate = ({ children }) => {
   const moveSetting = () =>{
-    window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
+    window.location.href="/CMN/DVIEW/MOAMCXHIAOPS0001?newPushLibYn=Y";
   }
   const exitPush = () => {
     if (this.props.isAppcard) window.kbmobile.ui.clearTop("setting");
