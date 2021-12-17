@@ -3,6 +3,10 @@ git clone ...
 cd msgbox
 npm install
 npm start
+- 빌드방법
+npm run-script build
+- 최종파일
+build\static\js\main.xxxx.js > main.min.js 로 파일명 변경하여 CM 진행
 
 # ANOTHER REACT TODO LIST
 com.kbcard.kbkookmincard

@@ -76,7 +76,8 @@ class App extends Component {
       url_counts: "/api/inbox/messages/counts",
       url_delete_all: "/api/inbox/deleteAll",
       url_unread: "/api/inbox/messages/unread",
-      url_events: "/CXHIAOPC0041.cms?responseContentType=json",
+      //url_events: "/CXHIAOPC0041.cms?responseContentType=json",
+      url_events: "/CMN/API/MOAACXHIAOPC0041?responseContentType=json",
     }
     this.lastMsg = ""
 
@@ -146,7 +147,8 @@ class App extends Component {
       self.setState({ list: [] });
     });
 
-    // 배터리최적화 설정
+    // 배터리최적화 설정-제외
+    /*
     this.cordovaIsBatterySetting().then((isBatSetYN) => {
       console.log(isBatSetYN);
       if(isBatSetYN === 'N'){ //고객단말 배터리 사용량 최적화 설정되어 있지만 KB국민카드앱이 제외가 안된 상태
@@ -159,6 +161,7 @@ class App extends Component {
     }).catch(cordovaIsBatterySetting => {
       console.log("Exception.");
     });
+    */
   }
 
   /**
@@ -573,7 +576,8 @@ class App extends Component {
   render() {
 
     const moveSetting = () =>{
-      window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
+      //window.location.href="CXHIAOPS0001.cms?newPushLibYn=Y";
+      window.location.href="/CMN/DVIEW/MOAMCXHIAOPS0001.cms?newPushLibYn=Y";
     }
     const exitPush = () => {
       window.kbmobile.ui.clearTop("main");
