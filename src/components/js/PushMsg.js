@@ -167,18 +167,18 @@ export default class PushMsg extends Component {
             <div id="checkboxes">
 
                 {/* 이미지 배너 */}
-                {ext[0].value !== "" ?
-                    <span className="banner">
+                {!ext[0].value ?
+                    "" : <span className="banner">
                         <img src={imageUrl(ext[0].value)} alt="" />
-                    </span>
-                    : ""}
+                    </span>}
+                    
                 {/* 메시지 내용 */}
                 <div className="cont">
                     <p className="shortMsg">{msgToTag}</p>
                 </div>
 
                 {/* 이미지 펼치기 버튼 */}
-                {msg.split(/\n|\\n/).length > 6 ?
+                {(msg.split(/\n|\\n/).length > 6) || (msg.length > 90) ?
                     <div className="btnToggle" aria-hidden="true"><a href="#kbcard" ref={this.eleMsgOpen}  className="toggleUI" title="위 이벤트 내용이 일부분만 보여져 전체를 보여줌" onClick={clickMsgOpen} ><span>이벤트 내용 펼쳐짐</span></a></div>
                     : ""}
                 {/*msgOpenBtn*/}
