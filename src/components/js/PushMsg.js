@@ -167,11 +167,11 @@ export default class PushMsg extends Component {
             <div id="checkboxes">
 
                 {/* 이미지 배너 */}
-                {ext[0].value !== "" ?
-                    <span className="banner">
+                {!ext[0].value ?
+                    "" : <span className="banner">
                         <img src={imageUrl(ext[0].value)} alt="" />
-                    </span>
-                    : ""}
+                    </span>}
+                    
                 {/* 메시지 내용 */}
                 <div className="cont">
                     <p className="shortMsg">{msgToTag}</p>
